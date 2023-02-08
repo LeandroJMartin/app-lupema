@@ -6,8 +6,8 @@ import MenuApp from '../layout/Menu';
 
 const HeaderApp = () => {
   return (
-    <header className="fixed z-20 top-0 left-0 right-0 flex items-center border border-white/20 text-white bg-transparent">
-      <div className="md:flex items-center justify-between sm:justify-start w-full sm:w-[60%] h-[100px] sm:h-[72px]">
+    <header className="fixed z-40 top-0 left-0 right-0 flex items-center border border-white/20 text-white backdrop-blur-xs bg-black/5">
+      <div className="flex items-center justify-between sm:justify-start w-full sm:w-[60%] h-[100px] sm:h-[72px] bg-menu">
         <button className="h-full py-4 px-6 border-r border-white/20 order-2 sm:order-1">
           {<HiMenuAlt2 size={26} />}
         </button>

@@ -1,10 +1,16 @@
 import type { GetStaticProps, NextPage } from 'next';
+import EmpSlideHome from '../components/layout/EmpSlideHome';
 import HeroApp from '../components/layout/Hero';
 import { ExecuteAllQuerys } from '../lib/querys';
+import { ApiData } from '../types/apidata';
 
-const Home: NextPage = ({ apiDate }: any) => {
-  console.log(apiDate);
-  return <HeroApp Banners={apiDate.banners} />;
+const Home: NextPage<ApiData> = ({ apiData }) => {
+  return (
+    <>
+      <HeroApp Banners={apiData.banners} />
+      <EmpSlideHome />;
+    </>
+  );
 };
 
 export default Home;
@@ -14,7 +20,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      apiDate: response,
+      apiData: response,
     },
     revalidate: 30,
   };

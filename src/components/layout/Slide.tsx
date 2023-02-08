@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import 'react-alice-carousel/lib/alice-carousel.css';
@@ -7,9 +7,11 @@ interface Props {
   items: any;
   responsive?: any;
   gap?: number;
+  largura: number;
+  infinite: boolean;
 }
 
-const SlideApp = ({ items, responsive }: Props) => {
+const SlideApp = ({ items, responsive, largura, infinite = false }: Props) => {
   const Prev = () => {
     return (
       <p className="p-[5px] absolute left-[-16px] top-[calc(50%-30px)] rounded-[100%] z-10 cursor-pointer bg-blue">
@@ -33,6 +35,9 @@ const SlideApp = ({ items, responsive }: Props) => {
       renderPrevButton={Prev}
       renderNextButton={Next}
       controlsStrategy="responsive"
+      paddingLeft={largura}
+      paddingRight={largura}
+      infinite={infinite}
     />
   );
 };

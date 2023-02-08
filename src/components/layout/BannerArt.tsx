@@ -1,30 +1,25 @@
 import Image from 'next/image';
+import {
+  Banner_BannerHome_ImagensProntas,
+  Maybe,
+} from '../../generated/graphql';
 
 interface Props {
-  content: {
-    imagemDesktopP: {
-      sourceUrl: string;
-    };
-    imagemMobileP: {
-      sourceUrl: string;
-    };
-    linkDoBannerP: string;
-    abrirEmUmaNovaAba: string;
-  };
+  content: Maybe<Banner_BannerHome_ImagensProntas> | undefined;
 }
 
 const BannerArt = ({ content }: Props) => {
   const imgs = (
-    <div className="h-[500px] xl:h-screen w-full relative">
+    <div className="h-[550px] xl:h-screen w-full relative">
       <Image
         className="hidden md:block object-cover"
-        src={content?.imagemDesktopP?.sourceUrl}
+        src={content?.imagemDesktopP?.sourceUrl || ''}
         alt="Imagem Banner"
         fill
       />
       <Image
         className="block md:hidden object-cover"
-        src={content?.imagemMobileP?.sourceUrl}
+        src={content?.imagemMobileP?.sourceUrl || ''}
         alt="Imagem Banner"
         fill
       />

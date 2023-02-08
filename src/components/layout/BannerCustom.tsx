@@ -1,47 +1,59 @@
 import Image from 'next/image';
-import SlideApp from './Slide';
+import { RxArrowRight } from 'react-icons/rx';
+import { Maybe, Banner_BannerHome_BhConteudo } from '../../generated/graphql';
 
-interface Props {
-  content: {
-    bhImagemDesktop: {
-      sourceUrl: string;
-    };
-    bhImagemMobile: {
-      sourceUrl: string;
-    };
-    bhNomeDoEmpreendimento: string;
-    bhQuantDormitorios: string;
-    bhQuantVagasGaragem: string;
-    bhMetrosQuadrado: string;
-    bhMetrosQuadradoMaior: string;
-    bhTextoDoBotao: string;
-    bhLinkBanner: string;
-    bhNovaAba: string;
-  };
+interface Content {
+  content: Maybe<Banner_BannerHome_BhConteudo> | undefined;
 }
 
-const BannerCustom = ({ content }: Props) => {
-  console.log(content);
+const BannerCustom = ({ content }: Content) => {
+  if (!content) return null;
   const imgs = (
-    <div className="h-[500px] xl:h-screen w-full relative">
+    <div className="h-[550px] xl:h-screen w-full relative">
       <Image
         className="hidden md:block object-cover"
-        src={content?.bhImagemDesktop?.sourceUrl}
+        src={content?.bhImagemDesktop?.sourceUrl || ''}
         alt="Imagem Banner"
         fill
       />
       <Image
         className="block md:hidden object-cover"
-        src={content?.bhImagemMobile?.sourceUrl}
+        src={content?.bhImagemMobile?.sourceUrl || ''}
         alt="Imagem Banner"
         fill
       />
+      <div className="w-full h-full absolute top-0 left-0 right-0 bg-slate-900/40">
+        <div className="flex items-center w-full h-full">
+          <div className="max-w-[420px] text-white ml-[25px] 2xl:ml-[100px]">
+            <h1 className="text-7xl font-semibold leading-3">
+              {content.bhNomeDoEmpreendimento}
+            </h1>
+            <div className="border border-white py-1 px-1 inline-block uppercase text-sm xl:text-lg my-4">
+              <span className="px-4">{`${content.bhQuantDormitorios} DORM.`}</span>
+              <span className="border-x border-white px-4">{`${content.bhQuantVagasGaragem} VAGAS`}</span>
+              <span className="px-4">
+                {`${content.bhMetrosQuadradoMaior} M² `} E
+                {` ${content.bhMetrosQuadrado} M²`}
+              </span>
+            </div>
+            <button className="py-3 flex items-center uppercase">
+              <RxArrowRight size={30} className="mr-2" />
+              {content.bhTextoDoBotao}
+            </button>
+          </div>
+        </div>
+        <div className="w-full overflow-hidden absolute bottom-2 2xl:bottom-0 left-0 right-0">
+          <span className="text-white/25 text-[200px] 2xl:text-[340px] font-medium w-full inline-block min-w-max uppercase">
+            {content.bhNomeDoEmpreendimento}
+          </span>
+        </div>
+      </div>
     </div>
   );
 
   return (
     <div>
-      {content.bhLinkBanner ? (
+      {content?.bhLinkBanner ? (
         <a
           href={content?.bhLinkBanner}
           target={content?.bhNovaAba ? '_blank' : '_self'}

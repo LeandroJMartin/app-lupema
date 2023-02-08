@@ -1,50 +1,27 @@
+import {
+  Banner,
+  Banner_BannerHome,
+  RootQueryToBannerConnection,
+} from '../../generated/graphql';
 import BannerArt from './BannerArt';
 import BannerCustom from './BannerCustom';
 import SlideApp from './Slide';
 
 interface Props {
-  Banners: {
-    checker: boolean;
-    art: {
-      imagemDesktopP: {
-        sourceUrl: string;
-      };
-      imagemMobileP: {
-        sourceUrl: string;
-      };
-      linkDoBannerP: string;
-      abrirEmUmaNovaAba: string;
-    };
-    custom: {
-      bhImagemDesktop: {
-        sourceUrl: string;
-      };
-      bhImagemMobile: {
-        sourceUrl: string;
-      };
-      bhNomeDoEmpreendimento: string;
-      bhQuantDormitorios: string;
-      bhQuantVagasGaragem: string;
-      bhMetrosQuadrado: string;
-      bhMetrosQuadradoMaior: string;
-      bhTextoDoBotao: string;
-      bhLinkBanner: string;
-      bhNovaAba: string;
-    };
-  }[];
+  Banners: RootQueryToBannerConnection | undefined;
 }
 
 const HeroApp = ({ Banners }: Props) => {
-  const items = Banners.map((item) => {
-    if (item.checker === true) {
-      return <BannerArt content={item.art} />;
+  const items = Banners?.nodes.map((item) => {
+    if (item.banner_home?.bannerPronto === true) {
+      return <BannerArt content={item.banner_home.imagensProntas} />;
     } else {
-      return <BannerCustom content={item.custom} />;
+      return <BannerCustom content={item.banner_home?.bhConteudo} />;
     }
   });
 
   return (
-    <div className="container hero">
+    <div className="hero">
       <SlideApp items={items} />
     </div>
   );
