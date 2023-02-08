@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+html,
+body {
+  font-family: 'Ubuntu', sans-serif;
+}

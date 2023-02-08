@@ -1,0 +1,26 @@
+configCss = require('./src/styles/config_css');
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./src/**/*.{html,js,ts,tsx,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        blue: configCss.colors.blue,
+        black: configCss.colors.black,
+        green: configCss.colors.green,
+      },
+      backgroundImage: {
+        bgi: "url('/bg.jpg')",
+      },
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '16px',
+        '2xl': '0',
+      },
+    },
+  },
+  plugins: [],
+};
