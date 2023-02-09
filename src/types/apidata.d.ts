@@ -1,7 +1,8 @@
-import { Page, RootQueryToBannerConnection } from "../generated/graphql";
+import { Page_Conteusobre, RootQueryToBannerConnection } from "../generated/graphql";
 
 export interface ApiData {
   apiData: {
-    banners?: RootQueryToBannerConnection
+    banners?: RootQueryToBannerConnection,
+    about?: Page_Conteusobre
   }
 }

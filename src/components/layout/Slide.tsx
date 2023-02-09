@@ -9,9 +9,16 @@ interface Props {
   gap?: number;
   largura: number;
   infinite: boolean;
+  navigation: boolean;
 }
 
-const SlideApp = ({ items, responsive, largura, infinite = false }: Props) => {
+const SlideApp = ({
+  items,
+  responsive,
+  largura,
+  infinite = false,
+  navigation = false,
+}: Props) => {
   const Prev = () => {
     return (
       <p className="p-[5px] absolute left-[-16px] top-[calc(50%-30px)] rounded-[100%] z-10 cursor-pointer bg-blue">
@@ -38,6 +45,7 @@ const SlideApp = ({ items, responsive, largura, infinite = false }: Props) => {
       paddingLeft={largura}
       paddingRight={largura}
       infinite={infinite}
+      disableButtonsControls={navigation}
     />
   );
 };

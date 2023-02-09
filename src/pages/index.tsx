@@ -1,14 +1,19 @@
 import type { GetStaticProps, NextPage } from 'next';
+import AboutHome from '../components/layout/AboutHome';
 import EmpSlideHome from '../components/layout/EmpSlideHome';
 import HeroApp from '../components/layout/Hero';
+import NewsletterApp from '../components/layout/Newsletter';
 import { ExecuteAllQuerys } from '../lib/querys';
 import { ApiData } from '../types/apidata';
 
 const Home: NextPage<ApiData> = ({ apiData }) => {
+  console.log(apiData);
   return (
     <>
       <HeroApp Banners={apiData.banners} />
-      <EmpSlideHome />;
+      <EmpSlideHome />
+      <AboutHome about={apiData.about} />
+      <NewsletterApp />
     </>
   );
 };

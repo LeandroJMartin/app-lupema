@@ -59,15 +59,80 @@ export const Banners = {
   }
 };
 
+export const About = {
+  postType: 'page',
+  acf: 'conteuSobre',
+
+  query: function () {
+    return gql`
+      query GetBanners {
+        ${this.postType}(id: "2", idType: DATABASE_ID) {
+          ${this.acf} {
+            descricao
+            titulo
+            linkDoVideo
+            linkDoTourVirtual
+            imagembannerDoTourVirtual {
+              sourceUrl
+            }
+            imagem2 {
+              sourceUrl
+            }
+            imagem1 {
+              sourceUrl
+            }
+            descricaoLstore
+            descricaoVideo
+            imagensSelos {
+              sourceUrl
+            }
+            tituloLstore
+            tituloVideo
+            item {
+              nomeDoEmpreendimento
+              data
+            }
+          }
+        },
+        aboutHome: ${this.postType}(id: "2", idType: DATABASE_ID) {
+          ${this.acf} {
+            imagem2 {
+              sourceUrl
+            }
+            imagem1 {
+              sourceUrl
+            }
+            descricaoSobreHome
+            tituloSobreHome
+          }
+        }
+      }
+    `;
+  },
+
+  queryExecute: async function () {
+    const about = await (
+      await ApolloClient.query({ query: this.query() })
+    ).data;
+
+    return {
+      about
+    }
+  }
+};
+
 
 export const ExecuteAllQuerys = async () => {
   const [
-    { banners }
+    { banners },
+    { about }
   ] = await Promise.all([
     await Banners.queryExecute(),
+    await About.queryExecute(),
   ]);
 
   return {
-    banners
+    banners,
+    about: about.aboutHome.conteuSobre
   };
 };

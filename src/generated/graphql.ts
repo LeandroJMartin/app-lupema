@@ -3421,6 +3421,8 @@ export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & 
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
   /** The name of the Content Type the node belongs to */
   contentTypeName: Scalars['String'];
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;Conteúdo sobre&quot; was set to Show in GraphQL. */
+  conteuSobre?: Maybe<Page_Conteusobre>;
   /** The unique identifier stored in the database */
   databaseId: Scalars['Int'];
   /** Post publishing date. */
@@ -3757,6 +3759,37 @@ export type PageToRevisionConnectionWhereArgs = {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Page_Conteusobre = AcfFieldGroup & {
+  __typename?: 'Page_Conteusobre';
+  descricao?: Maybe<Scalars['String']>;
+  descricaoLstore?: Maybe<Scalars['String']>;
+  descricaoSobreHome?: Maybe<Scalars['String']>;
+  descricaoVideo?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  imagem1?: Maybe<MediaItem>;
+  imagem2?: Maybe<MediaItem>;
+  imagembannerDoTourVirtual?: Maybe<MediaItem>;
+  imagensSelos?: Maybe<Array<Maybe<MediaItem>>>;
+  item?: Maybe<Array<Maybe<Page_Conteusobre_Item>>>;
+  linkDoTourVirtual?: Maybe<Scalars['String']>;
+  linkDoVideo?: Maybe<Scalars['String']>;
+  titulo?: Maybe<Scalars['String']>;
+  tituloLstore?: Maybe<Scalars['String']>;
+  tituloSobreHome?: Maybe<Scalars['String']>;
+  tituloVideo?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Page_Conteusobre_Item = AcfFieldGroup & {
+  __typename?: 'Page_Conteusobre_item';
+  data?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  nomeDoEmpreendimento?: Maybe<Scalars['String']>;
 };
 
 /** An plugin object */

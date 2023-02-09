@@ -1,8 +1,4 @@
-import {
-  Banner,
-  Banner_BannerHome,
-  RootQueryToBannerConnection,
-} from '../../generated/graphql';
+import { RootQueryToBannerConnection } from '../../generated/graphql';
 import BannerArt from './BannerArt';
 import BannerCustom from './BannerCustom';
 import SlideApp from './Slide';
@@ -22,7 +18,7 @@ const HeroApp = ({ Banners }: Props) => {
 
   return (
     <div className="hero">
-      <SlideApp items={items} />
+      <SlideApp items={items} navigation={true} largura={0} infinite={false} />
     </div>
   );
 };
