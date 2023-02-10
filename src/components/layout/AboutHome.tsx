@@ -26,9 +26,12 @@ const AboutHome = ({ about }: Props) => {
             <h1 className="px-4 py-4 text-green text-5xl font-light leading-[4rem] pl-8">
               {about?.tituloSobreHome}
             </h1>
-            <p className="px-4 py-4 text-sm leading-7">
-              {about?.descricaoSobreHome}
-            </p>
+            <p
+              className="px-4 py-4 text-sm leading-7"
+              dangerouslySetInnerHTML={{
+                __html: about?.descricaoSobreHome || '',
+              }}
+            />
           </div>
           <span className="h-[25px] w-[75%] xl:w-[50%] bg-bgi block"></span>
           <div className="relative h-[300px]">

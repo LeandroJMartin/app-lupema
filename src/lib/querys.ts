@@ -116,7 +116,10 @@ export const About = {
     ).data;
 
     return {
-      about
+      about: {
+        AboutHome: about.aboutHome.conteuSobre,
+        AboutPage: about.page.conteuSobre
+      }
     }
   }
 };
@@ -133,6 +136,6 @@ export const ExecuteAllQuerys = async () => {
 
   return {
     banners,
-    about: about.aboutHome.conteuSobre
+    about: about.AboutHome
   };
 };

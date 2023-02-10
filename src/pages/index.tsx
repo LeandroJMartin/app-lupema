@@ -11,7 +11,7 @@ const Home: NextPage<ApiData> = ({ apiData }) => {
     <>
       <HeroApp Banners={apiData.banners} />
       <EmpSlideHome />
-      <AboutHome about={apiData.about} />
+      <AboutHome about={apiData.about.AboutHome} />
       <NewsletterApp />
     </>
   );

@@ -3,6 +3,9 @@ import { Page_Conteusobre, RootQueryToBannerConnection } from "../generated/grap
 export interface ApiData {
   apiData: {
     banners?: RootQueryToBannerConnection,
-    about?: Page_Conteusobre
+    about: {
+      AboutHome?: Page_Conteusobre,
+      AboutPage?: Page_Conteusobre
+    }
   }
 }

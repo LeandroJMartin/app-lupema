@@ -10,7 +10,7 @@ interface Props {
 
 const LayoutApp = ({ children }: Props) => {
   return (
-    <div className="bg-black">
+    <div>
       <HeadApp />
       <HeaderApp />
 

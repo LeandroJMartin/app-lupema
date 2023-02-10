@@ -5433,7 +5433,8 @@ export type RootQuery = {
   /** Fetches an object given its Unique Resource Identifier */
   nodeByUri?: Maybe<UniformResourceIdentifiable>;
   /** An object of the page Type.  */
-  page?: Maybe<Page>;
+  page?:
+  ;
   /**
    * A page object
    * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
