@@ -80,8 +80,10 @@ const MenuApp = () => {
             </a>
           </div>
           <h2 className="text-green mt-8">Fale com a Lupema</h2>
-          <p>17 40009 2300</p>
-          <p>lupema@lupemaengenharia.com.br</p>
+          <a href="tel:+5517400092300">17 40009 2300</a>
+          <a href="mailto:lupema@lupemaengenharia.com.br">
+            lupema@lupemaengenharia.com.br
+          </a>
           <div className="flex items-center justify-center sm:justify-start text-green my-12">
             <GoLocation size={24} />
             <h2 className="ml-3">Como chegar na Lstore</h2>

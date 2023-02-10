@@ -6,7 +6,7 @@
   html,
   body {
     font-size: 14px;
-    background-color: #212121;
+    font-family: 'Ubuntu', sans-serif;
   }
 }
 
@@ -21,6 +21,30 @@ body {
   text-align: center;
   font-weight: 300;
   text-transform: uppercase;
+}
+
+.button {
+  display: block;
+  width: max-content;
+  padding: 8px 30px;
+  border: 1px solid;
+  border-color: #729f2d;
+  color: #729f2d;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  background-color: transparent;
+  transition: all .3 ease;
+}
+
+.button:hover {
+  color: white;
+  background-color:  #729f2d;
+}
+
+input[type="submit"],
+button{
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

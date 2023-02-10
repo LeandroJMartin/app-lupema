@@ -24,7 +24,7 @@ const EmpSlideHome = () => {
   }, []);
 
   return (
-    <section className="bg-bgi py-8 emphome">
+    <section className="bg-bgi py-[40px] md:py-[80px] emphome">
       <div className="sm:container">
         <h1 className="title">Empreendimentos</h1>
         <div className="hero my-6">

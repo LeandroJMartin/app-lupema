@@ -7,7 +7,6 @@ import { ExecuteAllQuerys } from '../lib/querys';
 import { ApiData } from '../types/apidata';
 
 const Home: NextPage<ApiData> = ({ apiData }) => {
-  console.log(apiData);
   return (
     <>
       <HeroApp Banners={apiData.banners} />

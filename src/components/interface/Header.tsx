@@ -21,12 +21,18 @@ const HeaderApp = () => {
         </div>
       </div>
       <div className="hidden sm:flex items-center justify-end w-[40%] h-[100px] sm:h-[72px]">
-        <p className="border-l border-l-white/20 px-6 h-[100px] sm:h-[72px] flex items-center">
+        <a
+          href="tel:1740062300"
+          className="border-l border-l-white/20 px-6 h-[100px] sm:h-[72px] flex items-center"
+        >
           17 4006 2300
-        </p>
-        <p className="border-x border-x-white/20 px-6 h-[100px] sm:h-[72px] flex items-center">
+        </a>
+        <a
+          href="mail:lupema@lupemaengenharia.com.br"
+          className="border-x border-x-white/20 px-6 h-[100px] sm:h-[72px] flex items-center"
+        >
           lupema@lupemaengenharia.com.br
-        </p>
+        </a>
         <button className="px-6 flex items-center h-[100px] sm:h-[72px]">
           <IoIosSearch size={18} />
         </button>
