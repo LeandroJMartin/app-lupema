@@ -34,16 +34,16 @@ body {
   font-weight: 700;
   text-align: center;
   background-color: transparent;
-  transition: all .3 ease;
+  transition: all 0.3 ease;
 }
 
 .button:hover {
   color: white;
-  background-color:  #729f2d;
+  background-color: #729f2d;
 }
 
-input[type="submit"],
-button{
+input[type='submit'],
+button {
   cursor: pointer;
 }
 
@@ -57,6 +57,7 @@ button{
   padding: 0 10px;
 }
 
+.timeline .alice-carousel__dots-item:not(.__custom),
 .emphome .alice-carousel__dots-item:not(.__custom) {
   width: 6px;
   height: 6px;
@@ -80,4 +81,58 @@ button{
   position: absolute;
   top: -4px;
   left: -4px;
+}
+
+.timeline .alice-carousel__dots-item:not(.__custom),
+.timeline .alice-carousel__dots-item:not(.__custom) {
+  background-color: #999999 !important;
+}
+
+.timeline .alice-carousel__dots-item:not(.__custom):hover::after,
+.timeline .alice-carousel__dots-item:not(.__custom).__active::after {
+  border-color: #729f2d;
+}
+
+.timeline .alice-carousel__dots-item:not(.__custom):hover,
+.timeline .alice-carousel__dots-item:not(.__custom).__active {
+  background-color: #729f2d !important;
+}
+
+.timeline .arrow-t,
+.timeline .arrow-b {
+  background: #729f2d;
+  width: 25px;
+  height: 20px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+
+.timeline .arrow-t::after,
+.timeline .arrow-b::after,
+.timeline .arrow-t::before,
+.timeline .arrow-b::before{
+  content: '';
+  background: #ffffff;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 2;
+}
+
+.timeline .arrow-t::after,
+.timeline .arrow-b::after {
+  top: 0;
+  left: -22px;
+}
+
+.timeline .arrow-t::before,
+.timeline .arrow-b::before {
+  top: 0;
+  right: -22px;
 }

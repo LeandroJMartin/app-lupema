@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "genql": "genql --endpoint http://localhost:8888/Lupema/Novo/graphql --output ./generated"
   },
   "dependencies": {
     "@apollo/client": "^3.7.7",
@@ -17,9 +17,11 @@
     "react": "18.2.0",
     "react-alice-carousel": "^2.7.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.7.1"
+    "react-icons": "^4.7.1",
+    "react-youtube": "^10.1.0"
   },
   "devDependencies": {
+    "@genql/cli": "^2.10.0",
     "@graphql-codegen/cli": "3.0.0",
     "@graphql-codegen/client-preset": "^2.0.0",
     "@graphql-codegen/typescript": "3.0.0",

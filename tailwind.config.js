@@ -12,6 +12,7 @@ module.exports = {
       },
       backgroundImage: {
         bgi: "url('/bg.jpg')",
+        bgVideoAbout: "url('/bg-sobre.jpeg')",
       },
     },
     container: {
