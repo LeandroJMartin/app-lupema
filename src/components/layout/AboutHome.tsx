@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Maybe, Page_Conteusobre } from '../../generated/graphql';
+import { Page_Conteusobre } from '../../generated';
 
 interface Props {
-  about: Maybe<Page_Conteusobre> | undefined;
+  about: Page_Conteusobre;
 }
 
 const AboutHome = ({ about }: Props) => {
+  console.log(about);
+
   return (
     <section className="bg-white py-[40px] md:py-[80px]">
       <div className="container grid grid-cols-1 md:grid-cols-2">

@@ -18,31 +18,31 @@ module.exports = {
         63,
         104,
         107,
-        142,
-        159,
-        177,
-        195,
-        204,
-        230,
+        143,
+        160,
+        178,
+        196,
+        205,
         231,
-        235,
-        239,
-        244,
-        248,
-        250,
-        265,
-        273,
-        279,
-        284,
+        232,
+        236,
+        240,
+        245,
+        249,
+        251,
+        266,
+        274,
+        280,
         285,
-        300,
-        306,
+        286,
+        301,
         307,
-        316,
-        321,
+        308,
+        317,
         322,
         323,
-        335
+        324,
+        336
     ],
     "types": {
         "Settings": {
@@ -114,7 +114,7 @@ module.exports = {
                 2
             ],
             "banner_home": [
-                218
+                219
             ],
             "contentType": [
                 10
@@ -205,7 +205,7 @@ module.exports = {
                 1
             ],
             "preview": [
-                221
+                222
             ],
             "previewRevisionDatabaseId": [
                 2
@@ -269,34 +269,34 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "on_Category": [
-                146
+                147
             ],
             "on_PostFormat": [
-                175
+                176
             ],
             "on_Tag": [
-                193
+                194
             ],
             "on_UserRole": [
-                216
+                217
             ],
             "on_Menu": [
-                249
+                250
             ],
             "on_MenuItem": [
-                255
+                256
             ],
             "on_Plugin": [
-                277
+                278
             ],
             "on_Theme": [
-                311
+                312
             ],
             "on_CommentAuthor": [
-                399
+                400
             ],
             "__typename": [
                 1
@@ -419,7 +419,7 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -454,16 +454,16 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "on_Category": [
-                146
+                147
             ],
             "on_PostFormat": [
-                175
+                176
             ],
             "on_Tag": [
-                193
+                194
             ],
             "__typename": [
                 1
@@ -518,31 +518,31 @@ module.exports = {
                 120
             ],
             "on_PageToPreviewConnectionEdge": [
-                129
+                130
             ],
             "on_CategoryToParentCategoryConnectionEdge": [
-                162
+                163
             ],
             "on_CategoryToTaxonomyConnectionEdge": [
-                166
+                167
             ],
             "on_PostFormatToTaxonomyConnectionEdge": [
-                183
+                184
             ],
             "on_PostToPreviewConnectionEdge": [
-                185
+                186
             ],
             "on_TagToTaxonomyConnectionEdge": [
-                201
+                202
             ],
             "on_BannerToPreviewConnectionEdge": [
-                221
+                222
             ],
             "on_MenuItemToMenuItemLinkableConnectionEdge": [
-                259
+                260
             ],
             "on_MenuItemToMenuConnectionEdge": [
-                262
+                263
             ],
             "__typename": [
                 1
@@ -625,166 +625,166 @@ module.exports = {
                 120
             ],
             "on_PageToCommentConnectionEdge": [
-                125
+                127
             ],
             "on_PageToPreviewConnectionEdge": [
-                129
+                130
             ],
             "on_PageToRevisionConnectionEdge": [
-                132
-            ],
-            "on_UserToPageConnectionEdge": [
                 133
             ],
+            "on_UserToPageConnectionEdge": [
+                134
+            ],
             "on_TermNodeToEnqueuedScriptConnectionEdge": [
-                149
+                150
             ],
             "on_TermNodeToEnqueuedStylesheetConnectionEdge": [
-                151
+                152
             ],
             "on_CategoryToAncestorsCategoryConnectionEdge": [
-                154
+                155
             ],
             "on_CategoryToCategoryConnectionEdge": [
-                157
+                158
             ],
             "on_CategoryToContentNodeConnectionEdge": [
-                161
-            ],
-            "on_CategoryToParentCategoryConnectionEdge": [
                 162
             ],
-            "on_CategoryToPostConnectionEdge": [
-                165
+            "on_CategoryToParentCategoryConnectionEdge": [
+                163
             ],
-            "on_CategoryToTaxonomyConnectionEdge": [
+            "on_CategoryToPostConnectionEdge": [
                 166
             ],
-            "on_PostToCategoryConnectionEdge": [
+            "on_CategoryToTaxonomyConnectionEdge": [
                 167
             ],
+            "on_PostToCategoryConnectionEdge": [
+                168
+            ],
             "on_PostToCommentConnectionEdge": [
-                170
+                171
             ],
             "on_PostFormatToContentNodeConnectionEdge": [
-                179
+                180
             ],
             "on_PostFormatToPostConnectionEdge": [
-                182
-            ],
-            "on_PostFormatToTaxonomyConnectionEdge": [
                 183
             ],
-            "on_PostToPostFormatConnectionEdge": [
+            "on_PostFormatToTaxonomyConnectionEdge": [
                 184
             ],
-            "on_PostToPreviewConnectionEdge": [
+            "on_PostToPostFormatConnectionEdge": [
                 185
             ],
+            "on_PostToPreviewConnectionEdge": [
+                186
+            ],
             "on_PostToRevisionConnectionEdge": [
-                188
+                189
             ],
             "on_TagToContentNodeConnectionEdge": [
-                197
+                198
             ],
             "on_TagToPostConnectionEdge": [
-                200
-            ],
-            "on_TagToTaxonomyConnectionEdge": [
                 201
             ],
-            "on_PostToTagConnectionEdge": [
+            "on_TagToTaxonomyConnectionEdge": [
                 202
             ],
-            "on_PostToTermNodeConnectionEdge": [
-                208
+            "on_PostToTagConnectionEdge": [
+                203
             ],
-            "on_UserToPostConnectionEdge": [
+            "on_PostToTermNodeConnectionEdge": [
                 209
             ],
+            "on_UserToPostConnectionEdge": [
+                210
+            ],
             "on_UserToRevisionsConnectionEdge": [
-                212
+                213
             ],
             "on_UserToUserRoleConnectionEdge": [
-                217
+                218
             ],
             "on_BannerToPreviewConnectionEdge": [
-                221
+                222
             ],
             "on_RootQueryToBannerConnectionEdge": [
-                226
+                227
             ],
             "on_RootQueryToCategoryConnectionEdge": [
-                229
+                230
             ],
             "on_RootQueryToCommentConnectionEdge": [
-                234
+                235
             ],
             "on_RootQueryToContentNodeConnectionEdge": [
-                238
+                239
             ],
             "on_RootQueryToContentTypeConnectionEdge": [
-                241
+                242
             ],
             "on_RootQueryToMediaItemConnectionEdge": [
-                247
+                248
             ],
             "on_MenuItemToMenuItemConnectionEdge": [
-                258
-            ],
-            "on_MenuItemToMenuItemLinkableConnectionEdge": [
                 259
             ],
+            "on_MenuItemToMenuItemLinkableConnectionEdge": [
+                260
+            ],
             "on_MenuItemToMenuConnectionEdge": [
-                262
+                263
             ],
             "on_MenuToMenuItemConnectionEdge": [
-                264
+                265
             ],
             "on_RootQueryToMenuItemConnectionEdge": [
-                268
+                269
             ],
             "on_RootQueryToMenuConnectionEdge": [
-                272
+                273
             ],
             "on_RootQueryToPageConnectionEdge": [
-                276
+                277
             ],
             "on_RootQueryToPluginConnectionEdge": [
-                283
+                284
             ],
             "on_RootQueryToPostFormatConnectionEdge": [
-                288
+                289
             ],
             "on_RootQueryToPostConnectionEdge": [
-                291
+                292
             ],
             "on_RootQueryToEnqueuedScriptConnectionEdge": [
-                294
+                295
             ],
             "on_RootQueryToEnqueuedStylesheetConnectionEdge": [
-                296
+                297
             ],
             "on_RootQueryToRevisionsConnectionEdge": [
-                299
+                300
             ],
             "on_RootQueryToTagConnectionEdge": [
-                303
+                304
             ],
             "on_RootQueryToTaxonomyConnectionEdge": [
-                305
+                306
             ],
             "on_RootQueryToTermNodeConnectionEdge": [
-                310
+                311
             ],
             "on_RootQueryToThemeConnectionEdge": [
-                315
+                316
             ],
             "on_RootQueryToUserRoleConnectionEdge": [
-                318
+                319
             ],
             "on_RootQueryToUserConnectionEdge": [
-                326
+                327
             ],
             "__typename": [
                 1
@@ -804,7 +804,7 @@ module.exports = {
                 22
             ],
             "on_RootQueryToContentTypeConnectionEdge": [
-                241
+                242
             ],
             "__typename": [
                 1
@@ -967,7 +967,7 @@ module.exports = {
                 15
             ],
             "on_RootQueryToTaxonomyConnection": [
-                304
+                305
             ],
             "__typename": [
                 1
@@ -1023,136 +1023,136 @@ module.exports = {
                 111
             ],
             "on_PageToCommentConnection": [
-                124
+                126
             ],
             "on_PageToRevisionConnection": [
-                131
+                132
             ],
             "on_UserToPostConnection": [
-                135
+                136
             ],
             "on_PostToCategoryConnection": [
-                143
+                144
             ],
             "on_TermNodeToEnqueuedScriptConnection": [
-                148
+                149
             ],
             "on_TermNodeToEnqueuedStylesheetConnection": [
-                150
+                151
             ],
             "on_CategoryToAncestorsCategoryConnection": [
-                153
+                154
             ],
             "on_CategoryToCategoryConnection": [
-                156
+                157
             ],
             "on_CategoryToContentNodeConnection": [
-                160
+                161
             ],
             "on_CategoryToPostConnection": [
-                164
+                165
             ],
             "on_PostToCommentConnection": [
-                169
+                170
             ],
             "on_PostToPostFormatConnection": [
-                172
+                173
             ],
             "on_PostFormatToContentNodeConnection": [
-                178
+                179
             ],
             "on_PostFormatToPostConnection": [
-                181
+                182
             ],
             "on_PostToRevisionConnection": [
-                187
+                188
             ],
             "on_PostToTagConnection": [
-                190
+                191
             ],
             "on_TagToContentNodeConnection": [
-                196
+                197
             ],
             "on_TagToPostConnection": [
-                199
+                200
             ],
             "on_PostToTermNodeConnection": [
-                205
+                206
             ],
             "on_UserToRevisionsConnection": [
-                211
+                212
             ],
             "on_UserToUserRoleConnection": [
-                213
+                214
             ],
             "on_RootQueryToBannerConnection": [
-                224
+                225
             ],
             "on_RootQueryToCategoryConnection": [
-                228
+                229
             ],
             "on_RootQueryToCommentConnection": [
-                233
+                234
             ],
             "on_RootQueryToContentNodeConnection": [
-                237
+                238
             ],
             "on_RootQueryToContentTypeConnection": [
-                240
+                241
             ],
             "on_RootQueryToMediaItemConnection": [
-                246
+                247
             ],
             "on_MenuToMenuItemConnection": [
-                252
+                253
             ],
             "on_MenuItemToMenuItemConnection": [
-                257
+                258
             ],
             "on_RootQueryToMenuItemConnection": [
-                267
+                268
             ],
             "on_RootQueryToMenuConnection": [
-                270
+                271
             ],
             "on_RootQueryToPageConnection": [
-                275
+                276
             ],
             "on_RootQueryToPluginConnection": [
-                280
+                281
             ],
             "on_RootQueryToPostFormatConnection": [
-                287
+                288
             ],
             "on_RootQueryToPostConnection": [
-                290
+                291
             ],
             "on_RootQueryToEnqueuedScriptConnection": [
-                293
+                294
             ],
             "on_RootQueryToEnqueuedStylesheetConnection": [
-                295
+                296
             ],
             "on_RootQueryToRevisionsConnection": [
-                298
+                299
             ],
             "on_RootQueryToTagConnection": [
-                302
+                303
             ],
             "on_RootQueryToTaxonomyConnection": [
-                304
+                305
             ],
             "on_RootQueryToTermNodeConnection": [
-                309
+                310
             ],
             "on_RootQueryToThemeConnection": [
-                312
+                313
             ],
             "on_RootQueryToUserRoleConnection": [
-                317
+                318
             ],
             "on_RootQueryToUserConnection": [
-                324
+                325
             ],
             "__typename": [
                 1
@@ -1169,16 +1169,16 @@ module.exports = {
                 24
             ],
             "on_CategoryToTaxonomyConnectionEdge": [
-                166
+                167
             ],
             "on_PostFormatToTaxonomyConnectionEdge": [
-                183
+                184
             ],
             "on_TagToTaxonomyConnectionEdge": [
-                201
+                202
             ],
             "on_RootQueryToTaxonomyConnectionEdge": [
-                305
+                306
             ],
             "__typename": [
                 1
@@ -1288,7 +1288,7 @@ module.exports = {
                 20
             ],
             "on_RootQueryToContentTypeConnection": [
-                240
+                241
             ],
             "__typename": [
                 1
@@ -1499,22 +1499,22 @@ module.exports = {
                 93
             ],
             "on_CategoryToContentNodeConnection": [
-                160
+                161
             ],
             "on_PostFormatToContentNodeConnection": [
-                178
+                179
             ],
             "on_TagToContentNodeConnection": [
-                196
+                197
             ],
             "on_UserToRevisionsConnection": [
-                211
+                212
             ],
             "on_RootQueryToContentNodeConnection": [
-                237
+                238
             ],
             "on_RootQueryToRevisionsConnection": [
-                298
+                299
             ],
             "__typename": [
                 1
@@ -1546,22 +1546,22 @@ module.exports = {
                 120
             ],
             "on_CategoryToContentNodeConnectionEdge": [
-                161
+                162
             ],
             "on_PostFormatToContentNodeConnectionEdge": [
-                179
+                180
             ],
             "on_TagToContentNodeConnectionEdge": [
-                197
+                198
             ],
             "on_UserToRevisionsConnectionEdge": [
-                212
+                213
             ],
             "on_RootQueryToContentNodeConnectionEdge": [
-                238
+                239
             ],
             "on_RootQueryToRevisionsConnectionEdge": [
-                299
+                300
             ],
             "__typename": [
                 1
@@ -1689,7 +1689,7 @@ module.exports = {
                 99
             ],
             "on_RootQueryToUserConnectionEdge": [
-                326
+                327
             ],
             "__typename": [
                 1
@@ -1853,7 +1853,7 @@ module.exports = {
                 }
             ],
             "posts": [
-                135,
+                136,
                 {
                     "first": [
                         2
@@ -1868,7 +1868,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        134
+                        135
                     ]
                 }
             ],
@@ -1876,7 +1876,7 @@ module.exports = {
                 1
             ],
             "revisions": [
-                211,
+                212,
                 {
                     "first": [
                         2
@@ -1891,12 +1891,12 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        210
+                        211
                     ]
                 }
             ],
             "roles": [
-                213,
+                214,
                 {
                     "first": [
                         2
@@ -1957,7 +1957,7 @@ module.exports = {
                 43
             ],
             "on_CommentAuthor": [
-                399
+                400
             ],
             "__typename": [
                 1
@@ -1983,25 +1983,25 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "on_Category": [
-                146
+                147
             ],
             "on_PostFormat": [
-                175
+                176
             ],
             "on_Tag": [
-                193
+                194
             ],
             "on_Menu": [
-                249
+                250
             ],
             "on_MenuItem": [
-                255
+                256
             ],
             "on_CommentAuthor": [
-                399
+                400
             ],
             "__typename": [
                 1
@@ -2170,13 +2170,13 @@ module.exports = {
                 102
             ],
             "on_PageToCommentConnection": [
-                124
+                126
             ],
             "on_PostToCommentConnection": [
-                169
+                170
             ],
             "on_RootQueryToCommentConnection": [
-                233
+                234
             ],
             "__typename": [
                 1
@@ -2202,13 +2202,13 @@ module.exports = {
                 103
             ],
             "on_PageToCommentConnectionEdge": [
-                125
+                127
             ],
             "on_PostToCommentConnectionEdge": [
-                170
+                171
             ],
             "on_RootQueryToCommentConnectionEdge": [
-                234
+                235
             ],
             "__typename": [
                 1
@@ -2600,10 +2600,10 @@ module.exports = {
                 95
             ],
             "on_TermNodeToEnqueuedScriptConnection": [
-                148
+                149
             ],
             "on_RootQueryToEnqueuedScriptConnection": [
-                293
+                294
             ],
             "__typename": [
                 1
@@ -2623,10 +2623,10 @@ module.exports = {
                 96
             ],
             "on_TermNodeToEnqueuedScriptConnectionEdge": [
-                149
+                150
             ],
             "on_RootQueryToEnqueuedScriptConnectionEdge": [
-                294
+                295
             ],
             "__typename": [
                 1
@@ -2729,10 +2729,10 @@ module.exports = {
                 97
             ],
             "on_TermNodeToEnqueuedStylesheetConnection": [
-                150
+                151
             ],
             "on_RootQueryToEnqueuedStylesheetConnection": [
-                295
+                296
             ],
             "__typename": [
                 1
@@ -2752,10 +2752,10 @@ module.exports = {
                 98
             ],
             "on_TermNodeToEnqueuedStylesheetConnectionEdge": [
-                151
+                152
             ],
             "on_RootQueryToEnqueuedStylesheetConnectionEdge": [
-                296
+                297
             ],
             "__typename": [
                 1
@@ -2891,7 +2891,7 @@ module.exports = {
                 77
             ],
             "on_RootQueryToMediaItemConnection": [
-                246
+                247
             ],
             "__typename": [
                 1
@@ -2911,7 +2911,7 @@ module.exports = {
                 118
             ],
             "on_RootQueryToMediaItemConnectionEdge": [
-                247
+                248
             ],
             "__typename": [
                 1
@@ -3203,7 +3203,7 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -3214,7 +3214,7 @@ module.exports = {
                 1
             ],
             "on_DefaultTemplate": [
-                400
+                401
             ],
             "__typename": [
                 1
@@ -3242,7 +3242,7 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -3268,7 +3268,7 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -3302,7 +3302,7 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -3494,7 +3494,7 @@ module.exports = {
                 114
             ],
             "on_Category": [
-                146
+                147
             ],
             "__typename": [
                 1
@@ -4037,7 +4037,7 @@ module.exports = {
         },
         "UserToPageConnection": {
             "edges": [
-                133
+                134
             ],
             "nodes": [
                 114
@@ -4060,10 +4060,10 @@ module.exports = {
                 111
             ],
             "on_PageToRevisionConnection": [
-                131
+                132
             ],
             "on_RootQueryToPageConnection": [
-                275
+                276
             ],
             "__typename": [
                 1
@@ -4077,16 +4077,16 @@ module.exports = {
                 114
             ],
             "on_PageToPreviewConnectionEdge": [
-                129
+                130
             ],
             "on_PageToRevisionConnectionEdge": [
-                132
-            ],
-            "on_UserToPageConnectionEdge": [
                 133
             ],
+            "on_UserToPageConnectionEdge": [
+                134
+            ],
             "on_RootQueryToPageConnectionEdge": [
-                276
+                277
             ],
             "__typename": [
                 1
@@ -4112,6 +4112,9 @@ module.exports = {
                         89
                     ]
                 }
+            ],
+            "assessoria": [
+                123
             ],
             "author": [
                 85
@@ -4149,7 +4152,7 @@ module.exports = {
                 1
             ],
             "comments": [
-                124,
+                126,
                 {
                     "first": [
                         2
@@ -4164,7 +4167,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        123
+                        125
                     ]
                 }
             ],
@@ -4183,7 +4186,7 @@ module.exports = {
                 1
             ],
             "conteuSobre": [
-                126
+                128
             ],
             "databaseId": [
                 2
@@ -4304,7 +4307,7 @@ module.exports = {
                 4
             ],
             "preview": [
-                129
+                130
             ],
             "previewRevisionDatabaseId": [
                 2
@@ -4316,7 +4319,7 @@ module.exports = {
                 120
             ],
             "revisions": [
-                131,
+                132,
                 {
                     "first": [
                         2
@@ -4331,7 +4334,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        130
+                        131
                     ]
                 }
             ],
@@ -4376,7 +4379,7 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -4398,7 +4401,7 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -4421,7 +4424,7 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -4452,7 +4455,7 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -4506,13 +4509,59 @@ module.exports = {
                 114
             ],
             "on_Post": [
-                138
+                139
             ],
             "on_Category": [
-                146
+                147
             ],
             "on_Tag": [
-                193
+                194
+            ],
+            "__typename": [
+                1
+            ]
+        },
+        "Page_Assessoria": {
+            "assEmail": [
+                1
+            ],
+            "assInformacoes": [
+                1
+            ],
+            "assNometitulo": [
+                1
+            ],
+            "assTelefone": [
+                1
+            ],
+            "fieldGroupName": [
+                1
+            ],
+            "__typename": [
+                1
+            ]
+        },
+        "AcfFieldGroup": {
+            "fieldGroupName": [
+                1
+            ],
+            "on_Page_Assessoria": [
+                123
+            ],
+            "on_Page_Conteusobre": [
+                128
+            ],
+            "on_Page_Conteusobre_item": [
+                129
+            ],
+            "on_Banner_BannerHome": [
+                219
+            ],
+            "on_Banner_BannerHome_BhConteudo": [
+                220
+            ],
+            "on_Banner_BannerHome_ImagensProntas": [
+                221
             ],
             "__typename": [
                 1
@@ -4612,7 +4661,7 @@ module.exports = {
         },
         "PageToCommentConnection": {
             "edges": [
-                125
+                127
             ],
             "nodes": [
                 53
@@ -4664,7 +4713,7 @@ module.exports = {
                 80
             ],
             "item": [
-                128
+                129
             ],
             "linkDoTourVirtual": [
                 1
@@ -4683,29 +4732,6 @@ module.exports = {
             ],
             "tituloVideo": [
                 1
-            ],
-            "__typename": [
-                1
-            ]
-        },
-        "AcfFieldGroup": {
-            "fieldGroupName": [
-                1
-            ],
-            "on_Page_Conteusobre": [
-                126
-            ],
-            "on_Page_Conteusobre_item": [
-                128
-            ],
-            "on_Banner_BannerHome": [
-                218
-            ],
-            "on_Banner_BannerHome_BhConteudo": [
-                219
-            ],
-            "on_Banner_BannerHome_ImagensProntas": [
-                220
             ],
             "__typename": [
                 1
@@ -4806,7 +4832,7 @@ module.exports = {
         },
         "PageToRevisionConnection": {
             "edges": [
-                132
+                133
             ],
             "nodes": [
                 114
@@ -4940,10 +4966,10 @@ module.exports = {
         },
         "UserToPostConnection": {
             "edges": [
-                209
+                210
             ],
             "nodes": [
-                138
+                139
             ],
             "pageInfo": [
                 23
@@ -4954,28 +4980,28 @@ module.exports = {
         },
         "PostConnection": {
             "edges": [
-                137
-            ],
-            "nodes": [
                 138
             ],
+            "nodes": [
+                139
+            ],
             "on_UserToPostConnection": [
-                135
+                136
             ],
             "on_CategoryToPostConnection": [
-                164
+                165
             ],
             "on_PostFormatToPostConnection": [
-                181
+                182
             ],
             "on_PostToRevisionConnection": [
-                187
+                188
             ],
             "on_TagToPostConnection": [
-                199
+                200
             ],
             "on_RootQueryToPostConnection": [
-                290
+                291
             ],
             "__typename": [
                 1
@@ -4986,28 +5012,28 @@ module.exports = {
                 1
             ],
             "node": [
-                138
+                139
             ],
             "on_CategoryToPostConnectionEdge": [
-                165
+                166
             ],
             "on_PostFormatToPostConnectionEdge": [
-                182
+                183
             ],
             "on_PostToPreviewConnectionEdge": [
-                185
+                186
             ],
             "on_PostToRevisionConnectionEdge": [
-                188
+                189
             ],
             "on_TagToPostConnectionEdge": [
-                200
+                201
             ],
             "on_UserToPostConnectionEdge": [
-                209
+                210
             ],
             "on_RootQueryToPostConnectionEdge": [
-                291
+                292
             ],
             "__typename": [
                 1
@@ -5024,7 +5050,7 @@ module.exports = {
                 4
             ],
             "categories": [
-                143,
+                144,
                 {
                     "first": [
                         2
@@ -5039,7 +5065,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        141
+                        142
                     ]
                 }
             ],
@@ -5050,7 +5076,7 @@ module.exports = {
                 1
             ],
             "comments": [
-                169,
+                170,
                 {
                     "first": [
                         2
@@ -5065,7 +5091,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        168
+                        169
                     ]
                 }
             ],
@@ -5195,7 +5221,7 @@ module.exports = {
                 1
             ],
             "postFormats": [
-                172,
+                173,
                 {
                     "first": [
                         2
@@ -5210,7 +5236,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        171
+                        172
                     ]
                 }
             ],
@@ -5218,7 +5244,7 @@ module.exports = {
                 2
             ],
             "preview": [
-                185
+                186
             ],
             "previewRevisionDatabaseId": [
                 2
@@ -5230,7 +5256,7 @@ module.exports = {
                 120
             ],
             "revisions": [
-                187,
+                188,
                 {
                     "first": [
                         2
@@ -5245,7 +5271,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        186
+                        187
                     ]
                 }
             ],
@@ -5256,7 +5282,7 @@ module.exports = {
                 1
             ],
             "tags": [
-                190,
+                191,
                 {
                     "first": [
                         2
@@ -5271,7 +5297,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        189
+                        190
                     ]
                 }
             ],
@@ -5279,7 +5305,7 @@ module.exports = {
                 82
             ],
             "terms": [
-                205,
+                206,
                 {
                     "first": [
                         2
@@ -5294,7 +5320,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        203
+                        204
                     ]
                 }
             ],
@@ -5329,7 +5355,7 @@ module.exports = {
                 4
             ],
             "on_Post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -5349,7 +5375,7 @@ module.exports = {
                 1
             ],
             "on_Post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -5396,7 +5422,7 @@ module.exports = {
                 34
             ],
             "orderby": [
-                142
+                143
             ],
             "padCounts": [
                 3
@@ -5426,10 +5452,10 @@ module.exports = {
         "TermObjectsConnectionOrderbyEnum": {},
         "PostToCategoryConnection": {
             "edges": [
-                167
+                168
             ],
             "nodes": [
-                146
+                147
             ],
             "pageInfo": [
                 23
@@ -5440,22 +5466,22 @@ module.exports = {
         },
         "CategoryConnection": {
             "edges": [
-                145
-            ],
-            "nodes": [
                 146
             ],
+            "nodes": [
+                147
+            ],
             "on_PostToCategoryConnection": [
-                143
+                144
             ],
             "on_CategoryToAncestorsCategoryConnection": [
-                153
+                154
             ],
             "on_CategoryToCategoryConnection": [
-                156
+                157
             ],
             "on_RootQueryToCategoryConnection": [
-                228
+                229
             ],
             "__typename": [
                 1
@@ -5466,22 +5492,22 @@ module.exports = {
                 1
             ],
             "node": [
-                146
+                147
             ],
             "on_CategoryToAncestorsCategoryConnectionEdge": [
-                154
+                155
             ],
             "on_CategoryToCategoryConnectionEdge": [
-                157
+                158
             ],
             "on_CategoryToParentCategoryConnectionEdge": [
-                162
+                163
             ],
             "on_PostToCategoryConnectionEdge": [
-                167
+                168
             ],
             "on_RootQueryToCategoryConnectionEdge": [
-                229
+                230
             ],
             "__typename": [
                 1
@@ -5489,7 +5515,7 @@ module.exports = {
         },
         "Category": {
             "ancestors": [
-                153,
+                154,
                 {
                     "first": [
                         2
@@ -5509,7 +5535,7 @@ module.exports = {
                 2
             ],
             "children": [
-                156,
+                157,
                 {
                     "first": [
                         2
@@ -5524,12 +5550,12 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        155
+                        156
                     ]
                 }
             ],
             "contentNodes": [
-                160,
+                161,
                 {
                     "first": [
                         2
@@ -5544,7 +5570,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        158
+                        159
                     ]
                 }
             ],
@@ -5558,7 +5584,7 @@ module.exports = {
                 1
             ],
             "enqueuedScripts": [
-                148,
+                149,
                 {
                     "first": [
                         2
@@ -5575,7 +5601,7 @@ module.exports = {
                 }
             ],
             "enqueuedStylesheets": [
-                150,
+                151,
                 {
                     "first": [
                         2
@@ -5610,7 +5636,7 @@ module.exports = {
                 1
             ],
             "parent": [
-                162
+                163
             ],
             "parentDatabaseId": [
                 2
@@ -5619,7 +5645,7 @@ module.exports = {
                 4
             ],
             "posts": [
-                164,
+                165,
                 {
                     "first": [
                         2
@@ -5634,7 +5660,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        163
+                        164
                     ]
                 }
             ],
@@ -5642,7 +5668,7 @@ module.exports = {
                 1
             ],
             "taxonomy": [
-                166
+                167
             ],
             "taxonomyName": [
                 1
@@ -5671,7 +5697,7 @@ module.exports = {
                 1
             ],
             "enqueuedScripts": [
-                148,
+                149,
                 {
                     "first": [
                         2
@@ -5688,7 +5714,7 @@ module.exports = {
                 }
             ],
             "enqueuedStylesheets": [
-                150,
+                151,
                 {
                     "first": [
                         2
@@ -5738,13 +5764,13 @@ module.exports = {
                 1
             ],
             "on_Category": [
-                146
+                147
             ],
             "on_PostFormat": [
-                175
+                176
             ],
             "on_Tag": [
-                193
+                194
             ],
             "__typename": [
                 1
@@ -5752,7 +5778,7 @@ module.exports = {
         },
         "TermNodeToEnqueuedScriptConnection": {
             "edges": [
-                149
+                150
             ],
             "nodes": [
                 68
@@ -5777,7 +5803,7 @@ module.exports = {
         },
         "TermNodeToEnqueuedStylesheetConnection": {
             "edges": [
-                151
+                152
             ],
             "nodes": [
                 74
@@ -5811,7 +5837,7 @@ module.exports = {
                 1
             ],
             "enqueuedScripts": [
-                148,
+                149,
                 {
                     "first": [
                         2
@@ -5828,7 +5854,7 @@ module.exports = {
                 }
             ],
             "enqueuedStylesheets": [
-                150,
+                151,
                 {
                     "first": [
                         2
@@ -5884,7 +5910,7 @@ module.exports = {
                 1
             ],
             "on_Category": [
-                146
+                147
             ],
             "__typename": [
                 1
@@ -5892,10 +5918,10 @@ module.exports = {
         },
         "CategoryToAncestorsCategoryConnection": {
             "edges": [
-                154
+                155
             ],
             "nodes": [
-                146
+                147
             ],
             "pageInfo": [
                 23
@@ -5909,7 +5935,7 @@ module.exports = {
                 1
             ],
             "node": [
-                146
+                147
             ],
             "__typename": [
                 1
@@ -5956,7 +5982,7 @@ module.exports = {
                 34
             ],
             "orderby": [
-                142
+                143
             ],
             "padCounts": [
                 3
@@ -5985,10 +6011,10 @@ module.exports = {
         },
         "CategoryToCategoryConnection": {
             "edges": [
-                157
+                158
             ],
             "nodes": [
-                146
+                147
             ],
             "pageInfo": [
                 23
@@ -6002,7 +6028,7 @@ module.exports = {
                 1
             ],
             "node": [
-                146
+                147
             ],
             "__typename": [
                 1
@@ -6010,7 +6036,7 @@ module.exports = {
         },
         "CategoryToContentNodeConnectionWhereArgs": {
             "contentTypes": [
-                159
+                160
             ],
             "dateQuery": [
                 27
@@ -6070,7 +6096,7 @@ module.exports = {
         "ContentTypesOfCategoryEnum": {},
         "CategoryToContentNodeConnection": {
             "edges": [
-                161
+                162
             ],
             "nodes": [
                 8
@@ -6098,7 +6124,7 @@ module.exports = {
                 1
             ],
             "node": [
-                146
+                147
             ],
             "__typename": [
                 1
@@ -6204,10 +6230,10 @@ module.exports = {
         },
         "CategoryToPostConnection": {
             "edges": [
-                165
+                166
             ],
             "nodes": [
-                138
+                139
             ],
             "pageInfo": [
                 23
@@ -6221,7 +6247,7 @@ module.exports = {
                 1
             ],
             "node": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -6243,7 +6269,7 @@ module.exports = {
                 1
             ],
             "node": [
-                146
+                147
             ],
             "__typename": [
                 1
@@ -6343,7 +6369,7 @@ module.exports = {
         },
         "PostToCommentConnection": {
             "edges": [
-                170
+                171
             ],
             "nodes": [
                 53
@@ -6407,7 +6433,7 @@ module.exports = {
                 34
             ],
             "orderby": [
-                142
+                143
             ],
             "padCounts": [
                 3
@@ -6436,10 +6462,10 @@ module.exports = {
         },
         "PostToPostFormatConnection": {
             "edges": [
-                184
+                185
             ],
             "nodes": [
-                175
+                176
             ],
             "pageInfo": [
                 23
@@ -6450,16 +6476,16 @@ module.exports = {
         },
         "PostFormatConnection": {
             "edges": [
-                174
-            ],
-            "nodes": [
                 175
             ],
+            "nodes": [
+                176
+            ],
             "on_PostToPostFormatConnection": [
-                172
+                173
             ],
             "on_RootQueryToPostFormatConnection": [
-                287
+                288
             ],
             "__typename": [
                 1
@@ -6470,13 +6496,13 @@ module.exports = {
                 1
             ],
             "node": [
-                175
+                176
             ],
             "on_PostToPostFormatConnectionEdge": [
-                184
+                185
             ],
             "on_RootQueryToPostFormatConnectionEdge": [
-                288
+                289
             ],
             "__typename": [
                 1
@@ -6484,7 +6510,7 @@ module.exports = {
         },
         "PostFormat": {
             "contentNodes": [
-                178,
+                179,
                 {
                     "first": [
                         2
@@ -6499,7 +6525,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        176
+                        177
                     ]
                 }
             ],
@@ -6513,7 +6539,7 @@ module.exports = {
                 1
             ],
             "enqueuedScripts": [
-                148,
+                149,
                 {
                     "first": [
                         2
@@ -6530,7 +6556,7 @@ module.exports = {
                 }
             ],
             "enqueuedStylesheets": [
-                150,
+                151,
                 {
                     "first": [
                         2
@@ -6568,7 +6594,7 @@ module.exports = {
                 2
             ],
             "posts": [
-                181,
+                182,
                 {
                     "first": [
                         2
@@ -6583,7 +6609,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        180
+                        181
                     ]
                 }
             ],
@@ -6591,7 +6617,7 @@ module.exports = {
                 1
             ],
             "taxonomy": [
-                183
+                184
             ],
             "taxonomyName": [
                 1
@@ -6611,7 +6637,7 @@ module.exports = {
         },
         "PostFormatToContentNodeConnectionWhereArgs": {
             "contentTypes": [
-                177
+                178
             ],
             "dateQuery": [
                 27
@@ -6671,7 +6697,7 @@ module.exports = {
         "ContentTypesOfPostFormatEnum": {},
         "PostFormatToContentNodeConnection": {
             "edges": [
-                179
+                180
             ],
             "nodes": [
                 8
@@ -6794,10 +6820,10 @@ module.exports = {
         },
         "PostFormatToPostConnection": {
             "edges": [
-                182
+                183
             ],
             "nodes": [
-                138
+                139
             ],
             "pageInfo": [
                 23
@@ -6811,7 +6837,7 @@ module.exports = {
                 1
             ],
             "node": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -6833,7 +6859,7 @@ module.exports = {
                 1
             ],
             "node": [
-                175
+                176
             ],
             "__typename": [
                 1
@@ -6844,7 +6870,7 @@ module.exports = {
                 1
             ],
             "node": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -6950,10 +6976,10 @@ module.exports = {
         },
         "PostToRevisionConnection": {
             "edges": [
-                188
+                189
             ],
             "nodes": [
-                138
+                139
             ],
             "pageInfo": [
                 23
@@ -6967,7 +6993,7 @@ module.exports = {
                 1
             ],
             "node": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -7014,7 +7040,7 @@ module.exports = {
                 34
             ],
             "orderby": [
-                142
+                143
             ],
             "padCounts": [
                 3
@@ -7043,10 +7069,10 @@ module.exports = {
         },
         "PostToTagConnection": {
             "edges": [
-                202
+                203
             ],
             "nodes": [
-                193
+                194
             ],
             "pageInfo": [
                 23
@@ -7057,16 +7083,16 @@ module.exports = {
         },
         "TagConnection": {
             "edges": [
-                192
-            ],
-            "nodes": [
                 193
             ],
+            "nodes": [
+                194
+            ],
             "on_PostToTagConnection": [
-                190
+                191
             ],
             "on_RootQueryToTagConnection": [
-                302
+                303
             ],
             "__typename": [
                 1
@@ -7077,13 +7103,13 @@ module.exports = {
                 1
             ],
             "node": [
-                193
+                194
             ],
             "on_PostToTagConnectionEdge": [
-                202
+                203
             ],
             "on_RootQueryToTagConnectionEdge": [
-                303
+                304
             ],
             "__typename": [
                 1
@@ -7091,7 +7117,7 @@ module.exports = {
         },
         "Tag": {
             "contentNodes": [
-                196,
+                197,
                 {
                     "first": [
                         2
@@ -7106,7 +7132,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        194
+                        195
                     ]
                 }
             ],
@@ -7120,7 +7146,7 @@ module.exports = {
                 1
             ],
             "enqueuedScripts": [
-                148,
+                149,
                 {
                     "first": [
                         2
@@ -7137,7 +7163,7 @@ module.exports = {
                 }
             ],
             "enqueuedStylesheets": [
-                150,
+                151,
                 {
                     "first": [
                         2
@@ -7172,7 +7198,7 @@ module.exports = {
                 1
             ],
             "posts": [
-                199,
+                200,
                 {
                     "first": [
                         2
@@ -7187,7 +7213,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        198
+                        199
                     ]
                 }
             ],
@@ -7198,7 +7224,7 @@ module.exports = {
                 2
             ],
             "taxonomy": [
-                201
+                202
             ],
             "taxonomyName": [
                 1
@@ -7218,7 +7244,7 @@ module.exports = {
         },
         "TagToContentNodeConnectionWhereArgs": {
             "contentTypes": [
-                195
+                196
             ],
             "dateQuery": [
                 27
@@ -7278,7 +7304,7 @@ module.exports = {
         "ContentTypesOfTagEnum": {},
         "TagToContentNodeConnection": {
             "edges": [
-                197
+                198
             ],
             "nodes": [
                 8
@@ -7401,10 +7427,10 @@ module.exports = {
         },
         "TagToPostConnection": {
             "edges": [
-                200
+                201
             ],
             "nodes": [
-                138
+                139
             ],
             "pageInfo": [
                 23
@@ -7418,7 +7444,7 @@ module.exports = {
                 1
             ],
             "node": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -7440,7 +7466,7 @@ module.exports = {
                 1
             ],
             "node": [
-                193
+                194
             ],
             "__typename": [
                 1
@@ -7487,7 +7513,7 @@ module.exports = {
                 34
             ],
             "orderby": [
-                142
+                143
             ],
             "padCounts": [
                 3
@@ -7502,7 +7528,7 @@ module.exports = {
                 1
             ],
             "taxonomies": [
-                204
+                205
             ],
             "termTaxonomId": [
                 4
@@ -7520,10 +7546,10 @@ module.exports = {
         "TaxonomyEnum": {},
         "PostToTermNodeConnection": {
             "edges": [
-                208
+                209
             ],
             "nodes": [
-                147
+                148
             ],
             "pageInfo": [
                 23
@@ -7534,16 +7560,16 @@ module.exports = {
         },
         "TermNodeConnection": {
             "edges": [
-                207
+                208
             ],
             "nodes": [
-                147
+                148
             ],
             "on_PostToTermNodeConnection": [
-                205
+                206
             ],
             "on_RootQueryToTermNodeConnection": [
-                309
+                310
             ],
             "__typename": [
                 1
@@ -7554,13 +7580,13 @@ module.exports = {
                 1
             ],
             "node": [
-                147
+                148
             ],
             "on_PostToTermNodeConnectionEdge": [
-                208
+                209
             ],
             "on_RootQueryToTermNodeConnectionEdge": [
-                310
+                311
             ],
             "__typename": [
                 1
@@ -7571,7 +7597,7 @@ module.exports = {
                 1
             ],
             "node": [
-                147
+                148
             ],
             "__typename": [
                 1
@@ -7582,7 +7608,7 @@ module.exports = {
                 1
             ],
             "node": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -7649,7 +7675,7 @@ module.exports = {
         },
         "UserToRevisionsConnection": {
             "edges": [
-                212
+                213
             ],
             "nodes": [
                 8
@@ -7674,10 +7700,10 @@ module.exports = {
         },
         "UserToUserRoleConnection": {
             "edges": [
-                217
+                218
             ],
             "nodes": [
-                216
+                217
             ],
             "pageInfo": [
                 23
@@ -7688,16 +7714,16 @@ module.exports = {
         },
         "UserRoleConnection": {
             "edges": [
-                215
-            ],
-            "nodes": [
                 216
             ],
+            "nodes": [
+                217
+            ],
             "on_UserToUserRoleConnection": [
-                213
+                214
             ],
             "on_RootQueryToUserRoleConnection": [
-                317
+                318
             ],
             "__typename": [
                 1
@@ -7708,13 +7734,13 @@ module.exports = {
                 1
             ],
             "node": [
-                216
-            ],
-            "on_UserToUserRoleConnectionEdge": [
                 217
             ],
+            "on_UserToUserRoleConnectionEdge": [
+                218
+            ],
             "on_RootQueryToUserRoleConnectionEdge": [
-                318
+                319
             ],
             "__typename": [
                 1
@@ -7745,7 +7771,7 @@ module.exports = {
                 1
             ],
             "node": [
-                216
+                217
             ],
             "__typename": [
                 1
@@ -7756,13 +7782,13 @@ module.exports = {
                 3
             ],
             "bhConteudo": [
-                219
+                220
             ],
             "fieldGroupName": [
                 1
             ],
             "imagensProntas": [
-                220
+                221
             ],
             "__typename": [
                 1
@@ -7845,10 +7871,10 @@ module.exports = {
                 6
             ],
             "on_BannerToPreviewConnectionEdge": [
-                221
+                222
             ],
             "on_RootQueryToBannerConnectionEdge": [
-                226
+                227
             ],
             "__typename": [
                 1
@@ -7912,7 +7938,7 @@ module.exports = {
         },
         "RootQueryToBannerConnection": {
             "edges": [
-                226
+                227
             ],
             "nodes": [
                 6
@@ -7926,13 +7952,13 @@ module.exports = {
         },
         "BannerConnection": {
             "edges": [
-                222
+                223
             ],
             "nodes": [
                 6
             ],
             "on_RootQueryToBannerConnection": [
-                224
+                225
             ],
             "__typename": [
                 1
@@ -7990,7 +8016,7 @@ module.exports = {
                 34
             ],
             "orderby": [
-                142
+                143
             ],
             "padCounts": [
                 3
@@ -8019,10 +8045,10 @@ module.exports = {
         },
         "RootQueryToCategoryConnection": {
             "edges": [
-                229
+                230
             ],
             "nodes": [
-                146
+                147
             ],
             "pageInfo": [
                 23
@@ -8036,7 +8062,7 @@ module.exports = {
                 1
             ],
             "node": [
-                146
+                147
             ],
             "__typename": [
                 1
@@ -8138,7 +8164,7 @@ module.exports = {
         },
         "RootQueryToCommentConnection": {
             "edges": [
-                234
+                235
             ],
             "nodes": [
                 53
@@ -8223,7 +8249,7 @@ module.exports = {
         },
         "RootQueryToContentNodeConnection": {
             "edges": [
-                238
+                239
             ],
             "nodes": [
                 8
@@ -8249,7 +8275,7 @@ module.exports = {
         "ContentTypeIdTypeEnum": {},
         "RootQueryToContentTypeConnection": {
             "edges": [
-                241
+                242
             ],
             "nodes": [
                 14
@@ -8386,7 +8412,7 @@ module.exports = {
         },
         "RootQueryToMediaItemConnection": {
             "edges": [
-                247
+                248
             ],
             "nodes": [
                 80
@@ -8424,13 +8450,13 @@ module.exports = {
                 3
             ],
             "locations": [
-                250
+                251
             ],
             "menuId": [
                 2
             ],
             "menuItems": [
-                252,
+                253,
                 {
                     "first": [
                         2
@@ -8445,7 +8471,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        251
+                        252
                     ]
                 }
             ],
@@ -8465,7 +8491,7 @@ module.exports = {
                 2
             ],
             "location": [
-                250
+                251
             ],
             "parentDatabaseId": [
                 2
@@ -8479,10 +8505,10 @@ module.exports = {
         },
         "MenuToMenuItemConnection": {
             "edges": [
-                264
+                265
             ],
             "nodes": [
-                255
+                256
             ],
             "pageInfo": [
                 23
@@ -8493,19 +8519,19 @@ module.exports = {
         },
         "MenuItemConnection": {
             "edges": [
-                254
-            ],
-            "nodes": [
                 255
             ],
+            "nodes": [
+                256
+            ],
             "on_MenuToMenuItemConnection": [
-                252
+                253
             ],
             "on_MenuItemToMenuItemConnection": [
-                257
+                258
             ],
             "on_RootQueryToMenuItemConnection": [
-                267
+                268
             ],
             "__typename": [
                 1
@@ -8516,16 +8542,16 @@ module.exports = {
                 1
             ],
             "node": [
-                255
+                256
             ],
             "on_MenuItemToMenuItemConnectionEdge": [
-                258
+                259
             ],
             "on_MenuToMenuItemConnectionEdge": [
-                264
+                265
             ],
             "on_RootQueryToMenuItemConnectionEdge": [
-                268
+                269
             ],
             "__typename": [
                 1
@@ -8533,7 +8559,7 @@ module.exports = {
         },
         "MenuItem": {
             "childItems": [
-                257,
+                258,
                 {
                     "first": [
                         2
@@ -8548,15 +8574,15 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        256
+                        257
                     ]
                 }
             ],
             "connectedNode": [
-                259
+                260
             ],
             "connectedObject": [
-                261
+                262
             ],
             "cssClasses": [
                 1
@@ -8580,10 +8606,10 @@ module.exports = {
                 1
             ],
             "locations": [
-                250
+                251
             ],
             "menu": [
-                262
+                263
             ],
             "menuItemId": [
                 2
@@ -8621,7 +8647,7 @@ module.exports = {
                 2
             ],
             "location": [
-                250
+                251
             ],
             "parentDatabaseId": [
                 2
@@ -8635,10 +8661,10 @@ module.exports = {
         },
         "MenuItemToMenuItemConnection": {
             "edges": [
-                258
+                259
             ],
             "nodes": [
-                255
+                256
             ],
             "pageInfo": [
                 23
@@ -8652,7 +8678,7 @@ module.exports = {
                 1
             ],
             "node": [
-                255
+                256
             ],
             "__typename": [
                 1
@@ -8677,7 +8703,7 @@ module.exports = {
                 122
             ],
             "on_MenuItemToMenuItemLinkableConnectionEdge": [
-                259
+                260
             ],
             "__typename": [
                 1
@@ -8685,7 +8711,7 @@ module.exports = {
         },
         "MenuItemObjectUnion": {
             "on_Post": [
-                138
+                139
             ],
             "on_Page": [
                 114
@@ -8694,10 +8720,10 @@ module.exports = {
                 6
             ],
             "on_Category": [
-                146
+                147
             ],
             "on_Tag": [
-                193
+                194
             ],
             "on_Node": [
                 7
@@ -8730,13 +8756,13 @@ module.exports = {
                 117
             ],
             "on_NodeWithExcerpt": [
-                139
+                140
             ],
             "on_NodeWithComments": [
                 86
             ],
             "on_NodeWithTrackbacks": [
-                140
+                141
             ],
             "on_NodeWithRevisions": [
                 119
@@ -8754,10 +8780,10 @@ module.exports = {
                 88
             ],
             "on_TermNode": [
-                147
+                148
             ],
             "on_HierarchicalTermNode": [
-                152
+                153
             ],
             "__typename": [
                 1
@@ -8768,7 +8794,7 @@ module.exports = {
                 1
             ],
             "node": [
-                249
+                250
             ],
             "__typename": [
                 1
@@ -8779,13 +8805,13 @@ module.exports = {
                 1
             ],
             "node": [
-                249
+                250
             ],
             "on_MenuItemToMenuConnectionEdge": [
-                262
+                263
             ],
             "on_RootQueryToMenuConnectionEdge": [
-                272
+                273
             ],
             "__typename": [
                 1
@@ -8796,7 +8822,7 @@ module.exports = {
                 1
             ],
             "node": [
-                255
+                256
             ],
             "__typename": [
                 1
@@ -8808,7 +8834,7 @@ module.exports = {
                 2
             ],
             "location": [
-                250
+                251
             ],
             "parentDatabaseId": [
                 2
@@ -8822,10 +8848,10 @@ module.exports = {
         },
         "RootQueryToMenuItemConnection": {
             "edges": [
-                268
+                269
             ],
             "nodes": [
-                255
+                256
             ],
             "pageInfo": [
                 23
@@ -8839,7 +8865,7 @@ module.exports = {
                 1
             ],
             "node": [
-                255
+                256
             ],
             "__typename": [
                 1
@@ -8850,7 +8876,7 @@ module.exports = {
                 2
             ],
             "location": [
-                250
+                251
             ],
             "slug": [
                 1
@@ -8861,10 +8887,10 @@ module.exports = {
         },
         "RootQueryToMenuConnection": {
             "edges": [
-                272
+                273
             ],
             "nodes": [
-                249
+                250
             ],
             "pageInfo": [
                 23
@@ -8875,13 +8901,13 @@ module.exports = {
         },
         "MenuConnection": {
             "edges": [
-                263
+                264
             ],
             "nodes": [
-                249
+                250
             ],
             "on_RootQueryToMenuConnection": [
-                270
+                271
             ],
             "__typename": [
                 1
@@ -8892,7 +8918,7 @@ module.exports = {
                 1
             ],
             "node": [
-                249
+                250
             ],
             "__typename": [
                 1
@@ -8969,7 +8995,7 @@ module.exports = {
         },
         "RootQueryToPageConnection": {
             "edges": [
-                276
+                277
             ],
             "nodes": [
                 114
@@ -9029,10 +9055,10 @@ module.exports = {
                 1
             ],
             "stati": [
-                279
+                280
             ],
             "status": [
-                279
+                280
             ],
             "__typename": [
                 1
@@ -9041,10 +9067,10 @@ module.exports = {
         "PluginStatusEnum": {},
         "RootQueryToPluginConnection": {
             "edges": [
-                283
+                284
             ],
             "nodes": [
-                277
+                278
             ],
             "pageInfo": [
                 23
@@ -9055,13 +9081,13 @@ module.exports = {
         },
         "PluginConnection": {
             "edges": [
-                282
+                283
             ],
             "nodes": [
-                277
+                278
             ],
             "on_RootQueryToPluginConnection": [
-                280
+                281
             ],
             "__typename": [
                 1
@@ -9072,10 +9098,10 @@ module.exports = {
                 1
             ],
             "node": [
-                277
+                278
             ],
             "on_RootQueryToPluginConnectionEdge": [
-                283
+                284
             ],
             "__typename": [
                 1
@@ -9086,7 +9112,7 @@ module.exports = {
                 1
             ],
             "node": [
-                277
+                278
             ],
             "__typename": [
                 1
@@ -9135,7 +9161,7 @@ module.exports = {
                 34
             ],
             "orderby": [
-                142
+                143
             ],
             "padCounts": [
                 3
@@ -9164,10 +9190,10 @@ module.exports = {
         },
         "RootQueryToPostFormatConnection": {
             "edges": [
-                288
+                289
             ],
             "nodes": [
-                175
+                176
             ],
             "pageInfo": [
                 23
@@ -9181,7 +9207,7 @@ module.exports = {
                 1
             ],
             "node": [
-                175
+                176
             ],
             "__typename": [
                 1
@@ -9287,10 +9313,10 @@ module.exports = {
         },
         "RootQueryToPostConnection": {
             "edges": [
-                291
+                292
             ],
             "nodes": [
-                138
+                139
             ],
             "pageInfo": [
                 23
@@ -9304,7 +9330,7 @@ module.exports = {
                 1
             ],
             "node": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -9329,7 +9355,7 @@ module.exports = {
         },
         "RootQueryToEnqueuedScriptConnection": {
             "edges": [
-                294
+                295
             ],
             "nodes": [
                 68
@@ -9354,7 +9380,7 @@ module.exports = {
         },
         "RootQueryToEnqueuedStylesheetConnection": {
             "edges": [
-                296
+                297
             ],
             "nodes": [
                 74
@@ -9438,7 +9464,7 @@ module.exports = {
         },
         "RootQueryToRevisionsConnection": {
             "edges": [
-                299
+                300
             ],
             "nodes": [
                 8
@@ -9503,7 +9529,7 @@ module.exports = {
                 34
             ],
             "orderby": [
-                142
+                143
             ],
             "padCounts": [
                 3
@@ -9532,10 +9558,10 @@ module.exports = {
         },
         "RootQueryToTagConnection": {
             "edges": [
-                303
+                304
             ],
             "nodes": [
-                193
+                194
             ],
             "pageInfo": [
                 23
@@ -9549,7 +9575,7 @@ module.exports = {
                 1
             ],
             "node": [
-                193
+                194
             ],
             "__typename": [
                 1
@@ -9557,7 +9583,7 @@ module.exports = {
         },
         "RootQueryToTaxonomyConnection": {
             "edges": [
-                305
+                306
             ],
             "nodes": [
                 19
@@ -9623,7 +9649,7 @@ module.exports = {
                 34
             ],
             "orderby": [
-                142
+                143
             ],
             "padCounts": [
                 3
@@ -9638,7 +9664,7 @@ module.exports = {
                 1
             ],
             "taxonomies": [
-                204
+                205
             ],
             "termTaxonomId": [
                 4
@@ -9655,10 +9681,10 @@ module.exports = {
         },
         "RootQueryToTermNodeConnection": {
             "edges": [
-                310
+                311
             ],
             "nodes": [
-                147
+                148
             ],
             "pageInfo": [
                 23
@@ -9672,7 +9698,7 @@ module.exports = {
                 1
             ],
             "node": [
-                147
+                148
             ],
             "__typename": [
                 1
@@ -9718,10 +9744,10 @@ module.exports = {
         },
         "RootQueryToThemeConnection": {
             "edges": [
-                315
+                316
             ],
             "nodes": [
-                311
+                312
             ],
             "pageInfo": [
                 23
@@ -9732,13 +9758,13 @@ module.exports = {
         },
         "ThemeConnection": {
             "edges": [
-                314
+                315
             ],
             "nodes": [
-                311
+                312
             ],
             "on_RootQueryToThemeConnection": [
-                312
+                313
             ],
             "__typename": [
                 1
@@ -9749,10 +9775,10 @@ module.exports = {
                 1
             ],
             "node": [
-                311
+                312
             ],
             "on_RootQueryToThemeConnectionEdge": [
-                315
+                316
             ],
             "__typename": [
                 1
@@ -9763,7 +9789,7 @@ module.exports = {
                 1
             ],
             "node": [
-                311
+                312
             ],
             "__typename": [
                 1
@@ -9772,10 +9798,10 @@ module.exports = {
         "UserNodeIdTypeEnum": {},
         "RootQueryToUserRoleConnection": {
             "edges": [
-                318
+                319
             ],
             "nodes": [
-                216
+                217
             ],
             "pageInfo": [
                 23
@@ -9789,7 +9815,7 @@ module.exports = {
                 1
             ],
             "node": [
-                216
+                217
             ],
             "__typename": [
                 1
@@ -9824,22 +9850,22 @@ module.exports = {
                 1
             ],
             "orderby": [
-                320
+                321
             ],
             "role": [
-                322
+                323
             ],
             "roleIn": [
-                322
+                323
             ],
             "roleNotIn": [
-                322
+                323
             ],
             "search": [
                 1
             ],
             "searchColumns": [
-                323
+                324
             ],
             "__typename": [
                 1
@@ -9847,7 +9873,7 @@ module.exports = {
         },
         "UsersConnectionOrderbyInput": {
             "field": [
-                321
+                322
             ],
             "order": [
                 34
@@ -9861,7 +9887,7 @@ module.exports = {
         "UsersConnectionSearchColumnEnum": {},
         "RootQueryToUserConnection": {
             "edges": [
-                326
+                327
             ],
             "nodes": [
                 43
@@ -9881,7 +9907,7 @@ module.exports = {
                 43
             ],
             "on_RootQueryToUserConnection": [
-                324
+                325
             ],
             "__typename": [
                 1
@@ -9974,7 +10000,7 @@ module.exports = {
         },
         "CreateCategoryPayload": {
             "category": [
-                146
+                147
             ],
             "clientMutationId": [
                 1
@@ -10076,7 +10102,7 @@ module.exports = {
                 1
             ],
             "status": [
-                335
+                336
             ],
             "title": [
                 1
@@ -10151,7 +10177,7 @@ module.exports = {
                 4
             ],
             "categories": [
-                340
+                341
             ],
             "clientMutationId": [
                 1
@@ -10181,7 +10207,7 @@ module.exports = {
                 1
             ],
             "postFormats": [
-                342
+                343
             ],
             "slug": [
                 1
@@ -10190,7 +10216,7 @@ module.exports = {
                 35
             ],
             "tags": [
-                344
+                345
             ],
             "title": [
                 1
@@ -10207,7 +10233,7 @@ module.exports = {
                 3
             ],
             "nodes": [
-                341
+                342
             ],
             "__typename": [
                 1
@@ -10235,7 +10261,7 @@ module.exports = {
                 3
             ],
             "nodes": [
-                343
+                344
             ],
             "__typename": [
                 1
@@ -10263,7 +10289,7 @@ module.exports = {
                 3
             ],
             "nodes": [
-                345
+                346
             ],
             "__typename": [
                 1
@@ -10291,7 +10317,7 @@ module.exports = {
                 1
             ],
             "post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -10322,7 +10348,7 @@ module.exports = {
                 1
             ],
             "postFormat": [
-                175
+                176
             ],
             "__typename": [
                 1
@@ -10353,7 +10379,7 @@ module.exports = {
                 1
             ],
             "tag": [
-                193
+                194
             ],
             "__typename": [
                 1
@@ -10470,7 +10496,7 @@ module.exports = {
         },
         "DeleteCategoryPayload": {
             "category": [
-                146
+                147
             ],
             "clientMutationId": [
                 1
@@ -10588,7 +10614,7 @@ module.exports = {
                 4
             ],
             "post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -10613,7 +10639,7 @@ module.exports = {
                 4
             ],
             "postFormat": [
-                175
+                176
             ],
             "__typename": [
                 1
@@ -10638,7 +10664,7 @@ module.exports = {
                 4
             ],
             "tag": [
-                193
+                194
             ],
             "__typename": [
                 1
@@ -10885,7 +10911,7 @@ module.exports = {
         },
         "UpdateCategoryPayload": {
             "category": [
-                146
+                147
             ],
             "clientMutationId": [
                 1
@@ -10993,7 +11019,7 @@ module.exports = {
                 1
             ],
             "status": [
-                335
+                336
             ],
             "title": [
                 1
@@ -11070,7 +11096,7 @@ module.exports = {
                 4
             ],
             "categories": [
-                340
+                341
             ],
             "clientMutationId": [
                 1
@@ -11103,7 +11129,7 @@ module.exports = {
                 1
             ],
             "postFormats": [
-                342
+                343
             ],
             "slug": [
                 1
@@ -11112,7 +11138,7 @@ module.exports = {
                 35
             ],
             "tags": [
-                344
+                345
             ],
             "title": [
                 1
@@ -11129,7 +11155,7 @@ module.exports = {
                 1
             ],
             "post": [
-                138
+                139
             ],
             "__typename": [
                 1
@@ -11163,7 +11189,7 @@ module.exports = {
                 1
             ],
             "postFormat": [
-                175
+                176
             ],
             "__typename": [
                 1
@@ -11239,16 +11265,16 @@ module.exports = {
                 1
             ],
             "discussionSettings": [
-                242
-            ],
-            "generalSettings": [
                 243
             ],
+            "generalSettings": [
+                244
+            ],
             "readingSettings": [
-                292
+                293
             ],
             "writingSettings": [
-                327
+                328
             ],
             "__typename": [
                 1
@@ -11282,7 +11308,7 @@ module.exports = {
                 1
             ],
             "tag": [
-                193
+                194
             ],
             "__typename": [
                 1
@@ -11440,7 +11466,7 @@ module.exports = {
                 }
             ],
             "banners": [
-                224,
+                225,
                 {
                     "first": [
                         2
@@ -11455,12 +11481,12 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        223
+                        224
                     ]
                 }
             ],
             "categories": [
-                228,
+                229,
                 {
                     "first": [
                         2
@@ -11475,19 +11501,19 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        227
+                        228
                     ]
                 }
             ],
             "category": [
-                146,
+                147,
                 {
                     "id": [
                         4,
                         "ID!"
                     ],
                     "idType": [
-                        230
+                        231
                     ]
                 }
             ],
@@ -11499,12 +11525,12 @@ module.exports = {
                         "ID!"
                     ],
                     "idType": [
-                        231
+                        232
                     ]
                 }
             ],
             "comments": [
-                233,
+                234,
                 {
                     "first": [
                         2
@@ -11519,7 +11545,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        232
+                        233
                     ]
                 }
             ],
@@ -11531,7 +11557,7 @@ module.exports = {
                         "ID!"
                     ],
                     "idType": [
-                        235
+                        236
                     ],
                     "contentType": [
                         26
@@ -11542,7 +11568,7 @@ module.exports = {
                 }
             ],
             "contentNodes": [
-                237,
+                238,
                 {
                     "first": [
                         2
@@ -11557,7 +11583,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        236
+                        237
                     ]
                 }
             ],
@@ -11569,12 +11595,12 @@ module.exports = {
                         "ID!"
                     ],
                     "idType": [
-                        239
+                        240
                     ]
                 }
             ],
             "contentTypes": [
-                240,
+                241,
                 {
                     "first": [
                         2
@@ -11591,10 +11617,10 @@ module.exports = {
                 }
             ],
             "discussionSettings": [
-                242
+                243
             ],
             "generalSettings": [
-                243
+                244
             ],
             "mediaItem": [
                 80,
@@ -11604,7 +11630,7 @@ module.exports = {
                         "ID!"
                     ],
                     "idType": [
-                        244
+                        245
                     ],
                     "asPreview": [
                         3
@@ -11629,7 +11655,7 @@ module.exports = {
                 }
             ],
             "mediaItems": [
-                246,
+                247,
                 {
                     "first": [
                         2
@@ -11644,56 +11670,36 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        245
+                        246
                     ]
                 }
             ],
             "menu": [
-                249,
+                250,
                 {
                     "id": [
                         4,
                         "ID!"
                     ],
                     "idType": [
-                        248
+                        249
                     ]
                 }
             ],
             "menuItem": [
-                255,
+                256,
                 {
                     "id": [
                         4,
                         "ID!"
                     ],
                     "idType": [
-                        265
-                    ]
-                }
-            ],
-            "menuItems": [
-                267,
-                {
-                    "first": [
-                        2
-                    ],
-                    "last": [
-                        2
-                    ],
-                    "after": [
-                        1
-                    ],
-                    "before": [
-                        1
-                    ],
-                    "where": [
                         266
                     ]
                 }
             ],
-            "menus": [
-                270,
+            "menuItems": [
+                268,
                 {
                     "first": [
                         2
@@ -11708,7 +11714,27 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        269
+                        267
+                    ]
+                }
+            ],
+            "menus": [
+                271,
+                {
+                    "first": [
+                        2
+                    ],
+                    "last": [
+                        2
+                    ],
+                    "after": [
+                        1
+                    ],
+                    "before": [
+                        1
+                    ],
+                    "where": [
+                        270
                     ]
                 }
             ],
@@ -11737,7 +11763,7 @@ module.exports = {
                         "ID!"
                     ],
                     "idType": [
-                        273
+                        274
                     ],
                     "asPreview": [
                         3
@@ -11759,7 +11785,7 @@ module.exports = {
                 }
             ],
             "pages": [
-                275,
+                276,
                 {
                     "first": [
                         2
@@ -11774,12 +11800,12 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        274
+                        275
                     ]
                 }
             ],
             "plugin": [
-                277,
+                278,
                 {
                     "id": [
                         4,
@@ -11788,7 +11814,7 @@ module.exports = {
                 }
             ],
             "plugins": [
-                280,
+                281,
                 {
                     "first": [
                         2
@@ -11803,19 +11829,19 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        278
+                        279
                     ]
                 }
             ],
             "post": [
-                138,
+                139,
                 {
                     "id": [
                         4,
                         "ID!"
                     ],
                     "idType": [
-                        284
+                        285
                     ],
                     "asPreview": [
                         3
@@ -11823,7 +11849,7 @@ module.exports = {
                 }
             ],
             "postBy": [
-                138,
+                139,
                 {
                     "id": [
                         4
@@ -11840,39 +11866,19 @@ module.exports = {
                 }
             ],
             "postFormat": [
-                175,
+                176,
                 {
                     "id": [
                         4,
                         "ID!"
                     ],
                     "idType": [
-                        285
-                    ]
-                }
-            ],
-            "postFormats": [
-                287,
-                {
-                    "first": [
-                        2
-                    ],
-                    "last": [
-                        2
-                    ],
-                    "after": [
-                        1
-                    ],
-                    "before": [
-                        1
-                    ],
-                    "where": [
                         286
                     ]
                 }
             ],
-            "posts": [
-                290,
+            "postFormats": [
+                288,
                 {
                     "first": [
                         2
@@ -11887,15 +11893,35 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        289
+                        287
+                    ]
+                }
+            ],
+            "posts": [
+                291,
+                {
+                    "first": [
+                        2
+                    ],
+                    "last": [
+                        2
+                    ],
+                    "after": [
+                        1
+                    ],
+                    "before": [
+                        1
+                    ],
+                    "where": [
+                        290
                     ]
                 }
             ],
             "readingSettings": [
-                292
+                293
             ],
             "registeredScripts": [
-                293,
+                294,
                 {
                     "first": [
                         2
@@ -11912,7 +11938,7 @@ module.exports = {
                 }
             ],
             "registeredStylesheets": [
-                295,
+                296,
                 {
                     "first": [
                         2
@@ -11929,7 +11955,7 @@ module.exports = {
                 }
             ],
             "revisions": [
-                298,
+                299,
                 {
                     "first": [
                         2
@@ -11944,24 +11970,24 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        297
+                        298
                     ]
                 }
             ],
             "tag": [
-                193,
+                194,
                 {
                     "id": [
                         4,
                         "ID!"
                     ],
                     "idType": [
-                        300
+                        301
                     ]
                 }
             ],
             "tags": [
-                302,
+                303,
                 {
                     "first": [
                         2
@@ -11976,12 +12002,12 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        301
+                        302
                     ]
                 }
             ],
             "taxonomies": [
-                304,
+                305,
                 {
                     "first": [
                         2
@@ -12005,27 +12031,27 @@ module.exports = {
                         "ID!"
                     ],
                     "idType": [
-                        306
+                        307
                     ]
                 }
             ],
             "termNode": [
-                147,
+                148,
                 {
                     "id": [
                         4,
                         "ID!"
                     ],
                     "idType": [
-                        307
+                        308
                     ],
                     "taxonomy": [
-                        204
+                        205
                     ]
                 }
             ],
             "terms": [
-                309,
+                310,
                 {
                     "first": [
                         2
@@ -12040,12 +12066,12 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        308
+                        309
                     ]
                 }
             ],
             "theme": [
-                311,
+                312,
                 {
                     "id": [
                         4,
@@ -12054,7 +12080,7 @@ module.exports = {
                 }
             ],
             "themes": [
-                312,
+                313,
                 {
                     "first": [
                         2
@@ -12078,12 +12104,12 @@ module.exports = {
                         "ID!"
                     ],
                     "idType": [
-                        316
+                        317
                     ]
                 }
             ],
             "userRole": [
-                216,
+                217,
                 {
                     "id": [
                         4,
@@ -12092,7 +12118,7 @@ module.exports = {
                 }
             ],
             "userRoles": [
-                317,
+                318,
                 {
                     "first": [
                         2
@@ -12109,7 +12135,7 @@ module.exports = {
                 }
             ],
             "users": [
-                324,
+                325,
                 {
                     "first": [
                         2
@@ -12124,7 +12150,7 @@ module.exports = {
                         1
                     ],
                     "where": [
-                        319
+                        320
                     ]
                 }
             ],
@@ -12132,7 +12158,7 @@ module.exports = {
                 43
             ],
             "writingSettings": [
-                327
+                328
             ],
             "__typename": [
                 1
@@ -12140,163 +12166,163 @@ module.exports = {
         },
         "Mutation": {
             "createBanner": [
-                329,
+                330,
                 {
                     "input": [
-                        328,
+                        329,
                         "CreateBannerInput!"
                     ]
                 }
             ],
             "createCategory": [
-                331,
+                332,
                 {
                     "input": [
-                        330,
+                        331,
                         "CreateCategoryInput!"
                     ]
                 }
             ],
             "createComment": [
-                333,
+                334,
                 {
                     "input": [
-                        332,
+                        333,
                         "CreateCommentInput!"
                     ]
                 }
             ],
             "createMediaItem": [
-                336,
+                337,
                 {
                     "input": [
-                        334,
+                        335,
                         "CreateMediaItemInput!"
                     ]
                 }
             ],
             "createPage": [
-                338,
+                339,
                 {
                     "input": [
-                        337,
+                        338,
                         "CreatePageInput!"
                     ]
                 }
             ],
             "createPost": [
-                346,
+                347,
                 {
                     "input": [
-                        339,
+                        340,
                         "CreatePostInput!"
                     ]
                 }
             ],
             "createPostFormat": [
-                348,
+                349,
                 {
                     "input": [
-                        347,
+                        348,
                         "CreatePostFormatInput!"
                     ]
                 }
             ],
             "createTag": [
-                350,
+                351,
                 {
                     "input": [
-                        349,
+                        350,
                         "CreateTagInput!"
                     ]
                 }
             ],
             "createUser": [
-                352,
+                353,
                 {
                     "input": [
-                        351,
+                        352,
                         "CreateUserInput!"
                     ]
                 }
             ],
             "deleteBanner": [
-                354,
+                355,
                 {
                     "input": [
-                        353,
+                        354,
                         "DeleteBannerInput!"
                     ]
                 }
             ],
             "deleteCategory": [
-                356,
+                357,
                 {
                     "input": [
-                        355,
+                        356,
                         "DeleteCategoryInput!"
                     ]
                 }
             ],
             "deleteComment": [
-                358,
+                359,
                 {
                     "input": [
-                        357,
+                        358,
                         "DeleteCommentInput!"
                     ]
                 }
             ],
             "deleteMediaItem": [
-                360,
+                361,
                 {
                     "input": [
-                        359,
+                        360,
                         "DeleteMediaItemInput!"
                     ]
                 }
             ],
             "deletePage": [
-                362,
+                363,
                 {
                     "input": [
-                        361,
+                        362,
                         "DeletePageInput!"
                     ]
                 }
             ],
             "deletePost": [
-                364,
+                365,
                 {
                     "input": [
-                        363,
+                        364,
                         "DeletePostInput!"
                     ]
                 }
             ],
             "deletePostFormat": [
-                366,
+                367,
                 {
                     "input": [
-                        365,
+                        366,
                         "DeletePostFormatInput!"
                     ]
                 }
             ],
             "deleteTag": [
-                368,
+                369,
                 {
                     "input": [
-                        367,
+                        368,
                         "DeleteTagInput!"
                     ]
                 }
             ],
             "deleteUser": [
-                370,
+                371,
                 {
                     "input": [
-                        369,
+                        370,
                         "DeleteUserInput!"
                     ]
                 }
@@ -12310,127 +12336,127 @@ module.exports = {
                 }
             ],
             "registerUser": [
-                372,
+                373,
                 {
                     "input": [
-                        371,
+                        372,
                         "RegisterUserInput!"
                     ]
                 }
             ],
             "resetUserPassword": [
-                374,
+                375,
                 {
                     "input": [
-                        373,
+                        374,
                         "ResetUserPasswordInput!"
                     ]
                 }
             ],
             "restoreComment": [
-                376,
+                377,
                 {
                     "input": [
-                        375,
+                        376,
                         "RestoreCommentInput!"
                     ]
                 }
             ],
             "sendPasswordResetEmail": [
-                378,
+                379,
                 {
                     "input": [
-                        377,
+                        378,
                         "SendPasswordResetEmailInput!"
                     ]
                 }
             ],
             "updateBanner": [
-                380,
+                381,
                 {
                     "input": [
-                        379,
+                        380,
                         "UpdateBannerInput!"
                     ]
                 }
             ],
             "updateCategory": [
-                382,
+                383,
                 {
                     "input": [
-                        381,
+                        382,
                         "UpdateCategoryInput!"
                     ]
                 }
             ],
             "updateComment": [
-                384,
+                385,
                 {
                     "input": [
-                        383,
+                        384,
                         "UpdateCommentInput!"
                     ]
                 }
             ],
             "updateMediaItem": [
-                386,
+                387,
                 {
                     "input": [
-                        385,
+                        386,
                         "UpdateMediaItemInput!"
                     ]
                 }
             ],
             "updatePage": [
-                388,
+                389,
                 {
                     "input": [
-                        387,
+                        388,
                         "UpdatePageInput!"
                     ]
                 }
             ],
             "updatePost": [
-                390,
+                391,
                 {
                     "input": [
-                        389,
+                        390,
                         "UpdatePostInput!"
                     ]
                 }
             ],
             "updatePostFormat": [
-                392,
+                393,
                 {
                     "input": [
-                        391,
+                        392,
                         "UpdatePostFormatInput!"
                     ]
                 }
             ],
             "updateSettings": [
-                394,
+                395,
                 {
                     "input": [
-                        393,
+                        394,
                         "UpdateSettingsInput!"
                     ]
                 }
             ],
             "updateTag": [
-                396,
+                397,
                 {
                     "input": [
-                        395,
+                        396,
                         "UpdateTagInput!"
                     ]
                 }
             ],
             "updateUser": [
-                398,
+                399,
                 {
                     "input": [
-                        397,
+                        398,
                         "UpdateUserInput!"
                     ]
                 }

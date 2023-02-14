@@ -1,17 +1,24 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 import AboutHome from '../components/layout/AboutHome';
 import EmpSlideHome from '../components/layout/EmpSlideHome';
 import HeroApp from '../components/layout/Hero';
 import NewsletterApp from '../components/layout/Newsletter';
-import { ExecuteAllQuerys } from '../lib/querys';
-import { ApiData } from '../types/apidata';
+import { Page_Conteusobre, RootQueryToBannerConnection } from '../generated';
+import ClientApp from '../lib/genql';
 
-const Home: NextPage<ApiData> = ({ apiData }) => {
+interface Props {
+  data: {
+    about: Page_Conteusobre;
+    banners: RootQueryToBannerConnection;
+  };
+}
+
+const Home: NextPage<Props> = ({ data }) => {
   return (
     <>
-      <HeroApp Banners={apiData.banners} />
+      <HeroApp banners={data.banners} />
       <EmpSlideHome />
-      <AboutHome about={apiData.about.AboutHome} />
+      <AboutHome about={data.about} />
       <NewsletterApp />
     </>
   );
@@ -19,12 +26,66 @@ const Home: NextPage<ApiData> = ({ apiData }) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const response = await ExecuteAllQuerys();
+export const getStaticProps = async () => {
+  const { page, banners } = await ClientApp.query({
+    page: [
+      {
+        id: '2',
+        idType: 'DATABASE_ID',
+      },
+      {
+        conteuSobre: {
+          tituloSobreHome: true,
+          descricaoSobreHome: true,
+          imagem1: {
+            sourceUrl: true,
+          },
+          imagem2: {
+            sourceUrl: true,
+          },
+        },
+      },
+    ],
+    banners: {
+      nodes: {
+        banner_home: {
+          bhConteudo: {
+            bhImagemDesktop: {
+              sourceUrl: true,
+            },
+            bhImagemMobile: {
+              sourceUrl: true,
+            },
+            bhLinkBanner: true,
+            bhMetrosQuadrado: true,
+            bhMetrosQuadradoMaior: true,
+            bhNomeDoEmpreendimento: true,
+            bhNovaAba: true,
+            bhQuantDormitorios: true,
+            bhQuantVagasGaragem: true,
+            bhTextoDoBotao: true,
+          },
+          imagensProntas: {
+            abrirEmUmaNovaAba: true,
+            linkDoBannerP: true,
+            imagemMobileP: {
+              sourceUrl: true,
+            },
+            imagemDesktopP: {
+              sourceUrl: true,
+            },
+          },
+        },
+      },
+    },
+  });
 
   return {
     props: {
-      apiData: response,
+      data: {
+        about: page?.conteuSobre,
+        banners: banners,
+      },
     },
     revalidate: 30,
   };

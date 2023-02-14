@@ -4563,6 +4563,11 @@ type Page implements Node & ContentNode & UniformResourceIdentifiable & Database
     where: HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs
   ): HierarchicalContentNodeToContentNodeAncestorsConnection
 
+  """
+  Added to the GraphQL Schema because the ACF Field Group &quot;Assessoria&quot; was set to Show in GraphQL.
+  """
+  assessoria: Page_Assessoria
+
   """Connection between the NodeWithAuthor type and the User type"""
   author: NodeWithAuthorToUserConnectionEdge
 
@@ -4950,6 +4955,30 @@ interface MenuItemLinkable implements Node & UniformResourceIdentifiable & Datab
   uri: String
 }
 
+"""Field Group"""
+type Page_Assessoria implements AcfFieldGroup {
+  """"""
+  assEmail: String
+
+  """"""
+  assInformacoes: String
+
+  """"""
+  assNometitulo: String
+
+  """"""
+  assTelefone: String
+
+  """The name of the ACF Field Group"""
+  fieldGroupName: String
+}
+
+"""A Field Group registered by ACF"""
+interface AcfFieldGroup {
+  """The name of the ACF Field Group"""
+  fieldGroupName: String
+}
+
 """Arguments for filtering the PageToCommentConnection connection"""
 input PageToCommentConnectionWhereArgs {
   """Comment author email address."""
@@ -5118,12 +5147,6 @@ type Page_Conteusobre implements AcfFieldGroup {
 
   """"""
   tituloVideo: String
-}
-
-"""A Field Group registered by ACF"""
-interface AcfFieldGroup {
-  """The name of the ACF Field Group"""
-  fieldGroupName: String
 }
 
 """Field Group"""

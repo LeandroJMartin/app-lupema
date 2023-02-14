@@ -29,7 +29,7 @@ const TimeLine = ({ prop }: Prop) => {
             index % 2 === 0 ? 'order-1' : 'order-3'
           }`}
         >
-          <span className={`block text-xl font-medium text-green py-4 `}>
+          <span className={`block text-xl font-medium text-green py-4 px-3`}>
             {item?.nomeDoEmpreendimento}
           </span>
         </div>

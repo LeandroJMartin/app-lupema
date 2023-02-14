@@ -751,6 +751,22 @@ module.exports.isMenuItemLinkable = function(obj) {
 
 
 
+var Page_Assessoria_possibleTypes = ['Page_Assessoria']
+module.exports.isPage_Assessoria = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isPage_Assessoria"')
+  return Page_Assessoria_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var AcfFieldGroup_possibleTypes = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
+module.exports.isAcfFieldGroup = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isAcfFieldGroup"')
+  return AcfFieldGroup_possibleTypes.includes(obj.__typename)
+}
+
+
+
 var PageToCommentConnection_possibleTypes = ['PageToCommentConnection']
 module.exports.isPageToCommentConnection = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isPageToCommentConnection"')
@@ -771,14 +787,6 @@ var Page_Conteusobre_possibleTypes = ['Page_Conteusobre']
 module.exports.isPage_Conteusobre = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isPage_Conteusobre"')
   return Page_Conteusobre_possibleTypes.includes(obj.__typename)
-}
-
-
-
-var AcfFieldGroup_possibleTypes = ['Page_Conteusobre','Page_Conteusobre_item','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
-module.exports.isAcfFieldGroup = function(obj) {
-  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isAcfFieldGroup"')
-  return AcfFieldGroup_possibleTypes.includes(obj.__typename)
 }
 
 

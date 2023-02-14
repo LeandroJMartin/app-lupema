@@ -1362,6 +1362,8 @@ export type PageConnectionEdge = (PageToPreviewConnectionEdge | PageToRevisionCo
 export interface Page {
     /** Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root). */
     ancestors?: HierarchicalContentNodeToContentNodeAncestorsConnection
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Assessoria&quot; was set to Show in GraphQL. */
+    assessoria?: Page_Assessoria
     /** Connection between the NodeWithAuthor type and the User type */
     author?: NodeWithAuthorToUserConnectionEdge
     /** The database identifier of the author of the node */
@@ -1515,6 +1517,22 @@ export type NodeWithPageAttributes = (Page) & { __isUnion?: true }
 export type MenuItemLinkable = (Banner | Page | Post | Category | Tag) & { __isUnion?: true }
 
 
+/** Field Group */
+export interface Page_Assessoria {
+    assEmail?: Scalars['String']
+    assInformacoes?: Scalars['String']
+    assNometitulo?: Scalars['String']
+    assTelefone?: Scalars['String']
+    /** The name of the ACF Field Group */
+    fieldGroupName?: Scalars['String']
+    __typename: 'Page_Assessoria'
+}
+
+
+/** A Field Group registered by ACF */
+export type AcfFieldGroup = (Page_Assessoria | Page_Conteusobre | Page_Conteusobre_item | Banner_BannerHome | Banner_BannerHome_BhConteudo | Banner_BannerHome_ImagensProntas) & { __isUnion?: true }
+
+
 /** Connection between the Page type and the Comment type */
 export interface PageToCommentConnection {
     /** Edges for the PageToCommentConnection connection */
@@ -1558,10 +1576,6 @@ export interface Page_Conteusobre {
     tituloVideo?: Scalars['String']
     __typename: 'Page_Conteusobre'
 }
-
-
-/** A Field Group registered by ACF */
-export type AcfFieldGroup = (Page_Conteusobre | Page_Conteusobre_item | Banner_BannerHome | Banner_BannerHome_BhConteudo | Banner_BannerHome_ImagensProntas) & { __isUnion?: true }
 
 
 /** Field Group */
@@ -6933,6 +6947,8 @@ export interface PageRequest{
     before?: (Scalars['String'] | null),
     /** Arguments for filtering the connection */
     where?: (HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs | null)},HierarchicalContentNodeToContentNodeAncestorsConnectionRequest] | HierarchicalContentNodeToContentNodeAncestorsConnectionRequest
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Assessoria&quot; was set to Show in GraphQL. */
+    assessoria?: Page_AssessoriaRequest
     /** Connection between the NodeWithAuthor type and the User type */
     author?: NodeWithAuthorToUserConnectionEdgeRequest
     /** The database identifier of the author of the node */
@@ -7212,6 +7228,34 @@ export interface MenuItemLinkableRequest{
 }
 
 
+/** Field Group */
+export interface Page_AssessoriaRequest{
+    assEmail?: boolean | number
+    assInformacoes?: boolean | number
+    assNometitulo?: boolean | number
+    assTelefone?: boolean | number
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A Field Group registered by ACF */
+export interface AcfFieldGroupRequest{
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    on_Page_Assessoria?: Page_AssessoriaRequest
+    on_Page_Conteusobre?: Page_ConteusobreRequest
+    on_Page_Conteusobre_item?: Page_Conteusobre_itemRequest
+    on_Banner_BannerHome?: Banner_BannerHomeRequest
+    on_Banner_BannerHome_BhConteudo?: Banner_BannerHome_BhConteudoRequest
+    on_Banner_BannerHome_ImagensProntas?: Banner_BannerHome_ImagensProntasRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Arguments for filtering the PageToCommentConnection connection */
 export interface PageToCommentConnectionWhereArgs {
 /** Comment author email address. */
@@ -7317,20 +7361,6 @@ export interface Page_ConteusobreRequest{
     tituloLstore?: boolean | number
     tituloSobreHome?: boolean | number
     tituloVideo?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** A Field Group registered by ACF */
-export interface AcfFieldGroupRequest{
-    /** The name of the ACF Field Group */
-    fieldGroupName?: boolean | number
-    on_Page_Conteusobre?: Page_ConteusobreRequest
-    on_Page_Conteusobre_item?: Page_Conteusobre_itemRequest
-    on_Banner_BannerHome?: Banner_BannerHomeRequest
-    on_Banner_BannerHome_BhConteudo?: Banner_BannerHome_BhConteudoRequest
-    on_Banner_BannerHome_ImagensProntas?: Banner_BannerHome_ImagensProntasRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -13249,6 +13279,22 @@ export const isMenuItemLinkable = (obj?: { __typename?: any } | null): obj is Me
 
 
 
+const Page_Assessoria_possibleTypes: string[] = ['Page_Assessoria']
+export const isPage_Assessoria = (obj?: { __typename?: any } | null): obj is Page_Assessoria => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPage_Assessoria"')
+  return Page_Assessoria_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const AcfFieldGroup_possibleTypes: string[] = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
+export const isAcfFieldGroup = (obj?: { __typename?: any } | null): obj is AcfFieldGroup => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isAcfFieldGroup"')
+  return AcfFieldGroup_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const PageToCommentConnection_possibleTypes: string[] = ['PageToCommentConnection']
 export const isPageToCommentConnection = (obj?: { __typename?: any } | null): obj is PageToCommentConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPageToCommentConnection"')
@@ -13269,14 +13315,6 @@ const Page_Conteusobre_possibleTypes: string[] = ['Page_Conteusobre']
 export const isPage_Conteusobre = (obj?: { __typename?: any } | null): obj is Page_Conteusobre => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPage_Conteusobre"')
   return Page_Conteusobre_possibleTypes.includes(obj.__typename)
-}
-
-
-
-const AcfFieldGroup_possibleTypes: string[] = ['Page_Conteusobre','Page_Conteusobre_item','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
-export const isAcfFieldGroup = (obj?: { __typename?: any } | null): obj is AcfFieldGroup => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isAcfFieldGroup"')
-  return AcfFieldGroup_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -20047,6 +20085,9 @@ before?: (Scalars['String'] | null),
 /** Arguments for filtering the connection */
 where?: (HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs | null)}) => HierarchicalContentNodeToContentNodeAncestorsConnectionPromiseChain & {get: <R extends HierarchicalContentNodeToContentNodeAncestorsConnectionRequest>(request: R, defaultValue?: (FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnection, R> | undefined)) => Promise<(FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnection, R> | undefined)>})&(HierarchicalContentNodeToContentNodeAncestorsConnectionPromiseChain & {get: <R extends HierarchicalContentNodeToContentNodeAncestorsConnectionRequest>(request: R, defaultValue?: (FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnection, R> | undefined)) => Promise<(FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnection, R> | undefined)>}),
     
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Assessoria&quot; was set to Show in GraphQL. */
+assessoria: (Page_AssessoriaPromiseChain & {get: <R extends Page_AssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<Page_Assessoria, R> | undefined)) => Promise<(FieldsSelection<Page_Assessoria, R> | undefined)>}),
+    
 /** Connection between the NodeWithAuthor type and the User type */
 author: (NodeWithAuthorToUserConnectionEdgePromiseChain & {get: <R extends NodeWithAuthorToUserConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<NodeWithAuthorToUserConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<NodeWithAuthorToUserConnectionEdge, R> | undefined)>}),
     
@@ -20270,6 +20311,9 @@ after?: (Scalars['String'] | null),
 before?: (Scalars['String'] | null),
 /** Arguments for filtering the connection */
 where?: (HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs | null)}) => HierarchicalContentNodeToContentNodeAncestorsConnectionObservableChain & {get: <R extends HierarchicalContentNodeToContentNodeAncestorsConnectionRequest>(request: R, defaultValue?: (FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnection, R> | undefined)) => Observable<(FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnection, R> | undefined)>})&(HierarchicalContentNodeToContentNodeAncestorsConnectionObservableChain & {get: <R extends HierarchicalContentNodeToContentNodeAncestorsConnectionRequest>(request: R, defaultValue?: (FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnection, R> | undefined)) => Observable<(FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnection, R> | undefined)>}),
+    
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Assessoria&quot; was set to Show in GraphQL. */
+assessoria: (Page_AssessoriaObservableChain & {get: <R extends Page_AssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<Page_Assessoria, R> | undefined)) => Observable<(FieldsSelection<Page_Assessoria, R> | undefined)>}),
     
 /** Connection between the NodeWithAuthor type and the User type */
 author: (NodeWithAuthorToUserConnectionEdgeObservableChain & {get: <R extends NodeWithAuthorToUserConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<NodeWithAuthorToUserConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<NodeWithAuthorToUserConnectionEdge, R> | undefined)>}),
@@ -20701,6 +20745,46 @@ uri: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undef
 }
 
 
+/** Field Group */
+export interface Page_AssessoriaPromiseChain{
+    assEmail: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    assInformacoes: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    assNometitulo: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    assTelefone: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Page_AssessoriaObservableChain{
+    assEmail: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    assInformacoes: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    assNometitulo: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    assTelefone: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** A Field Group registered by ACF */
+export interface AcfFieldGroupPromiseChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** A Field Group registered by ACF */
+export interface AcfFieldGroupObservableChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the Page type and the Comment type */
 export interface PageToCommentConnectionPromiseChain{
     
@@ -20794,22 +20878,6 @@ fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['Strin
     tituloLstore: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     tituloSobreHome: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     tituloVideo: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-
-/** A Field Group registered by ACF */
-export interface AcfFieldGroupPromiseChain{
-    
-/** The name of the ACF Field Group */
-fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-
-/** A Field Group registered by ACF */
-export interface AcfFieldGroupObservableChain{
-    
-/** The name of the ACF Field Group */
-fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 

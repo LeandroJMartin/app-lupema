@@ -34,31 +34,31 @@ const FooterApp = () => {
         <div className="space-y-3">
           <h2 className="text-green text-lg">Fale com a Lupema</h2>
           <Link
-            href="/empreendimentos/?concluido"
+            href="/empreendimentos/concluido"
             className="block hover:text-green"
           >
             Concluído
           </Link>
           <Link
-            href="/empreendimentos/?em-andamento"
+            href="/empreendimentos/em-andamento"
             className="block hover:text-green"
           >
             Em Andamento
           </Link>
           <Link
-            href="/empreendimentos/?lancamento"
+            href="/empreendimentos/lancamento"
             className="block hover:text-green"
           >
             Lançamento
           </Link>
           <Link
-            href="/empreendimentos/?pronto-para-morar"
+            href="/empreendimentos/pronto-para-morar"
             className="block hover:text-green"
           >
             Pronto para Morar
           </Link>
           <Link
-            href="/empreendimentos/?breve-lancamento"
+            href="/empreendimentos/breve-lancamento"
             className="block hover:text-green"
           >
             Breve Lançamento
@@ -66,66 +66,45 @@ const FooterApp = () => {
         </div>
         <div className="space-y-3">
           <Link
-            href="/empreendimentos/?concluido"
+            href="/politica-de-privacidade"
             className="block hover:text-green"
           >
-            Concluído
+            Política de privacidade
           </Link>
-          <Link
-            href="/empreendimentos/?em-andamento"
-            className="block hover:text-green"
-          >
-            Em Andamento
+          <Link href="/codigo-de-etica" className="block hover:text-green">
+            Código de ética
           </Link>
-          <Link
-            href="/empreendimentos/?lancamento"
-            className="block hover:text-green"
-          >
-            Lançamento
+          <Link href="/termos-de-uso" className="block hover:text-green">
+            Termos de uso
           </Link>
-          <Link
-            href="/empreendimentos/?pronto-para-morar"
-            className="block hover:text-green"
-          >
-            Pronto para Morar
+          <Link href="/protecao-de-dados" className="block hover:text-green">
+            Proteção de dados
           </Link>
-          <Link
-            href="/empreendimentos/?breve-lancamento"
-            className="block hover:text-green"
-          >
-            Breve Lançamento
+          <Link href="/informacoes-legais" className="block hover:text-green">
+            Informações legais
           </Link>
         </div>
         <div className="space-y-3">
-          <Link
-            href="/empreendimentos/?concluido"
-            className="block hover:text-green"
-          >
-            Concluído
+          <Link href="/trabalhe-conosco" className="block hover:text-green">
+            Trabalhe conosco
+          </Link>
+          <Link href="/seja-nosso-forncedor" className="block hover:text-green">
+            Seja nosso fornecedor
           </Link>
           <Link
-            href="/empreendimentos/?em-andamento"
+            href="/cadastro-de-corretores"
             className="block hover:text-green"
           >
-            Em Andamento
+            Cadastro de corretores
           </Link>
-          <Link
-            href="/empreendimentos/?lancamento"
-            className="block hover:text-green"
-          >
-            Lançamento
+          <Link href="/central-de-vizinhos" className="block hover:text-green">
+            Central de vizinhos
           </Link>
-          <Link
-            href="/empreendimentos/?pronto-para-morar"
-            className="block hover:text-green"
-          >
-            Pronto para Morar
+          <Link href="/ofereca-sua-area" className="block hover:text-green">
+            Ofereça sua área
           </Link>
-          <Link
-            href="/empreendimentos/?breve-lancamento"
-            className="block hover:text-green"
-          >
-            Breve Lançamento
+          <Link href="/imprensa" className="block hover:text-green">
+            Imprensa
           </Link>
         </div>
         <div>

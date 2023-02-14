@@ -1,16 +1,17 @@
-import { InferGetStaticPropsType, NextPage } from 'next';
+import { NextPage } from 'next';
 import Image from 'next/image';
 import VideoApp from '../components/layout/Video';
 import ClientApp from '../lib/genql';
 import ImgVideo from '../../public/video.jpeg';
 import TimeLine from '../components/layout/TimeLine';
 import { Page_Conteusobre } from '../generated';
+import Link from 'next/link';
 
 export interface PropsAbout {
   data: Page_Conteusobre;
 }
 
-const Home: NextPage<PropsAbout> = ({ data }) => {
+const Alupema: NextPage<PropsAbout> = ({ data }) => {
   return (
     <>
       <section className="container mt-[100px] sm:mt-[74px] py-[40px] md:py-[80px]">
@@ -60,10 +61,10 @@ const Home: NextPage<PropsAbout> = ({ data }) => {
       <section>
         <div className="bg-bgVideoAbout bg-no-repeat bg-cover pb-[80px]">
           <div className="container py-[40px] md:py-[80px]">
-            <h1 className="text-green font-bold text-[4.5rem] text-center">
+            <h1 className="text-green font-bold text-[2.5rem] md:text-[4.5rem] text-center">
               {data?.tituloVideo}
             </h1>
-            <div className="w-[75%] mx-auto mt-6">
+            <div className="w-full sm:w-[75%] mx-auto mt-6">
               <p
                 dangerouslySetInnerHTML={{
                   __html: data?.descricaoVideo || '',
@@ -76,21 +77,37 @@ const Home: NextPage<PropsAbout> = ({ data }) => {
         {data?.linkDoVideo ? (
           <VideoApp embedLink={data?.linkDoVideo} />
         ) : (
-          <div className="w-[800px] h-[485px] relative mx-auto mt-[-140px]">
+          <div className="w-full lg:w-[800px] h-[485px] relative mx-auto mt-[-140px]">
             <Image src={ImgVideo} fill className="object-cover" alt="Video" />
           </div>
         )}
       </section>
 
-      <section className="py-[40px] md:py-[80px]">
+      <section className="pt-[40px] md:pt-[80px]">
         <h1 className="title">Linha do tempo</h1>
         <TimeLine prop={data} />
+      </section>
+
+      <section className="container pt-[40px] md:pt-[80px]">
+        <h1 className="title">{data.tituloLstore}</h1>
+        <p>{data.descricaoLstore}</p>
+        <div className="relative h-[200px] sm:h-[350px] md:h-[520px] mt-6">
+          <Image
+            src={data.imagembannerDoTourVirtual?.sourceUrl || ''}
+            alt="Image LStore Lupema"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <Link href="/agende-uma-visita" className="button mx-auto my-6">
+          Agende uma visita
+        </Link>
       </section>
     </>
   );
 };
 
-export default Home;
+export default Alupema;
 
 export const getStaticProps = async () => {
   const { page } = await ClientApp.query({

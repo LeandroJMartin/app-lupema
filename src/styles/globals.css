@@ -16,7 +16,7 @@ body {
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2.4rem;
   color: #729f2d;
   text-align: center;
   font-weight: 300;
@@ -34,7 +34,7 @@ body {
   font-weight: 700;
   text-align: center;
   background-color: transparent;
-  transition: all 0.3 ease;
+  transition: all .25s ease;
 }
 
 .button:hover {
@@ -135,4 +135,19 @@ button {
 .timeline .arrow-b::before {
   top: 0;
   right: -22px;
+}
+
+input[type=search]{
+  outline: none;
+}
+
+input[type=search]::-ms-clear{
+  transform: translateX(-30px);
+  cursor: pointer;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  transform: translateX(-30px);
+  position: relative;
+  cursor: pointer;
 }

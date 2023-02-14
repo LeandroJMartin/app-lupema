@@ -1,14 +1,14 @@
-import { RootQueryToBannerConnection } from '../../generated/graphql';
+import { RootQueryToBannerConnection } from '../../generated';
 import BannerArt from './BannerArt';
 import BannerCustom from './BannerCustom';
 import SlideApp from './Slide';
 
 interface Props {
-  Banners: RootQueryToBannerConnection | undefined;
+  banners: RootQueryToBannerConnection | undefined;
 }
 
-const HeroApp = ({ Banners }: Props) => {
-  const items = Banners?.nodes.map((item) => {
+const HeroApp = ({ banners }: Props) => {
+  const items = banners?.nodes?.map((item) => {
     if (item.banner_home?.bannerPronto === true) {
       return <BannerArt content={item.banner_home.imagensProntas} />;
     } else {
