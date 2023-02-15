@@ -13,6 +13,15 @@ export type Scalars = {
 export interface RootQuery {
     /** Entry point to get all settings for the site */
     allSettings?: Settings
+    /** An object of the ArquivoAssessoria Type.  */
+    arquivoAssessoria?: ArquivoAssessoria
+    /**
+     * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
+     * A ArquivoAssessoria object
+     */
+    arquivoAssessoriaBy?: ArquivoAssessoria
+    /** Connection between the RootQuery type and the ArquivoAssessoria type */
+    arquivosAssessoria?: RootQueryToArquivoAssessoriaConnection
     /** An object of the Banner Type.  */
     banner?: Banner
     /**
@@ -172,18 +181,16 @@ export interface Settings {
 
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export type BannerIdType = 'DATABASE_ID' | 'ID' | 'SLUG' | 'URI'
+export type ArquivoAssessoriaIdType = 'DATABASE_ID' | 'ID' | 'SLUG' | 'URI'
 
 
-/** The Banner type */
-export interface Banner {
+/** The ArquivoAssessoria type */
+export interface ArquivoAssessoria {
     /**
      * @deprecated Deprecated in favor of the databaseId field
      * The id field matches the WP_Post-&gt;ID field.
      */
-    bannerId: Scalars['Int']
-    /** Added to the GraphQL Schema because the ACF Field Group &quot;Banner_home&quot; was set to Show in GraphQL. */
-    banner_home?: Banner_BannerHome
+    arquivoAssessoriaId: Scalars['Int']
     /** Connection between the ContentNode type and the ContentType type */
     contentType?: ContentNodeToContentTypeConnectionEdge
     /** The name of the Content Type the node belongs to */
@@ -196,6 +203,8 @@ export interface Banner {
     dateGmt?: Scalars['String']
     /** The desired slug of the post */
     desiredSlug?: Scalars['String']
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Arquivos download&quot; was set to Show in GraphQL. */
+    down_assessoria?: ArquivoAssessoria_DownAssessoria
     /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
     editingLockedBy?: ContentNodeToEditLockConnectionEdge
     /** The RSS enclosure for the object */
@@ -206,7 +215,7 @@ export interface Banner {
     enqueuedStylesheets?: ContentNodeToEnqueuedStylesheetConnection
     /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
     guid?: Scalars['String']
-    /** The globally unique identifier of the banner_home object. */
+    /** The globally unique identifier of the arq_assessoria object. */
     id: Scalars['ID']
     /** Whether the node is a Content Node */
     isContentNode: Scalars['Boolean']
@@ -224,8 +233,8 @@ export interface Banner {
     modified?: Scalars['String']
     /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
     modifiedGmt?: Scalars['String']
-    /** Connection between the Banner type and the Banner type */
-    preview?: BannerToPreviewConnectionEdge
+    /** Connection between the ArquivoAssessoria type and the ArquivoAssessoria type */
+    preview?: ArquivoAssessoriaToPreviewConnectionEdge
     /** The database id of the preview node */
     previewRevisionDatabaseId?: Scalars['Int']
     /** Whether the object is a node in the preview state */
@@ -240,20 +249,20 @@ export interface Banner {
     title?: Scalars['String']
     /** The unique resource identifier path */
     uri?: Scalars['String']
-    __typename: 'Banner'
+    __typename: 'ArquivoAssessoria'
 }
 
 
 /** An object with an ID */
-export type Node = (Banner | ContentType | Taxonomy | User | Comment | EnqueuedScript | EnqueuedStylesheet | MediaItem | Page | Post | Category | PostFormat | Tag | UserRole | Menu | MenuItem | Plugin | Theme | CommentAuthor) & { __isUnion?: true }
+export type Node = (ArquivoAssessoria | ContentType | Taxonomy | User | Comment | EnqueuedScript | EnqueuedStylesheet | MediaItem | Page | Post | Category | PostFormat | Tag | UserRole | Banner | Menu | MenuItem | Plugin | Theme | CommentAuthor) & { __isUnion?: true }
 
 
 /** Nodes used to manage content */
-export type ContentNode = (Banner | MediaItem | Page | Post) & { __isUnion?: true }
+export type ContentNode = (ArquivoAssessoria | MediaItem | Page | Post | Banner) & { __isUnion?: true }
 
 
 /** Any node that has a URI */
-export type UniformResourceIdentifiable = (Banner | ContentType | User | MediaItem | Page | Post | Category | PostFormat | Tag) & { __isUnion?: true }
+export type UniformResourceIdentifiable = (ArquivoAssessoria | ContentType | User | MediaItem | Page | Post | Category | PostFormat | Tag | Banner) & { __isUnion?: true }
 
 
 /** Connection between the ContentNode type and the ContentType type */
@@ -267,11 +276,11 @@ export interface ContentNodeToContentTypeConnectionEdge {
 
 
 /** A singular connection from one Node to another, with support for relational data on the &quot;edge&quot; of the connection. */
-export type OneToOneConnection = (ContentNodeToContentTypeConnectionEdge | ContentNodeToEditLockConnectionEdge | CommentToCommenterConnectionEdge | CommentToContentNodeConnectionEdge | CommentToParentCommentConnectionEdge | NodeWithAuthorToUserConnectionEdge | ContentNodeToEditLastConnectionEdge | HierarchicalContentNodeToParentContentNodeConnectionEdge | NodeWithFeaturedImageToMediaItemConnectionEdge | NodeWithRevisionsToContentNodeConnectionEdge | PageToPreviewConnectionEdge | CategoryToParentCategoryConnectionEdge | CategoryToTaxonomyConnectionEdge | PostFormatToTaxonomyConnectionEdge | PostToPreviewConnectionEdge | TagToTaxonomyConnectionEdge | BannerToPreviewConnectionEdge | MenuItemToMenuItemLinkableConnectionEdge | MenuItemToMenuConnectionEdge) & { __isUnion?: true }
+export type OneToOneConnection = (ContentNodeToContentTypeConnectionEdge | ContentNodeToEditLockConnectionEdge | CommentToCommenterConnectionEdge | CommentToContentNodeConnectionEdge | CommentToParentCommentConnectionEdge | NodeWithAuthorToUserConnectionEdge | ContentNodeToEditLastConnectionEdge | HierarchicalContentNodeToParentContentNodeConnectionEdge | NodeWithFeaturedImageToMediaItemConnectionEdge | NodeWithRevisionsToContentNodeConnectionEdge | PageToPreviewConnectionEdge | CategoryToParentCategoryConnectionEdge | CategoryToTaxonomyConnectionEdge | PostFormatToTaxonomyConnectionEdge | PostToPreviewConnectionEdge | TagToTaxonomyConnectionEdge | ArquivoAssessoriaToPreviewConnectionEdge | BannerToPreviewConnectionEdge | MenuItemToMenuItemLinkableConnectionEdge | MenuItemToMenuConnectionEdge) & { __isUnion?: true }
 
 
 /** Relational context between connected nodes */
-export type Edge = (ContentNodeToContentTypeConnectionEdge | TaxonomyToContentTypeConnectionEdge | ContentTypeToTaxonomyConnectionEdge | ContentTypeToContentNodeConnectionEdge | ContentNodeToEditLockConnectionEdge | CommentToCommenterConnectionEdge | CommentToContentNodeConnectionEdge | CommentToParentCommentConnectionEdge | CommentToCommentConnectionEdge | UserToCommentConnectionEdge | UserToEnqueuedScriptConnectionEdge | UserToEnqueuedStylesheetConnectionEdge | NodeWithAuthorToUserConnectionEdge | HierarchicalContentNodeToContentNodeAncestorsConnectionEdge | HierarchicalContentNodeToContentNodeChildrenConnectionEdge | ContentNodeToEnqueuedScriptConnectionEdge | ContentNodeToEnqueuedStylesheetConnectionEdge | ContentNodeToEditLastConnectionEdge | HierarchicalContentNodeToParentContentNodeConnectionEdge | MediaItemToCommentConnectionEdge | UserToMediaItemConnectionEdge | NodeWithFeaturedImageToMediaItemConnectionEdge | NodeWithRevisionsToContentNodeConnectionEdge | PageToCommentConnectionEdge | PageToPreviewConnectionEdge | PageToRevisionConnectionEdge | UserToPageConnectionEdge | TermNodeToEnqueuedScriptConnectionEdge | TermNodeToEnqueuedStylesheetConnectionEdge | CategoryToAncestorsCategoryConnectionEdge | CategoryToCategoryConnectionEdge | CategoryToContentNodeConnectionEdge | CategoryToParentCategoryConnectionEdge | CategoryToPostConnectionEdge | CategoryToTaxonomyConnectionEdge | PostToCategoryConnectionEdge | PostToCommentConnectionEdge | PostFormatToContentNodeConnectionEdge | PostFormatToPostConnectionEdge | PostFormatToTaxonomyConnectionEdge | PostToPostFormatConnectionEdge | PostToPreviewConnectionEdge | PostToRevisionConnectionEdge | TagToContentNodeConnectionEdge | TagToPostConnectionEdge | TagToTaxonomyConnectionEdge | PostToTagConnectionEdge | PostToTermNodeConnectionEdge | UserToPostConnectionEdge | UserToRevisionsConnectionEdge | UserToUserRoleConnectionEdge | BannerToPreviewConnectionEdge | RootQueryToBannerConnectionEdge | RootQueryToCategoryConnectionEdge | RootQueryToCommentConnectionEdge | RootQueryToContentNodeConnectionEdge | RootQueryToContentTypeConnectionEdge | RootQueryToMediaItemConnectionEdge | MenuItemToMenuItemConnectionEdge | MenuItemToMenuItemLinkableConnectionEdge | MenuItemToMenuConnectionEdge | MenuToMenuItemConnectionEdge | RootQueryToMenuItemConnectionEdge | RootQueryToMenuConnectionEdge | RootQueryToPageConnectionEdge | RootQueryToPluginConnectionEdge | RootQueryToPostFormatConnectionEdge | RootQueryToPostConnectionEdge | RootQueryToEnqueuedScriptConnectionEdge | RootQueryToEnqueuedStylesheetConnectionEdge | RootQueryToRevisionsConnectionEdge | RootQueryToTagConnectionEdge | RootQueryToTaxonomyConnectionEdge | RootQueryToTermNodeConnectionEdge | RootQueryToThemeConnectionEdge | RootQueryToUserRoleConnectionEdge | RootQueryToUserConnectionEdge) & { __isUnion?: true }
+export type Edge = (ContentNodeToContentTypeConnectionEdge | TaxonomyToContentTypeConnectionEdge | ContentTypeToTaxonomyConnectionEdge | ContentTypeToContentNodeConnectionEdge | ContentNodeToEditLockConnectionEdge | CommentToCommenterConnectionEdge | CommentToContentNodeConnectionEdge | CommentToParentCommentConnectionEdge | CommentToCommentConnectionEdge | UserToCommentConnectionEdge | UserToEnqueuedScriptConnectionEdge | UserToEnqueuedStylesheetConnectionEdge | NodeWithAuthorToUserConnectionEdge | HierarchicalContentNodeToContentNodeAncestorsConnectionEdge | HierarchicalContentNodeToContentNodeChildrenConnectionEdge | ContentNodeToEnqueuedScriptConnectionEdge | ContentNodeToEnqueuedStylesheetConnectionEdge | ContentNodeToEditLastConnectionEdge | HierarchicalContentNodeToParentContentNodeConnectionEdge | MediaItemToCommentConnectionEdge | UserToMediaItemConnectionEdge | NodeWithFeaturedImageToMediaItemConnectionEdge | NodeWithRevisionsToContentNodeConnectionEdge | PageToCommentConnectionEdge | PageToPreviewConnectionEdge | PageToRevisionConnectionEdge | UserToPageConnectionEdge | TermNodeToEnqueuedScriptConnectionEdge | TermNodeToEnqueuedStylesheetConnectionEdge | CategoryToAncestorsCategoryConnectionEdge | CategoryToCategoryConnectionEdge | CategoryToContentNodeConnectionEdge | CategoryToParentCategoryConnectionEdge | CategoryToPostConnectionEdge | CategoryToTaxonomyConnectionEdge | PostToCategoryConnectionEdge | PostToCommentConnectionEdge | PostFormatToContentNodeConnectionEdge | PostFormatToPostConnectionEdge | PostFormatToTaxonomyConnectionEdge | PostToPostFormatConnectionEdge | PostToPreviewConnectionEdge | PostToRevisionConnectionEdge | TagToContentNodeConnectionEdge | TagToPostConnectionEdge | TagToTaxonomyConnectionEdge | PostToTagConnectionEdge | PostToTermNodeConnectionEdge | UserToPostConnectionEdge | UserToRevisionsConnectionEdge | UserToUserRoleConnectionEdge | ArquivoAssessoriaToPreviewConnectionEdge | RootQueryToArquivoAssessoriaConnectionEdge | BannerToPreviewConnectionEdge | RootQueryToBannerConnectionEdge | RootQueryToCategoryConnectionEdge | RootQueryToCommentConnectionEdge | RootQueryToContentNodeConnectionEdge | RootQueryToContentTypeConnectionEdge | RootQueryToMediaItemConnectionEdge | MenuItemToMenuItemConnectionEdge | MenuItemToMenuItemLinkableConnectionEdge | MenuItemToMenuConnectionEdge | MenuToMenuItemConnectionEdge | RootQueryToMenuItemConnectionEdge | RootQueryToMenuConnectionEdge | RootQueryToPageConnectionEdge | RootQueryToPluginConnectionEdge | RootQueryToPostFormatConnectionEdge | RootQueryToPostConnectionEdge | RootQueryToEnqueuedScriptConnectionEdge | RootQueryToEnqueuedStylesheetConnectionEdge | RootQueryToRevisionsConnectionEdge | RootQueryToTagConnectionEdge | RootQueryToTaxonomyConnectionEdge | RootQueryToTermNodeConnectionEdge | RootQueryToThemeConnectionEdge | RootQueryToUserRoleConnectionEdge | RootQueryToUserConnectionEdge) & { __isUnion?: true }
 
 
 /** Edge between a Node and a connected ContentType */
@@ -365,7 +374,7 @@ export type TaxonomyConnection = (ContentTypeToTaxonomyConnection | RootQueryToT
 
 
 /** A plural connection from one Node Type in the Graph to another Node Type, with support for relational data via &quot;edges&quot;. */
-export type Connection = (ContentTypeToTaxonomyConnection | TaxonomyToContentTypeConnection | ContentTypeToContentNodeConnection | UserToCommentConnection | CommentToCommentConnection | UserToEnqueuedScriptConnection | UserToEnqueuedStylesheetConnection | UserToMediaItemConnection | HierarchicalContentNodeToContentNodeAncestorsConnection | HierarchicalContentNodeToContentNodeChildrenConnection | ContentNodeToEnqueuedScriptConnection | ContentNodeToEnqueuedStylesheetConnection | MediaItemToCommentConnection | UserToPageConnection | PageToCommentConnection | PageToRevisionConnection | UserToPostConnection | PostToCategoryConnection | TermNodeToEnqueuedScriptConnection | TermNodeToEnqueuedStylesheetConnection | CategoryToAncestorsCategoryConnection | CategoryToCategoryConnection | CategoryToContentNodeConnection | CategoryToPostConnection | PostToCommentConnection | PostToPostFormatConnection | PostFormatToContentNodeConnection | PostFormatToPostConnection | PostToRevisionConnection | PostToTagConnection | TagToContentNodeConnection | TagToPostConnection | PostToTermNodeConnection | UserToRevisionsConnection | UserToUserRoleConnection | RootQueryToBannerConnection | RootQueryToCategoryConnection | RootQueryToCommentConnection | RootQueryToContentNodeConnection | RootQueryToContentTypeConnection | RootQueryToMediaItemConnection | MenuToMenuItemConnection | MenuItemToMenuItemConnection | RootQueryToMenuItemConnection | RootQueryToMenuConnection | RootQueryToPageConnection | RootQueryToPluginConnection | RootQueryToPostFormatConnection | RootQueryToPostConnection | RootQueryToEnqueuedScriptConnection | RootQueryToEnqueuedStylesheetConnection | RootQueryToRevisionsConnection | RootQueryToTagConnection | RootQueryToTaxonomyConnection | RootQueryToTermNodeConnection | RootQueryToThemeConnection | RootQueryToUserRoleConnection | RootQueryToUserConnection) & { __isUnion?: true }
+export type Connection = (ContentTypeToTaxonomyConnection | TaxonomyToContentTypeConnection | ContentTypeToContentNodeConnection | UserToCommentConnection | CommentToCommentConnection | UserToEnqueuedScriptConnection | UserToEnqueuedStylesheetConnection | UserToMediaItemConnection | HierarchicalContentNodeToContentNodeAncestorsConnection | HierarchicalContentNodeToContentNodeChildrenConnection | ContentNodeToEnqueuedScriptConnection | ContentNodeToEnqueuedStylesheetConnection | MediaItemToCommentConnection | UserToPageConnection | PageToCommentConnection | PageToRevisionConnection | UserToPostConnection | PostToCategoryConnection | TermNodeToEnqueuedScriptConnection | TermNodeToEnqueuedStylesheetConnection | CategoryToAncestorsCategoryConnection | CategoryToCategoryConnection | CategoryToContentNodeConnection | CategoryToPostConnection | PostToCommentConnection | PostToPostFormatConnection | PostFormatToContentNodeConnection | PostFormatToPostConnection | PostToRevisionConnection | PostToTagConnection | TagToContentNodeConnection | TagToPostConnection | PostToTermNodeConnection | UserToRevisionsConnection | UserToUserRoleConnection | RootQueryToArquivoAssessoriaConnection | RootQueryToBannerConnection | RootQueryToCategoryConnection | RootQueryToCommentConnection | RootQueryToContentNodeConnection | RootQueryToContentTypeConnection | RootQueryToMediaItemConnection | MenuToMenuItemConnection | MenuItemToMenuItemConnection | RootQueryToMenuItemConnection | RootQueryToMenuConnection | RootQueryToPageConnection | RootQueryToPluginConnection | RootQueryToPostFormatConnection | RootQueryToPostConnection | RootQueryToEnqueuedScriptConnection | RootQueryToEnqueuedStylesheetConnection | RootQueryToRevisionsConnection | RootQueryToTagConnection | RootQueryToTaxonomyConnection | RootQueryToTermNodeConnection | RootQueryToThemeConnection | RootQueryToUserRoleConnection | RootQueryToUserConnection) & { __isUnion?: true }
 
 
 /** Edge between a Node and a connected Taxonomy */
@@ -469,7 +478,7 @@ export interface ContentTypeToTaxonomyConnectionEdge {
 
 
 /** Allowed Content Types */
-export type ContentTypeEnum = 'ATTACHMENT' | 'BANNER_HOME' | 'PAGE' | 'POST'
+export type ContentTypeEnum = 'ARQ_ASSESSORIA' | 'ATTACHMENT' | 'BANNER_HOME' | 'PAGE' | 'POST'
 
 
 /** The column to use when filtering by date */
@@ -674,7 +683,7 @@ export type Commenter = (User | CommentAuthor) & { __isUnion?: true }
 
 
 /** Object that can be identified with a Database ID */
-export type DatabaseIdentifier = (Banner | User | Comment | MediaItem | Page | Post | Category | PostFormat | Tag | Menu | MenuItem | CommentAuthor) & { __isUnion?: true }
+export type DatabaseIdentifier = (ArquivoAssessoria | User | Comment | MediaItem | Page | Post | Category | PostFormat | Tag | Banner | Menu | MenuItem | CommentAuthor) & { __isUnion?: true }
 
 
 /** Avatars are profile images for users. WordPress by default uses the Gravatar service to host and fetch avatars from. */
@@ -1091,7 +1100,7 @@ export interface MediaItem {
 
 
 /** A node that can have a template associated with it */
-export type NodeWithTemplate = (Banner | MediaItem | Page | Post) & { __isUnion?: true }
+export type NodeWithTemplate = (ArquivoAssessoria | MediaItem | Page | Post | Banner) & { __isUnion?: true }
 
 
 /** The template assigned to a node of content */
@@ -1099,7 +1108,7 @@ export type ContentTemplate = (DefaultTemplate) & { __isUnion?: true }
 
 
 /** A node that NodeWith a title */
-export type NodeWithTitle = (Banner | MediaItem | Page | Post) & { __isUnion?: true }
+export type NodeWithTitle = (ArquivoAssessoria | MediaItem | Page | Post | Banner) & { __isUnion?: true }
 
 
 /** A node that can have an author assigned to it */
@@ -1474,7 +1483,7 @@ export interface Page {
 
 
 /** Nodes that can be seen in a preview (unpublished) state. */
-export type Previewable = (Banner | Page | Post) & { __isUnion?: true }
+export type Previewable = (ArquivoAssessoria | Page | Post | Banner) & { __isUnion?: true }
 
 
 /** A node that supports the content editor */
@@ -1514,7 +1523,7 @@ export type NodeWithPageAttributes = (Page) & { __isUnion?: true }
 
 
 /** Nodes that can be linked to as Menu Items */
-export type MenuItemLinkable = (Banner | Page | Post | Category | Tag) & { __isUnion?: true }
+export type MenuItemLinkable = (ArquivoAssessoria | Page | Post | Category | Tag | Banner) & { __isUnion?: true }
 
 
 /** Field Group */
@@ -1530,7 +1539,7 @@ export interface Page_Assessoria {
 
 
 /** A Field Group registered by ACF */
-export type AcfFieldGroup = (Page_Assessoria | Page_Conteusobre | Page_Conteusobre_item | Banner_BannerHome | Banner_BannerHome_BhConteudo | Banner_BannerHome_ImagensProntas) & { __isUnion?: true }
+export type AcfFieldGroup = (Page_Assessoria | Page_Conteusobre | Page_Conteusobre_item | ArquivoAssessoria_DownAssessoria | Banner_BannerHome | Banner_BannerHome_BhConteudo | Banner_BannerHome_ImagensProntas) & { __isUnion?: true }
 
 
 /** Connection between the Page type and the Comment type */
@@ -2467,6 +2476,132 @@ export interface UserToUserRoleConnectionEdge {
 
 
 /** Field Group */
+export interface ArquivoAssessoria_DownAssessoria {
+    arquivoParaDownload?: MediaItem
+    downDescricao?: Scalars['String']
+    /** Não obrigatório. */
+    downImagem?: MediaItem
+    downTitulo?: Scalars['String']
+    /** The name of the ACF Field Group */
+    fieldGroupName?: Scalars['String']
+    __typename: 'ArquivoAssessoria_DownAssessoria'
+}
+
+
+/** Connection between the ArquivoAssessoria type and the ArquivoAssessoria type */
+export interface ArquivoAssessoriaToPreviewConnectionEdge {
+    /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+    cursor?: Scalars['String']
+    /** The node of the connection, without the edges */
+    node: ArquivoAssessoria
+    __typename: 'ArquivoAssessoriaToPreviewConnectionEdge'
+}
+
+
+/** Edge between a Node and a connected ArquivoAssessoria */
+export type ArquivoAssessoriaConnectionEdge = (ArquivoAssessoriaToPreviewConnectionEdge | RootQueryToArquivoAssessoriaConnectionEdge) & { __isUnion?: true }
+
+
+/** Connection between the RootQuery type and the ArquivoAssessoria type */
+export interface RootQueryToArquivoAssessoriaConnection {
+    /** Edges for the RootQueryToArquivoAssessoriaConnection connection */
+    edges: RootQueryToArquivoAssessoriaConnectionEdge[]
+    /** The nodes of the connection, without the edges */
+    nodes: ArquivoAssessoria[]
+    /** Information about pagination in a connection. */
+    pageInfo?: WPPageInfo
+    __typename: 'RootQueryToArquivoAssessoriaConnection'
+}
+
+
+/** Connection to ArquivoAssessoria Nodes */
+export type ArquivoAssessoriaConnection = (RootQueryToArquivoAssessoriaConnection) & { __isUnion?: true }
+
+
+/** An edge in a connection */
+export interface RootQueryToArquivoAssessoriaConnectionEdge {
+    /** A cursor for use in pagination */
+    cursor?: Scalars['String']
+    /** The item at the end of the edge */
+    node: ArquivoAssessoria
+    __typename: 'RootQueryToArquivoAssessoriaConnectionEdge'
+}
+
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
+export type BannerIdType = 'DATABASE_ID' | 'ID' | 'SLUG' | 'URI'
+
+
+/** The Banner type */
+export interface Banner {
+    /**
+     * @deprecated Deprecated in favor of the databaseId field
+     * The id field matches the WP_Post-&gt;ID field.
+     */
+    bannerId: Scalars['Int']
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Banner_home&quot; was set to Show in GraphQL. */
+    banner_home?: Banner_BannerHome
+    /** Connection between the ContentNode type and the ContentType type */
+    contentType?: ContentNodeToContentTypeConnectionEdge
+    /** The name of the Content Type the node belongs to */
+    contentTypeName: Scalars['String']
+    /** The unique identifier stored in the database */
+    databaseId: Scalars['Int']
+    /** Post publishing date. */
+    date?: Scalars['String']
+    /** The publishing date set in GMT. */
+    dateGmt?: Scalars['String']
+    /** The desired slug of the post */
+    desiredSlug?: Scalars['String']
+    /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
+    editingLockedBy?: ContentNodeToEditLockConnectionEdge
+    /** The RSS enclosure for the object */
+    enclosure?: Scalars['String']
+    /** Connection between the ContentNode type and the EnqueuedScript type */
+    enqueuedScripts?: ContentNodeToEnqueuedScriptConnection
+    /** Connection between the ContentNode type and the EnqueuedStylesheet type */
+    enqueuedStylesheets?: ContentNodeToEnqueuedStylesheetConnection
+    /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
+    guid?: Scalars['String']
+    /** The globally unique identifier of the banner_home object. */
+    id: Scalars['ID']
+    /** Whether the node is a Content Node */
+    isContentNode: Scalars['Boolean']
+    /** Whether the object is a node in the preview state */
+    isPreview?: Scalars['Boolean']
+    /** Whether the object is restricted from the current viewer */
+    isRestricted?: Scalars['Boolean']
+    /** Whether the node is a Term */
+    isTermNode: Scalars['Boolean']
+    /** The user that most recently edited the node */
+    lastEditedBy?: ContentNodeToEditLastConnectionEdge
+    /** The permalink of the post */
+    link?: Scalars['String']
+    /** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
+    modified?: Scalars['String']
+    /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
+    modifiedGmt?: Scalars['String']
+    /** Connection between the Banner type and the Banner type */
+    preview?: BannerToPreviewConnectionEdge
+    /** The database id of the preview node */
+    previewRevisionDatabaseId?: Scalars['Int']
+    /** Whether the object is a node in the preview state */
+    previewRevisionId?: Scalars['ID']
+    /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
+    slug?: Scalars['String']
+    /** The current status of the object */
+    status?: Scalars['String']
+    /** The template assigned to the node */
+    template?: ContentTemplate
+    /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
+    title?: Scalars['String']
+    /** The unique resource identifier path */
+    uri?: Scalars['String']
+    __typename: 'Banner'
+}
+
+
+/** Field Group */
 export interface Banner_BannerHome {
     /** Caso o banner seja uma arte já com textos e gráficos visuais. */
     bannerPronto?: Scalars['Boolean']
@@ -2865,7 +3000,7 @@ export type MenuItemLinkableConnectionEdge = (MenuItemToMenuItemLinkableConnecti
 
 
 /** Deprecated in favor of MenuItemLinkeable Interface */
-export type MenuItemObjectUnion = (Post | Page | Banner | Category | Tag) & { __isUnion?: true }
+export type MenuItemObjectUnion = (Post | Page | Banner | ArquivoAssessoria | Category | Tag) & { __isUnion?: true }
 
 
 /** Connection between the MenuItem type and the Menu type */
@@ -3374,6 +3509,8 @@ export interface WritingSettings {
 
 /** The root mutation */
 export interface RootMutation {
+    /** The createArquivoAssessoria mutation */
+    createArquivoAssessoria?: CreateArquivoAssessoriaPayload
     /** The createBanner mutation */
     createBanner?: CreateBannerPayload
     /** The createCategory mutation */
@@ -3392,6 +3529,8 @@ export interface RootMutation {
     createTag?: CreateTagPayload
     /** The createUser mutation */
     createUser?: CreateUserPayload
+    /** The deleteArquivoAssessoria mutation */
+    deleteArquivoAssessoria?: DeleteArquivoAssessoriaPayload
     /** The deleteBanner mutation */
     deleteBanner?: DeleteBannerPayload
     /** The deleteCategory mutation */
@@ -3420,6 +3559,8 @@ export interface RootMutation {
     restoreComment?: RestoreCommentPayload
     /** Send password reset email to user */
     sendPasswordResetEmail?: SendPasswordResetEmailPayload
+    /** The updateArquivoAssessoria mutation */
+    updateArquivoAssessoria?: UpdateArquivoAssessoriaPayload
     /** The updateBanner mutation */
     updateBanner?: UpdateBannerPayload
     /** The updateCategory mutation */
@@ -3441,6 +3582,16 @@ export interface RootMutation {
     /** The updateUser mutation */
     updateUser?: UpdateUserPayload
     __typename: 'RootMutation'
+}
+
+
+/** The payload for the createArquivoAssessoria mutation. */
+export interface CreateArquivoAssessoriaPayload {
+    /** The Post object mutation type. */
+    arquivoAssessoria?: ArquivoAssessoria
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Scalars['String']
+    __typename: 'CreateArquivoAssessoriaPayload'
 }
 
 
@@ -3537,6 +3688,18 @@ export interface CreateUserPayload {
     /** The User object mutation type. */
     user?: User
     __typename: 'CreateUserPayload'
+}
+
+
+/** The payload for the deleteArquivoAssessoria mutation. */
+export interface DeleteArquivoAssessoriaPayload {
+    /** The object before it was deleted */
+    arquivoAssessoria?: ArquivoAssessoria
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Scalars['String']
+    /** The ID of the deleted object */
+    deletedId?: Scalars['ID']
+    __typename: 'DeleteArquivoAssessoriaPayload'
 }
 
 
@@ -3695,6 +3858,16 @@ export interface SendPasswordResetEmailPayload {
 }
 
 
+/** The payload for the updateArquivoAssessoria mutation. */
+export interface UpdateArquivoAssessoriaPayload {
+    /** The Post object mutation type. */
+    arquivoAssessoria?: ArquivoAssessoria
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Scalars['String']
+    __typename: 'UpdateArquivoAssessoriaPayload'
+}
+
+
 /** The payload for the updateBanner mutation. */
 export interface UpdateBannerPayload {
     /** The Post object mutation type. */
@@ -3840,6 +4013,39 @@ export type Mutation = RootMutation
 export interface RootQueryRequest{
     /** Entry point to get all settings for the site */
     allSettings?: SettingsRequest
+    /** An object of the ArquivoAssessoria Type.  */
+    arquivoAssessoria?: [{
+    /** The globally unique identifier of the object. */
+    id: Scalars['ID'],
+    /** Type of unique identifier to fetch by. Default is Global ID */
+    idType?: (ArquivoAssessoriaIdType | null),
+    /** Whether to return the node as a preview instance */
+    asPreview?: (Scalars['Boolean'] | null)},ArquivoAssessoriaRequest]
+    /**
+     * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
+     * A ArquivoAssessoria object
+     */
+    arquivoAssessoriaBy?: [{
+    /** Get the object by its global ID */
+    id?: (Scalars['ID'] | null),
+    /** Get the ArquivoAssessoria by its database ID */
+    arquivoAssessoriaId?: (Scalars['Int'] | null),
+    /** Get the ArquivoAssessoria by its uri */
+    uri?: (Scalars['String'] | null),
+    /** Get the ArquivoAssessoria by its slug (only available for non-hierarchical types) */
+    slug?: (Scalars['String'] | null)},ArquivoAssessoriaRequest] | ArquivoAssessoriaRequest
+    /** Connection between the RootQuery type and the ArquivoAssessoria type */
+    arquivosAssessoria?: [{
+    /** The number of items to return after the referenced "after" cursor */
+    first?: (Scalars['Int'] | null),
+    /** The number of items to return before the referenced "before" cursor */
+    last?: (Scalars['Int'] | null),
+    /** Cursor used along with the "first" argument to reference where in the dataset to get data */
+    after?: (Scalars['String'] | null),
+    /** Cursor used along with the "last" argument to reference where in the dataset to get data */
+    before?: (Scalars['String'] | null),
+    /** Arguments for filtering the connection */
+    where?: (RootQueryToArquivoAssessoriaConnectionWhereArgs | null)},RootQueryToArquivoAssessoriaConnectionRequest] | RootQueryToArquivoAssessoriaConnectionRequest
     /** An object of the Banner Type.  */
     banner?: [{
     /** The globally unique identifier of the object. */
@@ -4312,15 +4518,13 @@ export interface SettingsRequest{
 }
 
 
-/** The Banner type */
-export interface BannerRequest{
+/** The ArquivoAssessoria type */
+export interface ArquivoAssessoriaRequest{
     /**
      * @deprecated Deprecated in favor of the databaseId field
      * The id field matches the WP_Post-&gt;ID field.
      */
-    bannerId?: boolean | number
-    /** Added to the GraphQL Schema because the ACF Field Group &quot;Banner_home&quot; was set to Show in GraphQL. */
-    banner_home?: Banner_BannerHomeRequest
+    arquivoAssessoriaId?: boolean | number
     /** Connection between the ContentNode type and the ContentType type */
     contentType?: ContentNodeToContentTypeConnectionEdgeRequest
     /** The name of the Content Type the node belongs to */
@@ -4333,6 +4537,8 @@ export interface BannerRequest{
     dateGmt?: boolean | number
     /** The desired slug of the post */
     desiredSlug?: boolean | number
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Arquivos download&quot; was set to Show in GraphQL. */
+    down_assessoria?: ArquivoAssessoria_DownAssessoriaRequest
     /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
     editingLockedBy?: ContentNodeToEditLockConnectionEdgeRequest
     /** The RSS enclosure for the object */
@@ -4359,7 +4565,7 @@ export interface BannerRequest{
     before?: (Scalars['String'] | null)},ContentNodeToEnqueuedStylesheetConnectionRequest] | ContentNodeToEnqueuedStylesheetConnectionRequest
     /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
     guid?: boolean | number
-    /** The globally unique identifier of the banner_home object. */
+    /** The globally unique identifier of the arq_assessoria object. */
     id?: boolean | number
     /** Whether the node is a Content Node */
     isContentNode?: boolean | number
@@ -4377,8 +4583,8 @@ export interface BannerRequest{
     modified?: boolean | number
     /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
     modifiedGmt?: boolean | number
-    /** Connection between the Banner type and the Banner type */
-    preview?: BannerToPreviewConnectionEdgeRequest
+    /** Connection between the ArquivoAssessoria type and the ArquivoAssessoria type */
+    preview?: ArquivoAssessoriaToPreviewConnectionEdgeRequest
     /** The database id of the preview node */
     previewRevisionDatabaseId?: boolean | number
     /** Whether the object is a node in the preview state */
@@ -4404,7 +4610,7 @@ export interface BannerRequest{
 export interface NodeRequest{
     /** The globally unique ID for the object */
     id?: boolean | number
-    on_Banner?: BannerRequest
+    on_ArquivoAssessoria?: ArquivoAssessoriaRequest
     on_ContentType?: ContentTypeRequest
     on_Taxonomy?: TaxonomyRequest
     on_User?: UserRequest
@@ -4418,6 +4624,7 @@ export interface NodeRequest{
     on_PostFormat?: PostFormatRequest
     on_Tag?: TagRequest
     on_UserRole?: UserRoleRequest
+    on_Banner?: BannerRequest
     on_Menu?: MenuRequest
     on_MenuItem?: MenuItemRequest
     on_Plugin?: PluginRequest
@@ -4498,10 +4705,11 @@ export interface ContentNodeRequest{
     template?: ContentTemplateRequest
     /** The unique resource identifier path */
     uri?: boolean | number
-    on_Banner?: BannerRequest
+    on_ArquivoAssessoria?: ArquivoAssessoriaRequest
     on_MediaItem?: MediaItemRequest
     on_Page?: PageRequest
     on_Post?: PostRequest
+    on_Banner?: BannerRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -4517,7 +4725,7 @@ export interface UniformResourceIdentifiableRequest{
     isTermNode?: boolean | number
     /** The unique resource identifier path */
     uri?: boolean | number
-    on_Banner?: BannerRequest
+    on_ArquivoAssessoria?: ArquivoAssessoriaRequest
     on_ContentType?: ContentTypeRequest
     on_User?: UserRequest
     on_MediaItem?: MediaItemRequest
@@ -4526,6 +4734,7 @@ export interface UniformResourceIdentifiableRequest{
     on_Category?: CategoryRequest
     on_PostFormat?: PostFormatRequest
     on_Tag?: TagRequest
+    on_Banner?: BannerRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -4564,6 +4773,7 @@ export interface OneToOneConnectionRequest{
     on_PostFormatToTaxonomyConnectionEdge?: PostFormatToTaxonomyConnectionEdgeRequest
     on_PostToPreviewConnectionEdge?: PostToPreviewConnectionEdgeRequest
     on_TagToTaxonomyConnectionEdge?: TagToTaxonomyConnectionEdgeRequest
+    on_ArquivoAssessoriaToPreviewConnectionEdge?: ArquivoAssessoriaToPreviewConnectionEdgeRequest
     on_BannerToPreviewConnectionEdge?: BannerToPreviewConnectionEdgeRequest
     on_MenuItemToMenuItemLinkableConnectionEdge?: MenuItemToMenuItemLinkableConnectionEdgeRequest
     on_MenuItemToMenuConnectionEdge?: MenuItemToMenuConnectionEdgeRequest
@@ -4629,6 +4839,8 @@ export interface EdgeRequest{
     on_UserToPostConnectionEdge?: UserToPostConnectionEdgeRequest
     on_UserToRevisionsConnectionEdge?: UserToRevisionsConnectionEdgeRequest
     on_UserToUserRoleConnectionEdge?: UserToUserRoleConnectionEdgeRequest
+    on_ArquivoAssessoriaToPreviewConnectionEdge?: ArquivoAssessoriaToPreviewConnectionEdgeRequest
+    on_RootQueryToArquivoAssessoriaConnectionEdge?: RootQueryToArquivoAssessoriaConnectionEdgeRequest
     on_BannerToPreviewConnectionEdge?: BannerToPreviewConnectionEdgeRequest
     on_RootQueryToBannerConnectionEdge?: RootQueryToBannerConnectionEdgeRequest
     on_RootQueryToCategoryConnectionEdge?: RootQueryToCategoryConnectionEdgeRequest
@@ -4830,6 +5042,7 @@ export interface ConnectionRequest{
     on_PostToTermNodeConnection?: PostToTermNodeConnectionRequest
     on_UserToRevisionsConnection?: UserToRevisionsConnectionRequest
     on_UserToUserRoleConnection?: UserToUserRoleConnectionRequest
+    on_RootQueryToArquivoAssessoriaConnection?: RootQueryToArquivoAssessoriaConnectionRequest
     on_RootQueryToBannerConnection?: RootQueryToBannerConnectionRequest
     on_RootQueryToCategoryConnection?: RootQueryToCategoryConnectionRequest
     on_RootQueryToCommentConnection?: RootQueryToCommentConnectionRequest
@@ -5411,7 +5624,7 @@ export interface CommenterRequest{
 export interface DatabaseIdentifierRequest{
     /** The unique identifier stored in the database */
     databaseId?: boolean | number
-    on_Banner?: BannerRequest
+    on_ArquivoAssessoria?: ArquivoAssessoriaRequest
     on_User?: UserRequest
     on_Comment?: CommentRequest
     on_MediaItem?: MediaItemRequest
@@ -5420,6 +5633,7 @@ export interface DatabaseIdentifierRequest{
     on_Category?: CategoryRequest
     on_PostFormat?: PostFormatRequest
     on_Tag?: TagRequest
+    on_Banner?: BannerRequest
     on_Menu?: MenuRequest
     on_MenuItem?: MenuItemRequest
     on_CommentAuthor?: CommentAuthorRequest
@@ -6271,10 +6485,11 @@ export interface NodeWithTemplateRequest{
     id?: boolean | number
     /** The template assigned to the node */
     template?: ContentTemplateRequest
-    on_Banner?: BannerRequest
+    on_ArquivoAssessoria?: ArquivoAssessoriaRequest
     on_MediaItem?: MediaItemRequest
     on_Page?: PageRequest
     on_Post?: PostRequest
+    on_Banner?: BannerRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6298,10 +6513,11 @@ export interface NodeWithTitleRequest{
     title?: [{
     /** Format of the field output */
     format?: (PostObjectFieldFormatEnum | null)}] | boolean | number
-    on_Banner?: BannerRequest
+    on_ArquivoAssessoria?: ArquivoAssessoriaRequest
     on_MediaItem?: MediaItemRequest
     on_Page?: PageRequest
     on_Post?: PostRequest
+    on_Banner?: BannerRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7117,9 +7333,10 @@ export interface PreviewableRequest{
     previewRevisionDatabaseId?: boolean | number
     /** Whether the object is a node in the preview state */
     previewRevisionId?: boolean | number
-    on_Banner?: BannerRequest
+    on_ArquivoAssessoria?: ArquivoAssessoriaRequest
     on_Page?: PageRequest
     on_Post?: PostRequest
+    on_Banner?: BannerRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7218,11 +7435,12 @@ export interface MenuItemLinkableRequest{
     isTermNode?: boolean | number
     /** The unique resource identifier path */
     uri?: boolean | number
-    on_Banner?: BannerRequest
+    on_ArquivoAssessoria?: ArquivoAssessoriaRequest
     on_Page?: PageRequest
     on_Post?: PostRequest
     on_Category?: CategoryRequest
     on_Tag?: TagRequest
+    on_Banner?: BannerRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7248,6 +7466,7 @@ export interface AcfFieldGroupRequest{
     on_Page_Assessoria?: Page_AssessoriaRequest
     on_Page_Conteusobre?: Page_ConteusobreRequest
     on_Page_Conteusobre_item?: Page_Conteusobre_itemRequest
+    on_ArquivoAssessoria_DownAssessoria?: ArquivoAssessoria_DownAssessoriaRequest
     on_Banner_BannerHome?: Banner_BannerHomeRequest
     on_Banner_BannerHome_BhConteudo?: Banner_BannerHome_BhConteudoRequest
     on_Banner_BannerHome_ImagensProntas?: Banner_BannerHome_ImagensProntasRequest
@@ -9580,6 +9799,206 @@ export interface UserToUserRoleConnectionEdgeRequest{
 
 
 /** Field Group */
+export interface ArquivoAssessoria_DownAssessoriaRequest{
+    arquivoParaDownload?: MediaItemRequest
+    downDescricao?: boolean | number
+    /** Não obrigatório. */
+    downImagem?: MediaItemRequest
+    downTitulo?: boolean | number
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Connection between the ArquivoAssessoria type and the ArquivoAssessoria type */
+export interface ArquivoAssessoriaToPreviewConnectionEdgeRequest{
+    /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+    cursor?: boolean | number
+    /** The node of the connection, without the edges */
+    node?: ArquivoAssessoriaRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Edge between a Node and a connected ArquivoAssessoria */
+export interface ArquivoAssessoriaConnectionEdgeRequest{
+    /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+    cursor?: boolean | number
+    /** The connected ArquivoAssessoria Node */
+    node?: ArquivoAssessoriaRequest
+    on_ArquivoAssessoriaToPreviewConnectionEdge?: ArquivoAssessoriaToPreviewConnectionEdgeRequest
+    on_RootQueryToArquivoAssessoriaConnectionEdge?: RootQueryToArquivoAssessoriaConnectionEdgeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Arguments for filtering the RootQueryToArquivoAssessoriaConnection connection */
+export interface RootQueryToArquivoAssessoriaConnectionWhereArgs {
+/** Filter the connection based on dates */
+dateQuery?: (DateQueryInput | null),
+/** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+hasPassword?: (Scalars['Boolean'] | null),
+/** Specific database ID of the object */
+id?: (Scalars['Int'] | null),
+/** Array of IDs for the objects to retrieve */
+in?: ((Scalars['ID'] | null)[] | null),
+/** Get objects with a specific mimeType property */
+mimeType?: (MimeTypeEnum | null),
+/** Slug / post_name of the object */
+name?: (Scalars['String'] | null),
+/** Specify objects to retrieve. Use slugs */
+nameIn?: ((Scalars['String'] | null)[] | null),
+/** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+notIn?: ((Scalars['ID'] | null)[] | null),
+/** What paramater to use to order the objects by. */
+orderby?: ((PostObjectsConnectionOrderbyInput | null)[] | null),
+/** Use ID to return only children. Use 0 to return only top-level items */
+parent?: (Scalars['ID'] | null),
+/** Specify objects whose parent is in an array */
+parentIn?: ((Scalars['ID'] | null)[] | null),
+/** Specify posts whose parent is not in an array */
+parentNotIn?: ((Scalars['ID'] | null)[] | null),
+/** Show posts with a specific password. */
+password?: (Scalars['String'] | null),
+/** Show Posts based on a keyword search */
+search?: (Scalars['String'] | null),
+/** Retrieve posts where post status is in an array. */
+stati?: ((PostStatusEnum | null)[] | null),
+/** Show posts with a specific status. */
+status?: (PostStatusEnum | null),
+/** Title of the object */
+title?: (Scalars['String'] | null)}
+
+
+/** Connection between the RootQuery type and the ArquivoAssessoria type */
+export interface RootQueryToArquivoAssessoriaConnectionRequest{
+    /** Edges for the RootQueryToArquivoAssessoriaConnection connection */
+    edges?: RootQueryToArquivoAssessoriaConnectionEdgeRequest
+    /** The nodes of the connection, without the edges */
+    nodes?: ArquivoAssessoriaRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: WPPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Connection to ArquivoAssessoria Nodes */
+export interface ArquivoAssessoriaConnectionRequest{
+    /** A list of edges (relational context) between RootQuery and connected ArquivoAssessoria Nodes */
+    edges?: ArquivoAssessoriaConnectionEdgeRequest
+    /** A list of connected ArquivoAssessoria Nodes */
+    nodes?: ArquivoAssessoriaRequest
+    on_RootQueryToArquivoAssessoriaConnection?: RootQueryToArquivoAssessoriaConnectionRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** An edge in a connection */
+export interface RootQueryToArquivoAssessoriaConnectionEdgeRequest{
+    /** A cursor for use in pagination */
+    cursor?: boolean | number
+    /** The item at the end of the edge */
+    node?: ArquivoAssessoriaRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** The Banner type */
+export interface BannerRequest{
+    /**
+     * @deprecated Deprecated in favor of the databaseId field
+     * The id field matches the WP_Post-&gt;ID field.
+     */
+    bannerId?: boolean | number
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Banner_home&quot; was set to Show in GraphQL. */
+    banner_home?: Banner_BannerHomeRequest
+    /** Connection between the ContentNode type and the ContentType type */
+    contentType?: ContentNodeToContentTypeConnectionEdgeRequest
+    /** The name of the Content Type the node belongs to */
+    contentTypeName?: boolean | number
+    /** The unique identifier stored in the database */
+    databaseId?: boolean | number
+    /** Post publishing date. */
+    date?: boolean | number
+    /** The publishing date set in GMT. */
+    dateGmt?: boolean | number
+    /** The desired slug of the post */
+    desiredSlug?: boolean | number
+    /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
+    editingLockedBy?: ContentNodeToEditLockConnectionEdgeRequest
+    /** The RSS enclosure for the object */
+    enclosure?: boolean | number
+    /** Connection between the ContentNode type and the EnqueuedScript type */
+    enqueuedScripts?: [{
+    /** The number of items to return after the referenced "after" cursor */
+    first?: (Scalars['Int'] | null),
+    /** The number of items to return before the referenced "before" cursor */
+    last?: (Scalars['Int'] | null),
+    /** Cursor used along with the "first" argument to reference where in the dataset to get data */
+    after?: (Scalars['String'] | null),
+    /** Cursor used along with the "last" argument to reference where in the dataset to get data */
+    before?: (Scalars['String'] | null)},ContentNodeToEnqueuedScriptConnectionRequest] | ContentNodeToEnqueuedScriptConnectionRequest
+    /** Connection between the ContentNode type and the EnqueuedStylesheet type */
+    enqueuedStylesheets?: [{
+    /** The number of items to return after the referenced "after" cursor */
+    first?: (Scalars['Int'] | null),
+    /** The number of items to return before the referenced "before" cursor */
+    last?: (Scalars['Int'] | null),
+    /** Cursor used along with the "first" argument to reference where in the dataset to get data */
+    after?: (Scalars['String'] | null),
+    /** Cursor used along with the "last" argument to reference where in the dataset to get data */
+    before?: (Scalars['String'] | null)},ContentNodeToEnqueuedStylesheetConnectionRequest] | ContentNodeToEnqueuedStylesheetConnectionRequest
+    /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
+    guid?: boolean | number
+    /** The globally unique identifier of the banner_home object. */
+    id?: boolean | number
+    /** Whether the node is a Content Node */
+    isContentNode?: boolean | number
+    /** Whether the object is a node in the preview state */
+    isPreview?: boolean | number
+    /** Whether the object is restricted from the current viewer */
+    isRestricted?: boolean | number
+    /** Whether the node is a Term */
+    isTermNode?: boolean | number
+    /** The user that most recently edited the node */
+    lastEditedBy?: ContentNodeToEditLastConnectionEdgeRequest
+    /** The permalink of the post */
+    link?: boolean | number
+    /** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
+    modified?: boolean | number
+    /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
+    modifiedGmt?: boolean | number
+    /** Connection between the Banner type and the Banner type */
+    preview?: BannerToPreviewConnectionEdgeRequest
+    /** The database id of the preview node */
+    previewRevisionDatabaseId?: boolean | number
+    /** Whether the object is a node in the preview state */
+    previewRevisionId?: boolean | number
+    /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
+    slug?: boolean | number
+    /** The current status of the object */
+    status?: boolean | number
+    /** The template assigned to the node */
+    template?: ContentTemplateRequest
+    /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
+    title?: [{
+    /** Format of the field output */
+    format?: (PostObjectFieldFormatEnum | null)}] | boolean | number
+    /** The unique resource identifier path */
+    uri?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Field Group */
 export interface Banner_BannerHomeRequest{
     /** Caso o banner seja uma arte já com textos e gráficos visuais. */
     bannerPronto?: boolean | number
@@ -10299,6 +10718,7 @@ export interface MenuItemObjectUnionRequest{
     on_Post?:PostRequest,
     on_Page?:PageRequest,
     on_Banner?:BannerRequest,
+    on_ArquivoAssessoria?:ArquivoAssessoriaRequest,
     on_Category?:CategoryRequest,
     on_Tag?:TagRequest,
     on_Node?: NodeRequest,
@@ -11242,6 +11662,10 @@ export interface WritingSettingsRequest{
 
 /** The root mutation */
 export interface RootMutationRequest{
+    /** The createArquivoAssessoria mutation */
+    createArquivoAssessoria?: [{
+    /** Input for the createArquivoAssessoria mutation */
+    input: CreateArquivoAssessoriaInput},CreateArquivoAssessoriaPayloadRequest]
     /** The createBanner mutation */
     createBanner?: [{
     /** Input for the createBanner mutation */
@@ -11278,6 +11702,10 @@ export interface RootMutationRequest{
     createUser?: [{
     /** Input for the createUser mutation */
     input: CreateUserInput},CreateUserPayloadRequest]
+    /** The deleteArquivoAssessoria mutation */
+    deleteArquivoAssessoria?: [{
+    /** Input for the deleteArquivoAssessoria mutation */
+    input: DeleteArquivoAssessoriaInput},DeleteArquivoAssessoriaPayloadRequest]
     /** The deleteBanner mutation */
     deleteBanner?: [{
     /** Input for the deleteBanner mutation */
@@ -11334,6 +11762,10 @@ export interface RootMutationRequest{
     sendPasswordResetEmail?: [{
     /** Input for the sendPasswordResetEmail mutation */
     input: SendPasswordResetEmailInput},SendPasswordResetEmailPayloadRequest]
+    /** The updateArquivoAssessoria mutation */
+    updateArquivoAssessoria?: [{
+    /** Input for the updateArquivoAssessoria mutation */
+    input: UpdateArquivoAssessoriaInput},UpdateArquivoAssessoriaPayloadRequest]
     /** The updateBanner mutation */
     updateBanner?: [{
     /** Input for the updateBanner mutation */
@@ -11374,6 +11806,35 @@ export interface RootMutationRequest{
     updateUser?: [{
     /** Input for the updateUser mutation */
     input: UpdateUserInput},UpdateUserPayloadRequest]
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Input for the createArquivoAssessoria mutation. */
+export interface CreateArquivoAssessoriaInput {
+/** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId?: (Scalars['String'] | null),
+/** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+date?: (Scalars['String'] | null),
+/** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+menuOrder?: (Scalars['Int'] | null),
+/** The password used to protect the content of the object */
+password?: (Scalars['String'] | null),
+/** The slug of the object */
+slug?: (Scalars['String'] | null),
+/** The status of the object */
+status?: (PostStatusEnum | null),
+/** The title of the object */
+title?: (Scalars['String'] | null)}
+
+
+/** The payload for the createArquivoAssessoria mutation. */
+export interface CreateArquivoAssessoriaPayloadRequest{
+    /** The Post object mutation type. */
+    arquivoAssessoria?: ArquivoAssessoriaRequest
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11766,6 +12227,29 @@ export interface CreateUserPayloadRequest{
 }
 
 
+/** Input for the deleteArquivoAssessoria mutation. */
+export interface DeleteArquivoAssessoriaInput {
+/** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId?: (Scalars['String'] | null),
+/** Whether the object should be force deleted instead of being moved to the trash */
+forceDelete?: (Scalars['Boolean'] | null),
+/** The ID of the ArquivoAssessoria to delete */
+id: Scalars['ID']}
+
+
+/** The payload for the deleteArquivoAssessoria mutation. */
+export interface DeleteArquivoAssessoriaPayloadRequest{
+    /** The object before it was deleted */
+    arquivoAssessoria?: ArquivoAssessoriaRequest
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: boolean | number
+    /** The ID of the deleted object */
+    deletedId?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Input for the deleteBanner mutation. */
 export interface DeleteBannerInput {
 /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -12079,6 +12563,37 @@ export interface SendPasswordResetEmailPayloadRequest{
      * The user that the password reset email was sent to
      */
     user?: UserRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Input for the updateArquivoAssessoria mutation. */
+export interface UpdateArquivoAssessoriaInput {
+/** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId?: (Scalars['String'] | null),
+/** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+date?: (Scalars['String'] | null),
+/** The ID of the ArquivoAssessoria object */
+id: Scalars['ID'],
+/** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+menuOrder?: (Scalars['Int'] | null),
+/** The password used to protect the content of the object */
+password?: (Scalars['String'] | null),
+/** The slug of the object */
+slug?: (Scalars['String'] | null),
+/** The status of the object */
+status?: (PostStatusEnum | null),
+/** The title of the object */
+title?: (Scalars['String'] | null)}
+
+
+/** The payload for the updateArquivoAssessoria mutation. */
+export interface UpdateArquivoAssessoriaPayloadRequest{
+    /** The Post object mutation type. */
+    arquivoAssessoria?: ArquivoAssessoriaRequest
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12543,15 +13058,15 @@ export const isSettings = (obj?: { __typename?: any } | null): obj is Settings =
 
 
 
-const Banner_possibleTypes: string[] = ['Banner']
-export const isBanner = (obj?: { __typename?: any } | null): obj is Banner => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isBanner"')
-  return Banner_possibleTypes.includes(obj.__typename)
+const ArquivoAssessoria_possibleTypes: string[] = ['ArquivoAssessoria']
+export const isArquivoAssessoria = (obj?: { __typename?: any } | null): obj is ArquivoAssessoria => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isArquivoAssessoria"')
+  return ArquivoAssessoria_possibleTypes.includes(obj.__typename)
 }
 
 
 
-const Node_possibleTypes: string[] = ['Banner','ContentType','Taxonomy','User','Comment','EnqueuedScript','EnqueuedStylesheet','MediaItem','Page','Post','Category','PostFormat','Tag','UserRole','Menu','MenuItem','Plugin','Theme','CommentAuthor']
+const Node_possibleTypes: string[] = ['ArquivoAssessoria','ContentType','Taxonomy','User','Comment','EnqueuedScript','EnqueuedStylesheet','MediaItem','Page','Post','Category','PostFormat','Tag','UserRole','Banner','Menu','MenuItem','Plugin','Theme','CommentAuthor']
 export const isNode = (obj?: { __typename?: any } | null): obj is Node => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isNode"')
   return Node_possibleTypes.includes(obj.__typename)
@@ -12559,7 +13074,7 @@ export const isNode = (obj?: { __typename?: any } | null): obj is Node => {
 
 
 
-const ContentNode_possibleTypes: string[] = ['Banner','MediaItem','Page','Post']
+const ContentNode_possibleTypes: string[] = ['ArquivoAssessoria','MediaItem','Page','Post','Banner']
 export const isContentNode = (obj?: { __typename?: any } | null): obj is ContentNode => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContentNode"')
   return ContentNode_possibleTypes.includes(obj.__typename)
@@ -12567,7 +13082,7 @@ export const isContentNode = (obj?: { __typename?: any } | null): obj is Content
 
 
 
-const UniformResourceIdentifiable_possibleTypes: string[] = ['Banner','ContentType','User','MediaItem','Page','Post','Category','PostFormat','Tag']
+const UniformResourceIdentifiable_possibleTypes: string[] = ['ArquivoAssessoria','ContentType','User','MediaItem','Page','Post','Category','PostFormat','Tag','Banner']
 export const isUniformResourceIdentifiable = (obj?: { __typename?: any } | null): obj is UniformResourceIdentifiable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUniformResourceIdentifiable"')
   return UniformResourceIdentifiable_possibleTypes.includes(obj.__typename)
@@ -12583,7 +13098,7 @@ export const isContentNodeToContentTypeConnectionEdge = (obj?: { __typename?: an
 
 
 
-const OneToOneConnection_possibleTypes: string[] = ['ContentNodeToContentTypeConnectionEdge','ContentNodeToEditLockConnectionEdge','CommentToCommenterConnectionEdge','CommentToContentNodeConnectionEdge','CommentToParentCommentConnectionEdge','NodeWithAuthorToUserConnectionEdge','ContentNodeToEditLastConnectionEdge','HierarchicalContentNodeToParentContentNodeConnectionEdge','NodeWithFeaturedImageToMediaItemConnectionEdge','NodeWithRevisionsToContentNodeConnectionEdge','PageToPreviewConnectionEdge','CategoryToParentCategoryConnectionEdge','CategoryToTaxonomyConnectionEdge','PostFormatToTaxonomyConnectionEdge','PostToPreviewConnectionEdge','TagToTaxonomyConnectionEdge','BannerToPreviewConnectionEdge','MenuItemToMenuItemLinkableConnectionEdge','MenuItemToMenuConnectionEdge']
+const OneToOneConnection_possibleTypes: string[] = ['ContentNodeToContentTypeConnectionEdge','ContentNodeToEditLockConnectionEdge','CommentToCommenterConnectionEdge','CommentToContentNodeConnectionEdge','CommentToParentCommentConnectionEdge','NodeWithAuthorToUserConnectionEdge','ContentNodeToEditLastConnectionEdge','HierarchicalContentNodeToParentContentNodeConnectionEdge','NodeWithFeaturedImageToMediaItemConnectionEdge','NodeWithRevisionsToContentNodeConnectionEdge','PageToPreviewConnectionEdge','CategoryToParentCategoryConnectionEdge','CategoryToTaxonomyConnectionEdge','PostFormatToTaxonomyConnectionEdge','PostToPreviewConnectionEdge','TagToTaxonomyConnectionEdge','ArquivoAssessoriaToPreviewConnectionEdge','BannerToPreviewConnectionEdge','MenuItemToMenuItemLinkableConnectionEdge','MenuItemToMenuConnectionEdge']
 export const isOneToOneConnection = (obj?: { __typename?: any } | null): obj is OneToOneConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOneToOneConnection"')
   return OneToOneConnection_possibleTypes.includes(obj.__typename)
@@ -12591,7 +13106,7 @@ export const isOneToOneConnection = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const Edge_possibleTypes: string[] = ['ContentNodeToContentTypeConnectionEdge','TaxonomyToContentTypeConnectionEdge','ContentTypeToTaxonomyConnectionEdge','ContentTypeToContentNodeConnectionEdge','ContentNodeToEditLockConnectionEdge','CommentToCommenterConnectionEdge','CommentToContentNodeConnectionEdge','CommentToParentCommentConnectionEdge','CommentToCommentConnectionEdge','UserToCommentConnectionEdge','UserToEnqueuedScriptConnectionEdge','UserToEnqueuedStylesheetConnectionEdge','NodeWithAuthorToUserConnectionEdge','HierarchicalContentNodeToContentNodeAncestorsConnectionEdge','HierarchicalContentNodeToContentNodeChildrenConnectionEdge','ContentNodeToEnqueuedScriptConnectionEdge','ContentNodeToEnqueuedStylesheetConnectionEdge','ContentNodeToEditLastConnectionEdge','HierarchicalContentNodeToParentContentNodeConnectionEdge','MediaItemToCommentConnectionEdge','UserToMediaItemConnectionEdge','NodeWithFeaturedImageToMediaItemConnectionEdge','NodeWithRevisionsToContentNodeConnectionEdge','PageToCommentConnectionEdge','PageToPreviewConnectionEdge','PageToRevisionConnectionEdge','UserToPageConnectionEdge','TermNodeToEnqueuedScriptConnectionEdge','TermNodeToEnqueuedStylesheetConnectionEdge','CategoryToAncestorsCategoryConnectionEdge','CategoryToCategoryConnectionEdge','CategoryToContentNodeConnectionEdge','CategoryToParentCategoryConnectionEdge','CategoryToPostConnectionEdge','CategoryToTaxonomyConnectionEdge','PostToCategoryConnectionEdge','PostToCommentConnectionEdge','PostFormatToContentNodeConnectionEdge','PostFormatToPostConnectionEdge','PostFormatToTaxonomyConnectionEdge','PostToPostFormatConnectionEdge','PostToPreviewConnectionEdge','PostToRevisionConnectionEdge','TagToContentNodeConnectionEdge','TagToPostConnectionEdge','TagToTaxonomyConnectionEdge','PostToTagConnectionEdge','PostToTermNodeConnectionEdge','UserToPostConnectionEdge','UserToRevisionsConnectionEdge','UserToUserRoleConnectionEdge','BannerToPreviewConnectionEdge','RootQueryToBannerConnectionEdge','RootQueryToCategoryConnectionEdge','RootQueryToCommentConnectionEdge','RootQueryToContentNodeConnectionEdge','RootQueryToContentTypeConnectionEdge','RootQueryToMediaItemConnectionEdge','MenuItemToMenuItemConnectionEdge','MenuItemToMenuItemLinkableConnectionEdge','MenuItemToMenuConnectionEdge','MenuToMenuItemConnectionEdge','RootQueryToMenuItemConnectionEdge','RootQueryToMenuConnectionEdge','RootQueryToPageConnectionEdge','RootQueryToPluginConnectionEdge','RootQueryToPostFormatConnectionEdge','RootQueryToPostConnectionEdge','RootQueryToEnqueuedScriptConnectionEdge','RootQueryToEnqueuedStylesheetConnectionEdge','RootQueryToRevisionsConnectionEdge','RootQueryToTagConnectionEdge','RootQueryToTaxonomyConnectionEdge','RootQueryToTermNodeConnectionEdge','RootQueryToThemeConnectionEdge','RootQueryToUserRoleConnectionEdge','RootQueryToUserConnectionEdge']
+const Edge_possibleTypes: string[] = ['ContentNodeToContentTypeConnectionEdge','TaxonomyToContentTypeConnectionEdge','ContentTypeToTaxonomyConnectionEdge','ContentTypeToContentNodeConnectionEdge','ContentNodeToEditLockConnectionEdge','CommentToCommenterConnectionEdge','CommentToContentNodeConnectionEdge','CommentToParentCommentConnectionEdge','CommentToCommentConnectionEdge','UserToCommentConnectionEdge','UserToEnqueuedScriptConnectionEdge','UserToEnqueuedStylesheetConnectionEdge','NodeWithAuthorToUserConnectionEdge','HierarchicalContentNodeToContentNodeAncestorsConnectionEdge','HierarchicalContentNodeToContentNodeChildrenConnectionEdge','ContentNodeToEnqueuedScriptConnectionEdge','ContentNodeToEnqueuedStylesheetConnectionEdge','ContentNodeToEditLastConnectionEdge','HierarchicalContentNodeToParentContentNodeConnectionEdge','MediaItemToCommentConnectionEdge','UserToMediaItemConnectionEdge','NodeWithFeaturedImageToMediaItemConnectionEdge','NodeWithRevisionsToContentNodeConnectionEdge','PageToCommentConnectionEdge','PageToPreviewConnectionEdge','PageToRevisionConnectionEdge','UserToPageConnectionEdge','TermNodeToEnqueuedScriptConnectionEdge','TermNodeToEnqueuedStylesheetConnectionEdge','CategoryToAncestorsCategoryConnectionEdge','CategoryToCategoryConnectionEdge','CategoryToContentNodeConnectionEdge','CategoryToParentCategoryConnectionEdge','CategoryToPostConnectionEdge','CategoryToTaxonomyConnectionEdge','PostToCategoryConnectionEdge','PostToCommentConnectionEdge','PostFormatToContentNodeConnectionEdge','PostFormatToPostConnectionEdge','PostFormatToTaxonomyConnectionEdge','PostToPostFormatConnectionEdge','PostToPreviewConnectionEdge','PostToRevisionConnectionEdge','TagToContentNodeConnectionEdge','TagToPostConnectionEdge','TagToTaxonomyConnectionEdge','PostToTagConnectionEdge','PostToTermNodeConnectionEdge','UserToPostConnectionEdge','UserToRevisionsConnectionEdge','UserToUserRoleConnectionEdge','ArquivoAssessoriaToPreviewConnectionEdge','RootQueryToArquivoAssessoriaConnectionEdge','BannerToPreviewConnectionEdge','RootQueryToBannerConnectionEdge','RootQueryToCategoryConnectionEdge','RootQueryToCommentConnectionEdge','RootQueryToContentNodeConnectionEdge','RootQueryToContentTypeConnectionEdge','RootQueryToMediaItemConnectionEdge','MenuItemToMenuItemConnectionEdge','MenuItemToMenuItemLinkableConnectionEdge','MenuItemToMenuConnectionEdge','MenuToMenuItemConnectionEdge','RootQueryToMenuItemConnectionEdge','RootQueryToMenuConnectionEdge','RootQueryToPageConnectionEdge','RootQueryToPluginConnectionEdge','RootQueryToPostFormatConnectionEdge','RootQueryToPostConnectionEdge','RootQueryToEnqueuedScriptConnectionEdge','RootQueryToEnqueuedStylesheetConnectionEdge','RootQueryToRevisionsConnectionEdge','RootQueryToTagConnectionEdge','RootQueryToTaxonomyConnectionEdge','RootQueryToTermNodeConnectionEdge','RootQueryToThemeConnectionEdge','RootQueryToUserRoleConnectionEdge','RootQueryToUserConnectionEdge']
 export const isEdge = (obj?: { __typename?: any } | null): obj is Edge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEdge"')
   return Edge_possibleTypes.includes(obj.__typename)
@@ -12631,7 +13146,7 @@ export const isTaxonomyConnection = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const Connection_possibleTypes: string[] = ['ContentTypeToTaxonomyConnection','TaxonomyToContentTypeConnection','ContentTypeToContentNodeConnection','UserToCommentConnection','CommentToCommentConnection','UserToEnqueuedScriptConnection','UserToEnqueuedStylesheetConnection','UserToMediaItemConnection','HierarchicalContentNodeToContentNodeAncestorsConnection','HierarchicalContentNodeToContentNodeChildrenConnection','ContentNodeToEnqueuedScriptConnection','ContentNodeToEnqueuedStylesheetConnection','MediaItemToCommentConnection','UserToPageConnection','PageToCommentConnection','PageToRevisionConnection','UserToPostConnection','PostToCategoryConnection','TermNodeToEnqueuedScriptConnection','TermNodeToEnqueuedStylesheetConnection','CategoryToAncestorsCategoryConnection','CategoryToCategoryConnection','CategoryToContentNodeConnection','CategoryToPostConnection','PostToCommentConnection','PostToPostFormatConnection','PostFormatToContentNodeConnection','PostFormatToPostConnection','PostToRevisionConnection','PostToTagConnection','TagToContentNodeConnection','TagToPostConnection','PostToTermNodeConnection','UserToRevisionsConnection','UserToUserRoleConnection','RootQueryToBannerConnection','RootQueryToCategoryConnection','RootQueryToCommentConnection','RootQueryToContentNodeConnection','RootQueryToContentTypeConnection','RootQueryToMediaItemConnection','MenuToMenuItemConnection','MenuItemToMenuItemConnection','RootQueryToMenuItemConnection','RootQueryToMenuConnection','RootQueryToPageConnection','RootQueryToPluginConnection','RootQueryToPostFormatConnection','RootQueryToPostConnection','RootQueryToEnqueuedScriptConnection','RootQueryToEnqueuedStylesheetConnection','RootQueryToRevisionsConnection','RootQueryToTagConnection','RootQueryToTaxonomyConnection','RootQueryToTermNodeConnection','RootQueryToThemeConnection','RootQueryToUserRoleConnection','RootQueryToUserConnection']
+const Connection_possibleTypes: string[] = ['ContentTypeToTaxonomyConnection','TaxonomyToContentTypeConnection','ContentTypeToContentNodeConnection','UserToCommentConnection','CommentToCommentConnection','UserToEnqueuedScriptConnection','UserToEnqueuedStylesheetConnection','UserToMediaItemConnection','HierarchicalContentNodeToContentNodeAncestorsConnection','HierarchicalContentNodeToContentNodeChildrenConnection','ContentNodeToEnqueuedScriptConnection','ContentNodeToEnqueuedStylesheetConnection','MediaItemToCommentConnection','UserToPageConnection','PageToCommentConnection','PageToRevisionConnection','UserToPostConnection','PostToCategoryConnection','TermNodeToEnqueuedScriptConnection','TermNodeToEnqueuedStylesheetConnection','CategoryToAncestorsCategoryConnection','CategoryToCategoryConnection','CategoryToContentNodeConnection','CategoryToPostConnection','PostToCommentConnection','PostToPostFormatConnection','PostFormatToContentNodeConnection','PostFormatToPostConnection','PostToRevisionConnection','PostToTagConnection','TagToContentNodeConnection','TagToPostConnection','PostToTermNodeConnection','UserToRevisionsConnection','UserToUserRoleConnection','RootQueryToArquivoAssessoriaConnection','RootQueryToBannerConnection','RootQueryToCategoryConnection','RootQueryToCommentConnection','RootQueryToContentNodeConnection','RootQueryToContentTypeConnection','RootQueryToMediaItemConnection','MenuToMenuItemConnection','MenuItemToMenuItemConnection','RootQueryToMenuItemConnection','RootQueryToMenuConnection','RootQueryToPageConnection','RootQueryToPluginConnection','RootQueryToPostFormatConnection','RootQueryToPostConnection','RootQueryToEnqueuedScriptConnection','RootQueryToEnqueuedStylesheetConnection','RootQueryToRevisionsConnection','RootQueryToTagConnection','RootQueryToTaxonomyConnection','RootQueryToTermNodeConnection','RootQueryToThemeConnection','RootQueryToUserRoleConnection','RootQueryToUserConnection']
 export const isConnection = (obj?: { __typename?: any } | null): obj is Connection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isConnection"')
   return Connection_possibleTypes.includes(obj.__typename)
@@ -12767,7 +13282,7 @@ export const isCommenter = (obj?: { __typename?: any } | null): obj is Commenter
 
 
 
-const DatabaseIdentifier_possibleTypes: string[] = ['Banner','User','Comment','MediaItem','Page','Post','Category','PostFormat','Tag','Menu','MenuItem','CommentAuthor']
+const DatabaseIdentifier_possibleTypes: string[] = ['ArquivoAssessoria','User','Comment','MediaItem','Page','Post','Category','PostFormat','Tag','Banner','Menu','MenuItem','CommentAuthor']
 export const isDatabaseIdentifier = (obj?: { __typename?: any } | null): obj is DatabaseIdentifier => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDatabaseIdentifier"')
   return DatabaseIdentifier_possibleTypes.includes(obj.__typename)
@@ -12991,7 +13506,7 @@ export const isMediaItem = (obj?: { __typename?: any } | null): obj is MediaItem
 
 
 
-const NodeWithTemplate_possibleTypes: string[] = ['Banner','MediaItem','Page','Post']
+const NodeWithTemplate_possibleTypes: string[] = ['ArquivoAssessoria','MediaItem','Page','Post','Banner']
 export const isNodeWithTemplate = (obj?: { __typename?: any } | null): obj is NodeWithTemplate => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isNodeWithTemplate"')
   return NodeWithTemplate_possibleTypes.includes(obj.__typename)
@@ -13007,7 +13522,7 @@ export const isContentTemplate = (obj?: { __typename?: any } | null): obj is Con
 
 
 
-const NodeWithTitle_possibleTypes: string[] = ['Banner','MediaItem','Page','Post']
+const NodeWithTitle_possibleTypes: string[] = ['ArquivoAssessoria','MediaItem','Page','Post','Banner']
 export const isNodeWithTitle = (obj?: { __typename?: any } | null): obj is NodeWithTitle => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isNodeWithTitle"')
   return NodeWithTitle_possibleTypes.includes(obj.__typename)
@@ -13215,7 +13730,7 @@ export const isPage = (obj?: { __typename?: any } | null): obj is Page => {
 
 
 
-const Previewable_possibleTypes: string[] = ['Banner','Page','Post']
+const Previewable_possibleTypes: string[] = ['ArquivoAssessoria','Page','Post','Banner']
 export const isPreviewable = (obj?: { __typename?: any } | null): obj is Previewable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPreviewable"')
   return Previewable_possibleTypes.includes(obj.__typename)
@@ -13271,7 +13786,7 @@ export const isNodeWithPageAttributes = (obj?: { __typename?: any } | null): obj
 
 
 
-const MenuItemLinkable_possibleTypes: string[] = ['Banner','Page','Post','Category','Tag']
+const MenuItemLinkable_possibleTypes: string[] = ['ArquivoAssessoria','Page','Post','Category','Tag','Banner']
 export const isMenuItemLinkable = (obj?: { __typename?: any } | null): obj is MenuItemLinkable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMenuItemLinkable"')
   return MenuItemLinkable_possibleTypes.includes(obj.__typename)
@@ -13287,7 +13802,7 @@ export const isPage_Assessoria = (obj?: { __typename?: any } | null): obj is Pag
 
 
 
-const AcfFieldGroup_possibleTypes: string[] = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
+const AcfFieldGroup_possibleTypes: string[] = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','ArquivoAssessoria_DownAssessoria','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
 export const isAcfFieldGroup = (obj?: { __typename?: any } | null): obj is AcfFieldGroup => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAcfFieldGroup"')
   return AcfFieldGroup_possibleTypes.includes(obj.__typename)
@@ -13871,6 +14386,62 @@ export const isUserToUserRoleConnectionEdge = (obj?: { __typename?: any } | null
 
 
 
+const ArquivoAssessoria_DownAssessoria_possibleTypes: string[] = ['ArquivoAssessoria_DownAssessoria']
+export const isArquivoAssessoria_DownAssessoria = (obj?: { __typename?: any } | null): obj is ArquivoAssessoria_DownAssessoria => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isArquivoAssessoria_DownAssessoria"')
+  return ArquivoAssessoria_DownAssessoria_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const ArquivoAssessoriaToPreviewConnectionEdge_possibleTypes: string[] = ['ArquivoAssessoriaToPreviewConnectionEdge']
+export const isArquivoAssessoriaToPreviewConnectionEdge = (obj?: { __typename?: any } | null): obj is ArquivoAssessoriaToPreviewConnectionEdge => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isArquivoAssessoriaToPreviewConnectionEdge"')
+  return ArquivoAssessoriaToPreviewConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const ArquivoAssessoriaConnectionEdge_possibleTypes: string[] = ['ArquivoAssessoriaToPreviewConnectionEdge','RootQueryToArquivoAssessoriaConnectionEdge']
+export const isArquivoAssessoriaConnectionEdge = (obj?: { __typename?: any } | null): obj is ArquivoAssessoriaConnectionEdge => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isArquivoAssessoriaConnectionEdge"')
+  return ArquivoAssessoriaConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToArquivoAssessoriaConnection_possibleTypes: string[] = ['RootQueryToArquivoAssessoriaConnection']
+export const isRootQueryToArquivoAssessoriaConnection = (obj?: { __typename?: any } | null): obj is RootQueryToArquivoAssessoriaConnection => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToArquivoAssessoriaConnection"')
+  return RootQueryToArquivoAssessoriaConnection_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const ArquivoAssessoriaConnection_possibleTypes: string[] = ['RootQueryToArquivoAssessoriaConnection']
+export const isArquivoAssessoriaConnection = (obj?: { __typename?: any } | null): obj is ArquivoAssessoriaConnection => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isArquivoAssessoriaConnection"')
+  return ArquivoAssessoriaConnection_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToArquivoAssessoriaConnectionEdge_possibleTypes: string[] = ['RootQueryToArquivoAssessoriaConnectionEdge']
+export const isRootQueryToArquivoAssessoriaConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToArquivoAssessoriaConnectionEdge => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToArquivoAssessoriaConnectionEdge"')
+  return RootQueryToArquivoAssessoriaConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Banner_possibleTypes: string[] = ['Banner']
+export const isBanner = (obj?: { __typename?: any } | null): obj is Banner => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isBanner"')
+  return Banner_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const Banner_BannerHome_possibleTypes: string[] = ['Banner_BannerHome']
 export const isBanner_BannerHome = (obj?: { __typename?: any } | null): obj is Banner_BannerHome => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isBanner_BannerHome"')
@@ -14103,7 +14674,7 @@ export const isMenuItemLinkableConnectionEdge = (obj?: { __typename?: any } | nu
 
 
 
-const MenuItemObjectUnion_possibleTypes: string[] = ['Post','Page','Banner','Category','Tag']
+const MenuItemObjectUnion_possibleTypes: string[] = ['Post','Page','Banner','ArquivoAssessoria','Category','Tag']
 export const isMenuItemObjectUnion = (obj?: { __typename?: any } | null): obj is MenuItemObjectUnion => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMenuItemObjectUnion"')
   return MenuItemObjectUnion_possibleTypes.includes(obj.__typename)
@@ -14463,6 +15034,14 @@ export const isRootMutation = (obj?: { __typename?: any } | null): obj is RootMu
 
 
 
+const CreateArquivoAssessoriaPayload_possibleTypes: string[] = ['CreateArquivoAssessoriaPayload']
+export const isCreateArquivoAssessoriaPayload = (obj?: { __typename?: any } | null): obj is CreateArquivoAssessoriaPayload => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCreateArquivoAssessoriaPayload"')
+  return CreateArquivoAssessoriaPayload_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const CreateBannerPayload_possibleTypes: string[] = ['CreateBannerPayload']
 export const isCreateBannerPayload = (obj?: { __typename?: any } | null): obj is CreateBannerPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateBannerPayload"')
@@ -14531,6 +15110,14 @@ const CreateUserPayload_possibleTypes: string[] = ['CreateUserPayload']
 export const isCreateUserPayload = (obj?: { __typename?: any } | null): obj is CreateUserPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateUserPayload"')
   return CreateUserPayload_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const DeleteArquivoAssessoriaPayload_possibleTypes: string[] = ['DeleteArquivoAssessoriaPayload']
+export const isDeleteArquivoAssessoriaPayload = (obj?: { __typename?: any } | null): obj is DeleteArquivoAssessoriaPayload => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteArquivoAssessoriaPayload"')
+  return DeleteArquivoAssessoriaPayload_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14639,6 +15226,14 @@ export const isSendPasswordResetEmailPayload = (obj?: { __typename?: any } | nul
 
 
 
+const UpdateArquivoAssessoriaPayload_possibleTypes: string[] = ['UpdateArquivoAssessoriaPayload']
+export const isUpdateArquivoAssessoriaPayload = (obj?: { __typename?: any } | null): obj is UpdateArquivoAssessoriaPayload => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateArquivoAssessoriaPayload"')
+  return UpdateArquivoAssessoriaPayload_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const UpdateBannerPayload_possibleTypes: string[] = ['UpdateBannerPayload']
 export const isUpdateBannerPayload = (obj?: { __typename?: any } | null): obj is UpdateBannerPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateBannerPayload"')
@@ -14740,6 +15335,42 @@ export interface RootQueryPromiseChain{
     
 /** Entry point to get all settings for the site */
 allSettings: (SettingsPromiseChain & {get: <R extends SettingsRequest>(request: R, defaultValue?: (FieldsSelection<Settings, R> | undefined)) => Promise<(FieldsSelection<Settings, R> | undefined)>}),
+    
+/** An object of the ArquivoAssessoria Type.  */
+arquivoAssessoria: ((args: {
+/** The globally unique identifier of the object. */
+id: Scalars['ID'],
+/** Type of unique identifier to fetch by. Default is Global ID */
+idType?: (ArquivoAssessoriaIdType | null),
+/** Whether to return the node as a preview instance */
+asPreview?: (Scalars['Boolean'] | null)}) => ArquivoAssessoriaPromiseChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Promise<(FieldsSelection<ArquivoAssessoria, R> | undefined)>}),
+    
+/**
+ * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
+ * A ArquivoAssessoria object
+ */
+arquivoAssessoriaBy: ((args?: {
+/** Get the object by its global ID */
+id?: (Scalars['ID'] | null),
+/** Get the ArquivoAssessoria by its database ID */
+arquivoAssessoriaId?: (Scalars['Int'] | null),
+/** Get the ArquivoAssessoria by its uri */
+uri?: (Scalars['String'] | null),
+/** Get the ArquivoAssessoria by its slug (only available for non-hierarchical types) */
+slug?: (Scalars['String'] | null)}) => ArquivoAssessoriaPromiseChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Promise<(FieldsSelection<ArquivoAssessoria, R> | undefined)>})&(ArquivoAssessoriaPromiseChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Promise<(FieldsSelection<ArquivoAssessoria, R> | undefined)>}),
+    
+/** Connection between the RootQuery type and the ArquivoAssessoria type */
+arquivosAssessoria: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null),
+/** Arguments for filtering the connection */
+where?: (RootQueryToArquivoAssessoriaConnectionWhereArgs | null)}) => RootQueryToArquivoAssessoriaConnectionPromiseChain & {get: <R extends RootQueryToArquivoAssessoriaConnectionRequest>(request: R, defaultValue?: (FieldsSelection<RootQueryToArquivoAssessoriaConnection, R> | undefined)) => Promise<(FieldsSelection<RootQueryToArquivoAssessoriaConnection, R> | undefined)>})&(RootQueryToArquivoAssessoriaConnectionPromiseChain & {get: <R extends RootQueryToArquivoAssessoriaConnectionRequest>(request: R, defaultValue?: (FieldsSelection<RootQueryToArquivoAssessoriaConnection, R> | undefined)) => Promise<(FieldsSelection<RootQueryToArquivoAssessoriaConnection, R> | undefined)>}),
     
 /** An object of the Banner Type.  */
 banner: ((args: {
@@ -15222,6 +15853,42 @@ export interface RootQueryObservableChain{
     
 /** Entry point to get all settings for the site */
 allSettings: (SettingsObservableChain & {get: <R extends SettingsRequest>(request: R, defaultValue?: (FieldsSelection<Settings, R> | undefined)) => Observable<(FieldsSelection<Settings, R> | undefined)>}),
+    
+/** An object of the ArquivoAssessoria Type.  */
+arquivoAssessoria: ((args: {
+/** The globally unique identifier of the object. */
+id: Scalars['ID'],
+/** Type of unique identifier to fetch by. Default is Global ID */
+idType?: (ArquivoAssessoriaIdType | null),
+/** Whether to return the node as a preview instance */
+asPreview?: (Scalars['Boolean'] | null)}) => ArquivoAssessoriaObservableChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Observable<(FieldsSelection<ArquivoAssessoria, R> | undefined)>}),
+    
+/**
+ * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
+ * A ArquivoAssessoria object
+ */
+arquivoAssessoriaBy: ((args?: {
+/** Get the object by its global ID */
+id?: (Scalars['ID'] | null),
+/** Get the ArquivoAssessoria by its database ID */
+arquivoAssessoriaId?: (Scalars['Int'] | null),
+/** Get the ArquivoAssessoria by its uri */
+uri?: (Scalars['String'] | null),
+/** Get the ArquivoAssessoria by its slug (only available for non-hierarchical types) */
+slug?: (Scalars['String'] | null)}) => ArquivoAssessoriaObservableChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Observable<(FieldsSelection<ArquivoAssessoria, R> | undefined)>})&(ArquivoAssessoriaObservableChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Observable<(FieldsSelection<ArquivoAssessoria, R> | undefined)>}),
+    
+/** Connection between the RootQuery type and the ArquivoAssessoria type */
+arquivosAssessoria: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null),
+/** Arguments for filtering the connection */
+where?: (RootQueryToArquivoAssessoriaConnectionWhereArgs | null)}) => RootQueryToArquivoAssessoriaConnectionObservableChain & {get: <R extends RootQueryToArquivoAssessoriaConnectionRequest>(request: R, defaultValue?: (FieldsSelection<RootQueryToArquivoAssessoriaConnection, R> | undefined)) => Observable<(FieldsSelection<RootQueryToArquivoAssessoriaConnection, R> | undefined)>})&(RootQueryToArquivoAssessoriaConnectionObservableChain & {get: <R extends RootQueryToArquivoAssessoriaConnectionRequest>(request: R, defaultValue?: (FieldsSelection<RootQueryToArquivoAssessoriaConnection, R> | undefined)) => Observable<(FieldsSelection<RootQueryToArquivoAssessoriaConnection, R> | undefined)>}),
     
 /** An object of the Banner Type.  */
 banner: ((args: {
@@ -15817,17 +16484,14 @@ writingSettingsUseSmilies: ({get: (request?: boolean|number, defaultValue?: (Sca
 }
 
 
-/** The Banner type */
-export interface BannerPromiseChain{
+/** The ArquivoAssessoria type */
+export interface ArquivoAssessoriaPromiseChain{
     
 /**
  * @deprecated Deprecated in favor of the databaseId field
  * The id field matches the WP_Post-&gt;ID field.
  */
-bannerId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Promise<Scalars['Int']>}),
-    
-/** Added to the GraphQL Schema because the ACF Field Group &quot;Banner_home&quot; was set to Show in GraphQL. */
-banner_home: (Banner_BannerHomePromiseChain & {get: <R extends Banner_BannerHomeRequest>(request: R, defaultValue?: (FieldsSelection<Banner_BannerHome, R> | undefined)) => Promise<(FieldsSelection<Banner_BannerHome, R> | undefined)>}),
+arquivoAssessoriaId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Promise<Scalars['Int']>}),
     
 /** Connection between the ContentNode type and the ContentType type */
 contentType: (ContentNodeToContentTypeConnectionEdgePromiseChain & {get: <R extends ContentNodeToContentTypeConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)>}),
@@ -15846,6 +16510,9 @@ dateGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | u
     
 /** The desired slug of the post */
 desiredSlug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Arquivos download&quot; was set to Show in GraphQL. */
+down_assessoria: (ArquivoAssessoria_DownAssessoriaPromiseChain & {get: <R extends ArquivoAssessoria_DownAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria_DownAssessoria, R> | undefined)) => Promise<(FieldsSelection<ArquivoAssessoria_DownAssessoria, R> | undefined)>}),
     
 /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
 editingLockedBy: (ContentNodeToEditLockConnectionEdgePromiseChain & {get: <R extends ContentNodeToEditLockConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)>}),
@@ -15878,7 +16545,7 @@ before?: (Scalars['String'] | null)}) => ContentNodeToEnqueuedStylesheetConnecti
 /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
 guid: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     
-/** The globally unique identifier of the banner_home object. */
+/** The globally unique identifier of the arq_assessoria object. */
 id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Promise<Scalars['ID']>}),
     
 /** Whether the node is a Content Node */
@@ -15905,8 +16572,8 @@ modified: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | 
 /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
 modifiedGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     
-/** Connection between the Banner type and the Banner type */
-preview: (BannerToPreviewConnectionEdgePromiseChain & {get: <R extends BannerToPreviewConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<BannerToPreviewConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<BannerToPreviewConnectionEdge, R> | undefined)>}),
+/** Connection between the ArquivoAssessoria type and the ArquivoAssessoria type */
+preview: (ArquivoAssessoriaToPreviewConnectionEdgePromiseChain & {get: <R extends ArquivoAssessoriaToPreviewConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoriaToPreviewConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<ArquivoAssessoriaToPreviewConnectionEdge, R> | undefined)>}),
     
 /** The database id of the preview node */
 previewRevisionDatabaseId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
@@ -15933,17 +16600,14 @@ uri: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undef
 }
 
 
-/** The Banner type */
-export interface BannerObservableChain{
+/** The ArquivoAssessoria type */
+export interface ArquivoAssessoriaObservableChain{
     
 /**
  * @deprecated Deprecated in favor of the databaseId field
  * The id field matches the WP_Post-&gt;ID field.
  */
-bannerId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Observable<Scalars['Int']>}),
-    
-/** Added to the GraphQL Schema because the ACF Field Group &quot;Banner_home&quot; was set to Show in GraphQL. */
-banner_home: (Banner_BannerHomeObservableChain & {get: <R extends Banner_BannerHomeRequest>(request: R, defaultValue?: (FieldsSelection<Banner_BannerHome, R> | undefined)) => Observable<(FieldsSelection<Banner_BannerHome, R> | undefined)>}),
+arquivoAssessoriaId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Observable<Scalars['Int']>}),
     
 /** Connection between the ContentNode type and the ContentType type */
 contentType: (ContentNodeToContentTypeConnectionEdgeObservableChain & {get: <R extends ContentNodeToContentTypeConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)>}),
@@ -15962,6 +16626,9 @@ dateGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | u
     
 /** The desired slug of the post */
 desiredSlug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Arquivos download&quot; was set to Show in GraphQL. */
+down_assessoria: (ArquivoAssessoria_DownAssessoriaObservableChain & {get: <R extends ArquivoAssessoria_DownAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria_DownAssessoria, R> | undefined)) => Observable<(FieldsSelection<ArquivoAssessoria_DownAssessoria, R> | undefined)>}),
     
 /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
 editingLockedBy: (ContentNodeToEditLockConnectionEdgeObservableChain & {get: <R extends ContentNodeToEditLockConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)>}),
@@ -15994,7 +16661,7 @@ before?: (Scalars['String'] | null)}) => ContentNodeToEnqueuedStylesheetConnecti
 /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
 guid: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     
-/** The globally unique identifier of the banner_home object. */
+/** The globally unique identifier of the arq_assessoria object. */
 id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Observable<Scalars['ID']>}),
     
 /** Whether the node is a Content Node */
@@ -16021,8 +16688,8 @@ modified: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | 
 /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
 modifiedGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     
-/** Connection between the Banner type and the Banner type */
-preview: (BannerToPreviewConnectionEdgeObservableChain & {get: <R extends BannerToPreviewConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<BannerToPreviewConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<BannerToPreviewConnectionEdge, R> | undefined)>}),
+/** Connection between the ArquivoAssessoria type and the ArquivoAssessoria type */
+preview: (ArquivoAssessoriaToPreviewConnectionEdgeObservableChain & {get: <R extends ArquivoAssessoriaToPreviewConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoriaToPreviewConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<ArquivoAssessoriaToPreviewConnectionEdge, R> | undefined)>}),
     
 /** The database id of the preview node */
 previewRevisionDatabaseId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
@@ -23884,6 +24551,382 @@ node: (UserRoleObservableChain & {get: <R extends UserRoleRequest>(request: R, d
 
 
 /** Field Group */
+export interface ArquivoAssessoria_DownAssessoriaPromiseChain{
+    arquivoParaDownload: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
+    downDescricao: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** Não obrigatório. */
+downImagem: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
+    downTitulo: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface ArquivoAssessoria_DownAssessoriaObservableChain{
+    arquivoParaDownload: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
+    downDescricao: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** Não obrigatório. */
+downImagem: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
+    downTitulo: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Connection between the ArquivoAssessoria type and the ArquivoAssessoria type */
+export interface ArquivoAssessoriaToPreviewConnectionEdgePromiseChain{
+    
+/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The node of the connection, without the edges */
+node: (ArquivoAssessoriaPromiseChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>) => Promise<FieldsSelection<ArquivoAssessoria, R>>})
+}
+
+
+/** Connection between the ArquivoAssessoria type and the ArquivoAssessoria type */
+export interface ArquivoAssessoriaToPreviewConnectionEdgeObservableChain{
+    
+/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The node of the connection, without the edges */
+node: (ArquivoAssessoriaObservableChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>) => Observable<FieldsSelection<ArquivoAssessoria, R>>})
+}
+
+
+/** Edge between a Node and a connected ArquivoAssessoria */
+export interface ArquivoAssessoriaConnectionEdgePromiseChain{
+    
+/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The connected ArquivoAssessoria Node */
+node: (ArquivoAssessoriaPromiseChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>) => Promise<FieldsSelection<ArquivoAssessoria, R>>})
+}
+
+
+/** Edge between a Node and a connected ArquivoAssessoria */
+export interface ArquivoAssessoriaConnectionEdgeObservableChain{
+    
+/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The connected ArquivoAssessoria Node */
+node: (ArquivoAssessoriaObservableChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>) => Observable<FieldsSelection<ArquivoAssessoria, R>>})
+}
+
+
+/** Connection between the RootQuery type and the ArquivoAssessoria type */
+export interface RootQueryToArquivoAssessoriaConnectionPromiseChain{
+    
+/** Edges for the RootQueryToArquivoAssessoriaConnection connection */
+edges: ({get: <R extends RootQueryToArquivoAssessoriaConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToArquivoAssessoriaConnectionEdge, R>[]) => Promise<FieldsSelection<RootQueryToArquivoAssessoriaConnectionEdge, R>[]>}),
+    
+/** The nodes of the connection, without the edges */
+nodes: ({get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>[]) => Promise<FieldsSelection<ArquivoAssessoria, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+}
+
+
+/** Connection between the RootQuery type and the ArquivoAssessoria type */
+export interface RootQueryToArquivoAssessoriaConnectionObservableChain{
+    
+/** Edges for the RootQueryToArquivoAssessoriaConnection connection */
+edges: ({get: <R extends RootQueryToArquivoAssessoriaConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToArquivoAssessoriaConnectionEdge, R>[]) => Observable<FieldsSelection<RootQueryToArquivoAssessoriaConnectionEdge, R>[]>}),
+    
+/** The nodes of the connection, without the edges */
+nodes: ({get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>[]) => Observable<FieldsSelection<ArquivoAssessoria, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+}
+
+
+/** Connection to ArquivoAssessoria Nodes */
+export interface ArquivoAssessoriaConnectionPromiseChain{
+    
+/** A list of edges (relational context) between RootQuery and connected ArquivoAssessoria Nodes */
+edges: ({get: <R extends ArquivoAssessoriaConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoriaConnectionEdge, R>[]) => Promise<FieldsSelection<ArquivoAssessoriaConnectionEdge, R>[]>}),
+    
+/** A list of connected ArquivoAssessoria Nodes */
+nodes: ({get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>[]) => Promise<FieldsSelection<ArquivoAssessoria, R>[]>})
+}
+
+
+/** Connection to ArquivoAssessoria Nodes */
+export interface ArquivoAssessoriaConnectionObservableChain{
+    
+/** A list of edges (relational context) between RootQuery and connected ArquivoAssessoria Nodes */
+edges: ({get: <R extends ArquivoAssessoriaConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoriaConnectionEdge, R>[]) => Observable<FieldsSelection<ArquivoAssessoriaConnectionEdge, R>[]>}),
+    
+/** A list of connected ArquivoAssessoria Nodes */
+nodes: ({get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>[]) => Observable<FieldsSelection<ArquivoAssessoria, R>[]>})
+}
+
+
+/** An edge in a connection */
+export interface RootQueryToArquivoAssessoriaConnectionEdgePromiseChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (ArquivoAssessoriaPromiseChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>) => Promise<FieldsSelection<ArquivoAssessoria, R>>})
+}
+
+
+/** An edge in a connection */
+export interface RootQueryToArquivoAssessoriaConnectionEdgeObservableChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (ArquivoAssessoriaObservableChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>) => Observable<FieldsSelection<ArquivoAssessoria, R>>})
+}
+
+
+/** The Banner type */
+export interface BannerPromiseChain{
+    
+/**
+ * @deprecated Deprecated in favor of the databaseId field
+ * The id field matches the WP_Post-&gt;ID field.
+ */
+bannerId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Promise<Scalars['Int']>}),
+    
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Banner_home&quot; was set to Show in GraphQL. */
+banner_home: (Banner_BannerHomePromiseChain & {get: <R extends Banner_BannerHomeRequest>(request: R, defaultValue?: (FieldsSelection<Banner_BannerHome, R> | undefined)) => Promise<(FieldsSelection<Banner_BannerHome, R> | undefined)>}),
+    
+/** Connection between the ContentNode type and the ContentType type */
+contentType: (ContentNodeToContentTypeConnectionEdgePromiseChain & {get: <R extends ContentNodeToContentTypeConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)>}),
+    
+/** The name of the Content Type the node belongs to */
+contentTypeName: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
+    
+/** The unique identifier stored in the database */
+databaseId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Promise<Scalars['Int']>}),
+    
+/** Post publishing date. */
+date: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The publishing date set in GMT. */
+dateGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The desired slug of the post */
+desiredSlug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
+editingLockedBy: (ContentNodeToEditLockConnectionEdgePromiseChain & {get: <R extends ContentNodeToEditLockConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)>}),
+    
+/** The RSS enclosure for the object */
+enclosure: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** Connection between the ContentNode type and the EnqueuedScript type */
+enqueuedScripts: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null)}) => ContentNodeToEnqueuedScriptConnectionPromiseChain & {get: <R extends ContentNodeToEnqueuedScriptConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)>})&(ContentNodeToEnqueuedScriptConnectionPromiseChain & {get: <R extends ContentNodeToEnqueuedScriptConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)>}),
+    
+/** Connection between the ContentNode type and the EnqueuedStylesheet type */
+enqueuedStylesheets: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null)}) => ContentNodeToEnqueuedStylesheetConnectionPromiseChain & {get: <R extends ContentNodeToEnqueuedStylesheetConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)>})&(ContentNodeToEnqueuedStylesheetConnectionPromiseChain & {get: <R extends ContentNodeToEnqueuedStylesheetConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)>}),
+    
+/** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
+guid: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The globally unique identifier of the banner_home object. */
+id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Promise<Scalars['ID']>}),
+    
+/** Whether the node is a Content Node */
+isContentNode: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** Whether the object is a node in the preview state */
+isPreview: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Promise<(Scalars['Boolean'] | undefined)>}),
+    
+/** Whether the object is restricted from the current viewer */
+isRestricted: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Promise<(Scalars['Boolean'] | undefined)>}),
+    
+/** Whether the node is a Term */
+isTermNode: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** The user that most recently edited the node */
+lastEditedBy: (ContentNodeToEditLastConnectionEdgePromiseChain & {get: <R extends ContentNodeToEditLastConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEditLastConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEditLastConnectionEdge, R> | undefined)>}),
+    
+/** The permalink of the post */
+link: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
+modified: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
+modifiedGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** Connection between the Banner type and the Banner type */
+preview: (BannerToPreviewConnectionEdgePromiseChain & {get: <R extends BannerToPreviewConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<BannerToPreviewConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<BannerToPreviewConnectionEdge, R> | undefined)>}),
+    
+/** The database id of the preview node */
+previewRevisionDatabaseId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
+    
+/** Whether the object is a node in the preview state */
+previewRevisionId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Promise<(Scalars['ID'] | undefined)>}),
+    
+/** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
+slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The current status of the object */
+status: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The template assigned to the node */
+template: (ContentTemplatePromiseChain & {get: <R extends ContentTemplateRequest>(request: R, defaultValue?: (FieldsSelection<ContentTemplate, R> | undefined)) => Promise<(FieldsSelection<ContentTemplate, R> | undefined)>}),
+    
+/** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
+title: ((args?: {
+/** Format of the field output */
+format?: (PostObjectFieldFormatEnum | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The unique resource identifier path */
+uri: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** The Banner type */
+export interface BannerObservableChain{
+    
+/**
+ * @deprecated Deprecated in favor of the databaseId field
+ * The id field matches the WP_Post-&gt;ID field.
+ */
+bannerId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Observable<Scalars['Int']>}),
+    
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Banner_home&quot; was set to Show in GraphQL. */
+banner_home: (Banner_BannerHomeObservableChain & {get: <R extends Banner_BannerHomeRequest>(request: R, defaultValue?: (FieldsSelection<Banner_BannerHome, R> | undefined)) => Observable<(FieldsSelection<Banner_BannerHome, R> | undefined)>}),
+    
+/** Connection between the ContentNode type and the ContentType type */
+contentType: (ContentNodeToContentTypeConnectionEdgeObservableChain & {get: <R extends ContentNodeToContentTypeConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)>}),
+    
+/** The name of the Content Type the node belongs to */
+contentTypeName: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
+    
+/** The unique identifier stored in the database */
+databaseId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Observable<Scalars['Int']>}),
+    
+/** Post publishing date. */
+date: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The publishing date set in GMT. */
+dateGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The desired slug of the post */
+desiredSlug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
+editingLockedBy: (ContentNodeToEditLockConnectionEdgeObservableChain & {get: <R extends ContentNodeToEditLockConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)>}),
+    
+/** The RSS enclosure for the object */
+enclosure: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** Connection between the ContentNode type and the EnqueuedScript type */
+enqueuedScripts: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null)}) => ContentNodeToEnqueuedScriptConnectionObservableChain & {get: <R extends ContentNodeToEnqueuedScriptConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)>})&(ContentNodeToEnqueuedScriptConnectionObservableChain & {get: <R extends ContentNodeToEnqueuedScriptConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)>}),
+    
+/** Connection between the ContentNode type and the EnqueuedStylesheet type */
+enqueuedStylesheets: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null)}) => ContentNodeToEnqueuedStylesheetConnectionObservableChain & {get: <R extends ContentNodeToEnqueuedStylesheetConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)>})&(ContentNodeToEnqueuedStylesheetConnectionObservableChain & {get: <R extends ContentNodeToEnqueuedStylesheetConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)>}),
+    
+/** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
+guid: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The globally unique identifier of the banner_home object. */
+id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Observable<Scalars['ID']>}),
+    
+/** Whether the node is a Content Node */
+isContentNode: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** Whether the object is a node in the preview state */
+isPreview: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Observable<(Scalars['Boolean'] | undefined)>}),
+    
+/** Whether the object is restricted from the current viewer */
+isRestricted: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Observable<(Scalars['Boolean'] | undefined)>}),
+    
+/** Whether the node is a Term */
+isTermNode: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** The user that most recently edited the node */
+lastEditedBy: (ContentNodeToEditLastConnectionEdgeObservableChain & {get: <R extends ContentNodeToEditLastConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEditLastConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEditLastConnectionEdge, R> | undefined)>}),
+    
+/** The permalink of the post */
+link: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
+modified: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
+modifiedGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** Connection between the Banner type and the Banner type */
+preview: (BannerToPreviewConnectionEdgeObservableChain & {get: <R extends BannerToPreviewConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<BannerToPreviewConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<BannerToPreviewConnectionEdge, R> | undefined)>}),
+    
+/** The database id of the preview node */
+previewRevisionDatabaseId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
+    
+/** Whether the object is a node in the preview state */
+previewRevisionId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Observable<(Scalars['ID'] | undefined)>}),
+    
+/** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
+slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The current status of the object */
+status: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The template assigned to the node */
+template: (ContentTemplateObservableChain & {get: <R extends ContentTemplateRequest>(request: R, defaultValue?: (FieldsSelection<ContentTemplate, R> | undefined)) => Observable<(FieldsSelection<ContentTemplate, R> | undefined)>}),
+    
+/** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
+title: ((args?: {
+/** Format of the field output */
+format?: (PostObjectFieldFormatEnum | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The unique resource identifier path */
+uri: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
 export interface Banner_BannerHomePromiseChain{
     
 /** Caso o banner seja uma arte já com textos e gráficos visuais. */
@@ -26026,6 +27069,11 @@ useSmilies: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean']
 /** The root mutation */
 export interface RootMutationPromiseChain{
     
+/** The createArquivoAssessoria mutation */
+createArquivoAssessoria: ((args: {
+/** Input for the createArquivoAssessoria mutation */
+input: CreateArquivoAssessoriaInput}) => CreateArquivoAssessoriaPayloadPromiseChain & {get: <R extends CreateArquivoAssessoriaPayloadRequest>(request: R, defaultValue?: (FieldsSelection<CreateArquivoAssessoriaPayload, R> | undefined)) => Promise<(FieldsSelection<CreateArquivoAssessoriaPayload, R> | undefined)>}),
+    
 /** The createBanner mutation */
 createBanner: ((args: {
 /** Input for the createBanner mutation */
@@ -26070,6 +27118,11 @@ input: CreateTagInput}) => CreateTagPayloadPromiseChain & {get: <R extends Creat
 createUser: ((args: {
 /** Input for the createUser mutation */
 input: CreateUserInput}) => CreateUserPayloadPromiseChain & {get: <R extends CreateUserPayloadRequest>(request: R, defaultValue?: (FieldsSelection<CreateUserPayload, R> | undefined)) => Promise<(FieldsSelection<CreateUserPayload, R> | undefined)>}),
+    
+/** The deleteArquivoAssessoria mutation */
+deleteArquivoAssessoria: ((args: {
+/** Input for the deleteArquivoAssessoria mutation */
+input: DeleteArquivoAssessoriaInput}) => DeleteArquivoAssessoriaPayloadPromiseChain & {get: <R extends DeleteArquivoAssessoriaPayloadRequest>(request: R, defaultValue?: (FieldsSelection<DeleteArquivoAssessoriaPayload, R> | undefined)) => Promise<(FieldsSelection<DeleteArquivoAssessoriaPayload, R> | undefined)>}),
     
 /** The deleteBanner mutation */
 deleteBanner: ((args: {
@@ -26141,6 +27194,11 @@ sendPasswordResetEmail: ((args: {
 /** Input for the sendPasswordResetEmail mutation */
 input: SendPasswordResetEmailInput}) => SendPasswordResetEmailPayloadPromiseChain & {get: <R extends SendPasswordResetEmailPayloadRequest>(request: R, defaultValue?: (FieldsSelection<SendPasswordResetEmailPayload, R> | undefined)) => Promise<(FieldsSelection<SendPasswordResetEmailPayload, R> | undefined)>}),
     
+/** The updateArquivoAssessoria mutation */
+updateArquivoAssessoria: ((args: {
+/** Input for the updateArquivoAssessoria mutation */
+input: UpdateArquivoAssessoriaInput}) => UpdateArquivoAssessoriaPayloadPromiseChain & {get: <R extends UpdateArquivoAssessoriaPayloadRequest>(request: R, defaultValue?: (FieldsSelection<UpdateArquivoAssessoriaPayload, R> | undefined)) => Promise<(FieldsSelection<UpdateArquivoAssessoriaPayload, R> | undefined)>}),
+    
 /** The updateBanner mutation */
 updateBanner: ((args: {
 /** Input for the updateBanner mutation */
@@ -26196,6 +27254,11 @@ input: UpdateUserInput}) => UpdateUserPayloadPromiseChain & {get: <R extends Upd
 /** The root mutation */
 export interface RootMutationObservableChain{
     
+/** The createArquivoAssessoria mutation */
+createArquivoAssessoria: ((args: {
+/** Input for the createArquivoAssessoria mutation */
+input: CreateArquivoAssessoriaInput}) => CreateArquivoAssessoriaPayloadObservableChain & {get: <R extends CreateArquivoAssessoriaPayloadRequest>(request: R, defaultValue?: (FieldsSelection<CreateArquivoAssessoriaPayload, R> | undefined)) => Observable<(FieldsSelection<CreateArquivoAssessoriaPayload, R> | undefined)>}),
+    
 /** The createBanner mutation */
 createBanner: ((args: {
 /** Input for the createBanner mutation */
@@ -26240,6 +27303,11 @@ input: CreateTagInput}) => CreateTagPayloadObservableChain & {get: <R extends Cr
 createUser: ((args: {
 /** Input for the createUser mutation */
 input: CreateUserInput}) => CreateUserPayloadObservableChain & {get: <R extends CreateUserPayloadRequest>(request: R, defaultValue?: (FieldsSelection<CreateUserPayload, R> | undefined)) => Observable<(FieldsSelection<CreateUserPayload, R> | undefined)>}),
+    
+/** The deleteArquivoAssessoria mutation */
+deleteArquivoAssessoria: ((args: {
+/** Input for the deleteArquivoAssessoria mutation */
+input: DeleteArquivoAssessoriaInput}) => DeleteArquivoAssessoriaPayloadObservableChain & {get: <R extends DeleteArquivoAssessoriaPayloadRequest>(request: R, defaultValue?: (FieldsSelection<DeleteArquivoAssessoriaPayload, R> | undefined)) => Observable<(FieldsSelection<DeleteArquivoAssessoriaPayload, R> | undefined)>}),
     
 /** The deleteBanner mutation */
 deleteBanner: ((args: {
@@ -26311,6 +27379,11 @@ sendPasswordResetEmail: ((args: {
 /** Input for the sendPasswordResetEmail mutation */
 input: SendPasswordResetEmailInput}) => SendPasswordResetEmailPayloadObservableChain & {get: <R extends SendPasswordResetEmailPayloadRequest>(request: R, defaultValue?: (FieldsSelection<SendPasswordResetEmailPayload, R> | undefined)) => Observable<(FieldsSelection<SendPasswordResetEmailPayload, R> | undefined)>}),
     
+/** The updateArquivoAssessoria mutation */
+updateArquivoAssessoria: ((args: {
+/** Input for the updateArquivoAssessoria mutation */
+input: UpdateArquivoAssessoriaInput}) => UpdateArquivoAssessoriaPayloadObservableChain & {get: <R extends UpdateArquivoAssessoriaPayloadRequest>(request: R, defaultValue?: (FieldsSelection<UpdateArquivoAssessoriaPayload, R> | undefined)) => Observable<(FieldsSelection<UpdateArquivoAssessoriaPayload, R> | undefined)>}),
+    
 /** The updateBanner mutation */
 updateBanner: ((args: {
 /** Input for the updateBanner mutation */
@@ -26360,6 +27433,28 @@ input: UpdateTagInput}) => UpdateTagPayloadObservableChain & {get: <R extends Up
 updateUser: ((args: {
 /** Input for the updateUser mutation */
 input: UpdateUserInput}) => UpdateUserPayloadObservableChain & {get: <R extends UpdateUserPayloadRequest>(request: R, defaultValue?: (FieldsSelection<UpdateUserPayload, R> | undefined)) => Observable<(FieldsSelection<UpdateUserPayload, R> | undefined)>})
+}
+
+
+/** The payload for the createArquivoAssessoria mutation. */
+export interface CreateArquivoAssessoriaPayloadPromiseChain{
+    
+/** The Post object mutation type. */
+arquivoAssessoria: (ArquivoAssessoriaPromiseChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Promise<(FieldsSelection<ArquivoAssessoria, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** The payload for the createArquivoAssessoria mutation. */
+export interface CreateArquivoAssessoriaPayloadObservableChain{
+    
+/** The Post object mutation type. */
+arquivoAssessoria: (ArquivoAssessoriaObservableChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Observable<(FieldsSelection<ArquivoAssessoria, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -26564,6 +27659,34 @@ clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Str
     
 /** The User object mutation type. */
 user: (UserObservableChain & {get: <R extends UserRequest>(request: R, defaultValue?: (FieldsSelection<User, R> | undefined)) => Observable<(FieldsSelection<User, R> | undefined)>})
+}
+
+
+/** The payload for the deleteArquivoAssessoria mutation. */
+export interface DeleteArquivoAssessoriaPayloadPromiseChain{
+    
+/** The object before it was deleted */
+arquivoAssessoria: (ArquivoAssessoriaPromiseChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Promise<(FieldsSelection<ArquivoAssessoria, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The ID of the deleted object */
+deletedId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Promise<(Scalars['ID'] | undefined)>})
+}
+
+
+/** The payload for the deleteArquivoAssessoria mutation. */
+export interface DeleteArquivoAssessoriaPayloadObservableChain{
+    
+/** The object before it was deleted */
+arquivoAssessoria: (ArquivoAssessoriaObservableChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Observable<(FieldsSelection<ArquivoAssessoria, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The ID of the deleted object */
+deletedId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Observable<(Scalars['ID'] | undefined)>})
 }
 
 
@@ -26922,6 +28045,28 @@ success: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | 
  * The user that the password reset email was sent to
  */
 user: (UserObservableChain & {get: <R extends UserRequest>(request: R, defaultValue?: (FieldsSelection<User, R> | undefined)) => Observable<(FieldsSelection<User, R> | undefined)>})
+}
+
+
+/** The payload for the updateArquivoAssessoria mutation. */
+export interface UpdateArquivoAssessoriaPayloadPromiseChain{
+    
+/** The Post object mutation type. */
+arquivoAssessoria: (ArquivoAssessoriaPromiseChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Promise<(FieldsSelection<ArquivoAssessoria, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** The payload for the updateArquivoAssessoria mutation. */
+export interface UpdateArquivoAssessoriaPayloadObservableChain{
+    
+/** The Post object mutation type. */
+arquivoAssessoria: (ArquivoAssessoriaObservableChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: (FieldsSelection<ArquivoAssessoria, R> | undefined)) => Observable<(FieldsSelection<ArquivoAssessoria, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 

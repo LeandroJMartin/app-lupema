@@ -1,10 +1,14 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
-import { Page } from '../generated';
+import DownloadsApp from '../components/layout/Downloads';
+import { Page, RootQueryToArquivoAssessoriaConnection } from '../generated';
 import ClientApp from '../lib/genql';
 
 interface Props {
-  data: Page;
+  data: {
+    page: Page;
+    files: RootQueryToArquivoAssessoriaConnection;
+  };
 }
 
 const AssessoriaApp: NextPage<Props> = ({ data }) => {
@@ -12,7 +16,7 @@ const AssessoriaApp: NextPage<Props> = ({ data }) => {
     <>
       <div className="relative h-[200px] sm:h-[350px] md:h-[500px] border-b-4 border-b-green">
         <Image
-          src={data.featuredImage?.node.sourceUrl || ''}
+          src={data.page.featuredImage?.node.sourceUrl || ''}
           alt="Imagem Empreendimentos Lupema"
           fill
           className="object-cover"
@@ -20,19 +24,19 @@ const AssessoriaApp: NextPage<Props> = ({ data }) => {
         <div className="bg-black/20 absolute top-0 left-0 right-0 z-10 w-full h-full"></div>
       </div>
       <section className="bg-bgi py-[40px] md:py-[80px]">
-        <div className="container w-[50%] text-white text-center">
-          <h1 className="title">{data.title}</h1>
-          <p>{data.assessoria?.assInformacoes}</p>
+        <div className="container w-full sm:w-[80%] xl:w-[50%] text-white text-center">
+          <h1 className="title">{data.page.title}</h1>
+          <p>{data.page.assessoria?.assInformacoes}</p>
           <h3 className="text-2xl text-green my-4">
-            {data.assessoria?.assNometitulo}
+            {data.page.assessoria?.assNometitulo}
           </h3>
           <div className="flex items-center justify-center text-xl">
-            <a href={`tel:+${data.assessoria?.assTelefone}`}>
-              {data.assessoria?.assTelefone}
+            <a href={`tel:+${data.page.assessoria?.assTelefone}`}>
+              {data.page.assessoria?.assTelefone}
             </a>
             <span className="mx-3">|</span>
-            <a href={`mailto:${data.assessoria?.assEmail}`}>
-              {data.assessoria?.assEmail}
+            <a href={`mailto:${data.page.assessoria?.assEmail}`}>
+              {data.page.assessoria?.assEmail}
             </a>
           </div>
           <form action="" method="POST" className="mt-4">
@@ -73,6 +77,11 @@ const AssessoriaApp: NextPage<Props> = ({ data }) => {
           </form>
         </div>
       </section>
+      <section className="bg-bgi border-b border-b-green/50 pb-[40px] md:pb-[80px]">
+        <div className="container down">
+          <DownloadsApp files={data.files} />
+        </div>
+      </section>
     </>
   );
 };
@@ -80,7 +89,7 @@ const AssessoriaApp: NextPage<Props> = ({ data }) => {
 export default AssessoriaApp;
 
 export const getStaticProps = async () => {
-  const { page } = await ClientApp.query({
+  const { page, arquivosAssessoria } = await ClientApp.query({
     page: [
       {
         id: '82',
@@ -101,10 +110,26 @@ export const getStaticProps = async () => {
         },
       },
     ],
+    arquivosAssessoria: {
+      nodes: {
+        down_assessoria: {
+          downImagem: {
+            sourceUrl: true,
+          },
+          arquivoParaDownload: {
+            mediaItemUrl: true,
+          },
+          downDescricao: true,
+          downTitulo: true,
+        },
+      },
+    },
   });
 
   return {
-    props: { data: page },
-    revalidate: 30,
+    props: {
+      data: { page: page, files: arquivosAssessoria },
+      revalidate: 30,
+    },
   };
 };

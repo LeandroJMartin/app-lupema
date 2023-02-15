@@ -52,7 +52,7 @@ export declare const generateMutationOp: (
   fields: RootMutationRequest & { __name?: string },
 ) => GraphqlOperation
 
-export declare const enumBannerIdType: {
+export declare const enumArquivoAssessoriaIdType: {
   readonly DATABASE_ID: 'DATABASE_ID'
   readonly ID: 'ID'
   readonly SLUG: 'SLUG'
@@ -60,6 +60,7 @@ export declare const enumBannerIdType: {
 }
 
 export declare const enumContentTypeEnum: {
+  readonly ARQ_ASSESSORIA: 'ARQ_ASSESSORIA'
   readonly ATTACHMENT: 'ATTACHMENT'
   readonly BANNER_HOME: 'BANNER_HOME'
   readonly PAGE: 'PAGE'
@@ -276,6 +277,13 @@ export declare const enumTaxonomyEnum: {
   readonly CATEGORY: 'CATEGORY'
   readonly POSTFORMAT: 'POSTFORMAT'
   readonly TAG: 'TAG'
+}
+
+export declare const enumBannerIdType: {
+  readonly DATABASE_ID: 'DATABASE_ID'
+  readonly ID: 'ID'
+  readonly SLUG: 'SLUG'
+  readonly URI: 'URI'
 }
 
 export declare const enumCategoryIdType: {

@@ -25,7 +25,7 @@ module.exports.createClient = function(options) {
   return createClientOriginal(optionsCopy)
 }
 
-module.exports.enumBannerIdType = {
+module.exports.enumArquivoAssessoriaIdType = {
   DATABASE_ID: 'DATABASE_ID',
   ID: 'ID',
   SLUG: 'SLUG',
@@ -33,6 +33,7 @@ module.exports.enumBannerIdType = {
 }
 
 module.exports.enumContentTypeEnum = {
+  ARQ_ASSESSORIA: 'ARQ_ASSESSORIA',
   ATTACHMENT: 'ATTACHMENT',
   BANNER_HOME: 'BANNER_HOME',
   PAGE: 'PAGE',
@@ -275,6 +276,13 @@ module.exports.enumTaxonomyEnum = {
   CATEGORY: 'CATEGORY',
   POSTFORMAT: 'POSTFORMAT',
   TAG: 'TAG',
+}
+
+module.exports.enumBannerIdType = {
+  DATABASE_ID: 'DATABASE_ID',
+  ID: 'ID',
+  SLUG: 'SLUG',
+  URI: 'URI',
 }
 
 module.exports.enumCategoryIdType = {
