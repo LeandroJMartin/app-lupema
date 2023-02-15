@@ -34,7 +34,11 @@ body {
   font-weight: 700;
   text-align: center;
   background-color: transparent;
-  transition: all .25s ease;
+  transition: all 0.25s ease;
+}
+
+input {
+  padding: 7px 10px;
 }
 
 .button:hover {
@@ -109,11 +113,10 @@ button {
   z-index: 1;
 }
 
-
 .timeline .arrow-t::after,
 .timeline .arrow-b::after,
 .timeline .arrow-t::before,
-.timeline .arrow-b::before{
+.timeline .arrow-b::before {
   content: '';
   background: #ffffff;
   width: 35px;
@@ -137,16 +140,16 @@ button {
   right: -22px;
 }
 
-input[type=search]{
+input[type='search'] {
   outline: none;
 }
 
-input[type=search]::-ms-clear{
+input[type='search']::-ms-clear {
   transform: translateX(-30px);
   cursor: pointer;
 }
 
-input[type="search"]::-webkit-search-cancel-button {
+input[type='search']::-webkit-search-cancel-button {
   transform: translateX(-30px);
   position: relative;
   cursor: pointer;

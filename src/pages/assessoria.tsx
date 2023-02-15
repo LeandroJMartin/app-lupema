@@ -20,13 +20,13 @@ const AssessoriaApp: NextPage<Props> = ({ data }) => {
         <div className="bg-black/20 absolute top-0 left-0 right-0 z-10 w-full h-full"></div>
       </div>
       <section className="bg-bgi py-[40px] md:py-[80px]">
-        <div className="container text-white">
+        <div className="container w-[50%] text-white text-center">
           <h1 className="title">{data.title}</h1>
           <p>{data.assessoria?.assInformacoes}</p>
-          <h3 className="text-xl text-green my-4">
+          <h3 className="text-2xl text-green my-4">
             {data.assessoria?.assNometitulo}
           </h3>
-          <div className="flex items-center">
+          <div className="flex items-center justify-center text-xl">
             <a href={`tel:+${data.assessoria?.assTelefone}`}>
               {data.assessoria?.assTelefone}
             </a>
@@ -49,16 +49,23 @@ const AssessoriaApp: NextPage<Props> = ({ data }) => {
               name="tel"
               placeholder="Telefone"
             />
-            <input className="w-full mb-4" type="submit" value="Enviar" />
+            <input
+              className="w-full mb-4 bg-green text-black uppercase font-bold"
+              type="submit"
+              value="Enviar"
+            />
             <label htmlFor="aceite">
               <input type="checkbox" name="aceite" id="aceite" required />
-              <span>
-                Li e concordo com os{' '}
-                <a href="#termos de uso" className="italic underline">
+              <span className="ml-2">
+                Li e concordo com os
+                <a href="#termos de uso" className="italic underline mx-2">
                   termos de uso
                 </a>
-                e{' '}
-                <a href="#politica de privacidade" className="italic underline">
+                e
+                <a
+                  href="#politica de privacidade"
+                  className="italic underline ml-2"
+                >
                   política de privacidade
                 </a>
               </span>
