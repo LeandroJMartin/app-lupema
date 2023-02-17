@@ -8,11 +8,29 @@
     font-size: 14px;
     font-family: 'Ubuntu', sans-serif;
   }
+  input,
+  select,
+  textarea {
+    @apply py-2 px-4 text-black border border-green placeholder:text-black;
+  }
 }
 
 html,
 body {
   font-family: 'Ubuntu', sans-serif;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  display: block;
+}
+
+.form input[type="checkbox"],
+.form input[type="radio"] {
+  width: auto;
+  display: inline-block;
 }
 
 .title {
