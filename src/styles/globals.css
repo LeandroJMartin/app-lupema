@@ -27,8 +27,8 @@ body {
   display: block;
 }
 
-.form input[type="checkbox"],
-.form input[type="radio"] {
+.form input[type='checkbox'],
+.form input[type='radio'] {
   width: auto;
   display: inline-block;
 }
@@ -80,11 +80,22 @@ button {
   padding: 0 10px;
 }
 
-.timeline .alice-carousel__dots-item:not(.__custom),
-.emphome .alice-carousel__dots-item:not(.__custom) {
-  width: 6px;
-  height: 6px;
-  position: relative;
+.gallery .alice-carousel__stage-item {
+  padding: 0 30px;
+}
+
+@media screen and (max-width: 1170px){
+  .gallery .alice-carousel__stage-item {
+    padding: 0 10px;
+  }
+}
+
+.alice-carousel__dots-item:not(.__custom),
+.alice-carousel__dots-item:not(.__custom),
+.alice-carousel__dots-item:not(.__custom) {
+  width: 6px !important;
+  height: 6px !important;
+  position: relative !important;
 }
 
 .alice-carousel__dots-item:not(.__custom):hover,
@@ -106,13 +117,18 @@ button {
   left: -4px;
 }
 
-.timeline .alice-carousel__dots-item:not(.__custom),
 .timeline .alice-carousel__dots-item:not(.__custom) {
   background-color: #999999 !important;
 }
 
+.plantas .alice-carousel__dots-item:not(.__custom) {
+  background-color: #729f2d !important;
+}
+
 .timeline .alice-carousel__dots-item:not(.__custom):hover::after,
-.timeline .alice-carousel__dots-item:not(.__custom).__active::after {
+.plantas .alice-carousel__dots-item:not(.__custom):hover::after,
+.timeline .alice-carousel__dots-item:not(.__custom).__active::after,
+.plantas .alice-carousel__dots-item:not(.__custom).__active::after {
   border-color: #729f2d;
 }
 

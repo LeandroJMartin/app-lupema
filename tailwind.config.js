@@ -14,6 +14,9 @@ module.exports = {
         bgi: "url('/bg.jpg')",
         bgVideoAbout: "url('/bg-sobre.jpeg')",
       },
+      cursor: {
+        gallery: "url('/cursor.png'), pointer",
+      },
     },
     container: {
       center: true,

@@ -36,6 +36,7 @@ module.exports.enumContentTypeEnum = {
   ARQ_ASSESSORIA: 'ARQ_ASSESSORIA',
   ATTACHMENT: 'ATTACHMENT',
   BANNER_HOME: 'BANNER_HOME',
+  EMPREENDIMENTOS: 'EMPREENDIMENTOS',
   PAGE: 'PAGE',
   POST: 'POST',
 }
@@ -261,7 +262,14 @@ module.exports.enumTermObjectsConnectionOrderbyEnum = {
 }
 
 module.exports.enumContentTypesOfCategoryEnum = {
+  EMPREENDIMENTOS: 'EMPREENDIMENTOS',
   POST: 'POST',
+}
+
+module.exports.enumTaxonomyEnum = {
+  CATEGORY: 'CATEGORY',
+  POSTFORMAT: 'POSTFORMAT',
+  TAG: 'TAG',
 }
 
 module.exports.enumContentTypesOfPostFormatEnum = {
@@ -270,12 +278,6 @@ module.exports.enumContentTypesOfPostFormatEnum = {
 
 module.exports.enumContentTypesOfTagEnum = {
   POST: 'POST',
-}
-
-module.exports.enumTaxonomyEnum = {
-  CATEGORY: 'CATEGORY',
-  POSTFORMAT: 'POSTFORMAT',
-  TAG: 'TAG',
 }
 
 module.exports.enumBannerIdType = {
@@ -307,6 +309,13 @@ module.exports.enumContentNodeIdTypeEnum = {
 module.exports.enumContentTypeIdTypeEnum = {
   ID: 'ID',
   NAME: 'NAME',
+}
+
+module.exports.enumEmpreendimentoIdType = {
+  DATABASE_ID: 'DATABASE_ID',
+  ID: 'ID',
+  SLUG: 'SLUG',
+  URI: 'URI',
 }
 
 module.exports.enumMediaItemIdType = {

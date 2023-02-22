@@ -63,6 +63,7 @@ export declare const enumContentTypeEnum: {
   readonly ARQ_ASSESSORIA: 'ARQ_ASSESSORIA'
   readonly ATTACHMENT: 'ATTACHMENT'
   readonly BANNER_HOME: 'BANNER_HOME'
+  readonly EMPREENDIMENTOS: 'EMPREENDIMENTOS'
   readonly PAGE: 'PAGE'
   readonly POST: 'POST'
 }
@@ -262,7 +263,14 @@ export declare const enumTermObjectsConnectionOrderbyEnum: {
 }
 
 export declare const enumContentTypesOfCategoryEnum: {
+  readonly EMPREENDIMENTOS: 'EMPREENDIMENTOS'
   readonly POST: 'POST'
+}
+
+export declare const enumTaxonomyEnum: {
+  readonly CATEGORY: 'CATEGORY'
+  readonly POSTFORMAT: 'POSTFORMAT'
+  readonly TAG: 'TAG'
 }
 
 export declare const enumContentTypesOfPostFormatEnum: {
@@ -271,12 +279,6 @@ export declare const enumContentTypesOfPostFormatEnum: {
 
 export declare const enumContentTypesOfTagEnum: {
   readonly POST: 'POST'
-}
-
-export declare const enumTaxonomyEnum: {
-  readonly CATEGORY: 'CATEGORY'
-  readonly POSTFORMAT: 'POSTFORMAT'
-  readonly TAG: 'TAG'
 }
 
 export declare const enumBannerIdType: {
@@ -308,6 +310,13 @@ export declare const enumContentNodeIdTypeEnum: {
 export declare const enumContentTypeIdTypeEnum: {
   readonly ID: 'ID'
   readonly NAME: 'NAME'
+}
+
+export declare const enumEmpreendimentoIdType: {
+  readonly DATABASE_ID: 'DATABASE_ID'
+  readonly ID: 'ID'
+  readonly SLUG: 'SLUG'
+  readonly URI: 'URI'
 }
 
 export declare const enumMediaItemIdType: {

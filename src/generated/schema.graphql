@@ -244,6 +244,57 @@ type RootQuery {
   """Fields of the &#039;DiscussionSettings&#039; settings group"""
   discussionSettings: DiscussionSettings
 
+  """An object of the Empreendimento Type. """
+  empreendimento(
+    """The globally unique identifier of the object."""
+    id: ID!
+
+    """Type of unique identifier to fetch by. Default is Global ID"""
+    idType: EmpreendimentoIdType
+
+    """Whether to return the node as a preview instance"""
+    asPreview: Boolean
+  ): Empreendimento
+
+  """A Empreendimento object"""
+  empreendimentoBy(
+    """Get the object by its global ID"""
+    id: ID
+
+    """Get the Empreendimento by its database ID"""
+    empreendimentoId: Int
+
+    """Get the Empreendimento by its uri"""
+    uri: String
+
+    """
+    Get the Empreendimento by its slug (only available for non-hierarchical types)
+    """
+    slug: String
+  ): Empreendimento @deprecated(reason: "Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)")
+
+  """Connection between the RootQuery type and the Empreendimento type"""
+  empreendimentos(
+    """The number of items to return after the referenced "after" cursor"""
+    first: Int
+
+    """The number of items to return before the referenced "before" cursor"""
+    last: Int
+
+    """
+    Cursor used along with the "first" argument to reference where in the dataset to get data
+    """
+    after: String
+
+    """
+    Cursor used along with the "last" argument to reference where in the dataset to get data
+    """
+    before: String
+
+    """Arguments for filtering the connection"""
+    where: RootQueryToEmpreendimentoConnectionWhereArgs
+  ): RootQueryToEmpreendimentoConnection
+
   """Fields of the &#039;GeneralSettings&#039; settings group"""
   generalSettings: GeneralSettings
 
@@ -1613,6 +1664,9 @@ enum ContentTypeEnum {
 
   """The Type of Content object"""
   BANNER_HOME
+
+  """The Type of Content object"""
+  EMPREENDIMENTOS
 
   """The Type of Content object"""
   PAGE
@@ -6059,6 +6113,28 @@ type Category implements Node & TermNode & UniformResourceIdentifiable & Databas
   """The description of the object"""
   description: String
 
+  """Connection between the Category type and the Empreendimento type"""
+  empreendimentos(
+    """The number of items to return after the referenced "after" cursor"""
+    first: Int
+
+    """The number of items to return before the referenced "before" cursor"""
+    last: Int
+
+    """
+    Cursor used along with the "first" argument to reference where in the dataset to get data
+    """
+    after: String
+
+    """
+    Cursor used along with the "last" argument to reference where in the dataset to get data
+    """
+    before: String
+
+    """Arguments for filtering the connection"""
+    where: CategoryToEmpreendimentoConnectionWhereArgs
+  ): CategoryToEmpreendimentoConnection
+
   """Connection between the TermNode type and the EnqueuedScript type"""
   enqueuedScripts(
     """The number of items to return after the referenced "after" cursor"""
@@ -6575,6 +6651,9 @@ input CategoryToContentNodeConnectionWhereArgs {
 """Allowed Content Types of the Category taxonomy."""
 enum ContentTypesOfCategoryEnum {
   """The Type of Content object"""
+  EMPREENDIMENTOS
+
+  """The Type of Content object"""
   POST
 }
 
@@ -6597,6 +6676,722 @@ type CategoryToContentNodeConnectionEdge implements ContentNodeConnectionEdge & 
 
   """The item at the end of the edge"""
   node: ContentNode!
+}
+
+"""
+Arguments for filtering the CategoryToEmpreendimentoConnection connection
+"""
+input CategoryToEmpreendimentoConnectionWhereArgs {
+  """Category ID"""
+  categoryId: Int
+
+  """
+  Array of category IDs, used to display objects from one category OR another
+  """
+  categoryIn: [ID]
+
+  """Use Category Slug"""
+  categoryName: String
+
+  """
+  Array of category IDs, used to display objects from one category OR another
+  """
+  categoryNotIn: [ID]
+
+  """Filter the connection based on dates"""
+  dateQuery: DateQueryInput
+
+  """
+  True for objects with passwords; False for objects without passwords; null for all objects with or without passwords
+  """
+  hasPassword: Boolean
+
+  """Specific database ID of the object"""
+  id: Int
+
+  """Array of IDs for the objects to retrieve"""
+  in: [ID]
+
+  """Get objects with a specific mimeType property"""
+  mimeType: MimeTypeEnum
+
+  """Slug / post_name of the object"""
+  name: String
+
+  """Specify objects to retrieve. Use slugs"""
+  nameIn: [String]
+
+  """
+  Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored
+  """
+  notIn: [ID]
+
+  """What paramater to use to order the objects by."""
+  orderby: [PostObjectsConnectionOrderbyInput]
+
+  """Use ID to return only children. Use 0 to return only top-level items"""
+  parent: ID
+
+  """Specify objects whose parent is in an array"""
+  parentIn: [ID]
+
+  """Specify posts whose parent is not in an array"""
+  parentNotIn: [ID]
+
+  """Show posts with a specific password."""
+  password: String
+
+  """Show Posts based on a keyword search"""
+  search: String
+
+  """Retrieve posts where post status is in an array."""
+  stati: [PostStatusEnum]
+
+  """Show posts with a specific status."""
+  status: PostStatusEnum
+
+  """Title of the object"""
+  title: String
+}
+
+"""Connection between the Category type and the Empreendimento type"""
+type CategoryToEmpreendimentoConnection implements EmpreendimentoConnection & Connection {
+  """Edges for the CategoryToEmpreendimentoConnection connection"""
+  edges: [CategoryToEmpreendimentoConnectionEdge!]!
+
+  """The nodes of the connection, without the edges"""
+  nodes: [Empreendimento!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: WPPageInfo
+}
+
+"""Connection to Empreendimento Nodes"""
+interface EmpreendimentoConnection implements Connection {
+  """
+  A list of edges (relational context) between RootQuery and connected Empreendimento Nodes
+  """
+  edges: [EmpreendimentoConnectionEdge!]!
+
+  """A list of connected Empreendimento Nodes"""
+  nodes: [Empreendimento!]!
+}
+
+"""Edge between a Node and a connected Empreendimento"""
+interface EmpreendimentoConnectionEdge implements Edge {
+  """
+  Opaque reference to the nodes position in the connection. Value can be used with pagination args.
+  """
+  cursor: String
+
+  """The connected Empreendimento Node"""
+  node: Empreendimento!
+}
+
+"""The Empreendimento type"""
+type Empreendimento implements Node & ContentNode & UniformResourceIdentifiable & DatabaseIdentifier & NodeWithTemplate & Previewable & NodeWithTitle & NodeWithFeaturedImage & MenuItemLinkable {
+  """The id field matches the WP_Post-&gt;ID field."""
+  empreendimentoId: Int! @deprecated(reason: "Deprecated in favor of the databaseId field")
+
+  """Connection between the Empreendimento type and the category type"""
+  categories(
+    """The number of items to return after the referenced "after" cursor"""
+    first: Int
+
+    """The number of items to return before the referenced "before" cursor"""
+    last: Int
+
+    """
+    Cursor used along with the "first" argument to reference where in the dataset to get data
+    """
+    after: String
+
+    """
+    Cursor used along with the "last" argument to reference where in the dataset to get data
+    """
+    before: String
+
+    """Arguments for filtering the connection"""
+    where: EmpreendimentoToCategoryConnectionWhereArgs
+  ): EmpreendimentoToCategoryConnection
+
+  """Connection between the ContentNode type and the ContentType type"""
+  contentType: ContentNodeToContentTypeConnectionEdge
+
+  """The name of the Content Type the node belongs to"""
+  contentTypeName: String!
+
+  """The unique identifier stored in the database"""
+  databaseId: Int!
+
+  """Post publishing date."""
+  date: String
+
+  """The publishing date set in GMT."""
+  dateGmt: String
+
+  """The desired slug of the post"""
+  desiredSlug: String
+
+  """
+  If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
+  """
+  editingLockedBy: ContentNodeToEditLockConnectionEdge
+
+  """
+  Added to the GraphQL Schema because the ACF Field Group &quot;Empreendimento&quot; was set to Show in GraphQL.
+  """
+  empreendimento: Empreendimento_Empreendimento
+
+  """The RSS enclosure for the object"""
+  enclosure: String
+
+  """Connection between the ContentNode type and the EnqueuedScript type"""
+  enqueuedScripts(
+    """The number of items to return after the referenced "after" cursor"""
+    first: Int
+
+    """The number of items to return before the referenced "before" cursor"""
+    last: Int
+
+    """
+    Cursor used along with the "first" argument to reference where in the dataset to get data
+    """
+    after: String
+
+    """
+    Cursor used along with the "last" argument to reference where in the dataset to get data
+    """
+    before: String
+  ): ContentNodeToEnqueuedScriptConnection
+
+  """
+  Connection between the ContentNode type and the EnqueuedStylesheet type
+  """
+  enqueuedStylesheets(
+    """The number of items to return after the referenced "after" cursor"""
+    first: Int
+
+    """The number of items to return before the referenced "before" cursor"""
+    last: Int
+
+    """
+    Cursor used along with the "first" argument to reference where in the dataset to get data
+    """
+    after: String
+
+    """
+    Cursor used along with the "last" argument to reference where in the dataset to get data
+    """
+    before: String
+  ): ContentNodeToEnqueuedStylesheetConnection
+
+  """
+  Connection between the NodeWithFeaturedImage type and the MediaItem type
+  """
+  featuredImage: NodeWithFeaturedImageToMediaItemConnectionEdge
+
+  """
+  The database identifier for the featured image node assigned to the content node
+  """
+  featuredImageDatabaseId: Int
+
+  """Globally unique ID of the featured image assigned to the node"""
+  featuredImageId: ID
+
+  """
+  The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
+  """
+  guid: String
+
+  """The globally unique identifier of the empreendimentos object."""
+  id: ID!
+
+  """Whether the node is a Content Node"""
+  isContentNode: Boolean!
+
+  """Whether the object is a node in the preview state"""
+  isPreview: Boolean
+
+  """Whether the object is restricted from the current viewer"""
+  isRestricted: Boolean
+
+  """Whether the node is a Term"""
+  isTermNode: Boolean!
+
+  """The user that most recently edited the node"""
+  lastEditedBy: ContentNodeToEditLastConnectionEdge
+
+  """The permalink of the post"""
+  link: String
+
+  """
+  The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
+  """
+  modified: String
+
+  """
+  The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
+  """
+  modifiedGmt: String
+
+  """Connection between the Empreendimento type and the Empreendimento type"""
+  preview: EmpreendimentoToPreviewConnectionEdge
+
+  """The database id of the preview node"""
+  previewRevisionDatabaseId: Int
+
+  """Whether the object is a node in the preview state"""
+  previewRevisionId: ID
+
+  """
+  The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+  """
+  slug: String
+
+  """The current status of the object"""
+  status: String
+
+  """The template assigned to the node"""
+  template: ContentTemplate
+
+  """Connection between the Empreendimento type and the TermNode type"""
+  terms(
+    """The number of items to return after the referenced "after" cursor"""
+    first: Int
+
+    """The number of items to return before the referenced "before" cursor"""
+    last: Int
+
+    """
+    Cursor used along with the "first" argument to reference where in the dataset to get data
+    """
+    after: String
+
+    """
+    Cursor used along with the "last" argument to reference where in the dataset to get data
+    """
+    before: String
+
+    """Arguments for filtering the connection"""
+    where: EmpreendimentoToTermNodeConnectionWhereArgs
+  ): EmpreendimentoToTermNodeConnection
+
+  """
+  The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
+  """
+  title(
+    """Format of the field output"""
+    format: PostObjectFieldFormatEnum
+  ): String
+
+  """The unique resource identifier path"""
+  uri: String
+}
+
+"""
+Arguments for filtering the EmpreendimentoToCategoryConnection connection
+"""
+input EmpreendimentoToCategoryConnectionWhereArgs {
+  """
+  Unique cache key to be produced when this query is stored in an object cache. Default is 'core'.
+  """
+  cacheDomain: String
+
+  """
+  Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0.
+  """
+  childOf: Int
+
+  """
+  True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false.
+  """
+  childless: Boolean
+
+  """
+  Retrieve terms where the description is LIKE the input value. Default empty.
+  """
+  descriptionLike: String
+
+  """
+  Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array.
+  """
+  exclude: [ID]
+
+  """
+  Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array.
+  """
+  excludeTree: [ID]
+
+  """
+  Whether to hide terms not assigned to any posts. Accepts true or false. Default false
+  """
+  hideEmpty: Boolean
+
+  """
+  Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true.
+  """
+  hierarchical: Boolean
+
+  """Array of term ids to include. Default empty array."""
+  include: [ID]
+
+  """Array of names to return term(s) for. Default empty."""
+  name: [String]
+
+  """Retrieve terms where the name is LIKE the input value. Default empty."""
+  nameLike: String
+
+  """
+  Array of object IDs. Results will be limited to terms associated with these objects.
+  """
+  objectIds: [ID]
+
+  """Direction the connection should be ordered in"""
+  order: OrderEnum
+
+  """Field(s) to order terms by. Defaults to 'name'."""
+  orderby: TermObjectsConnectionOrderbyEnum
+
+  """
+  Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false.
+  """
+  padCounts: Boolean
+
+  """Parent term ID to retrieve direct-child terms of. Default empty."""
+  parent: Int
+
+  """
+  Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty.
+  """
+  search: String
+
+  """Array of slugs to return term(s) for. Default empty."""
+  slug: [String]
+
+  """Array of term taxonomy IDs, to match when querying terms."""
+  termTaxonomId: [ID]
+
+  """Array of term taxonomy IDs, to match when querying terms."""
+  termTaxonomyId: [ID]
+
+  """Whether to prime meta caches for matched terms. Default true."""
+  updateTermMetaCache: Boolean
+}
+
+"""Connection between the Empreendimento type and the category type"""
+type EmpreendimentoToCategoryConnection implements CategoryConnection & Connection {
+  """Edges for the EmpreendimentoToCategoryConnection connection"""
+  edges: [EmpreendimentoToCategoryConnectionEdge!]!
+
+  """The nodes of the connection, without the edges"""
+  nodes: [Category!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: WPPageInfo
+}
+
+"""An edge in a connection"""
+type EmpreendimentoToCategoryConnectionEdge implements CategoryConnectionEdge & Edge {
+  """A cursor for use in pagination"""
+  cursor: String
+
+  """The item at the end of the edge"""
+  node: Category!
+}
+
+"""Field Group"""
+type Empreendimento_Empreendimento implements AcfFieldGroup {
+  """"""
+  andamentoDaObra: Float
+
+  """"""
+  arquivoDaApresentacao: MediaItem
+
+  """"""
+  diferenciaisItems: [Empreendimento_Empreendimento_diferenciaisItems]
+
+  """"""
+  empCaracteristicas: String
+
+  """"""
+  empCidade: String
+
+  """"""
+  empDescricao: String
+
+  """"""
+  endStandVendas: String
+
+  """"""
+  enderecoDoEmpreendimento: String
+
+  """"""
+  estagioDaObra: [Category]
+
+  """The name of the ACF Field Group"""
+  fieldGroupName: String
+
+  """"""
+  galeriaDeFotos: [MediaItem]
+
+  """"""
+  imagensOutros: [MediaItem]
+
+  """"""
+  itemsPlantas: [Empreendimento_Empreendimento_itemsPlantas]
+
+  """"""
+  itensAreacomuns: [Empreendimento_Empreendimento_itensAreacomuns]
+
+  """"""
+  linkDoTourVirtual: String
+
+  """"""
+  listaItensTec: String
+
+  """"""
+  listaItensTec2: String
+
+  """"""
+  logotipoDoEmpreendimento: MediaItem
+
+  """"""
+  nomeDoEmpreendimento: String
+
+  """"""
+  pontosDeReferencia: [Empreendimento_Empreendimento_pontosDeReferencia]
+
+  """"""
+  tipoDoEmpreendimento: String
+
+  """"""
+  videosOutos: [Empreendimento_Empreendimento_videosOutos]
+}
+
+"""Field Group"""
+type Empreendimento_Empreendimento_diferenciaisItems implements AcfFieldGroup {
+  """The name of the ACF Field Group"""
+  fieldGroupName: String
+
+  """"""
+  iconeimagemDoDiferencial: MediaItem
+
+  """"""
+  nomeDiferencial: String
+}
+
+"""Field Group"""
+type Empreendimento_Empreendimento_itemsPlantas implements AcfFieldGroup {
+  """The name of the ACF Field Group"""
+  fieldGroupName: String
+
+  """"""
+  imagensDasPlantas: MediaItem
+
+  """"""
+  plantasDescricao: String
+}
+
+"""Field Group"""
+type Empreendimento_Empreendimento_itensAreacomuns implements AcfFieldGroup {
+  """"""
+  descricaoAreacomuns: String
+
+  """The name of the ACF Field Group"""
+  fieldGroupName: String
+
+  """"""
+  iconeimagemAreacomuns: MediaItem
+}
+
+"""Field Group"""
+type Empreendimento_Empreendimento_pontosDeReferencia implements AcfFieldGroup {
+  """The name of the ACF Field Group"""
+  fieldGroupName: String
+
+  """"""
+  iconeOuImagemRef: MediaItem
+
+  """"""
+  nomePontoReferencia: String
+}
+
+"""Field Group"""
+type Empreendimento_Empreendimento_videosOutos implements AcfFieldGroup {
+  """The name of the ACF Field Group"""
+  fieldGroupName: String
+
+  """"""
+  linkDoVideo: String
+}
+
+"""Connection between the Empreendimento type and the Empreendimento type"""
+type EmpreendimentoToPreviewConnectionEdge implements OneToOneConnection & Edge & EmpreendimentoConnectionEdge {
+  """
+  Opaque reference to the nodes position in the connection. Value can be used with pagination args.
+  """
+  cursor: String
+
+  """The node of the connection, without the edges"""
+  node: Empreendimento!
+}
+
+"""
+Arguments for filtering the EmpreendimentoToTermNodeConnection connection
+"""
+input EmpreendimentoToTermNodeConnectionWhereArgs {
+  """
+  Unique cache key to be produced when this query is stored in an object cache. Default is 'core'.
+  """
+  cacheDomain: String
+
+  """
+  Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0.
+  """
+  childOf: Int
+
+  """
+  True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false.
+  """
+  childless: Boolean
+
+  """
+  Retrieve terms where the description is LIKE the input value. Default empty.
+  """
+  descriptionLike: String
+
+  """
+  Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array.
+  """
+  exclude: [ID]
+
+  """
+  Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array.
+  """
+  excludeTree: [ID]
+
+  """
+  Whether to hide terms not assigned to any posts. Accepts true or false. Default false
+  """
+  hideEmpty: Boolean
+
+  """
+  Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true.
+  """
+  hierarchical: Boolean
+
+  """Array of term ids to include. Default empty array."""
+  include: [ID]
+
+  """Array of names to return term(s) for. Default empty."""
+  name: [String]
+
+  """Retrieve terms where the name is LIKE the input value. Default empty."""
+  nameLike: String
+
+  """
+  Array of object IDs. Results will be limited to terms associated with these objects.
+  """
+  objectIds: [ID]
+
+  """Direction the connection should be ordered in"""
+  order: OrderEnum
+
+  """Field(s) to order terms by. Defaults to 'name'."""
+  orderby: TermObjectsConnectionOrderbyEnum
+
+  """
+  Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false.
+  """
+  padCounts: Boolean
+
+  """Parent term ID to retrieve direct-child terms of. Default empty."""
+  parent: Int
+
+  """
+  Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty.
+  """
+  search: String
+
+  """Array of slugs to return term(s) for. Default empty."""
+  slug: [String]
+
+  """The Taxonomy to filter terms by"""
+  taxonomies: [TaxonomyEnum]
+
+  """Array of term taxonomy IDs, to match when querying terms."""
+  termTaxonomId: [ID]
+
+  """Array of term taxonomy IDs, to match when querying terms."""
+  termTaxonomyId: [ID]
+
+  """Whether to prime meta caches for matched terms. Default true."""
+  updateTermMetaCache: Boolean
+}
+
+"""Allowed taxonomies"""
+enum TaxonomyEnum {
+  """Taxonomy enum category"""
+  CATEGORY
+
+  """Taxonomy enum post_format"""
+  POSTFORMAT
+
+  """Taxonomy enum post_tag"""
+  TAG
+}
+
+"""Connection between the Empreendimento type and the TermNode type"""
+type EmpreendimentoToTermNodeConnection implements TermNodeConnection & Connection {
+  """Edges for the EmpreendimentoToTermNodeConnection connection"""
+  edges: [EmpreendimentoToTermNodeConnectionEdge!]!
+
+  """The nodes of the connection, without the edges"""
+  nodes: [TermNode!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: WPPageInfo
+}
+
+"""Connection to TermNode Nodes"""
+interface TermNodeConnection implements Connection {
+  """
+  A list of edges (relational context) between RootQuery and connected TermNode Nodes
+  """
+  edges: [TermNodeConnectionEdge!]!
+
+  """A list of connected TermNode Nodes"""
+  nodes: [TermNode!]!
+}
+
+"""Edge between a Node and a connected TermNode"""
+interface TermNodeConnectionEdge implements Edge {
+  """
+  Opaque reference to the nodes position in the connection. Value can be used with pagination args.
+  """
+  cursor: String
+
+  """The connected TermNode Node"""
+  node: TermNode!
+}
+
+"""An edge in a connection"""
+type EmpreendimentoToTermNodeConnectionEdge implements TermNodeConnectionEdge & Edge {
+  """A cursor for use in pagination"""
+  cursor: String
+
+  """The item at the end of the edge"""
+  node: TermNode!
+}
+
+"""An edge in a connection"""
+type CategoryToEmpreendimentoConnectionEdge implements EmpreendimentoConnectionEdge & Edge {
+  """A cursor for use in pagination"""
+  cursor: String
+
+  """The item at the end of the edge"""
+  node: Empreendimento!
 }
 
 """Connection between the Category type and the category type"""
@@ -8095,18 +8890,6 @@ input PostToTermNodeConnectionWhereArgs {
   updateTermMetaCache: Boolean
 }
 
-"""Allowed taxonomies"""
-enum TaxonomyEnum {
-  """Taxonomy enum category"""
-  CATEGORY
-
-  """Taxonomy enum post_format"""
-  POSTFORMAT
-
-  """Taxonomy enum post_tag"""
-  TAG
-}
-
 """Connection between the Post type and the TermNode type"""
 type PostToTermNodeConnection implements TermNodeConnection & Connection {
   """Edges for the PostToTermNodeConnection connection"""
@@ -8117,28 +8900,6 @@ type PostToTermNodeConnection implements TermNodeConnection & Connection {
 
   """Information about pagination in a connection."""
   pageInfo: WPPageInfo
-}
-
-"""Connection to TermNode Nodes"""
-interface TermNodeConnection implements Connection {
-  """
-  A list of edges (relational context) between RootQuery and connected TermNode Nodes
-  """
-  edges: [TermNodeConnectionEdge!]!
-
-  """A list of connected TermNode Nodes"""
-  nodes: [TermNode!]!
-}
-
-"""Edge between a Node and a connected TermNode"""
-interface TermNodeConnectionEdge implements Edge {
-  """
-  Opaque reference to the nodes position in the connection. Value can be used with pagination args.
-  """
-  cursor: String
-
-  """The connected TermNode Node"""
-  node: TermNode!
 }
 
 """An edge in a connection"""
@@ -9174,6 +9935,120 @@ type DiscussionSettings {
   defaultPingStatus: String
 }
 
+"""The Type of Identifier used to fetch a single resource. Default is ID."""
+enum EmpreendimentoIdType {
+  """Identify a resource by the Database ID."""
+  DATABASE_ID
+
+  """Identify a resource by the (hashed) Global ID."""
+  ID
+
+  """
+  Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier.
+  """
+  SLUG
+
+  """Identify a resource by the URI."""
+  URI
+}
+
+"""
+Arguments for filtering the RootQueryToEmpreendimentoConnection connection
+"""
+input RootQueryToEmpreendimentoConnectionWhereArgs {
+  """Category ID"""
+  categoryId: Int
+
+  """
+  Array of category IDs, used to display objects from one category OR another
+  """
+  categoryIn: [ID]
+
+  """Use Category Slug"""
+  categoryName: String
+
+  """
+  Array of category IDs, used to display objects from one category OR another
+  """
+  categoryNotIn: [ID]
+
+  """Filter the connection based on dates"""
+  dateQuery: DateQueryInput
+
+  """
+  True for objects with passwords; False for objects without passwords; null for all objects with or without passwords
+  """
+  hasPassword: Boolean
+
+  """Specific database ID of the object"""
+  id: Int
+
+  """Array of IDs for the objects to retrieve"""
+  in: [ID]
+
+  """Get objects with a specific mimeType property"""
+  mimeType: MimeTypeEnum
+
+  """Slug / post_name of the object"""
+  name: String
+
+  """Specify objects to retrieve. Use slugs"""
+  nameIn: [String]
+
+  """
+  Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored
+  """
+  notIn: [ID]
+
+  """What paramater to use to order the objects by."""
+  orderby: [PostObjectsConnectionOrderbyInput]
+
+  """Use ID to return only children. Use 0 to return only top-level items"""
+  parent: ID
+
+  """Specify objects whose parent is in an array"""
+  parentIn: [ID]
+
+  """Specify posts whose parent is not in an array"""
+  parentNotIn: [ID]
+
+  """Show posts with a specific password."""
+  password: String
+
+  """Show Posts based on a keyword search"""
+  search: String
+
+  """Retrieve posts where post status is in an array."""
+  stati: [PostStatusEnum]
+
+  """Show posts with a specific status."""
+  status: PostStatusEnum
+
+  """Title of the object"""
+  title: String
+}
+
+"""Connection between the RootQuery type and the Empreendimento type"""
+type RootQueryToEmpreendimentoConnection implements EmpreendimentoConnection & Connection {
+  """Edges for the RootQueryToEmpreendimentoConnection connection"""
+  edges: [RootQueryToEmpreendimentoConnectionEdge!]!
+
+  """The nodes of the connection, without the edges"""
+  nodes: [Empreendimento!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: WPPageInfo
+}
+
+"""An edge in a connection"""
+type RootQueryToEmpreendimentoConnectionEdge implements EmpreendimentoConnectionEdge & Edge {
+  """A cursor for use in pagination"""
+  cursor: String
+
+  """The item at the end of the edge"""
+  node: Empreendimento!
+}
+
 """The general setting type"""
 type GeneralSettings {
   """Um formato de data para todos os textos."""
@@ -9597,7 +10472,7 @@ interface MenuItemLinkableConnectionEdge implements Edge {
 }
 
 """Deprecated in favor of MenuItemLinkeable Interface"""
-union MenuItemObjectUnion = Post | Page | Banner | ArquivoAssessoria | Category | Tag
+union MenuItemObjectUnion = Post | Page | Banner | ArquivoAssessoria | Empreendimento | Category | Tag
 
 """Connection between the MenuItem type and the Menu type"""
 type MenuItemToMenuConnectionEdge implements OneToOneConnection & Edge & MenuConnectionEdge {
@@ -10993,6 +11868,12 @@ type RootMutation {
     input: CreateCommentInput!
   ): CreateCommentPayload
 
+  """The createEmpreendimento mutation"""
+  createEmpreendimento(
+    """Input for the createEmpreendimento mutation"""
+    input: CreateEmpreendimentoInput!
+  ): CreateEmpreendimentoPayload
+
   """The createMediaItem mutation"""
   createMediaItem(
     """Input for the createMediaItem mutation"""
@@ -11052,6 +11933,12 @@ type RootMutation {
     """Input for the deleteComment mutation"""
     input: DeleteCommentInput!
   ): DeleteCommentPayload
+
+  """The deleteEmpreendimento mutation"""
+  deleteEmpreendimento(
+    """Input for the deleteEmpreendimento mutation"""
+    input: DeleteEmpreendimentoInput!
+  ): DeleteEmpreendimentoPayload
 
   """The deleteMediaItem mutation"""
   deleteMediaItem(
@@ -11142,6 +12029,12 @@ type RootMutation {
     """Input for the updateComment mutation"""
     input: UpdateCommentInput!
   ): UpdateCommentPayload
+
+  """The updateEmpreendimento mutation"""
+  updateEmpreendimento(
+    """Input for the updateEmpreendimento mutation"""
+    input: UpdateEmpreendimentoInput!
+  ): UpdateEmpreendimentoPayload
 
   """The updateMediaItem mutation"""
   updateMediaItem(
@@ -11358,6 +12251,86 @@ type CreateCommentPayload {
   Whether the mutation succeeded. If the comment is not approved, the server will not return the comment to a non authenticated user, but a success message can be returned if the create succeeded, and the client can optimistically add the comment to the client cache
   """
   success: Boolean
+}
+
+"""Input for the createEmpreendimento mutation."""
+input CreateEmpreendimentoInput {
+  """Set connections between the Empreendimento and categories"""
+  categories: EmpreendimentoCategoriesInput
+
+  """
+  This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+  """
+  clientMutationId: String
+
+  """
+  The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17 
+  """
+  date: String
+
+  """
+  A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types.
+  """
+  menuOrder: Int
+
+  """The password used to protect the content of the object"""
+  password: String
+
+  """The slug of the object"""
+  slug: String
+
+  """The status of the object"""
+  status: PostStatusEnum
+
+  """The title of the object"""
+  title: String
+}
+
+"""Set relationships between the Empreendimento to categories"""
+input EmpreendimentoCategoriesInput {
+  """
+  If true, this will append the category to existing related categories. If false, this will replace existing relationships. Default true.
+  """
+  append: Boolean
+
+  """The input list of items to set."""
+  nodes: [EmpreendimentoCategoriesNodeInput]
+}
+
+"""
+List of categories to connect the Empreendimento to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists.
+"""
+input EmpreendimentoCategoriesNodeInput {
+  """
+  The description of the category. This field is used to set a description of the category if a new one is created during the mutation.
+  """
+  description: String
+
+  """
+  The ID of the category. If present, this will be used to connect to the Empreendimento. If no existing category exists with this ID, no connection will be made.
+  """
+  id: ID
+
+  """
+  The name of the category. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field.
+  """
+  name: String
+
+  """
+  The slug of the category. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation.
+  """
+  slug: String
+}
+
+"""The payload for the createEmpreendimento mutation."""
+type CreateEmpreendimentoPayload {
+  """The Post object mutation type."""
+  empreendimento: Empreendimento
+
+  """
+  If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+  """
+  clientMutationId: String
 }
 
 """Input for the createMediaItem mutation."""
@@ -11925,6 +12898,36 @@ type DeleteCommentPayload {
   deletedId: ID
 }
 
+"""Input for the deleteEmpreendimento mutation."""
+input DeleteEmpreendimentoInput {
+  """
+  This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+  """
+  clientMutationId: String
+
+  """
+  Whether the object should be force deleted instead of being moved to the trash
+  """
+  forceDelete: Boolean
+
+  """The ID of the Empreendimento to delete"""
+  id: ID!
+}
+
+"""The payload for the deleteEmpreendimento mutation."""
+type DeleteEmpreendimentoPayload {
+  """The object before it was deleted"""
+  empreendimento: Empreendimento
+
+  """
+  If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+  """
+  clientMutationId: String
+
+  """The ID of the deleted object"""
+  deletedId: ID
+}
+
 """Input for the deleteMediaItem mutation."""
 input DeleteMediaItemInput {
   """
@@ -12430,6 +13433,53 @@ type UpdateCommentPayload {
   Whether the mutation succeeded. If the comment is not approved, the server will not return the comment to a non authenticated user, but a success message can be returned if the create succeeded, and the client can optimistically add the comment to the client cache
   """
   success: Boolean
+}
+
+"""Input for the updateEmpreendimento mutation."""
+input UpdateEmpreendimentoInput {
+  """Set connections between the Empreendimento and categories"""
+  categories: EmpreendimentoCategoriesInput
+
+  """
+  This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+  """
+  clientMutationId: String
+
+  """
+  The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17 
+  """
+  date: String
+
+  """The ID of the Empreendimento object"""
+  id: ID!
+
+  """
+  A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types.
+  """
+  menuOrder: Int
+
+  """The password used to protect the content of the object"""
+  password: String
+
+  """The slug of the object"""
+  slug: String
+
+  """The status of the object"""
+  status: PostStatusEnum
+
+  """The title of the object"""
+  title: String
+}
+
+"""The payload for the updateEmpreendimento mutation."""
+type UpdateEmpreendimentoPayload {
+  """The Post object mutation type."""
+  empreendimento: Empreendimento
+
+  """
+  If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+  """
+  clientMutationId: String
 }
 
 """Input for the updateMediaItem mutation."""

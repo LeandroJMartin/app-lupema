@@ -7,7 +7,10 @@ interface Props {
   items: any;
   responsive?: any;
   gap?: number;
-  largura: number;
+  largura?: {
+    desktop: number;
+    mobile: number;
+  };
   infinite: boolean;
   navigation: boolean;
 }
@@ -34,6 +37,14 @@ const SlideApp = ({
     );
   };
 
+  const [larg, setLarg] = useState(0);
+
+  useEffect(() => {
+    if (largura) {
+      setLarg(window?.innerWidth > 1024 ? largura.desktop : largura.mobile);
+    }
+  }, [largura]);
+
   return (
     <AliceCarousel
       mouseTracking
@@ -42,8 +53,8 @@ const SlideApp = ({
       renderPrevButton={Prev}
       renderNextButton={Next}
       controlsStrategy="responsive"
-      paddingLeft={largura}
-      paddingRight={largura}
+      paddingLeft={larg}
+      paddingRight={larg}
       infinite={infinite}
       disableButtonsControls={navigation}
     />

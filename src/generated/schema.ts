@@ -49,6 +49,15 @@ export interface RootQuery {
     contentTypes?: RootQueryToContentTypeConnection
     /** Fields of the &#039;DiscussionSettings&#039; settings group */
     discussionSettings?: DiscussionSettings
+    /** An object of the Empreendimento Type.  */
+    empreendimento?: Empreendimento
+    /**
+     * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
+     * A Empreendimento object
+     */
+    empreendimentoBy?: Empreendimento
+    /** Connection between the RootQuery type and the Empreendimento type */
+    empreendimentos?: RootQueryToEmpreendimentoConnection
     /** Fields of the &#039;GeneralSettings&#039; settings group */
     generalSettings?: GeneralSettings
     /** An object of the mediaItem Type.  */
@@ -254,15 +263,15 @@ export interface ArquivoAssessoria {
 
 
 /** An object with an ID */
-export type Node = (ArquivoAssessoria | ContentType | Taxonomy | User | Comment | EnqueuedScript | EnqueuedStylesheet | MediaItem | Page | Post | Category | PostFormat | Tag | UserRole | Banner | Menu | MenuItem | Plugin | Theme | CommentAuthor) & { __isUnion?: true }
+export type Node = (ArquivoAssessoria | ContentType | Taxonomy | User | Comment | EnqueuedScript | EnqueuedStylesheet | MediaItem | Page | Post | Category | Empreendimento | PostFormat | Tag | UserRole | Banner | Menu | MenuItem | Plugin | Theme | CommentAuthor) & { __isUnion?: true }
 
 
 /** Nodes used to manage content */
-export type ContentNode = (ArquivoAssessoria | MediaItem | Page | Post | Banner) & { __isUnion?: true }
+export type ContentNode = (ArquivoAssessoria | MediaItem | Page | Post | Empreendimento | Banner) & { __isUnion?: true }
 
 
 /** Any node that has a URI */
-export type UniformResourceIdentifiable = (ArquivoAssessoria | ContentType | User | MediaItem | Page | Post | Category | PostFormat | Tag | Banner) & { __isUnion?: true }
+export type UniformResourceIdentifiable = (ArquivoAssessoria | ContentType | User | MediaItem | Page | Post | Category | Empreendimento | PostFormat | Tag | Banner) & { __isUnion?: true }
 
 
 /** Connection between the ContentNode type and the ContentType type */
@@ -276,11 +285,11 @@ export interface ContentNodeToContentTypeConnectionEdge {
 
 
 /** A singular connection from one Node to another, with support for relational data on the &quot;edge&quot; of the connection. */
-export type OneToOneConnection = (ContentNodeToContentTypeConnectionEdge | ContentNodeToEditLockConnectionEdge | CommentToCommenterConnectionEdge | CommentToContentNodeConnectionEdge | CommentToParentCommentConnectionEdge | NodeWithAuthorToUserConnectionEdge | ContentNodeToEditLastConnectionEdge | HierarchicalContentNodeToParentContentNodeConnectionEdge | NodeWithFeaturedImageToMediaItemConnectionEdge | NodeWithRevisionsToContentNodeConnectionEdge | PageToPreviewConnectionEdge | CategoryToParentCategoryConnectionEdge | CategoryToTaxonomyConnectionEdge | PostFormatToTaxonomyConnectionEdge | PostToPreviewConnectionEdge | TagToTaxonomyConnectionEdge | ArquivoAssessoriaToPreviewConnectionEdge | BannerToPreviewConnectionEdge | MenuItemToMenuItemLinkableConnectionEdge | MenuItemToMenuConnectionEdge) & { __isUnion?: true }
+export type OneToOneConnection = (ContentNodeToContentTypeConnectionEdge | ContentNodeToEditLockConnectionEdge | CommentToCommenterConnectionEdge | CommentToContentNodeConnectionEdge | CommentToParentCommentConnectionEdge | NodeWithAuthorToUserConnectionEdge | ContentNodeToEditLastConnectionEdge | HierarchicalContentNodeToParentContentNodeConnectionEdge | NodeWithFeaturedImageToMediaItemConnectionEdge | NodeWithRevisionsToContentNodeConnectionEdge | PageToPreviewConnectionEdge | EmpreendimentoToPreviewConnectionEdge | CategoryToParentCategoryConnectionEdge | CategoryToTaxonomyConnectionEdge | PostFormatToTaxonomyConnectionEdge | PostToPreviewConnectionEdge | TagToTaxonomyConnectionEdge | ArquivoAssessoriaToPreviewConnectionEdge | BannerToPreviewConnectionEdge | MenuItemToMenuItemLinkableConnectionEdge | MenuItemToMenuConnectionEdge) & { __isUnion?: true }
 
 
 /** Relational context between connected nodes */
-export type Edge = (ContentNodeToContentTypeConnectionEdge | TaxonomyToContentTypeConnectionEdge | ContentTypeToTaxonomyConnectionEdge | ContentTypeToContentNodeConnectionEdge | ContentNodeToEditLockConnectionEdge | CommentToCommenterConnectionEdge | CommentToContentNodeConnectionEdge | CommentToParentCommentConnectionEdge | CommentToCommentConnectionEdge | UserToCommentConnectionEdge | UserToEnqueuedScriptConnectionEdge | UserToEnqueuedStylesheetConnectionEdge | NodeWithAuthorToUserConnectionEdge | HierarchicalContentNodeToContentNodeAncestorsConnectionEdge | HierarchicalContentNodeToContentNodeChildrenConnectionEdge | ContentNodeToEnqueuedScriptConnectionEdge | ContentNodeToEnqueuedStylesheetConnectionEdge | ContentNodeToEditLastConnectionEdge | HierarchicalContentNodeToParentContentNodeConnectionEdge | MediaItemToCommentConnectionEdge | UserToMediaItemConnectionEdge | NodeWithFeaturedImageToMediaItemConnectionEdge | NodeWithRevisionsToContentNodeConnectionEdge | PageToCommentConnectionEdge | PageToPreviewConnectionEdge | PageToRevisionConnectionEdge | UserToPageConnectionEdge | TermNodeToEnqueuedScriptConnectionEdge | TermNodeToEnqueuedStylesheetConnectionEdge | CategoryToAncestorsCategoryConnectionEdge | CategoryToCategoryConnectionEdge | CategoryToContentNodeConnectionEdge | CategoryToParentCategoryConnectionEdge | CategoryToPostConnectionEdge | CategoryToTaxonomyConnectionEdge | PostToCategoryConnectionEdge | PostToCommentConnectionEdge | PostFormatToContentNodeConnectionEdge | PostFormatToPostConnectionEdge | PostFormatToTaxonomyConnectionEdge | PostToPostFormatConnectionEdge | PostToPreviewConnectionEdge | PostToRevisionConnectionEdge | TagToContentNodeConnectionEdge | TagToPostConnectionEdge | TagToTaxonomyConnectionEdge | PostToTagConnectionEdge | PostToTermNodeConnectionEdge | UserToPostConnectionEdge | UserToRevisionsConnectionEdge | UserToUserRoleConnectionEdge | ArquivoAssessoriaToPreviewConnectionEdge | RootQueryToArquivoAssessoriaConnectionEdge | BannerToPreviewConnectionEdge | RootQueryToBannerConnectionEdge | RootQueryToCategoryConnectionEdge | RootQueryToCommentConnectionEdge | RootQueryToContentNodeConnectionEdge | RootQueryToContentTypeConnectionEdge | RootQueryToMediaItemConnectionEdge | MenuItemToMenuItemConnectionEdge | MenuItemToMenuItemLinkableConnectionEdge | MenuItemToMenuConnectionEdge | MenuToMenuItemConnectionEdge | RootQueryToMenuItemConnectionEdge | RootQueryToMenuConnectionEdge | RootQueryToPageConnectionEdge | RootQueryToPluginConnectionEdge | RootQueryToPostFormatConnectionEdge | RootQueryToPostConnectionEdge | RootQueryToEnqueuedScriptConnectionEdge | RootQueryToEnqueuedStylesheetConnectionEdge | RootQueryToRevisionsConnectionEdge | RootQueryToTagConnectionEdge | RootQueryToTaxonomyConnectionEdge | RootQueryToTermNodeConnectionEdge | RootQueryToThemeConnectionEdge | RootQueryToUserRoleConnectionEdge | RootQueryToUserConnectionEdge) & { __isUnion?: true }
+export type Edge = (ContentNodeToContentTypeConnectionEdge | TaxonomyToContentTypeConnectionEdge | ContentTypeToTaxonomyConnectionEdge | ContentTypeToContentNodeConnectionEdge | ContentNodeToEditLockConnectionEdge | CommentToCommenterConnectionEdge | CommentToContentNodeConnectionEdge | CommentToParentCommentConnectionEdge | CommentToCommentConnectionEdge | UserToCommentConnectionEdge | UserToEnqueuedScriptConnectionEdge | UserToEnqueuedStylesheetConnectionEdge | NodeWithAuthorToUserConnectionEdge | HierarchicalContentNodeToContentNodeAncestorsConnectionEdge | HierarchicalContentNodeToContentNodeChildrenConnectionEdge | ContentNodeToEnqueuedScriptConnectionEdge | ContentNodeToEnqueuedStylesheetConnectionEdge | ContentNodeToEditLastConnectionEdge | HierarchicalContentNodeToParentContentNodeConnectionEdge | MediaItemToCommentConnectionEdge | UserToMediaItemConnectionEdge | NodeWithFeaturedImageToMediaItemConnectionEdge | NodeWithRevisionsToContentNodeConnectionEdge | PageToCommentConnectionEdge | PageToPreviewConnectionEdge | PageToRevisionConnectionEdge | UserToPageConnectionEdge | TermNodeToEnqueuedScriptConnectionEdge | TermNodeToEnqueuedStylesheetConnectionEdge | CategoryToAncestorsCategoryConnectionEdge | CategoryToCategoryConnectionEdge | CategoryToContentNodeConnectionEdge | EmpreendimentoToCategoryConnectionEdge | EmpreendimentoToPreviewConnectionEdge | EmpreendimentoToTermNodeConnectionEdge | CategoryToEmpreendimentoConnectionEdge | CategoryToParentCategoryConnectionEdge | CategoryToPostConnectionEdge | CategoryToTaxonomyConnectionEdge | PostToCategoryConnectionEdge | PostToCommentConnectionEdge | PostFormatToContentNodeConnectionEdge | PostFormatToPostConnectionEdge | PostFormatToTaxonomyConnectionEdge | PostToPostFormatConnectionEdge | PostToPreviewConnectionEdge | PostToRevisionConnectionEdge | TagToContentNodeConnectionEdge | TagToPostConnectionEdge | TagToTaxonomyConnectionEdge | PostToTagConnectionEdge | PostToTermNodeConnectionEdge | UserToPostConnectionEdge | UserToRevisionsConnectionEdge | UserToUserRoleConnectionEdge | ArquivoAssessoriaToPreviewConnectionEdge | RootQueryToArquivoAssessoriaConnectionEdge | BannerToPreviewConnectionEdge | RootQueryToBannerConnectionEdge | RootQueryToCategoryConnectionEdge | RootQueryToCommentConnectionEdge | RootQueryToContentNodeConnectionEdge | RootQueryToContentTypeConnectionEdge | RootQueryToEmpreendimentoConnectionEdge | RootQueryToMediaItemConnectionEdge | MenuItemToMenuItemConnectionEdge | MenuItemToMenuItemLinkableConnectionEdge | MenuItemToMenuConnectionEdge | MenuToMenuItemConnectionEdge | RootQueryToMenuItemConnectionEdge | RootQueryToMenuConnectionEdge | RootQueryToPageConnectionEdge | RootQueryToPluginConnectionEdge | RootQueryToPostFormatConnectionEdge | RootQueryToPostConnectionEdge | RootQueryToEnqueuedScriptConnectionEdge | RootQueryToEnqueuedStylesheetConnectionEdge | RootQueryToRevisionsConnectionEdge | RootQueryToTagConnectionEdge | RootQueryToTaxonomyConnectionEdge | RootQueryToTermNodeConnectionEdge | RootQueryToThemeConnectionEdge | RootQueryToUserRoleConnectionEdge | RootQueryToUserConnectionEdge) & { __isUnion?: true }
 
 
 /** Edge between a Node and a connected ContentType */
@@ -374,7 +383,7 @@ export type TaxonomyConnection = (ContentTypeToTaxonomyConnection | RootQueryToT
 
 
 /** A plural connection from one Node Type in the Graph to another Node Type, with support for relational data via &quot;edges&quot;. */
-export type Connection = (ContentTypeToTaxonomyConnection | TaxonomyToContentTypeConnection | ContentTypeToContentNodeConnection | UserToCommentConnection | CommentToCommentConnection | UserToEnqueuedScriptConnection | UserToEnqueuedStylesheetConnection | UserToMediaItemConnection | HierarchicalContentNodeToContentNodeAncestorsConnection | HierarchicalContentNodeToContentNodeChildrenConnection | ContentNodeToEnqueuedScriptConnection | ContentNodeToEnqueuedStylesheetConnection | MediaItemToCommentConnection | UserToPageConnection | PageToCommentConnection | PageToRevisionConnection | UserToPostConnection | PostToCategoryConnection | TermNodeToEnqueuedScriptConnection | TermNodeToEnqueuedStylesheetConnection | CategoryToAncestorsCategoryConnection | CategoryToCategoryConnection | CategoryToContentNodeConnection | CategoryToPostConnection | PostToCommentConnection | PostToPostFormatConnection | PostFormatToContentNodeConnection | PostFormatToPostConnection | PostToRevisionConnection | PostToTagConnection | TagToContentNodeConnection | TagToPostConnection | PostToTermNodeConnection | UserToRevisionsConnection | UserToUserRoleConnection | RootQueryToArquivoAssessoriaConnection | RootQueryToBannerConnection | RootQueryToCategoryConnection | RootQueryToCommentConnection | RootQueryToContentNodeConnection | RootQueryToContentTypeConnection | RootQueryToMediaItemConnection | MenuToMenuItemConnection | MenuItemToMenuItemConnection | RootQueryToMenuItemConnection | RootQueryToMenuConnection | RootQueryToPageConnection | RootQueryToPluginConnection | RootQueryToPostFormatConnection | RootQueryToPostConnection | RootQueryToEnqueuedScriptConnection | RootQueryToEnqueuedStylesheetConnection | RootQueryToRevisionsConnection | RootQueryToTagConnection | RootQueryToTaxonomyConnection | RootQueryToTermNodeConnection | RootQueryToThemeConnection | RootQueryToUserRoleConnection | RootQueryToUserConnection) & { __isUnion?: true }
+export type Connection = (ContentTypeToTaxonomyConnection | TaxonomyToContentTypeConnection | ContentTypeToContentNodeConnection | UserToCommentConnection | CommentToCommentConnection | UserToEnqueuedScriptConnection | UserToEnqueuedStylesheetConnection | UserToMediaItemConnection | HierarchicalContentNodeToContentNodeAncestorsConnection | HierarchicalContentNodeToContentNodeChildrenConnection | ContentNodeToEnqueuedScriptConnection | ContentNodeToEnqueuedStylesheetConnection | MediaItemToCommentConnection | UserToPageConnection | PageToCommentConnection | PageToRevisionConnection | UserToPostConnection | PostToCategoryConnection | TermNodeToEnqueuedScriptConnection | TermNodeToEnqueuedStylesheetConnection | CategoryToAncestorsCategoryConnection | CategoryToCategoryConnection | CategoryToContentNodeConnection | CategoryToEmpreendimentoConnection | EmpreendimentoToCategoryConnection | EmpreendimentoToTermNodeConnection | CategoryToPostConnection | PostToCommentConnection | PostToPostFormatConnection | PostFormatToContentNodeConnection | PostFormatToPostConnection | PostToRevisionConnection | PostToTagConnection | TagToContentNodeConnection | TagToPostConnection | PostToTermNodeConnection | UserToRevisionsConnection | UserToUserRoleConnection | RootQueryToArquivoAssessoriaConnection | RootQueryToBannerConnection | RootQueryToCategoryConnection | RootQueryToCommentConnection | RootQueryToContentNodeConnection | RootQueryToContentTypeConnection | RootQueryToEmpreendimentoConnection | RootQueryToMediaItemConnection | MenuToMenuItemConnection | MenuItemToMenuItemConnection | RootQueryToMenuItemConnection | RootQueryToMenuConnection | RootQueryToPageConnection | RootQueryToPluginConnection | RootQueryToPostFormatConnection | RootQueryToPostConnection | RootQueryToEnqueuedScriptConnection | RootQueryToEnqueuedStylesheetConnection | RootQueryToRevisionsConnection | RootQueryToTagConnection | RootQueryToTaxonomyConnection | RootQueryToTermNodeConnection | RootQueryToThemeConnection | RootQueryToUserRoleConnection | RootQueryToUserConnection) & { __isUnion?: true }
 
 
 /** Edge between a Node and a connected Taxonomy */
@@ -478,7 +487,7 @@ export interface ContentTypeToTaxonomyConnectionEdge {
 
 
 /** Allowed Content Types */
-export type ContentTypeEnum = 'ARQ_ASSESSORIA' | 'ATTACHMENT' | 'BANNER_HOME' | 'PAGE' | 'POST'
+export type ContentTypeEnum = 'ARQ_ASSESSORIA' | 'ATTACHMENT' | 'BANNER_HOME' | 'EMPREENDIMENTOS' | 'PAGE' | 'POST'
 
 
 /** The column to use when filtering by date */
@@ -683,7 +692,7 @@ export type Commenter = (User | CommentAuthor) & { __isUnion?: true }
 
 
 /** Object that can be identified with a Database ID */
-export type DatabaseIdentifier = (ArquivoAssessoria | User | Comment | MediaItem | Page | Post | Category | PostFormat | Tag | Banner | Menu | MenuItem | CommentAuthor) & { __isUnion?: true }
+export type DatabaseIdentifier = (ArquivoAssessoria | User | Comment | MediaItem | Page | Post | Category | Empreendimento | PostFormat | Tag | Banner | Menu | MenuItem | CommentAuthor) & { __isUnion?: true }
 
 
 /** Avatars are profile images for users. WordPress by default uses the Gravatar service to host and fetch avatars from. */
@@ -1100,7 +1109,7 @@ export interface MediaItem {
 
 
 /** A node that can have a template associated with it */
-export type NodeWithTemplate = (ArquivoAssessoria | MediaItem | Page | Post | Banner) & { __isUnion?: true }
+export type NodeWithTemplate = (ArquivoAssessoria | MediaItem | Page | Post | Empreendimento | Banner) & { __isUnion?: true }
 
 
 /** The template assigned to a node of content */
@@ -1108,7 +1117,7 @@ export type ContentTemplate = (DefaultTemplate) & { __isUnion?: true }
 
 
 /** A node that NodeWith a title */
-export type NodeWithTitle = (ArquivoAssessoria | MediaItem | Page | Post | Banner) & { __isUnion?: true }
+export type NodeWithTitle = (ArquivoAssessoria | MediaItem | Page | Post | Empreendimento | Banner) & { __isUnion?: true }
 
 
 /** A node that can have an author assigned to it */
@@ -1483,7 +1492,7 @@ export interface Page {
 
 
 /** Nodes that can be seen in a preview (unpublished) state. */
-export type Previewable = (ArquivoAssessoria | Page | Post | Banner) & { __isUnion?: true }
+export type Previewable = (ArquivoAssessoria | Page | Post | Empreendimento | Banner) & { __isUnion?: true }
 
 
 /** A node that supports the content editor */
@@ -1491,7 +1500,7 @@ export type NodeWithContentEditor = (Page | Post) & { __isUnion?: true }
 
 
 /** A node that can have a featured image set */
-export type NodeWithFeaturedImage = (Page | Post) & { __isUnion?: true }
+export type NodeWithFeaturedImage = (Page | Post | Empreendimento) & { __isUnion?: true }
 
 
 /** Connection between the NodeWithFeaturedImage type and the MediaItem type */
@@ -1523,7 +1532,7 @@ export type NodeWithPageAttributes = (Page) & { __isUnion?: true }
 
 
 /** Nodes that can be linked to as Menu Items */
-export type MenuItemLinkable = (ArquivoAssessoria | Page | Post | Category | Tag | Banner) & { __isUnion?: true }
+export type MenuItemLinkable = (ArquivoAssessoria | Page | Post | Category | Empreendimento | Tag | Banner) & { __isUnion?: true }
 
 
 /** Field Group */
@@ -1539,7 +1548,7 @@ export interface Page_Assessoria {
 
 
 /** A Field Group registered by ACF */
-export type AcfFieldGroup = (Page_Assessoria | Page_Conteusobre | Page_Conteusobre_item | ArquivoAssessoria_DownAssessoria | Banner_BannerHome | Banner_BannerHome_BhConteudo | Banner_BannerHome_ImagensProntas) & { __isUnion?: true }
+export type AcfFieldGroup = (Page_Assessoria | Page_Conteusobre | Page_Conteusobre_item | Empreendimento_Empreendimento | Empreendimento_Empreendimento_diferenciaisItems | Empreendimento_Empreendimento_itemsPlantas | Empreendimento_Empreendimento_itensAreacomuns | Empreendimento_Empreendimento_pontosDeReferencia | Empreendimento_Empreendimento_videosOutos | ArquivoAssessoria_DownAssessoria | Banner_BannerHome | Banner_BannerHome_BhConteudo | Banner_BannerHome_ImagensProntas) & { __isUnion?: true }
 
 
 /** Connection between the Page type and the Comment type */
@@ -1795,11 +1804,11 @@ export interface PostToCategoryConnection {
 
 
 /** Connection to category Nodes */
-export type CategoryConnection = (PostToCategoryConnection | CategoryToAncestorsCategoryConnection | CategoryToCategoryConnection | RootQueryToCategoryConnection) & { __isUnion?: true }
+export type CategoryConnection = (PostToCategoryConnection | CategoryToAncestorsCategoryConnection | CategoryToCategoryConnection | EmpreendimentoToCategoryConnection | RootQueryToCategoryConnection) & { __isUnion?: true }
 
 
 /** Edge between a Node and a connected category */
-export type CategoryConnectionEdge = (CategoryToAncestorsCategoryConnectionEdge | CategoryToCategoryConnectionEdge | CategoryToParentCategoryConnectionEdge | PostToCategoryConnectionEdge | RootQueryToCategoryConnectionEdge) & { __isUnion?: true }
+export type CategoryConnectionEdge = (CategoryToAncestorsCategoryConnectionEdge | CategoryToCategoryConnectionEdge | EmpreendimentoToCategoryConnectionEdge | CategoryToParentCategoryConnectionEdge | PostToCategoryConnectionEdge | RootQueryToCategoryConnectionEdge) & { __isUnion?: true }
 
 
 /** The category type */
@@ -1821,6 +1830,8 @@ export interface Category {
     databaseId: Scalars['Int']
     /** The description of the object */
     description?: Scalars['String']
+    /** Connection between the Category type and the Empreendimento type */
+    empreendimentos?: CategoryToEmpreendimentoConnection
     /** Connection between the TermNode type and the EnqueuedScript type */
     enqueuedScripts?: TermNodeToEnqueuedScriptConnection
     /** Connection between the TermNode type and the EnqueuedStylesheet type */
@@ -1958,7 +1969,7 @@ export interface CategoryToCategoryConnectionEdge {
 
 
 /** Allowed Content Types of the Category taxonomy. */
-export type ContentTypesOfCategoryEnum = 'POST'
+export type ContentTypesOfCategoryEnum = 'EMPREENDIMENTOS' | 'POST'
 
 
 /** Connection between the Category type and the ContentNode type */
@@ -1980,6 +1991,259 @@ export interface CategoryToContentNodeConnectionEdge {
     /** The item at the end of the edge */
     node: ContentNode
     __typename: 'CategoryToContentNodeConnectionEdge'
+}
+
+
+/** Connection between the Category type and the Empreendimento type */
+export interface CategoryToEmpreendimentoConnection {
+    /** Edges for the CategoryToEmpreendimentoConnection connection */
+    edges: CategoryToEmpreendimentoConnectionEdge[]
+    /** The nodes of the connection, without the edges */
+    nodes: Empreendimento[]
+    /** Information about pagination in a connection. */
+    pageInfo?: WPPageInfo
+    __typename: 'CategoryToEmpreendimentoConnection'
+}
+
+
+/** Connection to Empreendimento Nodes */
+export type EmpreendimentoConnection = (CategoryToEmpreendimentoConnection | RootQueryToEmpreendimentoConnection) & { __isUnion?: true }
+
+
+/** Edge between a Node and a connected Empreendimento */
+export type EmpreendimentoConnectionEdge = (EmpreendimentoToPreviewConnectionEdge | CategoryToEmpreendimentoConnectionEdge | RootQueryToEmpreendimentoConnectionEdge) & { __isUnion?: true }
+
+
+/** The Empreendimento type */
+export interface Empreendimento {
+    /**
+     * @deprecated Deprecated in favor of the databaseId field
+     * The id field matches the WP_Post-&gt;ID field.
+     */
+    empreendimentoId: Scalars['Int']
+    /** Connection between the Empreendimento type and the category type */
+    categories?: EmpreendimentoToCategoryConnection
+    /** Connection between the ContentNode type and the ContentType type */
+    contentType?: ContentNodeToContentTypeConnectionEdge
+    /** The name of the Content Type the node belongs to */
+    contentTypeName: Scalars['String']
+    /** The unique identifier stored in the database */
+    databaseId: Scalars['Int']
+    /** Post publishing date. */
+    date?: Scalars['String']
+    /** The publishing date set in GMT. */
+    dateGmt?: Scalars['String']
+    /** The desired slug of the post */
+    desiredSlug?: Scalars['String']
+    /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
+    editingLockedBy?: ContentNodeToEditLockConnectionEdge
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Empreendimento&quot; was set to Show in GraphQL. */
+    empreendimento?: Empreendimento_Empreendimento
+    /** The RSS enclosure for the object */
+    enclosure?: Scalars['String']
+    /** Connection between the ContentNode type and the EnqueuedScript type */
+    enqueuedScripts?: ContentNodeToEnqueuedScriptConnection
+    /** Connection between the ContentNode type and the EnqueuedStylesheet type */
+    enqueuedStylesheets?: ContentNodeToEnqueuedStylesheetConnection
+    /** Connection between the NodeWithFeaturedImage type and the MediaItem type */
+    featuredImage?: NodeWithFeaturedImageToMediaItemConnectionEdge
+    /** The database identifier for the featured image node assigned to the content node */
+    featuredImageDatabaseId?: Scalars['Int']
+    /** Globally unique ID of the featured image assigned to the node */
+    featuredImageId?: Scalars['ID']
+    /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
+    guid?: Scalars['String']
+    /** The globally unique identifier of the empreendimentos object. */
+    id: Scalars['ID']
+    /** Whether the node is a Content Node */
+    isContentNode: Scalars['Boolean']
+    /** Whether the object is a node in the preview state */
+    isPreview?: Scalars['Boolean']
+    /** Whether the object is restricted from the current viewer */
+    isRestricted?: Scalars['Boolean']
+    /** Whether the node is a Term */
+    isTermNode: Scalars['Boolean']
+    /** The user that most recently edited the node */
+    lastEditedBy?: ContentNodeToEditLastConnectionEdge
+    /** The permalink of the post */
+    link?: Scalars['String']
+    /** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
+    modified?: Scalars['String']
+    /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
+    modifiedGmt?: Scalars['String']
+    /** Connection between the Empreendimento type and the Empreendimento type */
+    preview?: EmpreendimentoToPreviewConnectionEdge
+    /** The database id of the preview node */
+    previewRevisionDatabaseId?: Scalars['Int']
+    /** Whether the object is a node in the preview state */
+    previewRevisionId?: Scalars['ID']
+    /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
+    slug?: Scalars['String']
+    /** The current status of the object */
+    status?: Scalars['String']
+    /** The template assigned to the node */
+    template?: ContentTemplate
+    /** Connection between the Empreendimento type and the TermNode type */
+    terms?: EmpreendimentoToTermNodeConnection
+    /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
+    title?: Scalars['String']
+    /** The unique resource identifier path */
+    uri?: Scalars['String']
+    __typename: 'Empreendimento'
+}
+
+
+/** Connection between the Empreendimento type and the category type */
+export interface EmpreendimentoToCategoryConnection {
+    /** Edges for the EmpreendimentoToCategoryConnection connection */
+    edges: EmpreendimentoToCategoryConnectionEdge[]
+    /** The nodes of the connection, without the edges */
+    nodes: Category[]
+    /** Information about pagination in a connection. */
+    pageInfo?: WPPageInfo
+    __typename: 'EmpreendimentoToCategoryConnection'
+}
+
+
+/** An edge in a connection */
+export interface EmpreendimentoToCategoryConnectionEdge {
+    /** A cursor for use in pagination */
+    cursor?: Scalars['String']
+    /** The item at the end of the edge */
+    node: Category
+    __typename: 'EmpreendimentoToCategoryConnectionEdge'
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento {
+    andamentoDaObra?: Scalars['Float']
+    arquivoDaApresentacao?: MediaItem
+    diferenciaisItems?: (Empreendimento_Empreendimento_diferenciaisItems | undefined)[]
+    empCaracteristicas?: Scalars['String']
+    empCidade?: Scalars['String']
+    empDescricao?: Scalars['String']
+    endStandVendas?: Scalars['String']
+    enderecoDoEmpreendimento?: Scalars['String']
+    estagioDaObra?: (Category | undefined)[]
+    /** The name of the ACF Field Group */
+    fieldGroupName?: Scalars['String']
+    galeriaDeFotos?: (MediaItem | undefined)[]
+    imagensOutros?: (MediaItem | undefined)[]
+    itemsPlantas?: (Empreendimento_Empreendimento_itemsPlantas | undefined)[]
+    itensAreacomuns?: (Empreendimento_Empreendimento_itensAreacomuns | undefined)[]
+    linkDoTourVirtual?: Scalars['String']
+    listaItensTec?: Scalars['String']
+    listaItensTec2?: Scalars['String']
+    logotipoDoEmpreendimento?: MediaItem
+    nomeDoEmpreendimento?: Scalars['String']
+    pontosDeReferencia?: (Empreendimento_Empreendimento_pontosDeReferencia | undefined)[]
+    tipoDoEmpreendimento?: Scalars['String']
+    videosOutos?: (Empreendimento_Empreendimento_videosOutos | undefined)[]
+    __typename: 'Empreendimento_Empreendimento'
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_diferenciaisItems {
+    /** The name of the ACF Field Group */
+    fieldGroupName?: Scalars['String']
+    iconeimagemDoDiferencial?: MediaItem
+    nomeDiferencial?: Scalars['String']
+    __typename: 'Empreendimento_Empreendimento_diferenciaisItems'
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_itemsPlantas {
+    /** The name of the ACF Field Group */
+    fieldGroupName?: Scalars['String']
+    imagensDasPlantas?: MediaItem
+    plantasDescricao?: Scalars['String']
+    __typename: 'Empreendimento_Empreendimento_itemsPlantas'
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_itensAreacomuns {
+    descricaoAreacomuns?: Scalars['String']
+    /** The name of the ACF Field Group */
+    fieldGroupName?: Scalars['String']
+    iconeimagemAreacomuns?: MediaItem
+    __typename: 'Empreendimento_Empreendimento_itensAreacomuns'
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_pontosDeReferencia {
+    /** The name of the ACF Field Group */
+    fieldGroupName?: Scalars['String']
+    iconeOuImagemRef?: MediaItem
+    nomePontoReferencia?: Scalars['String']
+    __typename: 'Empreendimento_Empreendimento_pontosDeReferencia'
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_videosOutos {
+    /** The name of the ACF Field Group */
+    fieldGroupName?: Scalars['String']
+    linkDoVideo?: Scalars['String']
+    __typename: 'Empreendimento_Empreendimento_videosOutos'
+}
+
+
+/** Connection between the Empreendimento type and the Empreendimento type */
+export interface EmpreendimentoToPreviewConnectionEdge {
+    /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+    cursor?: Scalars['String']
+    /** The node of the connection, without the edges */
+    node: Empreendimento
+    __typename: 'EmpreendimentoToPreviewConnectionEdge'
+}
+
+
+/** Allowed taxonomies */
+export type TaxonomyEnum = 'CATEGORY' | 'POSTFORMAT' | 'TAG'
+
+
+/** Connection between the Empreendimento type and the TermNode type */
+export interface EmpreendimentoToTermNodeConnection {
+    /** Edges for the EmpreendimentoToTermNodeConnection connection */
+    edges: EmpreendimentoToTermNodeConnectionEdge[]
+    /** The nodes of the connection, without the edges */
+    nodes: TermNode[]
+    /** Information about pagination in a connection. */
+    pageInfo?: WPPageInfo
+    __typename: 'EmpreendimentoToTermNodeConnection'
+}
+
+
+/** Connection to TermNode Nodes */
+export type TermNodeConnection = (EmpreendimentoToTermNodeConnection | PostToTermNodeConnection | RootQueryToTermNodeConnection) & { __isUnion?: true }
+
+
+/** Edge between a Node and a connected TermNode */
+export type TermNodeConnectionEdge = (EmpreendimentoToTermNodeConnectionEdge | PostToTermNodeConnectionEdge | RootQueryToTermNodeConnectionEdge) & { __isUnion?: true }
+
+
+/** An edge in a connection */
+export interface EmpreendimentoToTermNodeConnectionEdge {
+    /** A cursor for use in pagination */
+    cursor?: Scalars['String']
+    /** The item at the end of the edge */
+    node: TermNode
+    __typename: 'EmpreendimentoToTermNodeConnectionEdge'
+}
+
+
+/** An edge in a connection */
+export interface CategoryToEmpreendimentoConnectionEdge {
+    /** A cursor for use in pagination */
+    cursor?: Scalars['String']
+    /** The item at the end of the edge */
+    node: Empreendimento
+    __typename: 'CategoryToEmpreendimentoConnectionEdge'
 }
 
 
@@ -2363,10 +2627,6 @@ export interface PostToTagConnectionEdge {
 }
 
 
-/** Allowed taxonomies */
-export type TaxonomyEnum = 'CATEGORY' | 'POSTFORMAT' | 'TAG'
-
-
 /** Connection between the Post type and the TermNode type */
 export interface PostToTermNodeConnection {
     /** Edges for the PostToTermNodeConnection connection */
@@ -2377,14 +2637,6 @@ export interface PostToTermNodeConnection {
     pageInfo?: WPPageInfo
     __typename: 'PostToTermNodeConnection'
 }
-
-
-/** Connection to TermNode Nodes */
-export type TermNodeConnection = (PostToTermNodeConnection | RootQueryToTermNodeConnection) & { __isUnion?: true }
-
-
-/** Edge between a Node and a connected TermNode */
-export type TermNodeConnectionEdge = (PostToTermNodeConnectionEdge | RootQueryToTermNodeConnectionEdge) & { __isUnion?: true }
 
 
 /** An edge in a connection */
@@ -2804,6 +3056,32 @@ export interface DiscussionSettings {
 }
 
 
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
+export type EmpreendimentoIdType = 'DATABASE_ID' | 'ID' | 'SLUG' | 'URI'
+
+
+/** Connection between the RootQuery type and the Empreendimento type */
+export interface RootQueryToEmpreendimentoConnection {
+    /** Edges for the RootQueryToEmpreendimentoConnection connection */
+    edges: RootQueryToEmpreendimentoConnectionEdge[]
+    /** The nodes of the connection, without the edges */
+    nodes: Empreendimento[]
+    /** Information about pagination in a connection. */
+    pageInfo?: WPPageInfo
+    __typename: 'RootQueryToEmpreendimentoConnection'
+}
+
+
+/** An edge in a connection */
+export interface RootQueryToEmpreendimentoConnectionEdge {
+    /** A cursor for use in pagination */
+    cursor?: Scalars['String']
+    /** The item at the end of the edge */
+    node: Empreendimento
+    __typename: 'RootQueryToEmpreendimentoConnectionEdge'
+}
+
+
 /** The general setting type */
 export interface GeneralSettings {
     /** Um formato de data para todos os textos. */
@@ -3000,7 +3278,7 @@ export type MenuItemLinkableConnectionEdge = (MenuItemToMenuItemLinkableConnecti
 
 
 /** Deprecated in favor of MenuItemLinkeable Interface */
-export type MenuItemObjectUnion = (Post | Page | Banner | ArquivoAssessoria | Category | Tag) & { __isUnion?: true }
+export type MenuItemObjectUnion = (Post | Page | Banner | ArquivoAssessoria | Empreendimento | Category | Tag) & { __isUnion?: true }
 
 
 /** Connection between the MenuItem type and the Menu type */
@@ -3517,6 +3795,8 @@ export interface RootMutation {
     createCategory?: CreateCategoryPayload
     /** The createComment mutation */
     createComment?: CreateCommentPayload
+    /** The createEmpreendimento mutation */
+    createEmpreendimento?: CreateEmpreendimentoPayload
     /** The createMediaItem mutation */
     createMediaItem?: CreateMediaItemPayload
     /** The createPage mutation */
@@ -3537,6 +3817,8 @@ export interface RootMutation {
     deleteCategory?: DeleteCategoryPayload
     /** The deleteComment mutation */
     deleteComment?: DeleteCommentPayload
+    /** The deleteEmpreendimento mutation */
+    deleteEmpreendimento?: DeleteEmpreendimentoPayload
     /** The deleteMediaItem mutation */
     deleteMediaItem?: DeleteMediaItemPayload
     /** The deletePage mutation */
@@ -3567,6 +3849,8 @@ export interface RootMutation {
     updateCategory?: UpdateCategoryPayload
     /** The updateComment mutation */
     updateComment?: UpdateCommentPayload
+    /** The updateEmpreendimento mutation */
+    updateEmpreendimento?: UpdateEmpreendimentoPayload
     /** The updateMediaItem mutation */
     updateMediaItem?: UpdateMediaItemPayload
     /** The updatePage mutation */
@@ -3624,6 +3908,16 @@ export interface CreateCommentPayload {
     /** Whether the mutation succeeded. If the comment is not approved, the server will not return the comment to a non authenticated user, but a success message can be returned if the create succeeded, and the client can optimistically add the comment to the client cache */
     success?: Scalars['Boolean']
     __typename: 'CreateCommentPayload'
+}
+
+
+/** The payload for the createEmpreendimento mutation. */
+export interface CreateEmpreendimentoPayload {
+    /** The Post object mutation type. */
+    empreendimento?: Empreendimento
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Scalars['String']
+    __typename: 'CreateEmpreendimentoPayload'
 }
 
 
@@ -3736,6 +4030,18 @@ export interface DeleteCommentPayload {
     /** The deleted comment ID */
     deletedId?: Scalars['ID']
     __typename: 'DeleteCommentPayload'
+}
+
+
+/** The payload for the deleteEmpreendimento mutation. */
+export interface DeleteEmpreendimentoPayload {
+    /** The object before it was deleted */
+    empreendimento?: Empreendimento
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Scalars['String']
+    /** The ID of the deleted object */
+    deletedId?: Scalars['ID']
+    __typename: 'DeleteEmpreendimentoPayload'
 }
 
 
@@ -3897,6 +4203,16 @@ export interface UpdateCommentPayload {
     /** Whether the mutation succeeded. If the comment is not approved, the server will not return the comment to a non authenticated user, but a success message can be returned if the create succeeded, and the client can optimistically add the comment to the client cache */
     success?: Scalars['Boolean']
     __typename: 'UpdateCommentPayload'
+}
+
+
+/** The payload for the updateEmpreendimento mutation. */
+export interface UpdateEmpreendimentoPayload {
+    /** The Post object mutation type. */
+    empreendimento?: Empreendimento
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: Scalars['String']
+    __typename: 'UpdateEmpreendimentoPayload'
 }
 
 
@@ -4155,6 +4471,39 @@ export interface RootQueryRequest{
     before?: (Scalars['String'] | null)},RootQueryToContentTypeConnectionRequest] | RootQueryToContentTypeConnectionRequest
     /** Fields of the &#039;DiscussionSettings&#039; settings group */
     discussionSettings?: DiscussionSettingsRequest
+    /** An object of the Empreendimento Type.  */
+    empreendimento?: [{
+    /** The globally unique identifier of the object. */
+    id: Scalars['ID'],
+    /** Type of unique identifier to fetch by. Default is Global ID */
+    idType?: (EmpreendimentoIdType | null),
+    /** Whether to return the node as a preview instance */
+    asPreview?: (Scalars['Boolean'] | null)},EmpreendimentoRequest]
+    /**
+     * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
+     * A Empreendimento object
+     */
+    empreendimentoBy?: [{
+    /** Get the object by its global ID */
+    id?: (Scalars['ID'] | null),
+    /** Get the Empreendimento by its database ID */
+    empreendimentoId?: (Scalars['Int'] | null),
+    /** Get the Empreendimento by its uri */
+    uri?: (Scalars['String'] | null),
+    /** Get the Empreendimento by its slug (only available for non-hierarchical types) */
+    slug?: (Scalars['String'] | null)},EmpreendimentoRequest] | EmpreendimentoRequest
+    /** Connection between the RootQuery type and the Empreendimento type */
+    empreendimentos?: [{
+    /** The number of items to return after the referenced "after" cursor */
+    first?: (Scalars['Int'] | null),
+    /** The number of items to return before the referenced "before" cursor */
+    last?: (Scalars['Int'] | null),
+    /** Cursor used along with the "first" argument to reference where in the dataset to get data */
+    after?: (Scalars['String'] | null),
+    /** Cursor used along with the "last" argument to reference where in the dataset to get data */
+    before?: (Scalars['String'] | null),
+    /** Arguments for filtering the connection */
+    where?: (RootQueryToEmpreendimentoConnectionWhereArgs | null)},RootQueryToEmpreendimentoConnectionRequest] | RootQueryToEmpreendimentoConnectionRequest
     /** Fields of the &#039;GeneralSettings&#039; settings group */
     generalSettings?: GeneralSettingsRequest
     /** An object of the mediaItem Type.  */
@@ -4621,6 +4970,7 @@ export interface NodeRequest{
     on_Page?: PageRequest
     on_Post?: PostRequest
     on_Category?: CategoryRequest
+    on_Empreendimento?: EmpreendimentoRequest
     on_PostFormat?: PostFormatRequest
     on_Tag?: TagRequest
     on_UserRole?: UserRoleRequest
@@ -4709,6 +5059,7 @@ export interface ContentNodeRequest{
     on_MediaItem?: MediaItemRequest
     on_Page?: PageRequest
     on_Post?: PostRequest
+    on_Empreendimento?: EmpreendimentoRequest
     on_Banner?: BannerRequest
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -4732,6 +5083,7 @@ export interface UniformResourceIdentifiableRequest{
     on_Page?: PageRequest
     on_Post?: PostRequest
     on_Category?: CategoryRequest
+    on_Empreendimento?: EmpreendimentoRequest
     on_PostFormat?: PostFormatRequest
     on_Tag?: TagRequest
     on_Banner?: BannerRequest
@@ -4768,6 +5120,7 @@ export interface OneToOneConnectionRequest{
     on_NodeWithFeaturedImageToMediaItemConnectionEdge?: NodeWithFeaturedImageToMediaItemConnectionEdgeRequest
     on_NodeWithRevisionsToContentNodeConnectionEdge?: NodeWithRevisionsToContentNodeConnectionEdgeRequest
     on_PageToPreviewConnectionEdge?: PageToPreviewConnectionEdgeRequest
+    on_EmpreendimentoToPreviewConnectionEdge?: EmpreendimentoToPreviewConnectionEdgeRequest
     on_CategoryToParentCategoryConnectionEdge?: CategoryToParentCategoryConnectionEdgeRequest
     on_CategoryToTaxonomyConnectionEdge?: CategoryToTaxonomyConnectionEdgeRequest
     on_PostFormatToTaxonomyConnectionEdge?: PostFormatToTaxonomyConnectionEdgeRequest
@@ -4820,6 +5173,10 @@ export interface EdgeRequest{
     on_CategoryToAncestorsCategoryConnectionEdge?: CategoryToAncestorsCategoryConnectionEdgeRequest
     on_CategoryToCategoryConnectionEdge?: CategoryToCategoryConnectionEdgeRequest
     on_CategoryToContentNodeConnectionEdge?: CategoryToContentNodeConnectionEdgeRequest
+    on_EmpreendimentoToCategoryConnectionEdge?: EmpreendimentoToCategoryConnectionEdgeRequest
+    on_EmpreendimentoToPreviewConnectionEdge?: EmpreendimentoToPreviewConnectionEdgeRequest
+    on_EmpreendimentoToTermNodeConnectionEdge?: EmpreendimentoToTermNodeConnectionEdgeRequest
+    on_CategoryToEmpreendimentoConnectionEdge?: CategoryToEmpreendimentoConnectionEdgeRequest
     on_CategoryToParentCategoryConnectionEdge?: CategoryToParentCategoryConnectionEdgeRequest
     on_CategoryToPostConnectionEdge?: CategoryToPostConnectionEdgeRequest
     on_CategoryToTaxonomyConnectionEdge?: CategoryToTaxonomyConnectionEdgeRequest
@@ -4847,6 +5204,7 @@ export interface EdgeRequest{
     on_RootQueryToCommentConnectionEdge?: RootQueryToCommentConnectionEdgeRequest
     on_RootQueryToContentNodeConnectionEdge?: RootQueryToContentNodeConnectionEdgeRequest
     on_RootQueryToContentTypeConnectionEdge?: RootQueryToContentTypeConnectionEdgeRequest
+    on_RootQueryToEmpreendimentoConnectionEdge?: RootQueryToEmpreendimentoConnectionEdgeRequest
     on_RootQueryToMediaItemConnectionEdge?: RootQueryToMediaItemConnectionEdgeRequest
     on_MenuItemToMenuItemConnectionEdge?: MenuItemToMenuItemConnectionEdgeRequest
     on_MenuItemToMenuItemLinkableConnectionEdge?: MenuItemToMenuItemLinkableConnectionEdgeRequest
@@ -5030,6 +5388,9 @@ export interface ConnectionRequest{
     on_CategoryToAncestorsCategoryConnection?: CategoryToAncestorsCategoryConnectionRequest
     on_CategoryToCategoryConnection?: CategoryToCategoryConnectionRequest
     on_CategoryToContentNodeConnection?: CategoryToContentNodeConnectionRequest
+    on_CategoryToEmpreendimentoConnection?: CategoryToEmpreendimentoConnectionRequest
+    on_EmpreendimentoToCategoryConnection?: EmpreendimentoToCategoryConnectionRequest
+    on_EmpreendimentoToTermNodeConnection?: EmpreendimentoToTermNodeConnectionRequest
     on_CategoryToPostConnection?: CategoryToPostConnectionRequest
     on_PostToCommentConnection?: PostToCommentConnectionRequest
     on_PostToPostFormatConnection?: PostToPostFormatConnectionRequest
@@ -5048,6 +5409,7 @@ export interface ConnectionRequest{
     on_RootQueryToCommentConnection?: RootQueryToCommentConnectionRequest
     on_RootQueryToContentNodeConnection?: RootQueryToContentNodeConnectionRequest
     on_RootQueryToContentTypeConnection?: RootQueryToContentTypeConnectionRequest
+    on_RootQueryToEmpreendimentoConnection?: RootQueryToEmpreendimentoConnectionRequest
     on_RootQueryToMediaItemConnection?: RootQueryToMediaItemConnectionRequest
     on_MenuToMenuItemConnection?: MenuToMenuItemConnectionRequest
     on_MenuItemToMenuItemConnection?: MenuItemToMenuItemConnectionRequest
@@ -5631,6 +5993,7 @@ export interface DatabaseIdentifierRequest{
     on_Page?: PageRequest
     on_Post?: PostRequest
     on_Category?: CategoryRequest
+    on_Empreendimento?: EmpreendimentoRequest
     on_PostFormat?: PostFormatRequest
     on_Tag?: TagRequest
     on_Banner?: BannerRequest
@@ -6489,6 +6852,7 @@ export interface NodeWithTemplateRequest{
     on_MediaItem?: MediaItemRequest
     on_Page?: PageRequest
     on_Post?: PostRequest
+    on_Empreendimento?: EmpreendimentoRequest
     on_Banner?: BannerRequest
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -6517,6 +6881,7 @@ export interface NodeWithTitleRequest{
     on_MediaItem?: MediaItemRequest
     on_Page?: PageRequest
     on_Post?: PostRequest
+    on_Empreendimento?: EmpreendimentoRequest
     on_Banner?: BannerRequest
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -7336,6 +7701,7 @@ export interface PreviewableRequest{
     on_ArquivoAssessoria?: ArquivoAssessoriaRequest
     on_Page?: PageRequest
     on_Post?: PostRequest
+    on_Empreendimento?: EmpreendimentoRequest
     on_Banner?: BannerRequest
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -7369,6 +7735,7 @@ export interface NodeWithFeaturedImageRequest{
     id?: boolean | number
     on_Page?: PageRequest
     on_Post?: PostRequest
+    on_Empreendimento?: EmpreendimentoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7439,6 +7806,7 @@ export interface MenuItemLinkableRequest{
     on_Page?: PageRequest
     on_Post?: PostRequest
     on_Category?: CategoryRequest
+    on_Empreendimento?: EmpreendimentoRequest
     on_Tag?: TagRequest
     on_Banner?: BannerRequest
     __typename?: boolean | number
@@ -7466,6 +7834,12 @@ export interface AcfFieldGroupRequest{
     on_Page_Assessoria?: Page_AssessoriaRequest
     on_Page_Conteusobre?: Page_ConteusobreRequest
     on_Page_Conteusobre_item?: Page_Conteusobre_itemRequest
+    on_Empreendimento_Empreendimento?: Empreendimento_EmpreendimentoRequest
+    on_Empreendimento_Empreendimento_diferenciaisItems?: Empreendimento_Empreendimento_diferenciaisItemsRequest
+    on_Empreendimento_Empreendimento_itemsPlantas?: Empreendimento_Empreendimento_itemsPlantasRequest
+    on_Empreendimento_Empreendimento_itensAreacomuns?: Empreendimento_Empreendimento_itensAreacomunsRequest
+    on_Empreendimento_Empreendimento_pontosDeReferencia?: Empreendimento_Empreendimento_pontosDeReferenciaRequest
+    on_Empreendimento_Empreendimento_videosOutos?: Empreendimento_Empreendimento_videosOutosRequest
     on_ArquivoAssessoria_DownAssessoria?: ArquivoAssessoria_DownAssessoriaRequest
     on_Banner_BannerHome?: Banner_BannerHomeRequest
     on_Banner_BannerHome_BhConteudo?: Banner_BannerHome_BhConteudoRequest
@@ -8094,6 +8468,7 @@ export interface CategoryConnectionRequest{
     on_PostToCategoryConnection?: PostToCategoryConnectionRequest
     on_CategoryToAncestorsCategoryConnection?: CategoryToAncestorsCategoryConnectionRequest
     on_CategoryToCategoryConnection?: CategoryToCategoryConnectionRequest
+    on_EmpreendimentoToCategoryConnection?: EmpreendimentoToCategoryConnectionRequest
     on_RootQueryToCategoryConnection?: RootQueryToCategoryConnectionRequest
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -8108,6 +8483,7 @@ export interface CategoryConnectionEdgeRequest{
     node?: CategoryRequest
     on_CategoryToAncestorsCategoryConnectionEdge?: CategoryToAncestorsCategoryConnectionEdgeRequest
     on_CategoryToCategoryConnectionEdge?: CategoryToCategoryConnectionEdgeRequest
+    on_EmpreendimentoToCategoryConnectionEdge?: EmpreendimentoToCategoryConnectionEdgeRequest
     on_CategoryToParentCategoryConnectionEdge?: CategoryToParentCategoryConnectionEdgeRequest
     on_PostToCategoryConnectionEdge?: PostToCategoryConnectionEdgeRequest
     on_RootQueryToCategoryConnectionEdge?: RootQueryToCategoryConnectionEdgeRequest
@@ -8163,6 +8539,18 @@ export interface CategoryRequest{
     databaseId?: boolean | number
     /** The description of the object */
     description?: boolean | number
+    /** Connection between the Category type and the Empreendimento type */
+    empreendimentos?: [{
+    /** The number of items to return after the referenced "after" cursor */
+    first?: (Scalars['Int'] | null),
+    /** The number of items to return before the referenced "before" cursor */
+    last?: (Scalars['Int'] | null),
+    /** Cursor used along with the "first" argument to reference where in the dataset to get data */
+    after?: (Scalars['String'] | null),
+    /** Cursor used along with the "last" argument to reference where in the dataset to get data */
+    before?: (Scalars['String'] | null),
+    /** Arguments for filtering the connection */
+    where?: (CategoryToEmpreendimentoConnectionWhereArgs | null)},CategoryToEmpreendimentoConnectionRequest] | CategoryToEmpreendimentoConnectionRequest
     /** Connection between the TermNode type and the EnqueuedScript type */
     enqueuedScripts?: [{
     /** The number of items to return after the referenced "after" cursor */
@@ -8549,6 +8937,486 @@ export interface CategoryToContentNodeConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: ContentNodeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Arguments for filtering the CategoryToEmpreendimentoConnection connection */
+export interface CategoryToEmpreendimentoConnectionWhereArgs {
+/** Category ID */
+categoryId?: (Scalars['Int'] | null),
+/** Array of category IDs, used to display objects from one category OR another */
+categoryIn?: ((Scalars['ID'] | null)[] | null),
+/** Use Category Slug */
+categoryName?: (Scalars['String'] | null),
+/** Array of category IDs, used to display objects from one category OR another */
+categoryNotIn?: ((Scalars['ID'] | null)[] | null),
+/** Filter the connection based on dates */
+dateQuery?: (DateQueryInput | null),
+/** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+hasPassword?: (Scalars['Boolean'] | null),
+/** Specific database ID of the object */
+id?: (Scalars['Int'] | null),
+/** Array of IDs for the objects to retrieve */
+in?: ((Scalars['ID'] | null)[] | null),
+/** Get objects with a specific mimeType property */
+mimeType?: (MimeTypeEnum | null),
+/** Slug / post_name of the object */
+name?: (Scalars['String'] | null),
+/** Specify objects to retrieve. Use slugs */
+nameIn?: ((Scalars['String'] | null)[] | null),
+/** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+notIn?: ((Scalars['ID'] | null)[] | null),
+/** What paramater to use to order the objects by. */
+orderby?: ((PostObjectsConnectionOrderbyInput | null)[] | null),
+/** Use ID to return only children. Use 0 to return only top-level items */
+parent?: (Scalars['ID'] | null),
+/** Specify objects whose parent is in an array */
+parentIn?: ((Scalars['ID'] | null)[] | null),
+/** Specify posts whose parent is not in an array */
+parentNotIn?: ((Scalars['ID'] | null)[] | null),
+/** Show posts with a specific password. */
+password?: (Scalars['String'] | null),
+/** Show Posts based on a keyword search */
+search?: (Scalars['String'] | null),
+/** Retrieve posts where post status is in an array. */
+stati?: ((PostStatusEnum | null)[] | null),
+/** Show posts with a specific status. */
+status?: (PostStatusEnum | null),
+/** Title of the object */
+title?: (Scalars['String'] | null)}
+
+
+/** Connection between the Category type and the Empreendimento type */
+export interface CategoryToEmpreendimentoConnectionRequest{
+    /** Edges for the CategoryToEmpreendimentoConnection connection */
+    edges?: CategoryToEmpreendimentoConnectionEdgeRequest
+    /** The nodes of the connection, without the edges */
+    nodes?: EmpreendimentoRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: WPPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Connection to Empreendimento Nodes */
+export interface EmpreendimentoConnectionRequest{
+    /** A list of edges (relational context) between RootQuery and connected Empreendimento Nodes */
+    edges?: EmpreendimentoConnectionEdgeRequest
+    /** A list of connected Empreendimento Nodes */
+    nodes?: EmpreendimentoRequest
+    on_CategoryToEmpreendimentoConnection?: CategoryToEmpreendimentoConnectionRequest
+    on_RootQueryToEmpreendimentoConnection?: RootQueryToEmpreendimentoConnectionRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Edge between a Node and a connected Empreendimento */
+export interface EmpreendimentoConnectionEdgeRequest{
+    /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+    cursor?: boolean | number
+    /** The connected Empreendimento Node */
+    node?: EmpreendimentoRequest
+    on_EmpreendimentoToPreviewConnectionEdge?: EmpreendimentoToPreviewConnectionEdgeRequest
+    on_CategoryToEmpreendimentoConnectionEdge?: CategoryToEmpreendimentoConnectionEdgeRequest
+    on_RootQueryToEmpreendimentoConnectionEdge?: RootQueryToEmpreendimentoConnectionEdgeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** The Empreendimento type */
+export interface EmpreendimentoRequest{
+    /**
+     * @deprecated Deprecated in favor of the databaseId field
+     * The id field matches the WP_Post-&gt;ID field.
+     */
+    empreendimentoId?: boolean | number
+    /** Connection between the Empreendimento type and the category type */
+    categories?: [{
+    /** The number of items to return after the referenced "after" cursor */
+    first?: (Scalars['Int'] | null),
+    /** The number of items to return before the referenced "before" cursor */
+    last?: (Scalars['Int'] | null),
+    /** Cursor used along with the "first" argument to reference where in the dataset to get data */
+    after?: (Scalars['String'] | null),
+    /** Cursor used along with the "last" argument to reference where in the dataset to get data */
+    before?: (Scalars['String'] | null),
+    /** Arguments for filtering the connection */
+    where?: (EmpreendimentoToCategoryConnectionWhereArgs | null)},EmpreendimentoToCategoryConnectionRequest] | EmpreendimentoToCategoryConnectionRequest
+    /** Connection between the ContentNode type and the ContentType type */
+    contentType?: ContentNodeToContentTypeConnectionEdgeRequest
+    /** The name of the Content Type the node belongs to */
+    contentTypeName?: boolean | number
+    /** The unique identifier stored in the database */
+    databaseId?: boolean | number
+    /** Post publishing date. */
+    date?: boolean | number
+    /** The publishing date set in GMT. */
+    dateGmt?: boolean | number
+    /** The desired slug of the post */
+    desiredSlug?: boolean | number
+    /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
+    editingLockedBy?: ContentNodeToEditLockConnectionEdgeRequest
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Empreendimento&quot; was set to Show in GraphQL. */
+    empreendimento?: Empreendimento_EmpreendimentoRequest
+    /** The RSS enclosure for the object */
+    enclosure?: boolean | number
+    /** Connection between the ContentNode type and the EnqueuedScript type */
+    enqueuedScripts?: [{
+    /** The number of items to return after the referenced "after" cursor */
+    first?: (Scalars['Int'] | null),
+    /** The number of items to return before the referenced "before" cursor */
+    last?: (Scalars['Int'] | null),
+    /** Cursor used along with the "first" argument to reference where in the dataset to get data */
+    after?: (Scalars['String'] | null),
+    /** Cursor used along with the "last" argument to reference where in the dataset to get data */
+    before?: (Scalars['String'] | null)},ContentNodeToEnqueuedScriptConnectionRequest] | ContentNodeToEnqueuedScriptConnectionRequest
+    /** Connection between the ContentNode type and the EnqueuedStylesheet type */
+    enqueuedStylesheets?: [{
+    /** The number of items to return after the referenced "after" cursor */
+    first?: (Scalars['Int'] | null),
+    /** The number of items to return before the referenced "before" cursor */
+    last?: (Scalars['Int'] | null),
+    /** Cursor used along with the "first" argument to reference where in the dataset to get data */
+    after?: (Scalars['String'] | null),
+    /** Cursor used along with the "last" argument to reference where in the dataset to get data */
+    before?: (Scalars['String'] | null)},ContentNodeToEnqueuedStylesheetConnectionRequest] | ContentNodeToEnqueuedStylesheetConnectionRequest
+    /** Connection between the NodeWithFeaturedImage type and the MediaItem type */
+    featuredImage?: NodeWithFeaturedImageToMediaItemConnectionEdgeRequest
+    /** The database identifier for the featured image node assigned to the content node */
+    featuredImageDatabaseId?: boolean | number
+    /** Globally unique ID of the featured image assigned to the node */
+    featuredImageId?: boolean | number
+    /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
+    guid?: boolean | number
+    /** The globally unique identifier of the empreendimentos object. */
+    id?: boolean | number
+    /** Whether the node is a Content Node */
+    isContentNode?: boolean | number
+    /** Whether the object is a node in the preview state */
+    isPreview?: boolean | number
+    /** Whether the object is restricted from the current viewer */
+    isRestricted?: boolean | number
+    /** Whether the node is a Term */
+    isTermNode?: boolean | number
+    /** The user that most recently edited the node */
+    lastEditedBy?: ContentNodeToEditLastConnectionEdgeRequest
+    /** The permalink of the post */
+    link?: boolean | number
+    /** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
+    modified?: boolean | number
+    /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
+    modifiedGmt?: boolean | number
+    /** Connection between the Empreendimento type and the Empreendimento type */
+    preview?: EmpreendimentoToPreviewConnectionEdgeRequest
+    /** The database id of the preview node */
+    previewRevisionDatabaseId?: boolean | number
+    /** Whether the object is a node in the preview state */
+    previewRevisionId?: boolean | number
+    /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
+    slug?: boolean | number
+    /** The current status of the object */
+    status?: boolean | number
+    /** The template assigned to the node */
+    template?: ContentTemplateRequest
+    /** Connection between the Empreendimento type and the TermNode type */
+    terms?: [{
+    /** The number of items to return after the referenced "after" cursor */
+    first?: (Scalars['Int'] | null),
+    /** The number of items to return before the referenced "before" cursor */
+    last?: (Scalars['Int'] | null),
+    /** Cursor used along with the "first" argument to reference where in the dataset to get data */
+    after?: (Scalars['String'] | null),
+    /** Cursor used along with the "last" argument to reference where in the dataset to get data */
+    before?: (Scalars['String'] | null),
+    /** Arguments for filtering the connection */
+    where?: (EmpreendimentoToTermNodeConnectionWhereArgs | null)},EmpreendimentoToTermNodeConnectionRequest] | EmpreendimentoToTermNodeConnectionRequest
+    /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
+    title?: [{
+    /** Format of the field output */
+    format?: (PostObjectFieldFormatEnum | null)}] | boolean | number
+    /** The unique resource identifier path */
+    uri?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Arguments for filtering the EmpreendimentoToCategoryConnection connection */
+export interface EmpreendimentoToCategoryConnectionWhereArgs {
+/** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+cacheDomain?: (Scalars['String'] | null),
+/** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+childOf?: (Scalars['Int'] | null),
+/** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+childless?: (Scalars['Boolean'] | null),
+/** Retrieve terms where the description is LIKE the input value. Default empty. */
+descriptionLike?: (Scalars['String'] | null),
+/** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+exclude?: ((Scalars['ID'] | null)[] | null),
+/** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+excludeTree?: ((Scalars['ID'] | null)[] | null),
+/** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+hideEmpty?: (Scalars['Boolean'] | null),
+/** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+hierarchical?: (Scalars['Boolean'] | null),
+/** Array of term ids to include. Default empty array. */
+include?: ((Scalars['ID'] | null)[] | null),
+/** Array of names to return term(s) for. Default empty. */
+name?: ((Scalars['String'] | null)[] | null),
+/** Retrieve terms where the name is LIKE the input value. Default empty. */
+nameLike?: (Scalars['String'] | null),
+/** Array of object IDs. Results will be limited to terms associated with these objects. */
+objectIds?: ((Scalars['ID'] | null)[] | null),
+/** Direction the connection should be ordered in */
+order?: (OrderEnum | null),
+/** Field(s) to order terms by. Defaults to 'name'. */
+orderby?: (TermObjectsConnectionOrderbyEnum | null),
+/** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+padCounts?: (Scalars['Boolean'] | null),
+/** Parent term ID to retrieve direct-child terms of. Default empty. */
+parent?: (Scalars['Int'] | null),
+/** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+search?: (Scalars['String'] | null),
+/** Array of slugs to return term(s) for. Default empty. */
+slug?: ((Scalars['String'] | null)[] | null),
+/** Array of term taxonomy IDs, to match when querying terms. */
+termTaxonomId?: ((Scalars['ID'] | null)[] | null),
+/** Array of term taxonomy IDs, to match when querying terms. */
+termTaxonomyId?: ((Scalars['ID'] | null)[] | null),
+/** Whether to prime meta caches for matched terms. Default true. */
+updateTermMetaCache?: (Scalars['Boolean'] | null)}
+
+
+/** Connection between the Empreendimento type and the category type */
+export interface EmpreendimentoToCategoryConnectionRequest{
+    /** Edges for the EmpreendimentoToCategoryConnection connection */
+    edges?: EmpreendimentoToCategoryConnectionEdgeRequest
+    /** The nodes of the connection, without the edges */
+    nodes?: CategoryRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: WPPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** An edge in a connection */
+export interface EmpreendimentoToCategoryConnectionEdgeRequest{
+    /** A cursor for use in pagination */
+    cursor?: boolean | number
+    /** The item at the end of the edge */
+    node?: CategoryRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Field Group */
+export interface Empreendimento_EmpreendimentoRequest{
+    andamentoDaObra?: boolean | number
+    arquivoDaApresentacao?: MediaItemRequest
+    diferenciaisItems?: Empreendimento_Empreendimento_diferenciaisItemsRequest
+    empCaracteristicas?: boolean | number
+    empCidade?: boolean | number
+    empDescricao?: boolean | number
+    endStandVendas?: boolean | number
+    enderecoDoEmpreendimento?: boolean | number
+    estagioDaObra?: CategoryRequest
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    galeriaDeFotos?: MediaItemRequest
+    imagensOutros?: MediaItemRequest
+    itemsPlantas?: Empreendimento_Empreendimento_itemsPlantasRequest
+    itensAreacomuns?: Empreendimento_Empreendimento_itensAreacomunsRequest
+    linkDoTourVirtual?: boolean | number
+    listaItensTec?: boolean | number
+    listaItensTec2?: boolean | number
+    logotipoDoEmpreendimento?: MediaItemRequest
+    nomeDoEmpreendimento?: boolean | number
+    pontosDeReferencia?: Empreendimento_Empreendimento_pontosDeReferenciaRequest
+    tipoDoEmpreendimento?: boolean | number
+    videosOutos?: Empreendimento_Empreendimento_videosOutosRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_diferenciaisItemsRequest{
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    iconeimagemDoDiferencial?: MediaItemRequest
+    nomeDiferencial?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_itemsPlantasRequest{
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    imagensDasPlantas?: MediaItemRequest
+    plantasDescricao?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_itensAreacomunsRequest{
+    descricaoAreacomuns?: boolean | number
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    iconeimagemAreacomuns?: MediaItemRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_pontosDeReferenciaRequest{
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    iconeOuImagemRef?: MediaItemRequest
+    nomePontoReferencia?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_videosOutosRequest{
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    linkDoVideo?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Connection between the Empreendimento type and the Empreendimento type */
+export interface EmpreendimentoToPreviewConnectionEdgeRequest{
+    /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+    cursor?: boolean | number
+    /** The node of the connection, without the edges */
+    node?: EmpreendimentoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Arguments for filtering the EmpreendimentoToTermNodeConnection connection */
+export interface EmpreendimentoToTermNodeConnectionWhereArgs {
+/** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+cacheDomain?: (Scalars['String'] | null),
+/** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+childOf?: (Scalars['Int'] | null),
+/** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+childless?: (Scalars['Boolean'] | null),
+/** Retrieve terms where the description is LIKE the input value. Default empty. */
+descriptionLike?: (Scalars['String'] | null),
+/** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+exclude?: ((Scalars['ID'] | null)[] | null),
+/** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+excludeTree?: ((Scalars['ID'] | null)[] | null),
+/** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+hideEmpty?: (Scalars['Boolean'] | null),
+/** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+hierarchical?: (Scalars['Boolean'] | null),
+/** Array of term ids to include. Default empty array. */
+include?: ((Scalars['ID'] | null)[] | null),
+/** Array of names to return term(s) for. Default empty. */
+name?: ((Scalars['String'] | null)[] | null),
+/** Retrieve terms where the name is LIKE the input value. Default empty. */
+nameLike?: (Scalars['String'] | null),
+/** Array of object IDs. Results will be limited to terms associated with these objects. */
+objectIds?: ((Scalars['ID'] | null)[] | null),
+/** Direction the connection should be ordered in */
+order?: (OrderEnum | null),
+/** Field(s) to order terms by. Defaults to 'name'. */
+orderby?: (TermObjectsConnectionOrderbyEnum | null),
+/** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+padCounts?: (Scalars['Boolean'] | null),
+/** Parent term ID to retrieve direct-child terms of. Default empty. */
+parent?: (Scalars['Int'] | null),
+/** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+search?: (Scalars['String'] | null),
+/** Array of slugs to return term(s) for. Default empty. */
+slug?: ((Scalars['String'] | null)[] | null),
+/** The Taxonomy to filter terms by */
+taxonomies?: ((TaxonomyEnum | null)[] | null),
+/** Array of term taxonomy IDs, to match when querying terms. */
+termTaxonomId?: ((Scalars['ID'] | null)[] | null),
+/** Array of term taxonomy IDs, to match when querying terms. */
+termTaxonomyId?: ((Scalars['ID'] | null)[] | null),
+/** Whether to prime meta caches for matched terms. Default true. */
+updateTermMetaCache?: (Scalars['Boolean'] | null)}
+
+
+/** Connection between the Empreendimento type and the TermNode type */
+export interface EmpreendimentoToTermNodeConnectionRequest{
+    /** Edges for the EmpreendimentoToTermNodeConnection connection */
+    edges?: EmpreendimentoToTermNodeConnectionEdgeRequest
+    /** The nodes of the connection, without the edges */
+    nodes?: TermNodeRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: WPPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Connection to TermNode Nodes */
+export interface TermNodeConnectionRequest{
+    /** A list of edges (relational context) between RootQuery and connected TermNode Nodes */
+    edges?: TermNodeConnectionEdgeRequest
+    /** A list of connected TermNode Nodes */
+    nodes?: TermNodeRequest
+    on_EmpreendimentoToTermNodeConnection?: EmpreendimentoToTermNodeConnectionRequest
+    on_PostToTermNodeConnection?: PostToTermNodeConnectionRequest
+    on_RootQueryToTermNodeConnection?: RootQueryToTermNodeConnectionRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Edge between a Node and a connected TermNode */
+export interface TermNodeConnectionEdgeRequest{
+    /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+    cursor?: boolean | number
+    /** The connected TermNode Node */
+    node?: TermNodeRequest
+    on_EmpreendimentoToTermNodeConnectionEdge?: EmpreendimentoToTermNodeConnectionEdgeRequest
+    on_PostToTermNodeConnectionEdge?: PostToTermNodeConnectionEdgeRequest
+    on_RootQueryToTermNodeConnectionEdge?: RootQueryToTermNodeConnectionEdgeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** An edge in a connection */
+export interface EmpreendimentoToTermNodeConnectionEdgeRequest{
+    /** A cursor for use in pagination */
+    cursor?: boolean | number
+    /** The item at the end of the edge */
+    node?: TermNodeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** An edge in a connection */
+export interface CategoryToEmpreendimentoConnectionEdgeRequest{
+    /** A cursor for use in pagination */
+    cursor?: boolean | number
+    /** The item at the end of the edge */
+    node?: EmpreendimentoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9619,32 +10487,6 @@ export interface PostToTermNodeConnectionRequest{
 }
 
 
-/** Connection to TermNode Nodes */
-export interface TermNodeConnectionRequest{
-    /** A list of edges (relational context) between RootQuery and connected TermNode Nodes */
-    edges?: TermNodeConnectionEdgeRequest
-    /** A list of connected TermNode Nodes */
-    nodes?: TermNodeRequest
-    on_PostToTermNodeConnection?: PostToTermNodeConnectionRequest
-    on_RootQueryToTermNodeConnection?: RootQueryToTermNodeConnectionRequest
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** Edge between a Node and a connected TermNode */
-export interface TermNodeConnectionEdgeRequest{
-    /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
-    cursor?: boolean | number
-    /** The connected TermNode Node */
-    node?: TermNodeRequest
-    on_PostToTermNodeConnectionEdge?: PostToTermNodeConnectionEdgeRequest
-    on_RootQueryToTermNodeConnectionEdge?: RootQueryToTermNodeConnectionEdgeRequest
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
 /** An edge in a connection */
 export interface PostToTermNodeConnectionEdgeRequest{
     /** A cursor for use in pagination */
@@ -10403,6 +11245,76 @@ export interface DiscussionSettingsRequest{
 }
 
 
+/** Arguments for filtering the RootQueryToEmpreendimentoConnection connection */
+export interface RootQueryToEmpreendimentoConnectionWhereArgs {
+/** Category ID */
+categoryId?: (Scalars['Int'] | null),
+/** Array of category IDs, used to display objects from one category OR another */
+categoryIn?: ((Scalars['ID'] | null)[] | null),
+/** Use Category Slug */
+categoryName?: (Scalars['String'] | null),
+/** Array of category IDs, used to display objects from one category OR another */
+categoryNotIn?: ((Scalars['ID'] | null)[] | null),
+/** Filter the connection based on dates */
+dateQuery?: (DateQueryInput | null),
+/** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+hasPassword?: (Scalars['Boolean'] | null),
+/** Specific database ID of the object */
+id?: (Scalars['Int'] | null),
+/** Array of IDs for the objects to retrieve */
+in?: ((Scalars['ID'] | null)[] | null),
+/** Get objects with a specific mimeType property */
+mimeType?: (MimeTypeEnum | null),
+/** Slug / post_name of the object */
+name?: (Scalars['String'] | null),
+/** Specify objects to retrieve. Use slugs */
+nameIn?: ((Scalars['String'] | null)[] | null),
+/** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+notIn?: ((Scalars['ID'] | null)[] | null),
+/** What paramater to use to order the objects by. */
+orderby?: ((PostObjectsConnectionOrderbyInput | null)[] | null),
+/** Use ID to return only children. Use 0 to return only top-level items */
+parent?: (Scalars['ID'] | null),
+/** Specify objects whose parent is in an array */
+parentIn?: ((Scalars['ID'] | null)[] | null),
+/** Specify posts whose parent is not in an array */
+parentNotIn?: ((Scalars['ID'] | null)[] | null),
+/** Show posts with a specific password. */
+password?: (Scalars['String'] | null),
+/** Show Posts based on a keyword search */
+search?: (Scalars['String'] | null),
+/** Retrieve posts where post status is in an array. */
+stati?: ((PostStatusEnum | null)[] | null),
+/** Show posts with a specific status. */
+status?: (PostStatusEnum | null),
+/** Title of the object */
+title?: (Scalars['String'] | null)}
+
+
+/** Connection between the RootQuery type and the Empreendimento type */
+export interface RootQueryToEmpreendimentoConnectionRequest{
+    /** Edges for the RootQueryToEmpreendimentoConnection connection */
+    edges?: RootQueryToEmpreendimentoConnectionEdgeRequest
+    /** The nodes of the connection, without the edges */
+    nodes?: EmpreendimentoRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: WPPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** An edge in a connection */
+export interface RootQueryToEmpreendimentoConnectionEdgeRequest{
+    /** A cursor for use in pagination */
+    cursor?: boolean | number
+    /** The item at the end of the edge */
+    node?: EmpreendimentoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** The general setting type */
 export interface GeneralSettingsRequest{
     /** Um formato de data para todos os textos. */
@@ -10719,6 +11631,7 @@ export interface MenuItemObjectUnionRequest{
     on_Page?:PageRequest,
     on_Banner?:BannerRequest,
     on_ArquivoAssessoria?:ArquivoAssessoriaRequest,
+    on_Empreendimento?:EmpreendimentoRequest,
     on_Category?:CategoryRequest,
     on_Tag?:TagRequest,
     on_Node?: NodeRequest,
@@ -11678,6 +12591,10 @@ export interface RootMutationRequest{
     createComment?: [{
     /** Input for the createComment mutation */
     input: CreateCommentInput},CreateCommentPayloadRequest]
+    /** The createEmpreendimento mutation */
+    createEmpreendimento?: [{
+    /** Input for the createEmpreendimento mutation */
+    input: CreateEmpreendimentoInput},CreateEmpreendimentoPayloadRequest]
     /** The createMediaItem mutation */
     createMediaItem?: [{
     /** Input for the createMediaItem mutation */
@@ -11718,6 +12635,10 @@ export interface RootMutationRequest{
     deleteComment?: [{
     /** Input for the deleteComment mutation */
     input: DeleteCommentInput},DeleteCommentPayloadRequest]
+    /** The deleteEmpreendimento mutation */
+    deleteEmpreendimento?: [{
+    /** Input for the deleteEmpreendimento mutation */
+    input: DeleteEmpreendimentoInput},DeleteEmpreendimentoPayloadRequest]
     /** The deleteMediaItem mutation */
     deleteMediaItem?: [{
     /** Input for the deleteMediaItem mutation */
@@ -11778,6 +12699,10 @@ export interface RootMutationRequest{
     updateComment?: [{
     /** Input for the updateComment mutation */
     input: UpdateCommentInput},UpdateCommentPayloadRequest]
+    /** The updateEmpreendimento mutation */
+    updateEmpreendimento?: [{
+    /** Input for the updateEmpreendimento mutation */
+    input: UpdateEmpreendimentoInput},UpdateEmpreendimentoPayloadRequest]
     /** The updateMediaItem mutation */
     updateMediaItem?: [{
     /** Input for the updateMediaItem mutation */
@@ -11930,6 +12855,57 @@ export interface CreateCommentPayloadRequest{
     comment?: CommentRequest
     /** Whether the mutation succeeded. If the comment is not approved, the server will not return the comment to a non authenticated user, but a success message can be returned if the create succeeded, and the client can optimistically add the comment to the client cache */
     success?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Input for the createEmpreendimento mutation. */
+export interface CreateEmpreendimentoInput {
+/** Set connections between the Empreendimento and categories */
+categories?: (EmpreendimentoCategoriesInput | null),
+/** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId?: (Scalars['String'] | null),
+/** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+date?: (Scalars['String'] | null),
+/** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+menuOrder?: (Scalars['Int'] | null),
+/** The password used to protect the content of the object */
+password?: (Scalars['String'] | null),
+/** The slug of the object */
+slug?: (Scalars['String'] | null),
+/** The status of the object */
+status?: (PostStatusEnum | null),
+/** The title of the object */
+title?: (Scalars['String'] | null)}
+
+
+/** Set relationships between the Empreendimento to categories */
+export interface EmpreendimentoCategoriesInput {
+/** If true, this will append the category to existing related categories. If false, this will replace existing relationships. Default true. */
+append?: (Scalars['Boolean'] | null),
+/** The input list of items to set. */
+nodes?: ((EmpreendimentoCategoriesNodeInput | null)[] | null)}
+
+
+/** List of categories to connect the Empreendimento to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
+export interface EmpreendimentoCategoriesNodeInput {
+/** The description of the category. This field is used to set a description of the category if a new one is created during the mutation. */
+description?: (Scalars['String'] | null),
+/** The ID of the category. If present, this will be used to connect to the Empreendimento. If no existing category exists with this ID, no connection will be made. */
+id?: (Scalars['ID'] | null),
+/** The name of the category. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field. */
+name?: (Scalars['String'] | null),
+/** The slug of the category. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
+slug?: (Scalars['String'] | null)}
+
+
+/** The payload for the createEmpreendimento mutation. */
+export interface CreateEmpreendimentoPayloadRequest{
+    /** The Post object mutation type. */
+    empreendimento?: EmpreendimentoRequest
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12311,6 +13287,29 @@ export interface DeleteCommentPayloadRequest{
     /** The deleted comment object */
     comment?: CommentRequest
     /** The deleted comment ID */
+    deletedId?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Input for the deleteEmpreendimento mutation. */
+export interface DeleteEmpreendimentoInput {
+/** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId?: (Scalars['String'] | null),
+/** Whether the object should be force deleted instead of being moved to the trash */
+forceDelete?: (Scalars['Boolean'] | null),
+/** The ID of the Empreendimento to delete */
+id: Scalars['ID']}
+
+
+/** The payload for the deleteEmpreendimento mutation. */
+export interface DeleteEmpreendimentoPayloadRequest{
+    /** The object before it was deleted */
+    empreendimento?: EmpreendimentoRequest
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: boolean | number
+    /** The ID of the deleted object */
     deletedId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -12700,6 +13699,39 @@ export interface UpdateCommentPayloadRequest{
 }
 
 
+/** Input for the updateEmpreendimento mutation. */
+export interface UpdateEmpreendimentoInput {
+/** Set connections between the Empreendimento and categories */
+categories?: (EmpreendimentoCategoriesInput | null),
+/** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId?: (Scalars['String'] | null),
+/** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+date?: (Scalars['String'] | null),
+/** The ID of the Empreendimento object */
+id: Scalars['ID'],
+/** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+menuOrder?: (Scalars['Int'] | null),
+/** The password used to protect the content of the object */
+password?: (Scalars['String'] | null),
+/** The slug of the object */
+slug?: (Scalars['String'] | null),
+/** The status of the object */
+status?: (PostStatusEnum | null),
+/** The title of the object */
+title?: (Scalars['String'] | null)}
+
+
+/** The payload for the updateEmpreendimento mutation. */
+export interface UpdateEmpreendimentoPayloadRequest{
+    /** The Post object mutation type. */
+    empreendimento?: EmpreendimentoRequest
+    /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+    clientMutationId?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Input for the updateMediaItem mutation. */
 export interface UpdateMediaItemInput {
 /** Alternative text to display when mediaItem is not displayed */
@@ -13066,7 +14098,7 @@ export const isArquivoAssessoria = (obj?: { __typename?: any } | null): obj is A
 
 
 
-const Node_possibleTypes: string[] = ['ArquivoAssessoria','ContentType','Taxonomy','User','Comment','EnqueuedScript','EnqueuedStylesheet','MediaItem','Page','Post','Category','PostFormat','Tag','UserRole','Banner','Menu','MenuItem','Plugin','Theme','CommentAuthor']
+const Node_possibleTypes: string[] = ['ArquivoAssessoria','ContentType','Taxonomy','User','Comment','EnqueuedScript','EnqueuedStylesheet','MediaItem','Page','Post','Category','Empreendimento','PostFormat','Tag','UserRole','Banner','Menu','MenuItem','Plugin','Theme','CommentAuthor']
 export const isNode = (obj?: { __typename?: any } | null): obj is Node => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isNode"')
   return Node_possibleTypes.includes(obj.__typename)
@@ -13074,7 +14106,7 @@ export const isNode = (obj?: { __typename?: any } | null): obj is Node => {
 
 
 
-const ContentNode_possibleTypes: string[] = ['ArquivoAssessoria','MediaItem','Page','Post','Banner']
+const ContentNode_possibleTypes: string[] = ['ArquivoAssessoria','MediaItem','Page','Post','Empreendimento','Banner']
 export const isContentNode = (obj?: { __typename?: any } | null): obj is ContentNode => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContentNode"')
   return ContentNode_possibleTypes.includes(obj.__typename)
@@ -13082,7 +14114,7 @@ export const isContentNode = (obj?: { __typename?: any } | null): obj is Content
 
 
 
-const UniformResourceIdentifiable_possibleTypes: string[] = ['ArquivoAssessoria','ContentType','User','MediaItem','Page','Post','Category','PostFormat','Tag','Banner']
+const UniformResourceIdentifiable_possibleTypes: string[] = ['ArquivoAssessoria','ContentType','User','MediaItem','Page','Post','Category','Empreendimento','PostFormat','Tag','Banner']
 export const isUniformResourceIdentifiable = (obj?: { __typename?: any } | null): obj is UniformResourceIdentifiable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUniformResourceIdentifiable"')
   return UniformResourceIdentifiable_possibleTypes.includes(obj.__typename)
@@ -13098,7 +14130,7 @@ export const isContentNodeToContentTypeConnectionEdge = (obj?: { __typename?: an
 
 
 
-const OneToOneConnection_possibleTypes: string[] = ['ContentNodeToContentTypeConnectionEdge','ContentNodeToEditLockConnectionEdge','CommentToCommenterConnectionEdge','CommentToContentNodeConnectionEdge','CommentToParentCommentConnectionEdge','NodeWithAuthorToUserConnectionEdge','ContentNodeToEditLastConnectionEdge','HierarchicalContentNodeToParentContentNodeConnectionEdge','NodeWithFeaturedImageToMediaItemConnectionEdge','NodeWithRevisionsToContentNodeConnectionEdge','PageToPreviewConnectionEdge','CategoryToParentCategoryConnectionEdge','CategoryToTaxonomyConnectionEdge','PostFormatToTaxonomyConnectionEdge','PostToPreviewConnectionEdge','TagToTaxonomyConnectionEdge','ArquivoAssessoriaToPreviewConnectionEdge','BannerToPreviewConnectionEdge','MenuItemToMenuItemLinkableConnectionEdge','MenuItemToMenuConnectionEdge']
+const OneToOneConnection_possibleTypes: string[] = ['ContentNodeToContentTypeConnectionEdge','ContentNodeToEditLockConnectionEdge','CommentToCommenterConnectionEdge','CommentToContentNodeConnectionEdge','CommentToParentCommentConnectionEdge','NodeWithAuthorToUserConnectionEdge','ContentNodeToEditLastConnectionEdge','HierarchicalContentNodeToParentContentNodeConnectionEdge','NodeWithFeaturedImageToMediaItemConnectionEdge','NodeWithRevisionsToContentNodeConnectionEdge','PageToPreviewConnectionEdge','EmpreendimentoToPreviewConnectionEdge','CategoryToParentCategoryConnectionEdge','CategoryToTaxonomyConnectionEdge','PostFormatToTaxonomyConnectionEdge','PostToPreviewConnectionEdge','TagToTaxonomyConnectionEdge','ArquivoAssessoriaToPreviewConnectionEdge','BannerToPreviewConnectionEdge','MenuItemToMenuItemLinkableConnectionEdge','MenuItemToMenuConnectionEdge']
 export const isOneToOneConnection = (obj?: { __typename?: any } | null): obj is OneToOneConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isOneToOneConnection"')
   return OneToOneConnection_possibleTypes.includes(obj.__typename)
@@ -13106,7 +14138,7 @@ export const isOneToOneConnection = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const Edge_possibleTypes: string[] = ['ContentNodeToContentTypeConnectionEdge','TaxonomyToContentTypeConnectionEdge','ContentTypeToTaxonomyConnectionEdge','ContentTypeToContentNodeConnectionEdge','ContentNodeToEditLockConnectionEdge','CommentToCommenterConnectionEdge','CommentToContentNodeConnectionEdge','CommentToParentCommentConnectionEdge','CommentToCommentConnectionEdge','UserToCommentConnectionEdge','UserToEnqueuedScriptConnectionEdge','UserToEnqueuedStylesheetConnectionEdge','NodeWithAuthorToUserConnectionEdge','HierarchicalContentNodeToContentNodeAncestorsConnectionEdge','HierarchicalContentNodeToContentNodeChildrenConnectionEdge','ContentNodeToEnqueuedScriptConnectionEdge','ContentNodeToEnqueuedStylesheetConnectionEdge','ContentNodeToEditLastConnectionEdge','HierarchicalContentNodeToParentContentNodeConnectionEdge','MediaItemToCommentConnectionEdge','UserToMediaItemConnectionEdge','NodeWithFeaturedImageToMediaItemConnectionEdge','NodeWithRevisionsToContentNodeConnectionEdge','PageToCommentConnectionEdge','PageToPreviewConnectionEdge','PageToRevisionConnectionEdge','UserToPageConnectionEdge','TermNodeToEnqueuedScriptConnectionEdge','TermNodeToEnqueuedStylesheetConnectionEdge','CategoryToAncestorsCategoryConnectionEdge','CategoryToCategoryConnectionEdge','CategoryToContentNodeConnectionEdge','CategoryToParentCategoryConnectionEdge','CategoryToPostConnectionEdge','CategoryToTaxonomyConnectionEdge','PostToCategoryConnectionEdge','PostToCommentConnectionEdge','PostFormatToContentNodeConnectionEdge','PostFormatToPostConnectionEdge','PostFormatToTaxonomyConnectionEdge','PostToPostFormatConnectionEdge','PostToPreviewConnectionEdge','PostToRevisionConnectionEdge','TagToContentNodeConnectionEdge','TagToPostConnectionEdge','TagToTaxonomyConnectionEdge','PostToTagConnectionEdge','PostToTermNodeConnectionEdge','UserToPostConnectionEdge','UserToRevisionsConnectionEdge','UserToUserRoleConnectionEdge','ArquivoAssessoriaToPreviewConnectionEdge','RootQueryToArquivoAssessoriaConnectionEdge','BannerToPreviewConnectionEdge','RootQueryToBannerConnectionEdge','RootQueryToCategoryConnectionEdge','RootQueryToCommentConnectionEdge','RootQueryToContentNodeConnectionEdge','RootQueryToContentTypeConnectionEdge','RootQueryToMediaItemConnectionEdge','MenuItemToMenuItemConnectionEdge','MenuItemToMenuItemLinkableConnectionEdge','MenuItemToMenuConnectionEdge','MenuToMenuItemConnectionEdge','RootQueryToMenuItemConnectionEdge','RootQueryToMenuConnectionEdge','RootQueryToPageConnectionEdge','RootQueryToPluginConnectionEdge','RootQueryToPostFormatConnectionEdge','RootQueryToPostConnectionEdge','RootQueryToEnqueuedScriptConnectionEdge','RootQueryToEnqueuedStylesheetConnectionEdge','RootQueryToRevisionsConnectionEdge','RootQueryToTagConnectionEdge','RootQueryToTaxonomyConnectionEdge','RootQueryToTermNodeConnectionEdge','RootQueryToThemeConnectionEdge','RootQueryToUserRoleConnectionEdge','RootQueryToUserConnectionEdge']
+const Edge_possibleTypes: string[] = ['ContentNodeToContentTypeConnectionEdge','TaxonomyToContentTypeConnectionEdge','ContentTypeToTaxonomyConnectionEdge','ContentTypeToContentNodeConnectionEdge','ContentNodeToEditLockConnectionEdge','CommentToCommenterConnectionEdge','CommentToContentNodeConnectionEdge','CommentToParentCommentConnectionEdge','CommentToCommentConnectionEdge','UserToCommentConnectionEdge','UserToEnqueuedScriptConnectionEdge','UserToEnqueuedStylesheetConnectionEdge','NodeWithAuthorToUserConnectionEdge','HierarchicalContentNodeToContentNodeAncestorsConnectionEdge','HierarchicalContentNodeToContentNodeChildrenConnectionEdge','ContentNodeToEnqueuedScriptConnectionEdge','ContentNodeToEnqueuedStylesheetConnectionEdge','ContentNodeToEditLastConnectionEdge','HierarchicalContentNodeToParentContentNodeConnectionEdge','MediaItemToCommentConnectionEdge','UserToMediaItemConnectionEdge','NodeWithFeaturedImageToMediaItemConnectionEdge','NodeWithRevisionsToContentNodeConnectionEdge','PageToCommentConnectionEdge','PageToPreviewConnectionEdge','PageToRevisionConnectionEdge','UserToPageConnectionEdge','TermNodeToEnqueuedScriptConnectionEdge','TermNodeToEnqueuedStylesheetConnectionEdge','CategoryToAncestorsCategoryConnectionEdge','CategoryToCategoryConnectionEdge','CategoryToContentNodeConnectionEdge','EmpreendimentoToCategoryConnectionEdge','EmpreendimentoToPreviewConnectionEdge','EmpreendimentoToTermNodeConnectionEdge','CategoryToEmpreendimentoConnectionEdge','CategoryToParentCategoryConnectionEdge','CategoryToPostConnectionEdge','CategoryToTaxonomyConnectionEdge','PostToCategoryConnectionEdge','PostToCommentConnectionEdge','PostFormatToContentNodeConnectionEdge','PostFormatToPostConnectionEdge','PostFormatToTaxonomyConnectionEdge','PostToPostFormatConnectionEdge','PostToPreviewConnectionEdge','PostToRevisionConnectionEdge','TagToContentNodeConnectionEdge','TagToPostConnectionEdge','TagToTaxonomyConnectionEdge','PostToTagConnectionEdge','PostToTermNodeConnectionEdge','UserToPostConnectionEdge','UserToRevisionsConnectionEdge','UserToUserRoleConnectionEdge','ArquivoAssessoriaToPreviewConnectionEdge','RootQueryToArquivoAssessoriaConnectionEdge','BannerToPreviewConnectionEdge','RootQueryToBannerConnectionEdge','RootQueryToCategoryConnectionEdge','RootQueryToCommentConnectionEdge','RootQueryToContentNodeConnectionEdge','RootQueryToContentTypeConnectionEdge','RootQueryToEmpreendimentoConnectionEdge','RootQueryToMediaItemConnectionEdge','MenuItemToMenuItemConnectionEdge','MenuItemToMenuItemLinkableConnectionEdge','MenuItemToMenuConnectionEdge','MenuToMenuItemConnectionEdge','RootQueryToMenuItemConnectionEdge','RootQueryToMenuConnectionEdge','RootQueryToPageConnectionEdge','RootQueryToPluginConnectionEdge','RootQueryToPostFormatConnectionEdge','RootQueryToPostConnectionEdge','RootQueryToEnqueuedScriptConnectionEdge','RootQueryToEnqueuedStylesheetConnectionEdge','RootQueryToRevisionsConnectionEdge','RootQueryToTagConnectionEdge','RootQueryToTaxonomyConnectionEdge','RootQueryToTermNodeConnectionEdge','RootQueryToThemeConnectionEdge','RootQueryToUserRoleConnectionEdge','RootQueryToUserConnectionEdge']
 export const isEdge = (obj?: { __typename?: any } | null): obj is Edge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEdge"')
   return Edge_possibleTypes.includes(obj.__typename)
@@ -13146,7 +14178,7 @@ export const isTaxonomyConnection = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const Connection_possibleTypes: string[] = ['ContentTypeToTaxonomyConnection','TaxonomyToContentTypeConnection','ContentTypeToContentNodeConnection','UserToCommentConnection','CommentToCommentConnection','UserToEnqueuedScriptConnection','UserToEnqueuedStylesheetConnection','UserToMediaItemConnection','HierarchicalContentNodeToContentNodeAncestorsConnection','HierarchicalContentNodeToContentNodeChildrenConnection','ContentNodeToEnqueuedScriptConnection','ContentNodeToEnqueuedStylesheetConnection','MediaItemToCommentConnection','UserToPageConnection','PageToCommentConnection','PageToRevisionConnection','UserToPostConnection','PostToCategoryConnection','TermNodeToEnqueuedScriptConnection','TermNodeToEnqueuedStylesheetConnection','CategoryToAncestorsCategoryConnection','CategoryToCategoryConnection','CategoryToContentNodeConnection','CategoryToPostConnection','PostToCommentConnection','PostToPostFormatConnection','PostFormatToContentNodeConnection','PostFormatToPostConnection','PostToRevisionConnection','PostToTagConnection','TagToContentNodeConnection','TagToPostConnection','PostToTermNodeConnection','UserToRevisionsConnection','UserToUserRoleConnection','RootQueryToArquivoAssessoriaConnection','RootQueryToBannerConnection','RootQueryToCategoryConnection','RootQueryToCommentConnection','RootQueryToContentNodeConnection','RootQueryToContentTypeConnection','RootQueryToMediaItemConnection','MenuToMenuItemConnection','MenuItemToMenuItemConnection','RootQueryToMenuItemConnection','RootQueryToMenuConnection','RootQueryToPageConnection','RootQueryToPluginConnection','RootQueryToPostFormatConnection','RootQueryToPostConnection','RootQueryToEnqueuedScriptConnection','RootQueryToEnqueuedStylesheetConnection','RootQueryToRevisionsConnection','RootQueryToTagConnection','RootQueryToTaxonomyConnection','RootQueryToTermNodeConnection','RootQueryToThemeConnection','RootQueryToUserRoleConnection','RootQueryToUserConnection']
+const Connection_possibleTypes: string[] = ['ContentTypeToTaxonomyConnection','TaxonomyToContentTypeConnection','ContentTypeToContentNodeConnection','UserToCommentConnection','CommentToCommentConnection','UserToEnqueuedScriptConnection','UserToEnqueuedStylesheetConnection','UserToMediaItemConnection','HierarchicalContentNodeToContentNodeAncestorsConnection','HierarchicalContentNodeToContentNodeChildrenConnection','ContentNodeToEnqueuedScriptConnection','ContentNodeToEnqueuedStylesheetConnection','MediaItemToCommentConnection','UserToPageConnection','PageToCommentConnection','PageToRevisionConnection','UserToPostConnection','PostToCategoryConnection','TermNodeToEnqueuedScriptConnection','TermNodeToEnqueuedStylesheetConnection','CategoryToAncestorsCategoryConnection','CategoryToCategoryConnection','CategoryToContentNodeConnection','CategoryToEmpreendimentoConnection','EmpreendimentoToCategoryConnection','EmpreendimentoToTermNodeConnection','CategoryToPostConnection','PostToCommentConnection','PostToPostFormatConnection','PostFormatToContentNodeConnection','PostFormatToPostConnection','PostToRevisionConnection','PostToTagConnection','TagToContentNodeConnection','TagToPostConnection','PostToTermNodeConnection','UserToRevisionsConnection','UserToUserRoleConnection','RootQueryToArquivoAssessoriaConnection','RootQueryToBannerConnection','RootQueryToCategoryConnection','RootQueryToCommentConnection','RootQueryToContentNodeConnection','RootQueryToContentTypeConnection','RootQueryToEmpreendimentoConnection','RootQueryToMediaItemConnection','MenuToMenuItemConnection','MenuItemToMenuItemConnection','RootQueryToMenuItemConnection','RootQueryToMenuConnection','RootQueryToPageConnection','RootQueryToPluginConnection','RootQueryToPostFormatConnection','RootQueryToPostConnection','RootQueryToEnqueuedScriptConnection','RootQueryToEnqueuedStylesheetConnection','RootQueryToRevisionsConnection','RootQueryToTagConnection','RootQueryToTaxonomyConnection','RootQueryToTermNodeConnection','RootQueryToThemeConnection','RootQueryToUserRoleConnection','RootQueryToUserConnection']
 export const isConnection = (obj?: { __typename?: any } | null): obj is Connection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isConnection"')
   return Connection_possibleTypes.includes(obj.__typename)
@@ -13282,7 +14314,7 @@ export const isCommenter = (obj?: { __typename?: any } | null): obj is Commenter
 
 
 
-const DatabaseIdentifier_possibleTypes: string[] = ['ArquivoAssessoria','User','Comment','MediaItem','Page','Post','Category','PostFormat','Tag','Banner','Menu','MenuItem','CommentAuthor']
+const DatabaseIdentifier_possibleTypes: string[] = ['ArquivoAssessoria','User','Comment','MediaItem','Page','Post','Category','Empreendimento','PostFormat','Tag','Banner','Menu','MenuItem','CommentAuthor']
 export const isDatabaseIdentifier = (obj?: { __typename?: any } | null): obj is DatabaseIdentifier => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDatabaseIdentifier"')
   return DatabaseIdentifier_possibleTypes.includes(obj.__typename)
@@ -13506,7 +14538,7 @@ export const isMediaItem = (obj?: { __typename?: any } | null): obj is MediaItem
 
 
 
-const NodeWithTemplate_possibleTypes: string[] = ['ArquivoAssessoria','MediaItem','Page','Post','Banner']
+const NodeWithTemplate_possibleTypes: string[] = ['ArquivoAssessoria','MediaItem','Page','Post','Empreendimento','Banner']
 export const isNodeWithTemplate = (obj?: { __typename?: any } | null): obj is NodeWithTemplate => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isNodeWithTemplate"')
   return NodeWithTemplate_possibleTypes.includes(obj.__typename)
@@ -13522,7 +14554,7 @@ export const isContentTemplate = (obj?: { __typename?: any } | null): obj is Con
 
 
 
-const NodeWithTitle_possibleTypes: string[] = ['ArquivoAssessoria','MediaItem','Page','Post','Banner']
+const NodeWithTitle_possibleTypes: string[] = ['ArquivoAssessoria','MediaItem','Page','Post','Empreendimento','Banner']
 export const isNodeWithTitle = (obj?: { __typename?: any } | null): obj is NodeWithTitle => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isNodeWithTitle"')
   return NodeWithTitle_possibleTypes.includes(obj.__typename)
@@ -13730,7 +14762,7 @@ export const isPage = (obj?: { __typename?: any } | null): obj is Page => {
 
 
 
-const Previewable_possibleTypes: string[] = ['ArquivoAssessoria','Page','Post','Banner']
+const Previewable_possibleTypes: string[] = ['ArquivoAssessoria','Page','Post','Empreendimento','Banner']
 export const isPreviewable = (obj?: { __typename?: any } | null): obj is Previewable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPreviewable"')
   return Previewable_possibleTypes.includes(obj.__typename)
@@ -13746,7 +14778,7 @@ export const isNodeWithContentEditor = (obj?: { __typename?: any } | null): obj 
 
 
 
-const NodeWithFeaturedImage_possibleTypes: string[] = ['Page','Post']
+const NodeWithFeaturedImage_possibleTypes: string[] = ['Page','Post','Empreendimento']
 export const isNodeWithFeaturedImage = (obj?: { __typename?: any } | null): obj is NodeWithFeaturedImage => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isNodeWithFeaturedImage"')
   return NodeWithFeaturedImage_possibleTypes.includes(obj.__typename)
@@ -13786,7 +14818,7 @@ export const isNodeWithPageAttributes = (obj?: { __typename?: any } | null): obj
 
 
 
-const MenuItemLinkable_possibleTypes: string[] = ['ArquivoAssessoria','Page','Post','Category','Tag','Banner']
+const MenuItemLinkable_possibleTypes: string[] = ['ArquivoAssessoria','Page','Post','Category','Empreendimento','Tag','Banner']
 export const isMenuItemLinkable = (obj?: { __typename?: any } | null): obj is MenuItemLinkable => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMenuItemLinkable"')
   return MenuItemLinkable_possibleTypes.includes(obj.__typename)
@@ -13802,7 +14834,7 @@ export const isPage_Assessoria = (obj?: { __typename?: any } | null): obj is Pag
 
 
 
-const AcfFieldGroup_possibleTypes: string[] = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','ArquivoAssessoria_DownAssessoria','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
+const AcfFieldGroup_possibleTypes: string[] = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Empreendimento_Empreendimento','Empreendimento_Empreendimento_diferenciaisItems','Empreendimento_Empreendimento_itemsPlantas','Empreendimento_Empreendimento_itensAreacomuns','Empreendimento_Empreendimento_pontosDeReferencia','Empreendimento_Empreendimento_videosOutos','ArquivoAssessoria_DownAssessoria','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
 export const isAcfFieldGroup = (obj?: { __typename?: any } | null): obj is AcfFieldGroup => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAcfFieldGroup"')
   return AcfFieldGroup_possibleTypes.includes(obj.__typename)
@@ -13930,7 +14962,7 @@ export const isPostToCategoryConnection = (obj?: { __typename?: any } | null): o
 
 
 
-const CategoryConnection_possibleTypes: string[] = ['PostToCategoryConnection','CategoryToAncestorsCategoryConnection','CategoryToCategoryConnection','RootQueryToCategoryConnection']
+const CategoryConnection_possibleTypes: string[] = ['PostToCategoryConnection','CategoryToAncestorsCategoryConnection','CategoryToCategoryConnection','EmpreendimentoToCategoryConnection','RootQueryToCategoryConnection']
 export const isCategoryConnection = (obj?: { __typename?: any } | null): obj is CategoryConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryConnection"')
   return CategoryConnection_possibleTypes.includes(obj.__typename)
@@ -13938,7 +14970,7 @@ export const isCategoryConnection = (obj?: { __typename?: any } | null): obj is 
 
 
 
-const CategoryConnectionEdge_possibleTypes: string[] = ['CategoryToAncestorsCategoryConnectionEdge','CategoryToCategoryConnectionEdge','CategoryToParentCategoryConnectionEdge','PostToCategoryConnectionEdge','RootQueryToCategoryConnectionEdge']
+const CategoryConnectionEdge_possibleTypes: string[] = ['CategoryToAncestorsCategoryConnectionEdge','CategoryToCategoryConnectionEdge','EmpreendimentoToCategoryConnectionEdge','CategoryToParentCategoryConnectionEdge','PostToCategoryConnectionEdge','RootQueryToCategoryConnectionEdge']
 export const isCategoryConnectionEdge = (obj?: { __typename?: any } | null): obj is CategoryConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryConnectionEdge"')
   return CategoryConnectionEdge_possibleTypes.includes(obj.__typename)
@@ -14046,6 +15078,150 @@ const CategoryToContentNodeConnectionEdge_possibleTypes: string[] = ['CategoryTo
 export const isCategoryToContentNodeConnectionEdge = (obj?: { __typename?: any } | null): obj is CategoryToContentNodeConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToContentNodeConnectionEdge"')
   return CategoryToContentNodeConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const CategoryToEmpreendimentoConnection_possibleTypes: string[] = ['CategoryToEmpreendimentoConnection']
+export const isCategoryToEmpreendimentoConnection = (obj?: { __typename?: any } | null): obj is CategoryToEmpreendimentoConnection => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToEmpreendimentoConnection"')
+  return CategoryToEmpreendimentoConnection_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const EmpreendimentoConnection_possibleTypes: string[] = ['CategoryToEmpreendimentoConnection','RootQueryToEmpreendimentoConnection']
+export const isEmpreendimentoConnection = (obj?: { __typename?: any } | null): obj is EmpreendimentoConnection => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoConnection"')
+  return EmpreendimentoConnection_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const EmpreendimentoConnectionEdge_possibleTypes: string[] = ['EmpreendimentoToPreviewConnectionEdge','CategoryToEmpreendimentoConnectionEdge','RootQueryToEmpreendimentoConnectionEdge']
+export const isEmpreendimentoConnectionEdge = (obj?: { __typename?: any } | null): obj is EmpreendimentoConnectionEdge => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoConnectionEdge"')
+  return EmpreendimentoConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Empreendimento_possibleTypes: string[] = ['Empreendimento']
+export const isEmpreendimento = (obj?: { __typename?: any } | null): obj is Empreendimento => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimento"')
+  return Empreendimento_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const EmpreendimentoToCategoryConnection_possibleTypes: string[] = ['EmpreendimentoToCategoryConnection']
+export const isEmpreendimentoToCategoryConnection = (obj?: { __typename?: any } | null): obj is EmpreendimentoToCategoryConnection => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoToCategoryConnection"')
+  return EmpreendimentoToCategoryConnection_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const EmpreendimentoToCategoryConnectionEdge_possibleTypes: string[] = ['EmpreendimentoToCategoryConnectionEdge']
+export const isEmpreendimentoToCategoryConnectionEdge = (obj?: { __typename?: any } | null): obj is EmpreendimentoToCategoryConnectionEdge => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoToCategoryConnectionEdge"')
+  return EmpreendimentoToCategoryConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Empreendimento_Empreendimento_possibleTypes: string[] = ['Empreendimento_Empreendimento']
+export const isEmpreendimento_Empreendimento = (obj?: { __typename?: any } | null): obj is Empreendimento_Empreendimento => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimento_Empreendimento"')
+  return Empreendimento_Empreendimento_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Empreendimento_Empreendimento_diferenciaisItems_possibleTypes: string[] = ['Empreendimento_Empreendimento_diferenciaisItems']
+export const isEmpreendimento_Empreendimento_diferenciaisItems = (obj?: { __typename?: any } | null): obj is Empreendimento_Empreendimento_diferenciaisItems => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimento_Empreendimento_diferenciaisItems"')
+  return Empreendimento_Empreendimento_diferenciaisItems_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Empreendimento_Empreendimento_itemsPlantas_possibleTypes: string[] = ['Empreendimento_Empreendimento_itemsPlantas']
+export const isEmpreendimento_Empreendimento_itemsPlantas = (obj?: { __typename?: any } | null): obj is Empreendimento_Empreendimento_itemsPlantas => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimento_Empreendimento_itemsPlantas"')
+  return Empreendimento_Empreendimento_itemsPlantas_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Empreendimento_Empreendimento_itensAreacomuns_possibleTypes: string[] = ['Empreendimento_Empreendimento_itensAreacomuns']
+export const isEmpreendimento_Empreendimento_itensAreacomuns = (obj?: { __typename?: any } | null): obj is Empreendimento_Empreendimento_itensAreacomuns => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimento_Empreendimento_itensAreacomuns"')
+  return Empreendimento_Empreendimento_itensAreacomuns_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Empreendimento_Empreendimento_pontosDeReferencia_possibleTypes: string[] = ['Empreendimento_Empreendimento_pontosDeReferencia']
+export const isEmpreendimento_Empreendimento_pontosDeReferencia = (obj?: { __typename?: any } | null): obj is Empreendimento_Empreendimento_pontosDeReferencia => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimento_Empreendimento_pontosDeReferencia"')
+  return Empreendimento_Empreendimento_pontosDeReferencia_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Empreendimento_Empreendimento_videosOutos_possibleTypes: string[] = ['Empreendimento_Empreendimento_videosOutos']
+export const isEmpreendimento_Empreendimento_videosOutos = (obj?: { __typename?: any } | null): obj is Empreendimento_Empreendimento_videosOutos => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimento_Empreendimento_videosOutos"')
+  return Empreendimento_Empreendimento_videosOutos_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const EmpreendimentoToPreviewConnectionEdge_possibleTypes: string[] = ['EmpreendimentoToPreviewConnectionEdge']
+export const isEmpreendimentoToPreviewConnectionEdge = (obj?: { __typename?: any } | null): obj is EmpreendimentoToPreviewConnectionEdge => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoToPreviewConnectionEdge"')
+  return EmpreendimentoToPreviewConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const EmpreendimentoToTermNodeConnection_possibleTypes: string[] = ['EmpreendimentoToTermNodeConnection']
+export const isEmpreendimentoToTermNodeConnection = (obj?: { __typename?: any } | null): obj is EmpreendimentoToTermNodeConnection => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoToTermNodeConnection"')
+  return EmpreendimentoToTermNodeConnection_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const TermNodeConnection_possibleTypes: string[] = ['EmpreendimentoToTermNodeConnection','PostToTermNodeConnection','RootQueryToTermNodeConnection']
+export const isTermNodeConnection = (obj?: { __typename?: any } | null): obj is TermNodeConnection => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isTermNodeConnection"')
+  return TermNodeConnection_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const TermNodeConnectionEdge_possibleTypes: string[] = ['EmpreendimentoToTermNodeConnectionEdge','PostToTermNodeConnectionEdge','RootQueryToTermNodeConnectionEdge']
+export const isTermNodeConnectionEdge = (obj?: { __typename?: any } | null): obj is TermNodeConnectionEdge => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isTermNodeConnectionEdge"')
+  return TermNodeConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const EmpreendimentoToTermNodeConnectionEdge_possibleTypes: string[] = ['EmpreendimentoToTermNodeConnectionEdge']
+export const isEmpreendimentoToTermNodeConnectionEdge = (obj?: { __typename?: any } | null): obj is EmpreendimentoToTermNodeConnectionEdge => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoToTermNodeConnectionEdge"')
+  return EmpreendimentoToTermNodeConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const CategoryToEmpreendimentoConnectionEdge_possibleTypes: string[] = ['CategoryToEmpreendimentoConnectionEdge']
+export const isCategoryToEmpreendimentoConnectionEdge = (obj?: { __typename?: any } | null): obj is CategoryToEmpreendimentoConnectionEdge => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToEmpreendimentoConnectionEdge"')
+  return CategoryToEmpreendimentoConnectionEdge_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14294,22 +15470,6 @@ const PostToTermNodeConnection_possibleTypes: string[] = ['PostToTermNodeConnect
 export const isPostToTermNodeConnection = (obj?: { __typename?: any } | null): obj is PostToTermNodeConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPostToTermNodeConnection"')
   return PostToTermNodeConnection_possibleTypes.includes(obj.__typename)
-}
-
-
-
-const TermNodeConnection_possibleTypes: string[] = ['PostToTermNodeConnection','RootQueryToTermNodeConnection']
-export const isTermNodeConnection = (obj?: { __typename?: any } | null): obj is TermNodeConnection => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isTermNodeConnection"')
-  return TermNodeConnection_possibleTypes.includes(obj.__typename)
-}
-
-
-
-const TermNodeConnectionEdge_possibleTypes: string[] = ['PostToTermNodeConnectionEdge','RootQueryToTermNodeConnectionEdge']
-export const isTermNodeConnectionEdge = (obj?: { __typename?: any } | null): obj is TermNodeConnectionEdge => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isTermNodeConnectionEdge"')
-  return TermNodeConnectionEdge_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14578,6 +15738,22 @@ export const isDiscussionSettings = (obj?: { __typename?: any } | null): obj is 
 
 
 
+const RootQueryToEmpreendimentoConnection_possibleTypes: string[] = ['RootQueryToEmpreendimentoConnection']
+export const isRootQueryToEmpreendimentoConnection = (obj?: { __typename?: any } | null): obj is RootQueryToEmpreendimentoConnection => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToEmpreendimentoConnection"')
+  return RootQueryToEmpreendimentoConnection_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToEmpreendimentoConnectionEdge_possibleTypes: string[] = ['RootQueryToEmpreendimentoConnectionEdge']
+export const isRootQueryToEmpreendimentoConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToEmpreendimentoConnectionEdge => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToEmpreendimentoConnectionEdge"')
+  return RootQueryToEmpreendimentoConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const GeneralSettings_possibleTypes: string[] = ['GeneralSettings']
 export const isGeneralSettings = (obj?: { __typename?: any } | null): obj is GeneralSettings => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGeneralSettings"')
@@ -14674,7 +15850,7 @@ export const isMenuItemLinkableConnectionEdge = (obj?: { __typename?: any } | nu
 
 
 
-const MenuItemObjectUnion_possibleTypes: string[] = ['Post','Page','Banner','ArquivoAssessoria','Category','Tag']
+const MenuItemObjectUnion_possibleTypes: string[] = ['Post','Page','Banner','ArquivoAssessoria','Empreendimento','Category','Tag']
 export const isMenuItemObjectUnion = (obj?: { __typename?: any } | null): obj is MenuItemObjectUnion => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMenuItemObjectUnion"')
   return MenuItemObjectUnion_possibleTypes.includes(obj.__typename)
@@ -15066,6 +16242,14 @@ export const isCreateCommentPayload = (obj?: { __typename?: any } | null): obj i
 
 
 
+const CreateEmpreendimentoPayload_possibleTypes: string[] = ['CreateEmpreendimentoPayload']
+export const isCreateEmpreendimentoPayload = (obj?: { __typename?: any } | null): obj is CreateEmpreendimentoPayload => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCreateEmpreendimentoPayload"')
+  return CreateEmpreendimentoPayload_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const CreateMediaItemPayload_possibleTypes: string[] = ['CreateMediaItemPayload']
 export const isCreateMediaItemPayload = (obj?: { __typename?: any } | null): obj is CreateMediaItemPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCreateMediaItemPayload"')
@@ -15142,6 +16326,14 @@ const DeleteCommentPayload_possibleTypes: string[] = ['DeleteCommentPayload']
 export const isDeleteCommentPayload = (obj?: { __typename?: any } | null): obj is DeleteCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteCommentPayload"')
   return DeleteCommentPayload_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const DeleteEmpreendimentoPayload_possibleTypes: string[] = ['DeleteEmpreendimentoPayload']
+export const isDeleteEmpreendimentoPayload = (obj?: { __typename?: any } | null): obj is DeleteEmpreendimentoPayload => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isDeleteEmpreendimentoPayload"')
+  return DeleteEmpreendimentoPayload_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15254,6 +16446,14 @@ const UpdateCommentPayload_possibleTypes: string[] = ['UpdateCommentPayload']
 export const isUpdateCommentPayload = (obj?: { __typename?: any } | null): obj is UpdateCommentPayload => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateCommentPayload"')
   return UpdateCommentPayload_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const UpdateEmpreendimentoPayload_possibleTypes: string[] = ['UpdateEmpreendimentoPayload']
+export const isUpdateEmpreendimentoPayload = (obj?: { __typename?: any } | null): obj is UpdateEmpreendimentoPayload => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateEmpreendimentoPayload"')
+  return UpdateEmpreendimentoPayload_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15492,6 +16692,42 @@ before?: (Scalars['String'] | null)}) => RootQueryToContentTypeConnectionPromise
     
 /** Fields of the &#039;DiscussionSettings&#039; settings group */
 discussionSettings: (DiscussionSettingsPromiseChain & {get: <R extends DiscussionSettingsRequest>(request: R, defaultValue?: (FieldsSelection<DiscussionSettings, R> | undefined)) => Promise<(FieldsSelection<DiscussionSettings, R> | undefined)>}),
+    
+/** An object of the Empreendimento Type.  */
+empreendimento: ((args: {
+/** The globally unique identifier of the object. */
+id: Scalars['ID'],
+/** Type of unique identifier to fetch by. Default is Global ID */
+idType?: (EmpreendimentoIdType | null),
+/** Whether to return the node as a preview instance */
+asPreview?: (Scalars['Boolean'] | null)}) => EmpreendimentoPromiseChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Promise<(FieldsSelection<Empreendimento, R> | undefined)>}),
+    
+/**
+ * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
+ * A Empreendimento object
+ */
+empreendimentoBy: ((args?: {
+/** Get the object by its global ID */
+id?: (Scalars['ID'] | null),
+/** Get the Empreendimento by its database ID */
+empreendimentoId?: (Scalars['Int'] | null),
+/** Get the Empreendimento by its uri */
+uri?: (Scalars['String'] | null),
+/** Get the Empreendimento by its slug (only available for non-hierarchical types) */
+slug?: (Scalars['String'] | null)}) => EmpreendimentoPromiseChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Promise<(FieldsSelection<Empreendimento, R> | undefined)>})&(EmpreendimentoPromiseChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Promise<(FieldsSelection<Empreendimento, R> | undefined)>}),
+    
+/** Connection between the RootQuery type and the Empreendimento type */
+empreendimentos: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null),
+/** Arguments for filtering the connection */
+where?: (RootQueryToEmpreendimentoConnectionWhereArgs | null)}) => RootQueryToEmpreendimentoConnectionPromiseChain & {get: <R extends RootQueryToEmpreendimentoConnectionRequest>(request: R, defaultValue?: (FieldsSelection<RootQueryToEmpreendimentoConnection, R> | undefined)) => Promise<(FieldsSelection<RootQueryToEmpreendimentoConnection, R> | undefined)>})&(RootQueryToEmpreendimentoConnectionPromiseChain & {get: <R extends RootQueryToEmpreendimentoConnectionRequest>(request: R, defaultValue?: (FieldsSelection<RootQueryToEmpreendimentoConnection, R> | undefined)) => Promise<(FieldsSelection<RootQueryToEmpreendimentoConnection, R> | undefined)>}),
     
 /** Fields of the &#039;GeneralSettings&#039; settings group */
 generalSettings: (GeneralSettingsPromiseChain & {get: <R extends GeneralSettingsRequest>(request: R, defaultValue?: (FieldsSelection<GeneralSettings, R> | undefined)) => Promise<(FieldsSelection<GeneralSettings, R> | undefined)>}),
@@ -16010,6 +17246,42 @@ before?: (Scalars['String'] | null)}) => RootQueryToContentTypeConnectionObserva
     
 /** Fields of the &#039;DiscussionSettings&#039; settings group */
 discussionSettings: (DiscussionSettingsObservableChain & {get: <R extends DiscussionSettingsRequest>(request: R, defaultValue?: (FieldsSelection<DiscussionSettings, R> | undefined)) => Observable<(FieldsSelection<DiscussionSettings, R> | undefined)>}),
+    
+/** An object of the Empreendimento Type.  */
+empreendimento: ((args: {
+/** The globally unique identifier of the object. */
+id: Scalars['ID'],
+/** Type of unique identifier to fetch by. Default is Global ID */
+idType?: (EmpreendimentoIdType | null),
+/** Whether to return the node as a preview instance */
+asPreview?: (Scalars['Boolean'] | null)}) => EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Observable<(FieldsSelection<Empreendimento, R> | undefined)>}),
+    
+/**
+ * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
+ * A Empreendimento object
+ */
+empreendimentoBy: ((args?: {
+/** Get the object by its global ID */
+id?: (Scalars['ID'] | null),
+/** Get the Empreendimento by its database ID */
+empreendimentoId?: (Scalars['Int'] | null),
+/** Get the Empreendimento by its uri */
+uri?: (Scalars['String'] | null),
+/** Get the Empreendimento by its slug (only available for non-hierarchical types) */
+slug?: (Scalars['String'] | null)}) => EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Observable<(FieldsSelection<Empreendimento, R> | undefined)>})&(EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Observable<(FieldsSelection<Empreendimento, R> | undefined)>}),
+    
+/** Connection between the RootQuery type and the Empreendimento type */
+empreendimentos: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null),
+/** Arguments for filtering the connection */
+where?: (RootQueryToEmpreendimentoConnectionWhereArgs | null)}) => RootQueryToEmpreendimentoConnectionObservableChain & {get: <R extends RootQueryToEmpreendimentoConnectionRequest>(request: R, defaultValue?: (FieldsSelection<RootQueryToEmpreendimentoConnection, R> | undefined)) => Observable<(FieldsSelection<RootQueryToEmpreendimentoConnection, R> | undefined)>})&(RootQueryToEmpreendimentoConnectionObservableChain & {get: <R extends RootQueryToEmpreendimentoConnectionRequest>(request: R, defaultValue?: (FieldsSelection<RootQueryToEmpreendimentoConnection, R> | undefined)) => Observable<(FieldsSelection<RootQueryToEmpreendimentoConnection, R> | undefined)>}),
     
 /** Fields of the &#039;GeneralSettings&#039; settings group */
 generalSettings: (GeneralSettingsObservableChain & {get: <R extends GeneralSettingsRequest>(request: R, defaultValue?: (FieldsSelection<GeneralSettings, R> | undefined)) => Observable<(FieldsSelection<GeneralSettings, R> | undefined)>}),
@@ -22407,6 +23679,19 @@ databaseId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => 
 /** The description of the object */
 description: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     
+/** Connection between the Category type and the Empreendimento type */
+empreendimentos: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null),
+/** Arguments for filtering the connection */
+where?: (CategoryToEmpreendimentoConnectionWhereArgs | null)}) => CategoryToEmpreendimentoConnectionPromiseChain & {get: <R extends CategoryToEmpreendimentoConnectionRequest>(request: R, defaultValue?: (FieldsSelection<CategoryToEmpreendimentoConnection, R> | undefined)) => Promise<(FieldsSelection<CategoryToEmpreendimentoConnection, R> | undefined)>})&(CategoryToEmpreendimentoConnectionPromiseChain & {get: <R extends CategoryToEmpreendimentoConnectionRequest>(request: R, defaultValue?: (FieldsSelection<CategoryToEmpreendimentoConnection, R> | undefined)) => Promise<(FieldsSelection<CategoryToEmpreendimentoConnection, R> | undefined)>}),
+    
 /** Connection between the TermNode type and the EnqueuedScript type */
 enqueuedScripts: ((args?: {
 /** The number of items to return after the referenced "after" cursor */
@@ -22543,6 +23828,19 @@ databaseId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => 
     
 /** The description of the object */
 description: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** Connection between the Category type and the Empreendimento type */
+empreendimentos: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null),
+/** Arguments for filtering the connection */
+where?: (CategoryToEmpreendimentoConnectionWhereArgs | null)}) => CategoryToEmpreendimentoConnectionObservableChain & {get: <R extends CategoryToEmpreendimentoConnectionRequest>(request: R, defaultValue?: (FieldsSelection<CategoryToEmpreendimentoConnection, R> | undefined)) => Observable<(FieldsSelection<CategoryToEmpreendimentoConnection, R> | undefined)>})&(CategoryToEmpreendimentoConnectionObservableChain & {get: <R extends CategoryToEmpreendimentoConnectionRequest>(request: R, defaultValue?: (FieldsSelection<CategoryToEmpreendimentoConnection, R> | undefined)) => Observable<(FieldsSelection<CategoryToEmpreendimentoConnection, R> | undefined)>}),
     
 /** Connection between the TermNode type and the EnqueuedScript type */
 enqueuedScripts: ((args?: {
@@ -23161,6 +24459,724 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (ContentNodeObservableChain & {get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>) => Observable<FieldsSelection<ContentNode, R>>})
+}
+
+
+/** Connection between the Category type and the Empreendimento type */
+export interface CategoryToEmpreendimentoConnectionPromiseChain{
+    
+/** Edges for the CategoryToEmpreendimentoConnection connection */
+edges: ({get: <R extends CategoryToEmpreendimentoConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<CategoryToEmpreendimentoConnectionEdge, R>[]) => Promise<FieldsSelection<CategoryToEmpreendimentoConnectionEdge, R>[]>}),
+    
+/** The nodes of the connection, without the edges */
+nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Promise<FieldsSelection<Empreendimento, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+}
+
+
+/** Connection between the Category type and the Empreendimento type */
+export interface CategoryToEmpreendimentoConnectionObservableChain{
+    
+/** Edges for the CategoryToEmpreendimentoConnection connection */
+edges: ({get: <R extends CategoryToEmpreendimentoConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<CategoryToEmpreendimentoConnectionEdge, R>[]) => Observable<FieldsSelection<CategoryToEmpreendimentoConnectionEdge, R>[]>}),
+    
+/** The nodes of the connection, without the edges */
+nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Observable<FieldsSelection<Empreendimento, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+}
+
+
+/** Connection to Empreendimento Nodes */
+export interface EmpreendimentoConnectionPromiseChain{
+    
+/** A list of edges (relational context) between RootQuery and connected Empreendimento Nodes */
+edges: ({get: <R extends EmpreendimentoConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoConnectionEdge, R>[]) => Promise<FieldsSelection<EmpreendimentoConnectionEdge, R>[]>}),
+    
+/** A list of connected Empreendimento Nodes */
+nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Promise<FieldsSelection<Empreendimento, R>[]>})
+}
+
+
+/** Connection to Empreendimento Nodes */
+export interface EmpreendimentoConnectionObservableChain{
+    
+/** A list of edges (relational context) between RootQuery and connected Empreendimento Nodes */
+edges: ({get: <R extends EmpreendimentoConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoConnectionEdge, R>[]) => Observable<FieldsSelection<EmpreendimentoConnectionEdge, R>[]>}),
+    
+/** A list of connected Empreendimento Nodes */
+nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Observable<FieldsSelection<Empreendimento, R>[]>})
+}
+
+
+/** Edge between a Node and a connected Empreendimento */
+export interface EmpreendimentoConnectionEdgePromiseChain{
+    
+/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The connected Empreendimento Node */
+node: (EmpreendimentoPromiseChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>) => Promise<FieldsSelection<Empreendimento, R>>})
+}
+
+
+/** Edge between a Node and a connected Empreendimento */
+export interface EmpreendimentoConnectionEdgeObservableChain{
+    
+/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The connected Empreendimento Node */
+node: (EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>) => Observable<FieldsSelection<Empreendimento, R>>})
+}
+
+
+/** The Empreendimento type */
+export interface EmpreendimentoPromiseChain{
+    
+/**
+ * @deprecated Deprecated in favor of the databaseId field
+ * The id field matches the WP_Post-&gt;ID field.
+ */
+empreendimentoId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Promise<Scalars['Int']>}),
+    
+/** Connection between the Empreendimento type and the category type */
+categories: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null),
+/** Arguments for filtering the connection */
+where?: (EmpreendimentoToCategoryConnectionWhereArgs | null)}) => EmpreendimentoToCategoryConnectionPromiseChain & {get: <R extends EmpreendimentoToCategoryConnectionRequest>(request: R, defaultValue?: (FieldsSelection<EmpreendimentoToCategoryConnection, R> | undefined)) => Promise<(FieldsSelection<EmpreendimentoToCategoryConnection, R> | undefined)>})&(EmpreendimentoToCategoryConnectionPromiseChain & {get: <R extends EmpreendimentoToCategoryConnectionRequest>(request: R, defaultValue?: (FieldsSelection<EmpreendimentoToCategoryConnection, R> | undefined)) => Promise<(FieldsSelection<EmpreendimentoToCategoryConnection, R> | undefined)>}),
+    
+/** Connection between the ContentNode type and the ContentType type */
+contentType: (ContentNodeToContentTypeConnectionEdgePromiseChain & {get: <R extends ContentNodeToContentTypeConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)>}),
+    
+/** The name of the Content Type the node belongs to */
+contentTypeName: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
+    
+/** The unique identifier stored in the database */
+databaseId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Promise<Scalars['Int']>}),
+    
+/** Post publishing date. */
+date: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The publishing date set in GMT. */
+dateGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The desired slug of the post */
+desiredSlug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
+editingLockedBy: (ContentNodeToEditLockConnectionEdgePromiseChain & {get: <R extends ContentNodeToEditLockConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)>}),
+    
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Empreendimento&quot; was set to Show in GraphQL. */
+empreendimento: (Empreendimento_EmpreendimentoPromiseChain & {get: <R extends Empreendimento_EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento_Empreendimento, R> | undefined)) => Promise<(FieldsSelection<Empreendimento_Empreendimento, R> | undefined)>}),
+    
+/** The RSS enclosure for the object */
+enclosure: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** Connection between the ContentNode type and the EnqueuedScript type */
+enqueuedScripts: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null)}) => ContentNodeToEnqueuedScriptConnectionPromiseChain & {get: <R extends ContentNodeToEnqueuedScriptConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)>})&(ContentNodeToEnqueuedScriptConnectionPromiseChain & {get: <R extends ContentNodeToEnqueuedScriptConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)>}),
+    
+/** Connection between the ContentNode type and the EnqueuedStylesheet type */
+enqueuedStylesheets: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null)}) => ContentNodeToEnqueuedStylesheetConnectionPromiseChain & {get: <R extends ContentNodeToEnqueuedStylesheetConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)>})&(ContentNodeToEnqueuedStylesheetConnectionPromiseChain & {get: <R extends ContentNodeToEnqueuedStylesheetConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)>}),
+    
+/** Connection between the NodeWithFeaturedImage type and the MediaItem type */
+featuredImage: (NodeWithFeaturedImageToMediaItemConnectionEdgePromiseChain & {get: <R extends NodeWithFeaturedImageToMediaItemConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<NodeWithFeaturedImageToMediaItemConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<NodeWithFeaturedImageToMediaItemConnectionEdge, R> | undefined)>}),
+    
+/** The database identifier for the featured image node assigned to the content node */
+featuredImageDatabaseId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
+    
+/** Globally unique ID of the featured image assigned to the node */
+featuredImageId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Promise<(Scalars['ID'] | undefined)>}),
+    
+/** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
+guid: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The globally unique identifier of the empreendimentos object. */
+id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Promise<Scalars['ID']>}),
+    
+/** Whether the node is a Content Node */
+isContentNode: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** Whether the object is a node in the preview state */
+isPreview: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Promise<(Scalars['Boolean'] | undefined)>}),
+    
+/** Whether the object is restricted from the current viewer */
+isRestricted: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Promise<(Scalars['Boolean'] | undefined)>}),
+    
+/** Whether the node is a Term */
+isTermNode: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** The user that most recently edited the node */
+lastEditedBy: (ContentNodeToEditLastConnectionEdgePromiseChain & {get: <R extends ContentNodeToEditLastConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEditLastConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<ContentNodeToEditLastConnectionEdge, R> | undefined)>}),
+    
+/** The permalink of the post */
+link: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
+modified: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
+modifiedGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** Connection between the Empreendimento type and the Empreendimento type */
+preview: (EmpreendimentoToPreviewConnectionEdgePromiseChain & {get: <R extends EmpreendimentoToPreviewConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<EmpreendimentoToPreviewConnectionEdge, R> | undefined)) => Promise<(FieldsSelection<EmpreendimentoToPreviewConnectionEdge, R> | undefined)>}),
+    
+/** The database id of the preview node */
+previewRevisionDatabaseId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
+    
+/** Whether the object is a node in the preview state */
+previewRevisionId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Promise<(Scalars['ID'] | undefined)>}),
+    
+/** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
+slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The current status of the object */
+status: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The template assigned to the node */
+template: (ContentTemplatePromiseChain & {get: <R extends ContentTemplateRequest>(request: R, defaultValue?: (FieldsSelection<ContentTemplate, R> | undefined)) => Promise<(FieldsSelection<ContentTemplate, R> | undefined)>}),
+    
+/** Connection between the Empreendimento type and the TermNode type */
+terms: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null),
+/** Arguments for filtering the connection */
+where?: (EmpreendimentoToTermNodeConnectionWhereArgs | null)}) => EmpreendimentoToTermNodeConnectionPromiseChain & {get: <R extends EmpreendimentoToTermNodeConnectionRequest>(request: R, defaultValue?: (FieldsSelection<EmpreendimentoToTermNodeConnection, R> | undefined)) => Promise<(FieldsSelection<EmpreendimentoToTermNodeConnection, R> | undefined)>})&(EmpreendimentoToTermNodeConnectionPromiseChain & {get: <R extends EmpreendimentoToTermNodeConnectionRequest>(request: R, defaultValue?: (FieldsSelection<EmpreendimentoToTermNodeConnection, R> | undefined)) => Promise<(FieldsSelection<EmpreendimentoToTermNodeConnection, R> | undefined)>}),
+    
+/** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
+title: ((args?: {
+/** Format of the field output */
+format?: (PostObjectFieldFormatEnum | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The unique resource identifier path */
+uri: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** The Empreendimento type */
+export interface EmpreendimentoObservableChain{
+    
+/**
+ * @deprecated Deprecated in favor of the databaseId field
+ * The id field matches the WP_Post-&gt;ID field.
+ */
+empreendimentoId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Observable<Scalars['Int']>}),
+    
+/** Connection between the Empreendimento type and the category type */
+categories: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null),
+/** Arguments for filtering the connection */
+where?: (EmpreendimentoToCategoryConnectionWhereArgs | null)}) => EmpreendimentoToCategoryConnectionObservableChain & {get: <R extends EmpreendimentoToCategoryConnectionRequest>(request: R, defaultValue?: (FieldsSelection<EmpreendimentoToCategoryConnection, R> | undefined)) => Observable<(FieldsSelection<EmpreendimentoToCategoryConnection, R> | undefined)>})&(EmpreendimentoToCategoryConnectionObservableChain & {get: <R extends EmpreendimentoToCategoryConnectionRequest>(request: R, defaultValue?: (FieldsSelection<EmpreendimentoToCategoryConnection, R> | undefined)) => Observable<(FieldsSelection<EmpreendimentoToCategoryConnection, R> | undefined)>}),
+    
+/** Connection between the ContentNode type and the ContentType type */
+contentType: (ContentNodeToContentTypeConnectionEdgeObservableChain & {get: <R extends ContentNodeToContentTypeConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToContentTypeConnectionEdge, R> | undefined)>}),
+    
+/** The name of the Content Type the node belongs to */
+contentTypeName: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
+    
+/** The unique identifier stored in the database */
+databaseId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Observable<Scalars['Int']>}),
+    
+/** Post publishing date. */
+date: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The publishing date set in GMT. */
+dateGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The desired slug of the post */
+desiredSlug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
+editingLockedBy: (ContentNodeToEditLockConnectionEdgeObservableChain & {get: <R extends ContentNodeToEditLockConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEditLockConnectionEdge, R> | undefined)>}),
+    
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Empreendimento&quot; was set to Show in GraphQL. */
+empreendimento: (Empreendimento_EmpreendimentoObservableChain & {get: <R extends Empreendimento_EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento_Empreendimento, R> | undefined)) => Observable<(FieldsSelection<Empreendimento_Empreendimento, R> | undefined)>}),
+    
+/** The RSS enclosure for the object */
+enclosure: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** Connection between the ContentNode type and the EnqueuedScript type */
+enqueuedScripts: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null)}) => ContentNodeToEnqueuedScriptConnectionObservableChain & {get: <R extends ContentNodeToEnqueuedScriptConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)>})&(ContentNodeToEnqueuedScriptConnectionObservableChain & {get: <R extends ContentNodeToEnqueuedScriptConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEnqueuedScriptConnection, R> | undefined)>}),
+    
+/** Connection between the ContentNode type and the EnqueuedStylesheet type */
+enqueuedStylesheets: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null)}) => ContentNodeToEnqueuedStylesheetConnectionObservableChain & {get: <R extends ContentNodeToEnqueuedStylesheetConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)>})&(ContentNodeToEnqueuedStylesheetConnectionObservableChain & {get: <R extends ContentNodeToEnqueuedStylesheetConnectionRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEnqueuedStylesheetConnection, R> | undefined)>}),
+    
+/** Connection between the NodeWithFeaturedImage type and the MediaItem type */
+featuredImage: (NodeWithFeaturedImageToMediaItemConnectionEdgeObservableChain & {get: <R extends NodeWithFeaturedImageToMediaItemConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<NodeWithFeaturedImageToMediaItemConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<NodeWithFeaturedImageToMediaItemConnectionEdge, R> | undefined)>}),
+    
+/** The database identifier for the featured image node assigned to the content node */
+featuredImageDatabaseId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
+    
+/** Globally unique ID of the featured image assigned to the node */
+featuredImageId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Observable<(Scalars['ID'] | undefined)>}),
+    
+/** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
+guid: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The globally unique identifier of the empreendimentos object. */
+id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Observable<Scalars['ID']>}),
+    
+/** Whether the node is a Content Node */
+isContentNode: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** Whether the object is a node in the preview state */
+isPreview: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Observable<(Scalars['Boolean'] | undefined)>}),
+    
+/** Whether the object is restricted from the current viewer */
+isRestricted: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Observable<(Scalars['Boolean'] | undefined)>}),
+    
+/** Whether the node is a Term */
+isTermNode: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** The user that most recently edited the node */
+lastEditedBy: (ContentNodeToEditLastConnectionEdgeObservableChain & {get: <R extends ContentNodeToEditLastConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<ContentNodeToEditLastConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<ContentNodeToEditLastConnectionEdge, R> | undefined)>}),
+    
+/** The permalink of the post */
+link: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
+modified: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
+modifiedGmt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** Connection between the Empreendimento type and the Empreendimento type */
+preview: (EmpreendimentoToPreviewConnectionEdgeObservableChain & {get: <R extends EmpreendimentoToPreviewConnectionEdgeRequest>(request: R, defaultValue?: (FieldsSelection<EmpreendimentoToPreviewConnectionEdge, R> | undefined)) => Observable<(FieldsSelection<EmpreendimentoToPreviewConnectionEdge, R> | undefined)>}),
+    
+/** The database id of the preview node */
+previewRevisionDatabaseId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
+    
+/** Whether the object is a node in the preview state */
+previewRevisionId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Observable<(Scalars['ID'] | undefined)>}),
+    
+/** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
+slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The current status of the object */
+status: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The template assigned to the node */
+template: (ContentTemplateObservableChain & {get: <R extends ContentTemplateRequest>(request: R, defaultValue?: (FieldsSelection<ContentTemplate, R> | undefined)) => Observable<(FieldsSelection<ContentTemplate, R> | undefined)>}),
+    
+/** Connection between the Empreendimento type and the TermNode type */
+terms: ((args?: {
+/** The number of items to return after the referenced "after" cursor */
+first?: (Scalars['Int'] | null),
+/** The number of items to return before the referenced "before" cursor */
+last?: (Scalars['Int'] | null),
+/** Cursor used along with the "first" argument to reference where in the dataset to get data */
+after?: (Scalars['String'] | null),
+/** Cursor used along with the "last" argument to reference where in the dataset to get data */
+before?: (Scalars['String'] | null),
+/** Arguments for filtering the connection */
+where?: (EmpreendimentoToTermNodeConnectionWhereArgs | null)}) => EmpreendimentoToTermNodeConnectionObservableChain & {get: <R extends EmpreendimentoToTermNodeConnectionRequest>(request: R, defaultValue?: (FieldsSelection<EmpreendimentoToTermNodeConnection, R> | undefined)) => Observable<(FieldsSelection<EmpreendimentoToTermNodeConnection, R> | undefined)>})&(EmpreendimentoToTermNodeConnectionObservableChain & {get: <R extends EmpreendimentoToTermNodeConnectionRequest>(request: R, defaultValue?: (FieldsSelection<EmpreendimentoToTermNodeConnection, R> | undefined)) => Observable<(FieldsSelection<EmpreendimentoToTermNodeConnection, R> | undefined)>}),
+    
+/** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
+title: ((args?: {
+/** Format of the field output */
+format?: (PostObjectFieldFormatEnum | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The unique resource identifier path */
+uri: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Connection between the Empreendimento type and the category type */
+export interface EmpreendimentoToCategoryConnectionPromiseChain{
+    
+/** Edges for the EmpreendimentoToCategoryConnection connection */
+edges: ({get: <R extends EmpreendimentoToCategoryConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoToCategoryConnectionEdge, R>[]) => Promise<FieldsSelection<EmpreendimentoToCategoryConnectionEdge, R>[]>}),
+    
+/** The nodes of the connection, without the edges */
+nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Promise<FieldsSelection<Category, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+}
+
+
+/** Connection between the Empreendimento type and the category type */
+export interface EmpreendimentoToCategoryConnectionObservableChain{
+    
+/** Edges for the EmpreendimentoToCategoryConnection connection */
+edges: ({get: <R extends EmpreendimentoToCategoryConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoToCategoryConnectionEdge, R>[]) => Observable<FieldsSelection<EmpreendimentoToCategoryConnectionEdge, R>[]>}),
+    
+/** The nodes of the connection, without the edges */
+nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Observable<FieldsSelection<Category, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+}
+
+
+/** An edge in a connection */
+export interface EmpreendimentoToCategoryConnectionEdgePromiseChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (CategoryPromiseChain & {get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>) => Promise<FieldsSelection<Category, R>>})
+}
+
+
+/** An edge in a connection */
+export interface EmpreendimentoToCategoryConnectionEdgeObservableChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (CategoryObservableChain & {get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>) => Observable<FieldsSelection<Category, R>>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_EmpreendimentoPromiseChain{
+    andamentoDaObra: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
+    arquivoDaApresentacao: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
+    diferenciaisItems: ({get: <R extends Empreendimento_Empreendimento_diferenciaisItemsRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_diferenciaisItems, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<Empreendimento_Empreendimento_diferenciaisItems, R> | undefined)[] | undefined)>}),
+    empCaracteristicas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    empCidade: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    empDescricao: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    endStandVendas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    enderecoDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    estagioDaObra: ({get: <R extends CategoryRequest>(request: R, defaultValue?: ((FieldsSelection<Category, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<Category, R> | undefined)[] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    galeriaDeFotos: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: ((FieldsSelection<MediaItem, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<MediaItem, R> | undefined)[] | undefined)>}),
+    imagensOutros: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: ((FieldsSelection<MediaItem, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<MediaItem, R> | undefined)[] | undefined)>}),
+    itemsPlantas: ({get: <R extends Empreendimento_Empreendimento_itemsPlantasRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_itemsPlantas, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<Empreendimento_Empreendimento_itemsPlantas, R> | undefined)[] | undefined)>}),
+    itensAreacomuns: ({get: <R extends Empreendimento_Empreendimento_itensAreacomunsRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_itensAreacomuns, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<Empreendimento_Empreendimento_itensAreacomuns, R> | undefined)[] | undefined)>}),
+    linkDoTourVirtual: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    listaItensTec: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    listaItensTec2: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    logotipoDoEmpreendimento: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
+    nomeDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    pontosDeReferencia: ({get: <R extends Empreendimento_Empreendimento_pontosDeReferenciaRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_pontosDeReferencia, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<Empreendimento_Empreendimento_pontosDeReferencia, R> | undefined)[] | undefined)>}),
+    tipoDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    videosOutos: ({get: <R extends Empreendimento_Empreendimento_videosOutosRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_videosOutos, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<Empreendimento_Empreendimento_videosOutos, R> | undefined)[] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_EmpreendimentoObservableChain{
+    andamentoDaObra: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
+    arquivoDaApresentacao: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
+    diferenciaisItems: ({get: <R extends Empreendimento_Empreendimento_diferenciaisItemsRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_diferenciaisItems, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<Empreendimento_Empreendimento_diferenciaisItems, R> | undefined)[] | undefined)>}),
+    empCaracteristicas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    empCidade: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    empDescricao: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    endStandVendas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    enderecoDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    estagioDaObra: ({get: <R extends CategoryRequest>(request: R, defaultValue?: ((FieldsSelection<Category, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<Category, R> | undefined)[] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    galeriaDeFotos: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: ((FieldsSelection<MediaItem, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<MediaItem, R> | undefined)[] | undefined)>}),
+    imagensOutros: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: ((FieldsSelection<MediaItem, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<MediaItem, R> | undefined)[] | undefined)>}),
+    itemsPlantas: ({get: <R extends Empreendimento_Empreendimento_itemsPlantasRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_itemsPlantas, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<Empreendimento_Empreendimento_itemsPlantas, R> | undefined)[] | undefined)>}),
+    itensAreacomuns: ({get: <R extends Empreendimento_Empreendimento_itensAreacomunsRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_itensAreacomuns, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<Empreendimento_Empreendimento_itensAreacomuns, R> | undefined)[] | undefined)>}),
+    linkDoTourVirtual: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    listaItensTec: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    listaItensTec2: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    logotipoDoEmpreendimento: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
+    nomeDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    pontosDeReferencia: ({get: <R extends Empreendimento_Empreendimento_pontosDeReferenciaRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_pontosDeReferencia, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<Empreendimento_Empreendimento_pontosDeReferencia, R> | undefined)[] | undefined)>}),
+    tipoDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    videosOutos: ({get: <R extends Empreendimento_Empreendimento_videosOutosRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_videosOutos, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<Empreendimento_Empreendimento_videosOutos, R> | undefined)[] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_diferenciaisItemsPromiseChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    iconeimagemDoDiferencial: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
+    nomeDiferencial: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_diferenciaisItemsObservableChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    iconeimagemDoDiferencial: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
+    nomeDiferencial: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_itemsPlantasPromiseChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    imagensDasPlantas: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
+    plantasDescricao: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_itemsPlantasObservableChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    imagensDasPlantas: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
+    plantasDescricao: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_itensAreacomunsPromiseChain{
+    descricaoAreacomuns: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    iconeimagemAreacomuns: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_itensAreacomunsObservableChain{
+    descricaoAreacomuns: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    iconeimagemAreacomuns: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_pontosDeReferenciaPromiseChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    iconeOuImagemRef: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
+    nomePontoReferencia: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_pontosDeReferenciaObservableChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    iconeOuImagemRef: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
+    nomePontoReferencia: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_videosOutosPromiseChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    linkDoVideo: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Empreendimento_videosOutosObservableChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    linkDoVideo: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Connection between the Empreendimento type and the Empreendimento type */
+export interface EmpreendimentoToPreviewConnectionEdgePromiseChain{
+    
+/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The node of the connection, without the edges */
+node: (EmpreendimentoPromiseChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>) => Promise<FieldsSelection<Empreendimento, R>>})
+}
+
+
+/** Connection between the Empreendimento type and the Empreendimento type */
+export interface EmpreendimentoToPreviewConnectionEdgeObservableChain{
+    
+/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The node of the connection, without the edges */
+node: (EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>) => Observable<FieldsSelection<Empreendimento, R>>})
+}
+
+
+/** Connection between the Empreendimento type and the TermNode type */
+export interface EmpreendimentoToTermNodeConnectionPromiseChain{
+    
+/** Edges for the EmpreendimentoToTermNodeConnection connection */
+edges: ({get: <R extends EmpreendimentoToTermNodeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoToTermNodeConnectionEdge, R>[]) => Promise<FieldsSelection<EmpreendimentoToTermNodeConnectionEdge, R>[]>}),
+    
+/** The nodes of the connection, without the edges */
+nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Promise<FieldsSelection<TermNode, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+}
+
+
+/** Connection between the Empreendimento type and the TermNode type */
+export interface EmpreendimentoToTermNodeConnectionObservableChain{
+    
+/** Edges for the EmpreendimentoToTermNodeConnection connection */
+edges: ({get: <R extends EmpreendimentoToTermNodeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoToTermNodeConnectionEdge, R>[]) => Observable<FieldsSelection<EmpreendimentoToTermNodeConnectionEdge, R>[]>}),
+    
+/** The nodes of the connection, without the edges */
+nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Observable<FieldsSelection<TermNode, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+}
+
+
+/** Connection to TermNode Nodes */
+export interface TermNodeConnectionPromiseChain{
+    
+/** A list of edges (relational context) between RootQuery and connected TermNode Nodes */
+edges: ({get: <R extends TermNodeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<TermNodeConnectionEdge, R>[]) => Promise<FieldsSelection<TermNodeConnectionEdge, R>[]>}),
+    
+/** A list of connected TermNode Nodes */
+nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Promise<FieldsSelection<TermNode, R>[]>})
+}
+
+
+/** Connection to TermNode Nodes */
+export interface TermNodeConnectionObservableChain{
+    
+/** A list of edges (relational context) between RootQuery and connected TermNode Nodes */
+edges: ({get: <R extends TermNodeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<TermNodeConnectionEdge, R>[]) => Observable<FieldsSelection<TermNodeConnectionEdge, R>[]>}),
+    
+/** A list of connected TermNode Nodes */
+nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Observable<FieldsSelection<TermNode, R>[]>})
+}
+
+
+/** Edge between a Node and a connected TermNode */
+export interface TermNodeConnectionEdgePromiseChain{
+    
+/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The connected TermNode Node */
+node: (TermNodePromiseChain & {get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>) => Promise<FieldsSelection<TermNode, R>>})
+}
+
+
+/** Edge between a Node and a connected TermNode */
+export interface TermNodeConnectionEdgeObservableChain{
+    
+/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The connected TermNode Node */
+node: (TermNodeObservableChain & {get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>) => Observable<FieldsSelection<TermNode, R>>})
+}
+
+
+/** An edge in a connection */
+export interface EmpreendimentoToTermNodeConnectionEdgePromiseChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (TermNodePromiseChain & {get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>) => Promise<FieldsSelection<TermNode, R>>})
+}
+
+
+/** An edge in a connection */
+export interface EmpreendimentoToTermNodeConnectionEdgeObservableChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (TermNodeObservableChain & {get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>) => Observable<FieldsSelection<TermNode, R>>})
+}
+
+
+/** An edge in a connection */
+export interface CategoryToEmpreendimentoConnectionEdgePromiseChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (EmpreendimentoPromiseChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>) => Promise<FieldsSelection<Empreendimento, R>>})
+}
+
+
+/** An edge in a connection */
+export interface CategoryToEmpreendimentoConnectionEdgeObservableChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>) => Observable<FieldsSelection<Empreendimento, R>>})
 }
 
 
@@ -24278,50 +26294,6 @@ pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(reque
 }
 
 
-/** Connection to TermNode Nodes */
-export interface TermNodeConnectionPromiseChain{
-    
-/** A list of edges (relational context) between RootQuery and connected TermNode Nodes */
-edges: ({get: <R extends TermNodeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<TermNodeConnectionEdge, R>[]) => Promise<FieldsSelection<TermNodeConnectionEdge, R>[]>}),
-    
-/** A list of connected TermNode Nodes */
-nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Promise<FieldsSelection<TermNode, R>[]>})
-}
-
-
-/** Connection to TermNode Nodes */
-export interface TermNodeConnectionObservableChain{
-    
-/** A list of edges (relational context) between RootQuery and connected TermNode Nodes */
-edges: ({get: <R extends TermNodeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<TermNodeConnectionEdge, R>[]) => Observable<FieldsSelection<TermNodeConnectionEdge, R>[]>}),
-    
-/** A list of connected TermNode Nodes */
-nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Observable<FieldsSelection<TermNode, R>[]>})
-}
-
-
-/** Edge between a Node and a connected TermNode */
-export interface TermNodeConnectionEdgePromiseChain{
-    
-/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
-cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    
-/** The connected TermNode Node */
-node: (TermNodePromiseChain & {get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>) => Promise<FieldsSelection<TermNode, R>>})
-}
-
-
-/** Edge between a Node and a connected TermNode */
-export interface TermNodeConnectionEdgeObservableChain{
-    
-/** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
-cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    
-/** The connected TermNode Node */
-node: (TermNodeObservableChain & {get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>) => Observable<FieldsSelection<TermNode, R>>})
-}
-
-
 /** An edge in a connection */
 export interface PostToTermNodeConnectionEdgePromiseChain{
     
@@ -25375,6 +27347,56 @@ defaultCommentStatus: ({get: (request?: boolean|number, defaultValue?: (Scalars[
     
 /** Permitir avisos de links de outros blogs (pingbacks ou trackbacks) em novos artigos. */
 defaultPingStatus: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Connection between the RootQuery type and the Empreendimento type */
+export interface RootQueryToEmpreendimentoConnectionPromiseChain{
+    
+/** Edges for the RootQueryToEmpreendimentoConnection connection */
+edges: ({get: <R extends RootQueryToEmpreendimentoConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToEmpreendimentoConnectionEdge, R>[]) => Promise<FieldsSelection<RootQueryToEmpreendimentoConnectionEdge, R>[]>}),
+    
+/** The nodes of the connection, without the edges */
+nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Promise<FieldsSelection<Empreendimento, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+}
+
+
+/** Connection between the RootQuery type and the Empreendimento type */
+export interface RootQueryToEmpreendimentoConnectionObservableChain{
+    
+/** Edges for the RootQueryToEmpreendimentoConnection connection */
+edges: ({get: <R extends RootQueryToEmpreendimentoConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToEmpreendimentoConnectionEdge, R>[]) => Observable<FieldsSelection<RootQueryToEmpreendimentoConnectionEdge, R>[]>}),
+    
+/** The nodes of the connection, without the edges */
+nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Observable<FieldsSelection<Empreendimento, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+}
+
+
+/** An edge in a connection */
+export interface RootQueryToEmpreendimentoConnectionEdgePromiseChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (EmpreendimentoPromiseChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>) => Promise<FieldsSelection<Empreendimento, R>>})
+}
+
+
+/** An edge in a connection */
+export interface RootQueryToEmpreendimentoConnectionEdgeObservableChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>) => Observable<FieldsSelection<Empreendimento, R>>})
 }
 
 
@@ -27089,6 +29111,11 @@ createComment: ((args: {
 /** Input for the createComment mutation */
 input: CreateCommentInput}) => CreateCommentPayloadPromiseChain & {get: <R extends CreateCommentPayloadRequest>(request: R, defaultValue?: (FieldsSelection<CreateCommentPayload, R> | undefined)) => Promise<(FieldsSelection<CreateCommentPayload, R> | undefined)>}),
     
+/** The createEmpreendimento mutation */
+createEmpreendimento: ((args: {
+/** Input for the createEmpreendimento mutation */
+input: CreateEmpreendimentoInput}) => CreateEmpreendimentoPayloadPromiseChain & {get: <R extends CreateEmpreendimentoPayloadRequest>(request: R, defaultValue?: (FieldsSelection<CreateEmpreendimentoPayload, R> | undefined)) => Promise<(FieldsSelection<CreateEmpreendimentoPayload, R> | undefined)>}),
+    
 /** The createMediaItem mutation */
 createMediaItem: ((args: {
 /** Input for the createMediaItem mutation */
@@ -27138,6 +29165,11 @@ input: DeleteCategoryInput}) => DeleteCategoryPayloadPromiseChain & {get: <R ext
 deleteComment: ((args: {
 /** Input for the deleteComment mutation */
 input: DeleteCommentInput}) => DeleteCommentPayloadPromiseChain & {get: <R extends DeleteCommentPayloadRequest>(request: R, defaultValue?: (FieldsSelection<DeleteCommentPayload, R> | undefined)) => Promise<(FieldsSelection<DeleteCommentPayload, R> | undefined)>}),
+    
+/** The deleteEmpreendimento mutation */
+deleteEmpreendimento: ((args: {
+/** Input for the deleteEmpreendimento mutation */
+input: DeleteEmpreendimentoInput}) => DeleteEmpreendimentoPayloadPromiseChain & {get: <R extends DeleteEmpreendimentoPayloadRequest>(request: R, defaultValue?: (FieldsSelection<DeleteEmpreendimentoPayload, R> | undefined)) => Promise<(FieldsSelection<DeleteEmpreendimentoPayload, R> | undefined)>}),
     
 /** The deleteMediaItem mutation */
 deleteMediaItem: ((args: {
@@ -27214,6 +29246,11 @@ updateComment: ((args: {
 /** Input for the updateComment mutation */
 input: UpdateCommentInput}) => UpdateCommentPayloadPromiseChain & {get: <R extends UpdateCommentPayloadRequest>(request: R, defaultValue?: (FieldsSelection<UpdateCommentPayload, R> | undefined)) => Promise<(FieldsSelection<UpdateCommentPayload, R> | undefined)>}),
     
+/** The updateEmpreendimento mutation */
+updateEmpreendimento: ((args: {
+/** Input for the updateEmpreendimento mutation */
+input: UpdateEmpreendimentoInput}) => UpdateEmpreendimentoPayloadPromiseChain & {get: <R extends UpdateEmpreendimentoPayloadRequest>(request: R, defaultValue?: (FieldsSelection<UpdateEmpreendimentoPayload, R> | undefined)) => Promise<(FieldsSelection<UpdateEmpreendimentoPayload, R> | undefined)>}),
+    
 /** The updateMediaItem mutation */
 updateMediaItem: ((args: {
 /** Input for the updateMediaItem mutation */
@@ -27274,6 +29311,11 @@ createComment: ((args: {
 /** Input for the createComment mutation */
 input: CreateCommentInput}) => CreateCommentPayloadObservableChain & {get: <R extends CreateCommentPayloadRequest>(request: R, defaultValue?: (FieldsSelection<CreateCommentPayload, R> | undefined)) => Observable<(FieldsSelection<CreateCommentPayload, R> | undefined)>}),
     
+/** The createEmpreendimento mutation */
+createEmpreendimento: ((args: {
+/** Input for the createEmpreendimento mutation */
+input: CreateEmpreendimentoInput}) => CreateEmpreendimentoPayloadObservableChain & {get: <R extends CreateEmpreendimentoPayloadRequest>(request: R, defaultValue?: (FieldsSelection<CreateEmpreendimentoPayload, R> | undefined)) => Observable<(FieldsSelection<CreateEmpreendimentoPayload, R> | undefined)>}),
+    
 /** The createMediaItem mutation */
 createMediaItem: ((args: {
 /** Input for the createMediaItem mutation */
@@ -27323,6 +29365,11 @@ input: DeleteCategoryInput}) => DeleteCategoryPayloadObservableChain & {get: <R 
 deleteComment: ((args: {
 /** Input for the deleteComment mutation */
 input: DeleteCommentInput}) => DeleteCommentPayloadObservableChain & {get: <R extends DeleteCommentPayloadRequest>(request: R, defaultValue?: (FieldsSelection<DeleteCommentPayload, R> | undefined)) => Observable<(FieldsSelection<DeleteCommentPayload, R> | undefined)>}),
+    
+/** The deleteEmpreendimento mutation */
+deleteEmpreendimento: ((args: {
+/** Input for the deleteEmpreendimento mutation */
+input: DeleteEmpreendimentoInput}) => DeleteEmpreendimentoPayloadObservableChain & {get: <R extends DeleteEmpreendimentoPayloadRequest>(request: R, defaultValue?: (FieldsSelection<DeleteEmpreendimentoPayload, R> | undefined)) => Observable<(FieldsSelection<DeleteEmpreendimentoPayload, R> | undefined)>}),
     
 /** The deleteMediaItem mutation */
 deleteMediaItem: ((args: {
@@ -27398,6 +29445,11 @@ input: UpdateCategoryInput}) => UpdateCategoryPayloadObservableChain & {get: <R 
 updateComment: ((args: {
 /** Input for the updateComment mutation */
 input: UpdateCommentInput}) => UpdateCommentPayloadObservableChain & {get: <R extends UpdateCommentPayloadRequest>(request: R, defaultValue?: (FieldsSelection<UpdateCommentPayload, R> | undefined)) => Observable<(FieldsSelection<UpdateCommentPayload, R> | undefined)>}),
+    
+/** The updateEmpreendimento mutation */
+updateEmpreendimento: ((args: {
+/** Input for the updateEmpreendimento mutation */
+input: UpdateEmpreendimentoInput}) => UpdateEmpreendimentoPayloadObservableChain & {get: <R extends UpdateEmpreendimentoPayloadRequest>(request: R, defaultValue?: (FieldsSelection<UpdateEmpreendimentoPayload, R> | undefined)) => Observable<(FieldsSelection<UpdateEmpreendimentoPayload, R> | undefined)>}),
     
 /** The updateMediaItem mutation */
 updateMediaItem: ((args: {
@@ -27527,6 +29579,28 @@ comment: (CommentObservableChain & {get: <R extends CommentRequest>(request: R, 
     
 /** Whether the mutation succeeded. If the comment is not approved, the server will not return the comment to a non authenticated user, but a success message can be returned if the create succeeded, and the client can optimistically add the comment to the client cache */
 success: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Observable<(Scalars['Boolean'] | undefined)>})
+}
+
+
+/** The payload for the createEmpreendimento mutation. */
+export interface CreateEmpreendimentoPayloadPromiseChain{
+    
+/** The Post object mutation type. */
+empreendimento: (EmpreendimentoPromiseChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Promise<(FieldsSelection<Empreendimento, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** The payload for the createEmpreendimento mutation. */
+export interface CreateEmpreendimentoPayloadObservableChain{
+    
+/** The Post object mutation type. */
+empreendimento: (EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Observable<(FieldsSelection<Empreendimento, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -27770,6 +29844,34 @@ clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Str
 comment: (CommentObservableChain & {get: <R extends CommentRequest>(request: R, defaultValue?: (FieldsSelection<Comment, R> | undefined)) => Observable<(FieldsSelection<Comment, R> | undefined)>}),
     
 /** The deleted comment ID */
+deletedId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Observable<(Scalars['ID'] | undefined)>})
+}
+
+
+/** The payload for the deleteEmpreendimento mutation. */
+export interface DeleteEmpreendimentoPayloadPromiseChain{
+    
+/** The object before it was deleted */
+empreendimento: (EmpreendimentoPromiseChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Promise<(FieldsSelection<Empreendimento, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The ID of the deleted object */
+deletedId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Promise<(Scalars['ID'] | undefined)>})
+}
+
+
+/** The payload for the deleteEmpreendimento mutation. */
+export interface DeleteEmpreendimentoPayloadObservableChain{
+    
+/** The object before it was deleted */
+empreendimento: (EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Observable<(FieldsSelection<Empreendimento, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The ID of the deleted object */
 deletedId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID'] | undefined)) => Observable<(Scalars['ID'] | undefined)>})
 }
 
@@ -28139,6 +30241,28 @@ comment: (CommentObservableChain & {get: <R extends CommentRequest>(request: R, 
     
 /** Whether the mutation succeeded. If the comment is not approved, the server will not return the comment to a non authenticated user, but a success message can be returned if the create succeeded, and the client can optimistically add the comment to the client cache */
 success: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Observable<(Scalars['Boolean'] | undefined)>})
+}
+
+
+/** The payload for the updateEmpreendimento mutation. */
+export interface UpdateEmpreendimentoPayloadPromiseChain{
+    
+/** The Post object mutation type. */
+empreendimento: (EmpreendimentoPromiseChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Promise<(FieldsSelection<Empreendimento, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** The payload for the updateEmpreendimento mutation. */
+export interface UpdateEmpreendimentoPayloadObservableChain{
+    
+/** The Post object mutation type. */
+empreendimento: (EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento, R> | undefined)) => Observable<(FieldsSelection<Empreendimento, R> | undefined)>}),
+    
+/** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+clientMutationId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 

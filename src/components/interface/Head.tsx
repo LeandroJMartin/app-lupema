@@ -4,7 +4,7 @@ import React from 'react';
 const HeadApp = () => {
   return (
     <Head>
-      <title>Unicos construtora</title>
+      <title>Lupema Engenharia</title>
       <meta name="description" content="Lupema Engenharia" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
