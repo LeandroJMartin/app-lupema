@@ -8,6 +8,7 @@ import {
 import { GoLocation } from 'react-icons/go';
 import Link from 'next/link';
 import Logo from '../../../public/logo-2.svg';
+import { useMenuMobileContext } from '../../context/menuMobileContext';
 
 interface Links {
   path: string;
@@ -15,6 +16,8 @@ interface Links {
 }
 
 const MenuApp = () => {
+  const { state: status, toogleState } = useMenuMobileContext();
+
   const LinkPath = ({ path, label }: Links) => {
     return (
       <Link href={path} className="">
@@ -26,7 +29,10 @@ const MenuApp = () => {
   return (
     <div className="px-8 py-8">
       <div className="flex items-center justify-between sm:justify-start w-full">
-        <button className="pr-0 md:pr-8 order-2 md:order-1">
+        <button
+          className="pr-0 md:pr-8 order-2 md:order-1"
+          onClick={(e) => toogleState()}
+        >
           <IoMdClose size={35} />
         </button>
         <Image
@@ -40,16 +46,25 @@ const MenuApp = () => {
       <main className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-[40px] sm:mt-[80px] text-center sm:text-left px-0 sm:px-2 xl:px-[100px]">
         <div className="flex flex-col space-y-6 xl:space-y-20 text-3xl xl:text-4xl">
           <LinkPath path="/a-lupema" label="A Lupema" />
-          <LinkPath path="/empreendimentos" label="Empreendimentos" />
+          <LinkPath path="/empreendimentos/todos" label="Empreendimentos" />
           <LinkPath path="/noticias" label="Notícias" />
-          <LinkPath path="/imprensa" label="Imprensa" />
+          <LinkPath path="/assessoria" label="Imprensa" />
         </div>
         <div className="flex flex-col">
           <div className="flex flex-col space-y-3 md:space-y-4 text-xl">
-            <LinkPath path="/contato" label="Fale Conosco" />
-            <LinkPath path="/contato" label="Trabalhe Conosco" />
-            <LinkPath path="/contato" label="Seja nosso fonosco" />
-            <LinkPath path="/contato" label="Ofereça sua área" />
+            <LinkPath path="/contato#fale-conosco" label="Fale Conosco" />
+            <LinkPath
+              path="/contato#trabalhe-conosco"
+              label="Trabalhe Conosco"
+            />
+            <LinkPath
+              path="/contato#seja-nosso-fornecedor"
+              label="Seja nosso fornecedor"
+            />
+            <LinkPath
+              path="/contato#ofereca-sua-area"
+              label="Ofereça sua área"
+            />
           </div>
           <div className="flex flex-col mt-16 space-y-3 md:space-y-4 text-xl">
             <a className="text-green" href="#area-do-corretor">

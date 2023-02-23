@@ -1,11 +1,8 @@
 import Image from 'next/image';
-import {
-  Banner_BannerHome_ImagensProntas,
-  Maybe,
-} from '../../generated/graphql';
+import { Banner_BannerHome_ImagensProntas } from '../../generated';
 
 interface Props {
-  content: Maybe<Banner_BannerHome_ImagensProntas> | undefined;
+  content: Banner_BannerHome_ImagensProntas | undefined;
 }
 
 const BannerArt = ({ content }: Props) => {

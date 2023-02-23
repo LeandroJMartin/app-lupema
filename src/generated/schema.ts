@@ -2120,15 +2120,19 @@ export interface Empreendimento_Empreendimento {
     andamentoDaObra?: Scalars['Float']
     arquivoDaApresentacao?: MediaItem
     diferenciaisItems?: (Empreendimento_Empreendimento_diferenciaisItems | undefined)[]
-    empCaracteristicas?: Scalars['String']
     empCidade?: Scalars['String']
     empDescricao?: Scalars['String']
+    empDormitorios?: Scalars['String']
+    empMetragem?: Scalars['String']
+    empVagasDeGaragem?: Scalars['String']
+    empValorAPartirDe?: Scalars['String']
     endStandVendas?: Scalars['String']
     enderecoDoEmpreendimento?: Scalars['String']
-    estagioDaObra?: (Category | undefined)[]
+    estagioDaObra?: Category
     /** The name of the ACF Field Group */
     fieldGroupName?: Scalars['String']
     galeriaDeFotos?: (MediaItem | undefined)[]
+    imagemPrincipal?: MediaItem
     imagensOutros?: (MediaItem | undefined)[]
     itemsPlantas?: (Empreendimento_Empreendimento_itemsPlantas | undefined)[]
     itensAreacomuns?: (Empreendimento_Empreendimento_itensAreacomuns | undefined)[]
@@ -9221,15 +9225,19 @@ export interface Empreendimento_EmpreendimentoRequest{
     andamentoDaObra?: boolean | number
     arquivoDaApresentacao?: MediaItemRequest
     diferenciaisItems?: Empreendimento_Empreendimento_diferenciaisItemsRequest
-    empCaracteristicas?: boolean | number
     empCidade?: boolean | number
     empDescricao?: boolean | number
+    empDormitorios?: boolean | number
+    empMetragem?: boolean | number
+    empVagasDeGaragem?: boolean | number
+    empValorAPartirDe?: boolean | number
     endStandVendas?: boolean | number
     enderecoDoEmpreendimento?: boolean | number
     estagioDaObra?: CategoryRequest
     /** The name of the ACF Field Group */
     fieldGroupName?: boolean | number
     galeriaDeFotos?: MediaItemRequest
+    imagemPrincipal?: MediaItemRequest
     imagensOutros?: MediaItemRequest
     itemsPlantas?: Empreendimento_Empreendimento_itemsPlantasRequest
     itensAreacomuns?: Empreendimento_Empreendimento_itensAreacomunsRequest
@@ -24891,16 +24899,20 @@ export interface Empreendimento_EmpreendimentoPromiseChain{
     andamentoDaObra: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     arquivoDaApresentacao: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
     diferenciaisItems: ({get: <R extends Empreendimento_Empreendimento_diferenciaisItemsRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_diferenciaisItems, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<Empreendimento_Empreendimento_diferenciaisItems, R> | undefined)[] | undefined)>}),
-    empCaracteristicas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     empCidade: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     empDescricao: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    empDormitorios: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    empMetragem: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    empVagasDeGaragem: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    empValorAPartirDe: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     endStandVendas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     enderecoDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    estagioDaObra: ({get: <R extends CategoryRequest>(request: R, defaultValue?: ((FieldsSelection<Category, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<Category, R> | undefined)[] | undefined)>}),
+    estagioDaObra: (CategoryPromiseChain & {get: <R extends CategoryRequest>(request: R, defaultValue?: (FieldsSelection<Category, R> | undefined)) => Promise<(FieldsSelection<Category, R> | undefined)>}),
     
 /** The name of the ACF Field Group */
 fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     galeriaDeFotos: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: ((FieldsSelection<MediaItem, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<MediaItem, R> | undefined)[] | undefined)>}),
+    imagemPrincipal: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
     imagensOutros: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: ((FieldsSelection<MediaItem, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<MediaItem, R> | undefined)[] | undefined)>}),
     itemsPlantas: ({get: <R extends Empreendimento_Empreendimento_itemsPlantasRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_itemsPlantas, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<Empreendimento_Empreendimento_itemsPlantas, R> | undefined)[] | undefined)>}),
     itensAreacomuns: ({get: <R extends Empreendimento_Empreendimento_itensAreacomunsRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_itensAreacomuns, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<Empreendimento_Empreendimento_itensAreacomuns, R> | undefined)[] | undefined)>}),
@@ -24920,16 +24932,20 @@ export interface Empreendimento_EmpreendimentoObservableChain{
     andamentoDaObra: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     arquivoDaApresentacao: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
     diferenciaisItems: ({get: <R extends Empreendimento_Empreendimento_diferenciaisItemsRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_diferenciaisItems, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<Empreendimento_Empreendimento_diferenciaisItems, R> | undefined)[] | undefined)>}),
-    empCaracteristicas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     empCidade: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     empDescricao: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    empDormitorios: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    empMetragem: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    empVagasDeGaragem: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    empValorAPartirDe: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     endStandVendas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     enderecoDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    estagioDaObra: ({get: <R extends CategoryRequest>(request: R, defaultValue?: ((FieldsSelection<Category, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<Category, R> | undefined)[] | undefined)>}),
+    estagioDaObra: (CategoryObservableChain & {get: <R extends CategoryRequest>(request: R, defaultValue?: (FieldsSelection<Category, R> | undefined)) => Observable<(FieldsSelection<Category, R> | undefined)>}),
     
 /** The name of the ACF Field Group */
 fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     galeriaDeFotos: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: ((FieldsSelection<MediaItem, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<MediaItem, R> | undefined)[] | undefined)>}),
+    imagemPrincipal: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
     imagensOutros: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: ((FieldsSelection<MediaItem, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<MediaItem, R> | undefined)[] | undefined)>}),
     itemsPlantas: ({get: <R extends Empreendimento_Empreendimento_itemsPlantasRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_itemsPlantas, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<Empreendimento_Empreendimento_itemsPlantas, R> | undefined)[] | undefined)>}),
     itensAreacomuns: ({get: <R extends Empreendimento_Empreendimento_itensAreacomunsRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Empreendimento_itensAreacomuns, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<Empreendimento_Empreendimento_itensAreacomuns, R> | undefined)[] | undefined)>}),

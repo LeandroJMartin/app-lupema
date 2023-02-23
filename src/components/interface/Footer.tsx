@@ -66,50 +66,59 @@ const FooterApp = () => {
         </div>
         <div className="space-y-3">
           <Link
-            href="/politica-de-privacidade"
+            href="#politica-de-privacidade"
             className="block hover:text-green"
           >
             Política de privacidade
           </Link>
-          <Link href="/codigo-de-etica" className="block hover:text-green">
+          <Link href="#codigo-de-etica" className="block hover:text-green">
             Código de ética
           </Link>
-          <Link href="/termos-de-uso" className="block hover:text-green">
+          <Link href="#termos-de-uso" className="block hover:text-green">
             Termos de uso
           </Link>
-          <Link href="/protecao-de-dados" className="block hover:text-green">
+          <Link href="#protecao-de-dados" className="block hover:text-green">
             Proteção de dados
           </Link>
-          <Link href="/informacoes-legais" className="block hover:text-green">
+          <Link href="#informacoes-legais" className="block hover:text-green">
             Informações legais
           </Link>
         </div>
         <div className="space-y-3">
-          <Link href="/trabalhe-conosco" className="block hover:text-green">
+          <Link
+            href="/contato#trabalhe-conosco"
+            className="block hover:text-green"
+          >
             Trabalhe conosco
           </Link>
-          <Link href="/seja-nosso-forncedor" className="block hover:text-green">
+          <Link
+            href="/contato#seja-nosso-forncedor"
+            className="block hover:text-green"
+          >
             Seja nosso fornecedor
           </Link>
           <Link
-            href="/cadastro-de-corretores"
+            href="#cadastro-de-corretores"
             className="block hover:text-green"
           >
             Cadastro de corretores
           </Link>
-          <Link href="/central-de-vizinhos" className="block hover:text-green">
+          <Link href="#central-de-vizinhos" className="block hover:text-green">
             Central de vizinhos
           </Link>
-          <Link href="/ofereca-sua-area" className="block hover:text-green">
+          <Link
+            href="/contato#ofereca-sua-area"
+            className="block hover:text-green"
+          >
             Ofereça sua área
           </Link>
-          <Link href="/imprensa" className="block hover:text-green">
+          <Link href="/assessoria" className="block hover:text-green">
             Imprensa
           </Link>
         </div>
-        <div>
+        <a href="/" className="cursor-pointer">
           <Image src={Logo} width={225} height={100} alt="Logo Lupema" />
-        </div>
+        </a>
       </div>
       <CoolText />
     </footer>

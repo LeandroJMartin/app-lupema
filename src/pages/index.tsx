@@ -3,13 +3,18 @@ import AboutHome from '../components/layout/AboutHome';
 import EmpSlideHome from '../components/layout/EmpSlideHome';
 import HeroApp from '../components/layout/Hero';
 import NewsletterApp from '../components/layout/Newsletter';
-import { Page_Conteusobre, RootQueryToBannerConnection } from '../generated';
+import {
+  Page_Conteusobre,
+  RootQueryToBannerConnection,
+  RootQueryToEmpreendimentoConnection,
+} from '../generated';
 import ClientApp from '../lib/genql';
 
 interface Props {
   data: {
     about: Page_Conteusobre;
     banners: RootQueryToBannerConnection;
+    emp: RootQueryToEmpreendimentoConnection;
   };
 }
 
@@ -17,7 +22,7 @@ const Home: NextPage<Props> = ({ data }) => {
   return (
     <>
       <HeroApp banners={data.banners} />
-      <EmpSlideHome />
+      <EmpSlideHome data={data.emp} />
       <AboutHome about={data.about} />
       <NewsletterApp />
     </>
@@ -27,7 +32,7 @@ const Home: NextPage<Props> = ({ data }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const { page, banners } = await ClientApp.query({
+  const { page, banners, empreendimentos } = await ClientApp.query({
     page: [
       {
         id: '2',
@@ -78,6 +83,25 @@ export const getStaticProps = async () => {
         },
       },
     },
+    empreendimentos: {
+      nodes: {
+        empreendimento: {
+          imagemPrincipal: {
+            sourceUrl: true,
+          },
+          nomeDoEmpreendimento: true,
+          estagioDaObra: {
+            name: true,
+            slug: true,
+          },
+          empCidade: true,
+          empMetragem: true,
+          empDormitorios: true,
+          empVagasDeGaragem: true,
+          empValorAPartirDe: true,
+        },
+      },
+    },
   });
 
   return {
@@ -85,6 +109,7 @@ export const getStaticProps = async () => {
       data: {
         about: page?.conteuSobre,
         banners: banners,
+        emp: empreendimentos,
       },
     },
     revalidate: 30,

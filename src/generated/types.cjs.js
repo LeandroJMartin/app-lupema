@@ -6660,13 +6660,22 @@ module.exports = {
             "diferenciaisItems": [
                 172
             ],
-            "empCaracteristicas": [
-                1
-            ],
             "empCidade": [
                 1
             ],
             "empDescricao": [
+                1
+            ],
+            "empDormitorios": [
+                1
+            ],
+            "empMetragem": [
+                1
+            ],
+            "empVagasDeGaragem": [
+                1
+            ],
+            "empValorAPartirDe": [
                 1
             ],
             "endStandVendas": [
@@ -6682,6 +6691,9 @@ module.exports = {
                 1
             ],
             "galeriaDeFotos": [
+                80
+            ],
+            "imagemPrincipal": [
                 80
             ],
             "imagensOutros": [

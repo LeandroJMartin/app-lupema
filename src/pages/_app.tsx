@@ -2,13 +2,15 @@ import React from 'react';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import LayoutApp from '../components/interface/Layout';
-import { ApiData } from '../types/apidata';
+import MenuContextProvider from '../context/menuMobileContext';
 
-function MyApp({ Component, pageProps }: AppProps<ApiData>) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <LayoutApp>
-      <Component {...pageProps} />
-    </LayoutApp>
+    <MenuContextProvider>
+      <LayoutApp>
+        <Component {...pageProps} />
+      </LayoutApp>
+    </MenuContextProvider>
   );
 }
 

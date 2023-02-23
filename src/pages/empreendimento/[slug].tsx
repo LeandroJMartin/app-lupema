@@ -35,7 +35,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           src={imgs?.sourceUrl || ''}
           alt="Galeria de imagens"
           fill
-          className="object-cover"
+          className="object-cover cursor-gallery"
         />
       </div>
     );
@@ -86,11 +86,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                     {data.nomeDoEmpreendimento}
                   </h1>
                   <span className="px-2 text-xl text-white">|</span>
-                  <span className="text-white">
-                    {data.estagioDaObra?.map((category) => {
-                      return category?.name;
-                    })}
-                  </span>
+                  <span className="text-white">{data.estagioDaObra?.name}</span>
                 </div>
                 <p className="text-green">
                   Tipo:{' '}
@@ -121,31 +117,40 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
               <a
                 href={data.arquivoDaApresentacao?.sourceUrl}
                 download
-                className="border border-green py-2 w-[150px] block text-green text-center"
+                className="border border-green py-2 w-[150px] block text-green text-center cursor-pointer"
               >
                 Baixar apresentação
               </a>
-              <button className="bg-green py-2 w-[150px] block text-black text-center my-4">
+              <a
+                href="#form"
+                className="bg-green py-2 w-[150px] block text-black text-center my-4 cursor-pointer"
+              >
                 Faça uma simulação
-              </button>
+              </a>
               <a
                 href={data.linkDoTourVirtual}
-                className="border border-green py-2 w-[150px] block text-green text-center"
+                className="border border-green py-2 w-[150px] block text-green text-center cursor-pointer"
               >
                 Tour virtual
               </a>
             </div>
-            <div className="order-2 sm:order-3">
-              <p
-                className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold"
-                dangerouslySetInnerHTML={{
-                  __html: data.empCaracteristicas || '',
-                }}
-              />
-            </div>
+            <ul className="order-2 sm:order-3">
+              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
+                {data.empMetragem}
+              </li>
+              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
+                {data.empDormitorios}
+              </li>
+              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
+                {data.empVagasDeGaragem}
+              </li>
+              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
+                A partir de {data.empValorAPartirDe}
+              </li>
+            </ul>
           </div>
         </div>
-        <div className="my-6 gallery cursor-gallery">
+        <div className="my-6 gallery">
           <SlideApp
             items={gallery}
             infinite={true}
@@ -167,7 +172,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                 <img
                   src={item?.iconeimagemDoDiferencial?.sourceUrl}
                   alt="Icone do diferencial"
-                  className="w-8 h-8"
+                  className="w-7 h-7"
                 />
                 <p className="text-white ml-3">{item?.nomeDiferencial}</p>
               </div>
@@ -192,6 +197,22 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
             <h2 className="text-2xl lg:text-4xl text-green text-center">
               Áreas comuns
             </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10">
+              {data.itensAreacomuns?.map((item) => {
+                return (
+                  <div className="flex items-center">
+                    <img
+                      src={item?.iconeimagemAreacomuns?.sourceUrl}
+                      alt="Icone do diferencial"
+                      className="w-7 h-7"
+                    />
+                    <p className="ml-3 text-black">
+                      {item?.descricaoAreacomuns}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -239,6 +260,20 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
             </div>
           </div>
         </div>
+        <div className="container grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10 pb-12">
+          {data.pontosDeReferencia?.map((item) => {
+            return (
+              <div className="flex items-center">
+                <img
+                  src={item?.iconeOuImagemRef?.sourceUrl}
+                  alt="Icone do diferencial"
+                  className="w-7 h-7"
+                />
+                <p className="ml-3 text-white">{item?.nomePontoReferencia}</p>
+              </div>
+            );
+          })}
+        </div>
       </section>
       <section className="container">
         <div className="flex items-center justify-center">
@@ -261,7 +296,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           </div>
         </div>
       </section>
-      <section className="bg-black">
+      <section id="form" className="bg-black">
         <div className="container flex items-center justify-center">
           <div className="flex flex-col items-center w-full xl:w-[60%] py-16 space-y-12">
             <div className="text-center space-y-2">
@@ -284,7 +319,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           <div className="flex flex-col items-center w-full xl:w-[60%] py-16 space-y-12">
             <h2 className="text-2xl lg:text-4xl text-white">Ficha Técnica</h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 items-center text-white space-x-8 [&>div>p]:text-lg">
+            <div className="grid grid-cols-1 lg:grid-cols-2 items-center text-white gap-4 [&>div>p]:text-lg">
               <div className="p-2">
                 <p
                   dangerouslySetInnerHTML={{ __html: data.listaItensTec || '' }}

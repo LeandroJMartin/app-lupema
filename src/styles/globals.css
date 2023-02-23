@@ -15,6 +15,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   font-family: 'Ubuntu', sans-serif;
@@ -84,7 +88,7 @@ button {
   padding: 0 30px;
 }
 
-@media screen and (max-width: 1170px){
+@media screen and (max-width: 1170px) {
   .gallery .alice-carousel__stage-item {
     padding: 0 10px;
   }
@@ -188,4 +192,43 @@ input[type='search']::-webkit-search-cancel-button {
   transform: translateX(-30px);
   position: relative;
   cursor: pointer;
+}
+
+.textAnimation {
+  width: 100%;
+  display: flex;
+}
+.textAnimation div {
+  color: #ffffff;
+  font-size: 20rem;
+  font-weight: 900;
+  white-space: nowrap;
+  text-transform: uppercase;
+  animation: animate 80s linear infinite;
+  animation-delay: -80s;
+}
+.textAnimation div:nth-child(2) {
+  animation: animate2 80s linear infinite;
+  animation-delay: -40s;
+}
+.textAnimation div span {
+  color: #ffffff;
+  opacity: .2;
+  margin-right: 70px;
+}
+@keyframes animate {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes animate2 {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
 }

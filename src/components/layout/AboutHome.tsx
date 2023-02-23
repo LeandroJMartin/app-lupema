@@ -7,8 +7,6 @@ interface Props {
 }
 
 const AboutHome = ({ about }: Props) => {
-  console.log(about);
-
   return (
     <section className="bg-white py-[40px] md:py-[80px]">
       <div className="container grid grid-cols-1 md:grid-cols-2">

@@ -7112,13 +7112,22 @@ type Empreendimento_Empreendimento implements AcfFieldGroup {
   diferenciaisItems: [Empreendimento_Empreendimento_diferenciaisItems]
 
   """"""
-  empCaracteristicas: String
-
-  """"""
   empCidade: String
 
   """"""
   empDescricao: String
+
+  """"""
+  empDormitorios: String
+
+  """"""
+  empMetragem: String
+
+  """"""
+  empVagasDeGaragem: String
+
+  """"""
+  empValorAPartirDe: String
 
   """"""
   endStandVendas: String
@@ -7127,13 +7136,16 @@ type Empreendimento_Empreendimento implements AcfFieldGroup {
   enderecoDoEmpreendimento: String
 
   """"""
-  estagioDaObra: [Category]
+  estagioDaObra: Category
 
   """The name of the ACF Field Group"""
   fieldGroupName: String
 
   """"""
   galeriaDeFotos: [MediaItem]
+
+  """"""
+  imagemPrincipal: MediaItem
 
   """"""
   imagensOutros: [MediaItem]

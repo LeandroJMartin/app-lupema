@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { RxArrowRight } from 'react-icons/rx';
-import { Maybe, Banner_BannerHome_BhConteudo } from '../../generated/graphql';
+import { Banner_BannerHome_BhConteudo } from '../../generated';
 
 interface Content {
-  content: Maybe<Banner_BannerHome_BhConteudo> | undefined;
+  content: Banner_BannerHome_BhConteudo | undefined;
 }
 
 const BannerCustom = ({ content }: Content) => {
@@ -43,9 +43,16 @@ const BannerCustom = ({ content }: Content) => {
           </div>
         </div>
         <div className="w-full overflow-hidden absolute bottom-2 2xl:bottom-0 left-0 right-0">
-          <span className="text-white/25 text-[200px] 2xl:text-[340px] font-medium w-full inline-block min-w-max uppercase">
-            {content.bhNomeDoEmpreendimento}
-          </span>
+          <div className="textAnimation">
+            <div>
+              <span>{content.bhNomeDoEmpreendimento}</span>
+              <span>{content.bhNomeDoEmpreendimento}</span>
+            </div>
+            <div>
+              <span>{content.bhNomeDoEmpreendimento}</span>
+              <span>{content.bhNomeDoEmpreendimento}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -18,7 +18,12 @@ const HeroApp = ({ banners }: Props) => {
 
   return (
     <div className="hero">
-      <SlideApp items={items} navigation={true} largura={0} infinite={false} />
+      <SlideApp
+        items={items}
+        navigation={true}
+        largura={{ desktop: 0, mobile: 0 }}
+        infinite={false}
+      />
     </div>
   );
 };

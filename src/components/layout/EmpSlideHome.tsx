@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
+import { RootQueryToEmpreendimentoConnection } from '../../generated';
 import BlockEmp from './BlockEmp';
 import SlideApp from './Slide';
 
-const EmpSlideHome = () => {
-  const items = [
-    <BlockEmp />,
-    <BlockEmp />,
-    <BlockEmp />,
-    <BlockEmp />,
-    <BlockEmp />,
-    <BlockEmp />,
-  ];
+interface Props {
+  data: RootQueryToEmpreendimentoConnection;
+}
+
+const EmpSlideHome = ({ data }: Props) => {
+  const items = data.nodes.map((item) => {
+    return <BlockEmp content={item.empreendimento} />;
+  });
 
   const responsive = {
     0: { items: 1 },
-    568: { items: 2 },
-    1024: { items: 3 },
+    568: { items: 2, itemsFit: 'contain' },
+    1024: { items: 3, itemsFit: 'contain' },
   };
 
   const [largura, setLargura] = useState(0);
@@ -31,7 +31,7 @@ const EmpSlideHome = () => {
           <SlideApp
             items={items}
             responsive={responsive}
-            largura={largura}
+            largura={{ desktop: 0, mobile: 0 }}
             infinite={true}
             navigation={true}
           />
