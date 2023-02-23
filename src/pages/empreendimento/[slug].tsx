@@ -399,7 +399,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           arquivoDaApresentacao: {
             sourceUrl: true,
           },
-          empCaracteristicas: true,
+          empDormitorios: true,
+          empMetragem: true,
+          empVagasDeGaragem: true,
+          empValorAPartirDe: true,
           linkDoTourVirtual: true,
           galeriaDeFotos: {
             sourceUrl: true,

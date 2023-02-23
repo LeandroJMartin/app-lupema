@@ -23,7 +23,7 @@ const DownloadsApp = ({ files }: Props) => {
     <SlideApp
       items={array}
       infinite={true}
-      largura={0}
+      largura={{ desktop: 0, mobile: 0 }}
       navigation={true}
       responsive={responsive}
     />

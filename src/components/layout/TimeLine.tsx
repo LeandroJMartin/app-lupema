@@ -49,7 +49,7 @@ const TimeLine = ({ prop }: Prop) => {
         items={itemTimeLine}
         responsive={responsive}
         navigation={true}
-        largura={0}
+        largura={{ desktop: 0, mobile: 0 }}
         infinite={false}
       />
     </div>
