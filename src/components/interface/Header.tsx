@@ -6,6 +6,7 @@ import MenuApp from '../layout/Menu';
 import { useRef } from 'react';
 import UseChangeBg from '../../hooks/useChangeBg';
 import { useMenuMobileContext } from '../../context/menuMobileContext';
+import Link from 'next/link';
 
 const HeaderApp = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -25,14 +26,14 @@ const HeaderApp = () => {
         >
           {<HiMenuAlt2 size={26} />}
         </button>
-        <a href="/" className="px-6 order-1 sm:order-2 cursor-pointer">
+        <Link href="/" className="px-6 order-1 sm:order-2 cursor-pointer">
           <Image
             src={Logo}
             alt="Logo Lupema Engenharia"
             width={200}
             height={37}
           />
-        </a>
+        </Link>
       </div>
       <div className="hidden sm:flex items-center justify-end w-[40%] h-[100px] sm:h-[72px]">
         <a

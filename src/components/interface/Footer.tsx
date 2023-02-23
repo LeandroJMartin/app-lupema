@@ -116,9 +116,9 @@ const FooterApp = () => {
             Imprensa
           </Link>
         </div>
-        <a href="/" className="cursor-pointer">
+        <Link href="/" className="cursor-pointer">
           <Image src={Logo} width={225} height={100} alt="Logo Lupema" />
-        </a>
+        </Link>
       </div>
       <CoolText />
     </footer>
