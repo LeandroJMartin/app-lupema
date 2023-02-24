@@ -222,7 +222,6 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
             <div className="text-center space-y-2">
               <h2 className="text-2xl lg:text-4xl text-green">Localização</h2>
             </div>
-
             <div className="flex flex-wrap items-center justify-center w-full">
               <div className="w-full lg:w-3/12 space-y-8">
                 <div className="space-y-2">
