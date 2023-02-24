@@ -35,7 +35,7 @@ const EmpreendimentosApp: NextPage<Props> = ({ data }) => {
           <h1 className="title mb-4">{data.page.title}</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {data.emp.nodes.map((item) => {
-              return <BlockEmp content={item.empreendimento} />;
+              return <BlockEmp content={item} />;
             })}
           </div>
         </div>
@@ -108,6 +108,7 @@ export const getStaticProps = async () => {
           empVagasDeGaragem: true,
           empValorAPartirDe: true,
         },
+        slug: true,
       },
     },
   });

@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "genql": "genql --endpoint http://localhost:8888/Lupema/Novo/graphql --output ./src/generated"
+    "genql": "genql --endpoint https://lupema.mayacomunicacao.com.br/graphql --output ./src/generated"
   },
   "dependencies": {
     "@apollo/client": "^3.7.7",

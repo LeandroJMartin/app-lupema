@@ -100,6 +100,7 @@ export const getStaticProps = async () => {
           empVagasDeGaragem: true,
           empValorAPartirDe: true,
         },
+        slug: true,
       },
     },
   });

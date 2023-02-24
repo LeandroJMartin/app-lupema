@@ -9,7 +9,7 @@ interface Props {
 
 const EmpSlideHome = ({ data }: Props) => {
   const items = data.nodes.map((item) => {
-    return <BlockEmp content={item.empreendimento} />;
+    return <BlockEmp content={item} />;
   });
 
   const responsive = {
