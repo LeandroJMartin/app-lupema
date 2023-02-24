@@ -232,3 +232,30 @@ input[type='search']::-webkit-search-cancel-button {
     transform: translateX(-200%);
   }
 }
+
+.post img{
+  margin: 15px 0;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+.post h6{
+  font-weight: bold;
+  color: #729f2d;
+}
+
+.post a{
+  color: #729f2d;
+  font-style: italic;
+}
+
+.post b,
+.post strong{
+  font-weight: bold;
+}

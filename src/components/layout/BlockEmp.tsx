@@ -9,14 +9,19 @@ import Link from 'next/link';
 
 interface Props {
   content: Empreendimento | undefined;
+  main: boolean;
 }
 
-const BlockEmp = ({ content }: Props) => {
+const BlockEmp = ({ content, main = true }: Props) => {
   if (!content) return null;
 
   return (
     <Link href={`/empreendimento/${content.slug}`} className="pb-6">
-      <div className="relative h-[400px] xl:h-[450px] bg-blue/20">
+      <div
+        className={`relative bg-blue/20 ${
+          main ? 'h-[400px] xl:h-[450px]' : 'h-[270px]'
+        }`}
+      >
         <Image
           src={content.empreendimento?.imagemPrincipal?.sourceUrl || ''}
           fill
@@ -30,31 +35,40 @@ const BlockEmp = ({ content }: Props) => {
           <h2 className="text-xl font-medium">
             {content.empreendimento?.nomeDoEmpreendimento}
           </h2>
-          <div className="flex items-center justify-end ">
-            <div className="flex items-center mr-3">
-              <span className="mr-2">
-                {content.empreendimento?.empDormitorios}
-              </span>
-              <BiBed size={22} />
+          {main && (
+            <div className="flex items-center justify-end ">
+              <div className="flex items-center mr-3">
+                <span className="mr-2">
+                  {content.empreendimento?.empDormitorios}
+                </span>
+                <BiBed size={22} />
+              </div>
+              <div className="flex items-center">
+                <span className="mr-2">
+                  {content.empreendimento?.empVagasDeGaragem}
+                </span>
+                <TbCar size={22} />
+              </div>
             </div>
-            <div className="flex items-center">
-              <span className="mr-2">
-                {content.empreendimento?.empVagasDeGaragem}
+          )}
+        </div>
+        {main && (
+          <>
+            <p className="text-white flex items-center my-1">
+              <TbArrowRightBar size={20} />
+              <span className="ml-3">
+                {content.empreendimento?.empMetragem}
               </span>
-              <TbCar size={22} />
+            </p>
+            <div className="flex items-center text-white">
+              <GoLocation size={18} />
+              <span className="ml-2 text-sm">
+                {content.empreendimento?.empCidade}
+              </span>
             </div>
-          </div>
-        </div>
-        <p className="text-white flex items-center my-1">
-          <TbArrowRightBar size={20} />
-          <span className="ml-3">{content.empreendimento?.empMetragem}</span>
-        </p>
-        <div className="flex items-center text-white">
-          <GoLocation size={18} />
-          <span className="ml-2 text-sm">
-            {content.empreendimento?.empCidade}
-          </span>
-        </div>
+          </>
+        )}
+        {!main && <span className="italic text-white text-sm">Saiba mais</span>}
       </div>
     </Link>
   );

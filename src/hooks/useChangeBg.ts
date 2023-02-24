@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { RefObject, useEffect, useState } from 'react';
+import { RefObject, useEffect } from 'react';
 
 const UseChangeBg = (ref: RefObject<HTMLDivElement>) => {
   const router = useRouter();
@@ -11,20 +11,28 @@ const UseChangeBg = (ref: RefObject<HTMLDivElement>) => {
 
   const isPathInRoutsBg = routsbg.some((item) => router.asPath.match(item));
 
-
   function updatePosition() {
     if (!ref.current) return;
 
-    const scrollYoffset = router.asPath === '/' ? ref.current.getBoundingClientRect().height : 180;
+    if (window.scrollY > 5) {
 
-    ref.current.style.background = isPathInRoutsBg || router.asPath === '/' ? window?.scrollY > scrollYoffset ? '#28292e' : 'transparent' : '#28292e';
+      const scrollYoffset = router.asPath === '/' ? ref.current.getBoundingClientRect().height : 180;
+
+      ref.current.style.background = isPathInRoutsBg || router.asPath === '/' ? window?.scrollY > scrollYoffset ? '#28292e' : 'transparent' : '#28292e';
+    }
+
   }
 
   useEffect(() => {
     if (ref.current) {
-      if (!isPathInRoutsBg && router.asPath !== '/') ref.current.style.background = '#28292e'
+      if (!isPathInRoutsBg && router.asPath !== '/') {
+        ref.current.style.background = '#28292e'
+
+      } else {
+        ref.current.style.background = 'transparent'
+      }
     }
-  }, [ref]);
+  }, [ref, router.asPath]);
 
   useEffect(() => {
 

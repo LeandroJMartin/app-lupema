@@ -9,7 +9,7 @@ const FooterApp = () => {
     <footer className="bg-bgi pt-[40px] sm:pt-[60px] text-white">
       <div className="container grid grid-cols-2 xl:grid-cols-6 gap-6">
         <div className="col-span-2 xl:col-span-2">
-          <h2 className="text-green text-3xl">Fale com a Lupema</h2>
+          <h2 className="text-green text-3xl">Fale com a Lupema:</h2>
           <a href="tel:+551740092300" className="block my-4 text-xl">
             17 4009 2300
           </a>

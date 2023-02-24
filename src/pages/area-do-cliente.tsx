@@ -13,13 +13,13 @@ const ClientArea: NextPage = () => {
             variados serviços online. Confira abaixo:
           </p>
           <div className="my-6">
-            <a href="" className="block text-green font-semibold mb-2">
+            <a href="" className="text-green font-semibold mb-2 w-max block">
               • Imprimir 2ª via de boletos
             </a>
-            <a href="" className="block text-green font-semibold mb-2">
+            <a href="" className="text-green font-semibold mb-2 w-max block">
               • Atualizar seu cadastro
             </a>
-            <a href="" className="block text-green font-semibold">
+            <a href="" className="text-green font-semibold w-max block">
               • Informações financeiras
             </a>
           </div>

@@ -70,7 +70,7 @@ const MenuApp = () => {
             <a className="text-green" href="#area-do-corretor">
               Área do corretor
             </a>
-            <a className="text-green" href="#area-do-cliente">
+            <a className="text-green" href="/area-do-cliente">
               Área do cliente
             </a>
             <a className="text-green" href="#2-via-do-boleto">
