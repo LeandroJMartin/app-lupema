@@ -1,7 +1,7 @@
 import { createClient } from '../generated'
 
 const ClientApp = createClient({
-  url: 'http://localhost:8888/Lupema/Novo/graphql',
+  url: 'https://lupema.mayacomunicacao.com.br/graphql',
 })
 
 export default ClientApp;
