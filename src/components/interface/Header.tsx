@@ -26,7 +26,7 @@ const HeaderApp = () => {
 
   return (
     <header
-      className="fixed z-40 top-0 left-0 right-0 flex items-center border border-white/20 text-white backdrop-blur-xs bg-black/5 ease-out duration-300 bg-black"
+      className="fixed z-40 top-0 left-0 right-0 flex items-center border border-white/20 text-white backdrop-blur-xs ease-out duration-300 bg-black"
       // ref={ref}
     >
       <div className="flex items-center justify-between sm:justify-start w-full sm:w-[60%] h-[100px] sm:h-[72px] bg-menu">
