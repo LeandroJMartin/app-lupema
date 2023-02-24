@@ -3,6 +3,7 @@ import { RefObject, useEffect } from 'react';
 
 const UseChangeBg = (ref: RefObject<HTMLDivElement>) => {
   const router = useRouter();
+  let initial = false;
 
   const routsbg = [
     '/assessoria',
@@ -13,25 +14,27 @@ const UseChangeBg = (ref: RefObject<HTMLDivElement>) => {
 
   function updatePosition() {
     if (!ref.current) return;
+    if (!initial) return;
 
-    if (window.scrollY > 5) {
+    const scrollYoffset = router.asPath === '/' ? ref.current.getBoundingClientRect().height : 180;
 
-      const scrollYoffset = router.asPath === '/' ? ref.current.getBoundingClientRect().height : 180;
-
-      ref.current.style.background = isPathInRoutsBg || router.asPath === '/' ? window?.scrollY > scrollYoffset ? '#28292e' : 'transparent' : '#28292e';
-    }
+    ref.current.style.background = isPathInRoutsBg || router.asPath === '/' ? window?.scrollY > scrollYoffset ? '#28292e' : 'transparent' : '#28292e';
 
   }
 
   useEffect(() => {
-    if (ref.current) {
-      if (!isPathInRoutsBg && router.asPath !== '/') {
-        ref.current.style.background = '#28292e'
 
+    if (ref.current) {
+      if (isPathInRoutsBg && router.asPath === '/') {
+        ref.current.style.background = '#28292e'
       } else {
         ref.current.style.background = 'transparent'
       }
     }
+
+    setTimeout(() => {
+      initial = true;
+    }, 50)
   }, [ref, router.asPath]);
 
   useEffect(() => {
