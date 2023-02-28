@@ -1,4 +1,6 @@
+import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import ClientApp from '../lib/genql';
 
 export default function Custom500() {
   return (
@@ -20,3 +22,32 @@ export default function Custom500() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { page } = await ClientApp.query({
+    page: [
+      {
+        id: '201',
+        idType: 'DATABASE_ID',
+      },
+      {
+        informacoesDeContato: {
+          coTelefone: true,
+          coWhatsapp: true,
+          coEmail: true,
+          coEndereco: true,
+          linkFacebook: true,
+          linkInstagram: true,
+          linkYoutube: true,
+        },
+      },
+    ],
+  });
+  return {
+    props: {
+      data: {
+        social: page?.informacoesDeContato,
+      },
+    },
+  };
+};

@@ -4839,6 +4839,11 @@ type Page implements Node & ContentNode & UniformResourceIdentifiable & Database
   """The globally unique identifier of the page object."""
   id: ID!
 
+  """
+  Added to the GraphQL Schema because the ACF Field Group &quot;Informações de contato&quot; was set to Show in GraphQL.
+  """
+  informacoesDeContato: Page_Informacoesdecontato
+
   """Whether the node is a Content Node"""
   isContentNode: Boolean!
 
@@ -5269,6 +5274,33 @@ type Page_Conteusobre_item implements AcfFieldGroup {
 
   """"""
   nomeDoEmpreendimento: String
+}
+
+"""Field Group"""
+type Page_Informacoesdecontato implements AcfFieldGroup {
+  """"""
+  coEmail: String
+
+  """"""
+  coEndereco: String
+
+  """"""
+  coTelefone: String
+
+  """"""
+  coWhatsapp: String
+
+  """The name of the ACF Field Group"""
+  fieldGroupName: String
+
+  """"""
+  linkFacebook: String
+
+  """"""
+  linkInstagram: String
+
+  """"""
+  linkYoutube: String
 }
 
 """Connection between the Page type and the page type"""

@@ -6,18 +6,19 @@ import HeaderApp from './Header';
 
 interface Props {
   children: ReactNode;
+  ApiData: any;
 }
 
-const LayoutApp = ({ children }: Props) => {
+const LayoutApp = ({ children, ApiData }: Props) => {
   return (
     <div>
       <HeadApp />
-      <HeaderApp />
+      <HeaderApp data={ApiData.data?.social} />
 
       <main>{children}</main>
 
-      <WhatsApp />
-      <FooterApp />
+      <WhatsApp data={ApiData.data?.social} />
+      <FooterApp data={ApiData.data?.social} />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { GetStaticProps, NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 import CadastroImobiCorretores from '../components/layout/forms/CadastroImobiCarretores';
@@ -5,12 +6,20 @@ import FaleConosco from '../components/layout/forms/FaleConosco';
 import Fornecedor from '../components/layout/forms/Fornecedor';
 import OferecaSuaArea from '../components/layout/forms/OferecaSuaArea';
 import TrabalheConosco from '../components/layout/forms/TrabalheConosco';
+import { Page_Informacoesdecontato } from '../generated';
+import ClientApp from '../lib/genql';
+
+interface Props {
+  data: {
+    social: Page_Informacoesdecontato;
+  };
+}
 
 interface IPageForms {
   [key: string]: string;
 }
 
-const ContatoApp = () => {
+const ContatoApp: NextPage<Props> = ({ data }) => {
   const [form, setForm] = useState('fale_conosco');
   const [toggle, setToggle] = useState(true);
 
@@ -105,16 +114,19 @@ const ContatoApp = () => {
               Fale com a Lupema
             </h3>
             <a className="block" href="tel:+551740092300">
-              17 4009 2300
+              {data.social?.coTelefone}
             </a>
             <a className="block" href="mailto:lupema@lupemaengenharia.com.br">
-              lupema@lupemaengenharia.com.br
+              {data.social?.coEmail}
             </a>
           </div>
           <div>
             <h3 className="text-green text-xl font-medium">Como chegar</h3>
-            <p>Rua Floriano Oeixoto, 3444</p>
-            <p>Santos Dumont | São José do Rio Preto - SP</p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: data.social?.coEndereco || '',
+              }}
+            />
           </div>
         </div>
         <div className="mt-6 order-1 sm:order-2">
@@ -133,3 +145,28 @@ const ContatoApp = () => {
 };
 
 export default ContatoApp;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { page } = await ClientApp.query({
+    page: [
+      {
+        id: '201',
+        idType: 'DATABASE_ID',
+      },
+      {
+        informacoesDeContato: {
+          coTelefone: true,
+          coEmail: true,
+          coEndereco: true,
+          linkFacebook: true,
+          linkInstagram: true,
+          linkYoutube: true,
+        },
+      },
+    ],
+  });
+  return {
+    props: { data: { social: page?.informacoesDeContato } },
+    revalidate: 30,
+  };
+};

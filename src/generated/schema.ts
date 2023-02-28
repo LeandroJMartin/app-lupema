@@ -1430,6 +1430,8 @@ export interface Page {
     guid?: Scalars['String']
     /** The globally unique identifier of the page object. */
     id: Scalars['ID']
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Informações de contato&quot; was set to Show in GraphQL. */
+    informacoesDeContato?: Page_Informacoesdecontato
     /** Whether the node is a Content Node */
     isContentNode: Scalars['Boolean']
     /** Whether this page is set to the static front page. */
@@ -1548,7 +1550,7 @@ export interface Page_Assessoria {
 
 
 /** A Field Group registered by ACF */
-export type AcfFieldGroup = (Page_Assessoria | Page_Conteusobre | Page_Conteusobre_item | Empreendimento_Empreendimento | Empreendimento_Empreendimento_diferenciaisItems | Empreendimento_Empreendimento_itemsPlantas | Empreendimento_Empreendimento_itensAreacomuns | Empreendimento_Empreendimento_pontosDeReferencia | Empreendimento_Empreendimento_videosOutos | ArquivoAssessoria_DownAssessoria | Banner_BannerHome | Banner_BannerHome_BhConteudo | Banner_BannerHome_ImagensProntas) & { __isUnion?: true }
+export type AcfFieldGroup = (Page_Assessoria | Page_Conteusobre | Page_Conteusobre_item | Page_Informacoesdecontato | Empreendimento_Empreendimento | Empreendimento_Empreendimento_diferenciaisItems | Empreendimento_Empreendimento_itemsPlantas | Empreendimento_Empreendimento_itensAreacomuns | Empreendimento_Empreendimento_pontosDeReferencia | Empreendimento_Empreendimento_videosOutos | ArquivoAssessoria_DownAssessoria | Banner_BannerHome | Banner_BannerHome_BhConteudo | Banner_BannerHome_ImagensProntas) & { __isUnion?: true }
 
 
 /** Connection between the Page type and the Comment type */
@@ -1603,6 +1605,21 @@ export interface Page_Conteusobre_item {
     fieldGroupName?: Scalars['String']
     nomeDoEmpreendimento?: Scalars['String']
     __typename: 'Page_Conteusobre_item'
+}
+
+
+/** Field Group */
+export interface Page_Informacoesdecontato {
+    coEmail?: Scalars['String']
+    coEndereco?: Scalars['String']
+    coTelefone?: Scalars['String']
+    coWhatsapp?: Scalars['String']
+    /** The name of the ACF Field Group */
+    fieldGroupName?: Scalars['String']
+    linkFacebook?: Scalars['String']
+    linkInstagram?: Scalars['String']
+    linkYoutube?: Scalars['String']
+    __typename: 'Page_Informacoesdecontato'
 }
 
 
@@ -7620,6 +7637,8 @@ export interface PageRequest{
     guid?: boolean | number
     /** The globally unique identifier of the page object. */
     id?: boolean | number
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Informações de contato&quot; was set to Show in GraphQL. */
+    informacoesDeContato?: Page_InformacoesdecontatoRequest
     /** Whether the node is a Content Node */
     isContentNode?: boolean | number
     /** Whether this page is set to the static front page. */
@@ -7838,6 +7857,7 @@ export interface AcfFieldGroupRequest{
     on_Page_Assessoria?: Page_AssessoriaRequest
     on_Page_Conteusobre?: Page_ConteusobreRequest
     on_Page_Conteusobre_item?: Page_Conteusobre_itemRequest
+    on_Page_Informacoesdecontato?: Page_InformacoesdecontatoRequest
     on_Empreendimento_Empreendimento?: Empreendimento_EmpreendimentoRequest
     on_Empreendimento_Empreendimento_diferenciaisItems?: Empreendimento_Empreendimento_diferenciaisItemsRequest
     on_Empreendimento_Empreendimento_itemsPlantas?: Empreendimento_Empreendimento_itemsPlantasRequest
@@ -7969,6 +7989,22 @@ export interface Page_Conteusobre_itemRequest{
     /** The name of the ACF Field Group */
     fieldGroupName?: boolean | number
     nomeDoEmpreendimento?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Field Group */
+export interface Page_InformacoesdecontatoRequest{
+    coEmail?: boolean | number
+    coEndereco?: boolean | number
+    coTelefone?: boolean | number
+    coWhatsapp?: boolean | number
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    linkFacebook?: boolean | number
+    linkInstagram?: boolean | number
+    linkYoutube?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -14842,7 +14878,7 @@ export const isPage_Assessoria = (obj?: { __typename?: any } | null): obj is Pag
 
 
 
-const AcfFieldGroup_possibleTypes: string[] = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Empreendimento_Empreendimento','Empreendimento_Empreendimento_diferenciaisItems','Empreendimento_Empreendimento_itemsPlantas','Empreendimento_Empreendimento_itensAreacomuns','Empreendimento_Empreendimento_pontosDeReferencia','Empreendimento_Empreendimento_videosOutos','ArquivoAssessoria_DownAssessoria','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
+const AcfFieldGroup_possibleTypes: string[] = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Page_Informacoesdecontato','Empreendimento_Empreendimento','Empreendimento_Empreendimento_diferenciaisItems','Empreendimento_Empreendimento_itemsPlantas','Empreendimento_Empreendimento_itensAreacomuns','Empreendimento_Empreendimento_pontosDeReferencia','Empreendimento_Empreendimento_videosOutos','ArquivoAssessoria_DownAssessoria','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
 export const isAcfFieldGroup = (obj?: { __typename?: any } | null): obj is AcfFieldGroup => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAcfFieldGroup"')
   return AcfFieldGroup_possibleTypes.includes(obj.__typename)
@@ -14878,6 +14914,14 @@ const Page_Conteusobre_item_possibleTypes: string[] = ['Page_Conteusobre_item']
 export const isPage_Conteusobre_item = (obj?: { __typename?: any } | null): obj is Page_Conteusobre_item => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPage_Conteusobre_item"')
   return Page_Conteusobre_item_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Page_Informacoesdecontato_possibleTypes: string[] = ['Page_Informacoesdecontato']
+export const isPage_Informacoesdecontato = (obj?: { __typename?: any } | null): obj is Page_Informacoesdecontato => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPage_Informacoesdecontato"')
+  return Page_Informacoesdecontato_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -22145,6 +22189,9 @@ guid: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | unde
 /** The globally unique identifier of the page object. */
 id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Promise<Scalars['ID']>}),
     
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Informações de contato&quot; was set to Show in GraphQL. */
+informacoesDeContato: (Page_InformacoesdecontatoPromiseChain & {get: <R extends Page_InformacoesdecontatoRequest>(request: R, defaultValue?: (FieldsSelection<Page_Informacoesdecontato, R> | undefined)) => Promise<(FieldsSelection<Page_Informacoesdecontato, R> | undefined)>}),
+    
 /** Whether the node is a Content Node */
 isContentNode: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
     
@@ -22371,6 +22418,9 @@ guid: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | unde
     
 /** The globally unique identifier of the page object. */
 id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Observable<Scalars['ID']>}),
+    
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Informações de contato&quot; was set to Show in GraphQL. */
+informacoesDeContato: (Page_InformacoesdecontatoObservableChain & {get: <R extends Page_InformacoesdecontatoRequest>(request: R, defaultValue?: (FieldsSelection<Page_Informacoesdecontato, R> | undefined)) => Observable<(FieldsSelection<Page_Informacoesdecontato, R> | undefined)>}),
     
 /** Whether the node is a Content Node */
 isContentNode: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
@@ -22845,6 +22895,36 @@ export interface Page_Conteusobre_itemObservableChain{
 /** The name of the ACF Field Group */
 fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     nomeDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Page_InformacoesdecontatoPromiseChain{
+    coEmail: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    coEndereco: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    coTelefone: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    coWhatsapp: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    linkFacebook: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    linkInstagram: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    linkYoutube: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Page_InformacoesdecontatoObservableChain{
+    coEmail: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    coEndereco: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    coTelefone: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    coWhatsapp: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    linkFacebook: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    linkInstagram: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    linkYoutube: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 

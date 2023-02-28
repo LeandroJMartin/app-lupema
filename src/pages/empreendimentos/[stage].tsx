@@ -76,7 +76,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps = async () => {
-  const { page, empreendimentos } = await ClientApp.query({
+  const { page, empreendimentos, pageBy } = await ClientApp.query({
     page: [
       {
         id: '79',
@@ -88,6 +88,22 @@ export const getStaticProps = async () => {
           node: {
             sourceUrl: true,
           },
+        },
+      },
+    ],
+    pageBy: [
+      {
+        pageId: 201,
+      },
+      {
+        informacoesDeContato: {
+          coTelefone: true,
+          coWhatsapp: true,
+          coEmail: true,
+          coEndereco: true,
+          linkFacebook: true,
+          linkInstagram: true,
+          linkYoutube: true,
         },
       },
     ],
@@ -118,6 +134,7 @@ export const getStaticProps = async () => {
       data: {
         page: page,
         emp: empreendimentos,
+        social: pageBy?.informacoesDeContato,
       },
     },
     revalidate: 30,

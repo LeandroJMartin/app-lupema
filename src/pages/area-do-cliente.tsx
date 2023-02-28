@@ -1,11 +1,19 @@
 import { NextPage } from 'next';
 import { BsFacebook } from 'react-icons/bs';
+import { Page_Informacoesdecontato } from '../generated';
+import ClientApp from '../lib/genql';
 
-const ClientArea: NextPage = () => {
+interface Props {
+  data: {
+    social: Page_Informacoesdecontato;
+  };
+}
+
+const ClientArea: NextPage<Props> = ({ data }) => {
   return (
     <section className="container py-[40px] md:py-[80px] mt-[100px] sm:mt-[74px]">
       <h1 className="title mb-6">Área do Cliente</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         <div>
           <p>
             A Lupema conta com um portal de atendimento exclusivo para seus
@@ -32,13 +40,16 @@ const ClientArea: NextPage = () => {
             sexta-feira das 8h às 17h.
           </p>
           <div className="flex items-center mt-6">
-            <a href="tel:+551740092300" className="button mr-4">
-              17 4009 2300
+            <a
+              href={`tel:+55${data.social.coTelefone}`}
+              className="button mr-4"
+            >
+              {data.social.coTelefone}
             </a>
-            <a href="tel:+5517996430381" className="button">
-              17 996430381
+            <a href={`tel:+55${data.social.coWhatsapp}`} className="button">
+              {data.social.coWhatsapp}
             </a>
-            <a href="https://facebook.com" className="ml-4">
+            <a href={data.social.linkFacebook} className="ml-4">
               <BsFacebook size={30} className="text-green" />
             </a>
           </div>
@@ -73,3 +84,33 @@ const ClientArea: NextPage = () => {
 };
 
 export default ClientArea;
+
+export const getStaticProps = async () => {
+  const { pageBy } = await ClientApp.query({
+    pageBy: [
+      {
+        pageId: 201,
+      },
+      {
+        informacoesDeContato: {
+          coTelefone: true,
+          coWhatsapp: true,
+          coEmail: true,
+          coEndereco: true,
+          linkFacebook: true,
+          linkInstagram: true,
+          linkYoutube: true,
+        },
+      },
+    ],
+  });
+
+  return {
+    props: {
+      data: {
+        social: pageBy?.informacoesDeContato,
+      },
+    },
+    revalidate: 30,
+  };
+};

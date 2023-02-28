@@ -1,13 +1,18 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
 import DownloadsApp from '../components/layout/Downloads';
-import { Page, RootQueryToArquivoAssessoriaConnection } from '../generated';
+import {
+  Page,
+  Page_Informacoesdecontato,
+  RootQueryToArquivoAssessoriaConnection,
+} from '../generated';
 import ClientApp from '../lib/genql';
 
 interface Props {
   data: {
     page: Page;
     files: RootQueryToArquivoAssessoriaConnection;
+    social: Page_Informacoesdecontato;
   };
 }
 
@@ -89,7 +94,7 @@ const AssessoriaApp: NextPage<Props> = ({ data }) => {
 export default AssessoriaApp;
 
 export const getStaticProps = async () => {
-  const { page, arquivosAssessoria } = await ClientApp.query({
+  const { page, arquivosAssessoria, pageBy } = await ClientApp.query({
     page: [
       {
         id: '82',
@@ -107,6 +112,22 @@ export const getStaticProps = async () => {
           assNometitulo: true,
           assEmail: true,
           assTelefone: true,
+        },
+      },
+    ],
+    pageBy: [
+      {
+        pageId: 201,
+      },
+      {
+        informacoesDeContato: {
+          coTelefone: true,
+          coWhatsapp: true,
+          coEmail: true,
+          coEndereco: true,
+          linkFacebook: true,
+          linkInstagram: true,
+          linkYoutube: true,
         },
       },
     ],
@@ -128,7 +149,11 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      data: { page: page, files: arquivosAssessoria },
+      data: {
+        page: page,
+        files: arquivosAssessoria,
+        social: pageBy?.informacoesDeContato,
+      },
       revalidate: 30,
     },
   };

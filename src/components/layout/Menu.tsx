@@ -9,13 +9,18 @@ import { GoLocation } from 'react-icons/go';
 import Link from 'next/link';
 import Logo from '../../../public/logo-2.svg';
 import { useMenuMobileContext } from '../../context/menuMobileContext';
+import { Page_Informacoesdecontato } from '../../generated';
+
+interface Props {
+  data: Page_Informacoesdecontato;
+}
 
 interface Links {
   path: string;
   label: string;
 }
 
-const MenuApp = () => {
+const MenuApp = ({ data }: Props) => {
   const { state: status, toogleState } = useMenuMobileContext();
 
   const LinkPath = ({ path, label }: Links) => {
@@ -84,29 +89,33 @@ const MenuApp = () => {
         <div className="pb-6 sm:pb-0">
           <h2 className="text-green">Siga nossas redes sociais</h2>
           <div className="flex items-center justify-center sm:justify-start mt-2 space-x-3">
-            <a href="#facebook">
+            <a href={data.linkFacebook}>
               <IoLogoFacebook size={20} />
             </a>
-            <a className="px-3" href="#instagram">
+            <a className="px-3" href={data.linkInstagram}>
               <IoLogoInstagram size={20} />
             </a>
-            <a href="#youtube">
+            <a href={data.linkYoutube}>
               <IoLogoYoutube size={20} />
             </a>
           </div>
           <h2 className="text-green mt-8">Fale com a Lupema</h2>
-          <a href="tel:+5517400092300">17 40009 2300</a>
-          <a href="mailto:lupema@lupemaengenharia.com.br">
-            lupema@lupemaengenharia.com.br
+          <a href={`tel:+55${data.coTelefone}`} className="block">
+            {data.coTelefone}
+          </a>
+          <a href={`mailto:${data.coEmail}`} className="block">
+            {data.coEmail}
           </a>
           <div className="flex items-center justify-center sm:justify-start text-green my-12">
             <GoLocation size={24} />
             <h2 className="ml-3">Como chegar na Lstore</h2>
           </div>
           <h2 className="text-green mb-2">Escritório</h2>
-          <p>Rua Floriano Peixoto, 3444</p>
-          <p>Santos Dumont</p>
-          <p>São José do Rio Preto - SP</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: data.coEndereco || '',
+            }}
+          />
         </div>
       </main>
     </div>

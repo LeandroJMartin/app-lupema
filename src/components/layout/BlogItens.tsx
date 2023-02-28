@@ -9,7 +9,7 @@ interface Props {
 const BlogItems = ({ post }: Props) => {
   return (
     <div>
-      <Link href={`/noticias/${post.slug}`}>
+      <Link href={`/noticia/${post.slug}`}>
         <div className="relative h-[230px] sm:h-[280px] md:h-[350px]">
           <Image
             src={post.featuredImage?.node.sourceUrl || ''}
@@ -19,7 +19,7 @@ const BlogItems = ({ post }: Props) => {
           />
         </div>
       </Link>
-      <Link href={`/noticias/${post.slug}`}>
+      <Link href={`/noticia/${post.slug}`}>
         <h2 className="text-green text-2xl my-2">{post.title}</h2>
       </Link>
       <p
@@ -28,7 +28,7 @@ const BlogItems = ({ post }: Props) => {
         }}
       />
       <Link
-        href={`/noticias/${post.slug}`}
+        href={`/noticia/${post.slug}`}
         className="text-green mt-2 block w-max"
       >
         Leia mais

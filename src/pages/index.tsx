@@ -5,6 +5,7 @@ import HeroApp from '../components/layout/Hero';
 import NewsletterApp from '../components/layout/Newsletter';
 import {
   Page_Conteusobre,
+  Page_Informacoesdecontato,
   RootQueryToBannerConnection,
   RootQueryToEmpreendimentoConnection,
 } from '../generated';
@@ -12,7 +13,8 @@ import ClientApp from '../lib/genql';
 
 interface Props {
   data: {
-    about: Page_Conteusobre;
+    page: Page_Conteusobre;
+    social: Page_Informacoesdecontato;
     banners: RootQueryToBannerConnection;
     emp: RootQueryToEmpreendimentoConnection;
   };
@@ -23,7 +25,7 @@ const Home: NextPage<Props> = ({ data }) => {
     <>
       <HeroApp banners={data.banners} />
       <EmpSlideHome data={data.emp} />
-      <AboutHome about={data.about} />
+      <AboutHome about={data.page} />
       <NewsletterApp />
     </>
   );
@@ -32,7 +34,23 @@ const Home: NextPage<Props> = ({ data }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const { page, banners, empreendimentos } = await ClientApp.query({
+  const { page, banners, empreendimentos, pageBy } = await ClientApp.query({
+    pageBy: [
+      {
+        pageId: 201,
+      },
+      {
+        informacoesDeContato: {
+          coTelefone: true,
+          coWhatsapp: true,
+          coEmail: true,
+          coEndereco: true,
+          linkFacebook: true,
+          linkInstagram: true,
+          linkYoutube: true,
+        },
+      },
+    ],
     page: [
       {
         id: '2',
@@ -108,7 +126,8 @@ export const getStaticProps = async () => {
   return {
     props: {
       data: {
-        about: page?.conteuSobre,
+        page: page?.conteuSobre,
+        social: pageBy?.informacoesDeContato,
         banners: banners,
         emp: empreendimentos,
       },

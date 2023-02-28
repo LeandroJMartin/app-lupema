@@ -2,13 +2,18 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import RightBar from '../../components/layout/RightBar';
 import SearchApp from '../../components/layout/Search';
-import { Post, RootQueryToEmpreendimentoConnection } from '../../generated';
+import {
+  Page_Informacoesdecontato,
+  Post,
+  RootQueryToEmpreendimentoConnection,
+} from '../../generated';
 import ClientApp from '../../lib/genql';
 
 interface Props {
   data: {
     post: Post;
     emp: RootQueryToEmpreendimentoConnection;
+    social: Page_Informacoesdecontato;
   };
 }
 
@@ -17,7 +22,7 @@ const NoticiasApp: NextPage<Props> = ({ data }) => {
     <section className="bg-black pt-8">
       <div className="container grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mt-[100px] sm:mt-[74px]">
         <div className="border border-green col-span-1 md:col-span-3 order-2 md:order-1 py-6 md:py-8 px-6 md:px-8">
-          <div className="relative h-[500px]">
+          <div className="relative h-[250px] sm:h-[350px] xl:h-[500px]">
             <Image
               src={data.post.featuredImage?.node.sourceUrl || ''}
               fill
@@ -81,7 +86,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const { post, empreendimentos } = await ClientApp.query({
+  const { post, empreendimentos, page } = await ClientApp.query({
     post: [
       {
         id: `${slug}`,
@@ -94,6 +99,23 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           node: {
             sourceUrl: true,
           },
+        },
+      },
+    ],
+    page: [
+      {
+        id: '201',
+        idType: 'DATABASE_ID',
+      },
+      {
+        informacoesDeContato: {
+          coTelefone: true,
+          coWhatsapp: true,
+          coEmail: true,
+          coEndereco: true,
+          linkFacebook: true,
+          linkInstagram: true,
+          linkYoutube: true,
         },
       },
     ],
@@ -124,6 +146,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       data: {
         post: post,
         emp: empreendimentos,
+        social: page?.informacoesDeContato,
       },
       revalidate: 30,
     },

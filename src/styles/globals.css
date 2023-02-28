@@ -152,6 +152,11 @@ button {
   z-index: 1;
 }
 
+.timeline .arrow-t {
+  transform: translateY(-46px);
+  z-index: -1;
+}
+
 .timeline .arrow-t::after,
 .timeline .arrow-b::after,
 .timeline .arrow-t::before,
@@ -167,17 +172,27 @@ button {
   z-index: 2;
 }
 
-.timeline .arrow-t::after,
+
 .timeline .arrow-b::after {
   top: 0;
   left: -22px;
 }
 
-.timeline .arrow-t::before,
 .timeline .arrow-b::before {
   top: 0;
   right: -22px;
 }
+
+.timeline .arrow-t::after{
+  top: -21px;
+  left: -22px;
+}
+
+.timeline .arrow-t::before{
+  top: -21px;
+  right: -22px;
+}
+
 
 input[type='search'] {
   outline: none;
@@ -213,7 +228,7 @@ input[type='search']::-webkit-search-cancel-button {
 }
 .textAnimation div span {
   color: #ffffff;
-  opacity: .2;
+  opacity: 0.2;
   margin-right: 70px;
 }
 @keyframes animate {
@@ -233,7 +248,7 @@ input[type='search']::-webkit-search-cancel-button {
   }
 }
 
-.post img{
+.post img {
   margin: 15px 0;
   width: 100%;
   height: auto;
@@ -245,17 +260,17 @@ input[type='search']::-webkit-search-cancel-button {
 .post h3,
 .post h4,
 .post h5,
-.post h6{
+.post h6 {
   font-weight: bold;
   color: #729f2d;
 }
 
-.post a{
+.post a {
   color: #729f2d;
   font-style: italic;
 }
 
 .post b,
-.post strong{
+.post strong {
   font-weight: bold;
 }

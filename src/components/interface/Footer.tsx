@@ -3,15 +3,20 @@ import Link from 'next/link';
 import { BsFacebook, BsInstagram, BsYoutube } from 'react-icons/bs';
 import CoolText from '../layout/CoolText';
 import Logo from '../../../public/logo-footer.svg';
+import { Page_Informacoesdecontato } from '../../generated';
 
-const FooterApp = () => {
+interface Props {
+  data: Page_Informacoesdecontato;
+}
+
+const FooterApp = ({ data }: Props) => {
   return (
     <footer className="bg-bgi pt-[40px] sm:pt-[60px] text-white">
       <div className="container grid grid-cols-2 xl:grid-cols-6 gap-6">
         <div className="col-span-2 xl:col-span-2">
           <h2 className="text-green text-3xl">Fale com a Lupema:</h2>
-          <a href="tel:+551740092300" className="block my-4 text-xl">
-            17 4009 2300
+          <a href={`tel:+55${data.coTelefone}`} className="block my-4 text-xl">
+            {data.coTelefone}
           </a>
           <a href="" className="button my-4 text-sm">
             Central de relacionamentos
@@ -20,13 +25,13 @@ const FooterApp = () => {
             Canal de vendas
           </a>
           <div className="flex gap-5">
-            <a href="#facebook">
+            <a href={data.linkFacebook}>
               <BsFacebook size={18} />
             </a>
-            <a href="#instagram">
+            <a href={data.linkInstagram}>
               <BsInstagram size={18} />
             </a>
-            <a href="#youtube">
+            <a href={data.linkYoutube}>
               <BsYoutube size={20} />
             </a>
           </div>

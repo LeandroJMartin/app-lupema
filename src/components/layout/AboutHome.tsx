@@ -22,7 +22,7 @@ const AboutHome = ({ about }: Props) => {
           <span className="h-[25px] w-[75%] xl:w-[50%] bg-bgi block ml-[25%] sm:ml-[50%]"></span>
         </div>
         <div className="relative z-0">
-          <div className="grid grid-cols-1 sm:grid-cols-2">
+          <div className="grid grid-cols-1 xl:grid-cols-2">
             <h1 className="px-4 py-4 text-green text-5xl font-light leading-[4rem] pl-8">
               {about?.tituloSobreHome}
             </h1>

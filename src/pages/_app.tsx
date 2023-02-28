@@ -7,7 +7,7 @@ import MenuContextProvider from '../context/menuMobileContext';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MenuContextProvider>
-      <LayoutApp>
+      <LayoutApp ApiData={pageProps}>
         <Component {...pageProps} />
       </LayoutApp>
     </MenuContextProvider>

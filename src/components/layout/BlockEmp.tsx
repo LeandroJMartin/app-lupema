@@ -31,12 +31,12 @@ const BlockEmp = ({ content, main = true }: Props) => {
         <TagApp name={content.empreendimento} />
       </div>
       <div>
-        <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center text-green mt-4">
-          <h2 className="text-xl font-medium">
+        <div className="flex flex-row sm:justify-between items-start sm:items-center text-green mt-4">
+          <h2 className="text-xl font-medium w-[60%]">
             {content.empreendimento?.nomeDoEmpreendimento}
           </h2>
           {main && (
-            <div className="flex items-center justify-end ">
+            <div className="flex items-center justify-end w-[40%]">
               <div className="flex items-center mr-3">
                 <span className="mr-2">
                   {content.empreendimento?.empDormitorios}

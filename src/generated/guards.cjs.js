@@ -759,7 +759,7 @@ module.exports.isPage_Assessoria = function(obj) {
 
 
 
-var AcfFieldGroup_possibleTypes = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Empreendimento_Empreendimento','Empreendimento_Empreendimento_diferenciaisItems','Empreendimento_Empreendimento_itemsPlantas','Empreendimento_Empreendimento_itensAreacomuns','Empreendimento_Empreendimento_pontosDeReferencia','Empreendimento_Empreendimento_videosOutos','ArquivoAssessoria_DownAssessoria','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
+var AcfFieldGroup_possibleTypes = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Page_Informacoesdecontato','Empreendimento_Empreendimento','Empreendimento_Empreendimento_diferenciaisItems','Empreendimento_Empreendimento_itemsPlantas','Empreendimento_Empreendimento_itensAreacomuns','Empreendimento_Empreendimento_pontosDeReferencia','Empreendimento_Empreendimento_videosOutos','ArquivoAssessoria_DownAssessoria','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
 module.exports.isAcfFieldGroup = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isAcfFieldGroup"')
   return AcfFieldGroup_possibleTypes.includes(obj.__typename)
@@ -795,6 +795,14 @@ var Page_Conteusobre_item_possibleTypes = ['Page_Conteusobre_item']
 module.exports.isPage_Conteusobre_item = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isPage_Conteusobre_item"')
   return Page_Conteusobre_item_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var Page_Informacoesdecontato_possibleTypes = ['Page_Informacoesdecontato']
+module.exports.isPage_Informacoesdecontato = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isPage_Informacoesdecontato"')
+  return Page_Informacoesdecontato_possibleTypes.includes(obj.__typename)
 }
 
 

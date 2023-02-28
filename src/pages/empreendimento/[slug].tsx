@@ -6,11 +6,13 @@ import FormEmpreendimento from '../../components/layout/forms/FormEmpreendimento
 import SlideApp from '../../components/layout/Slide';
 
 interface Props {
-  data: Empreendimento_Empreendimento;
+  data: {
+    emp: Empreendimento_Empreendimento;
+  };
 }
 
 const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
-  const plantas = data.itemsPlantas?.map((imgs) => {
+  const plantas = data.emp?.itemsPlantas?.map((imgs) => {
     return (
       <div className="mt-6">
         <p className="ml-3 text-black text-lg font-semibold text-center mb-4">
@@ -28,7 +30,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
     );
   });
 
-  const gallery = data.galeriaDeFotos?.map((imgs) => {
+  const gallery = data.emp?.galeriaDeFotos?.map((imgs) => {
     return (
       <div className="relative h-[300px] xl:h-[550px] w-full">
         <Image
@@ -41,7 +43,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
     );
   });
 
-  const galleryProgress = data?.imagensOutros?.map((item, index) => {
+  const galleryProgress = data.emp?.imagensOutros?.map((item, index) => {
     return (
       <div key={index} className="relative w-full aspect-square">
         <Image
@@ -72,8 +74,8 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
         <div className="container">
           <div className="max-w-[250px] h-[150px] relative">
             <Image
-              src={data.logotipoDoEmpreendimento?.sourceUrl || ''}
-              alt={`Logotipo do ${data.nomeDoEmpreendimento}`}
+              src={data.emp?.logotipoDoEmpreendimento?.sourceUrl || ''}
+              alt={`Logotipo do ${data.emp?.nomeDoEmpreendimento}`}
               fill
               className="object-contain"
             />
@@ -83,39 +85,41 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
               <div className="flex flex-col sm:flex-row justify-items-start sm:justify-between">
                 <div className="flex items-center">
                   <h1 className="text-2xl text-green">
-                    {data.nomeDoEmpreendimento}
+                    {data.emp?.nomeDoEmpreendimento}
                   </h1>
                   <span className="px-2 text-xl text-white">|</span>
-                  <span className="text-white">{data.estagioDaObra?.name}</span>
+                  <span className="text-white">
+                    {data.emp?.estagioDaObra?.name}
+                  </span>
                 </div>
                 <p className="text-green">
                   Tipo:{' '}
-                  <span className="mr-2">{data.tipoDoEmpreendimento}</span>|
-                  <span className="ml-2">{data.empCidade}</span>
+                  <span className="mr-2">{data.emp?.tipoDoEmpreendimento}</span>
+                  |<span className="ml-2">{data.emp?.empCidade}</span>
                 </p>
               </div>
               <p
                 className="text-white py-4"
                 dangerouslySetInnerHTML={{
-                  __html: data.empDescricao || '',
+                  __html: data.emp?.empDescricao || '',
                 }}
               />
               <div className="text-green">
                 <p className="flex justify-between">
                   <span>Andamento da obra</span>
-                  <span>{data.andamentoDaObra}%</span>
+                  <span>{data.emp?.andamentoDaObra}%</span>
                 </p>
                 <div className="w-full block bg-gray-600 h-2 relative mt-1">
                   <span
                     className="bg-green h-2 absolute top-0 left-0 z-10 block"
-                    style={{ width: `${data.andamentoDaObra}%` }}
+                    style={{ width: `${data.emp?.andamentoDaObra}%` }}
                   ></span>
                 </div>
               </div>
             </div>
             <div className="order-3 sm:order-2">
               <a
-                href={data.arquivoDaApresentacao?.sourceUrl}
+                href={data.emp?.arquivoDaApresentacao?.sourceUrl}
                 download
                 className="border border-green py-2 w-[150px] block text-green text-center cursor-pointer"
               >
@@ -128,7 +132,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                 Faça uma simulação
               </a>
               <a
-                href={data.linkDoTourVirtual}
+                href={data.emp?.linkDoTourVirtual}
                 className="border border-green py-2 w-[150px] block text-green text-center cursor-pointer"
               >
                 Tour virtual
@@ -136,16 +140,16 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
             </div>
             <ul className="order-2 sm:order-3">
               <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
-                {data.empMetragem}
+                {data.emp?.empMetragem}
               </li>
               <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
-                {data.empDormitorios}
+                {data.emp?.empDormitorios}
               </li>
               <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
-                {data.empVagasDeGaragem}
+                {data.emp?.empVagasDeGaragem}
               </li>
               <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
-                A partir de {data.empValorAPartirDe}
+                A partir de {data.emp?.empValorAPartirDe}
               </li>
             </ul>
           </div>
@@ -166,7 +170,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           Diferenciais
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10">
-          {data.diferenciaisItems?.map((item) => {
+          {data.emp?.diferenciaisItems?.map((item) => {
             return (
               <div className="flex items-center">
                 <img
@@ -198,7 +202,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
               Áreas comuns
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10">
-              {data.itensAreacomuns?.map((item) => {
+              {data.emp?.itensAreacomuns?.map((item) => {
                 return (
                   <div className="flex items-center">
                     <img
@@ -230,7 +234,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                   </h3>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: data.enderecoDoEmpreendimento || '',
+                      __html: data.emp?.enderecoDoEmpreendimento || '',
                     }}
                     className="text-base text-white"
                   />
@@ -242,7 +246,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                   </h3>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: data.endStandVendas || '',
+                      __html: data.emp?.endStandVendas || '',
                     }}
                     className="text-base text-white"
                   />
@@ -260,7 +264,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           </div>
         </div>
         <div className="container grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10 pb-12">
-          {data.pontosDeReferencia?.map((item) => {
+          {data.emp?.pontosDeReferencia?.map((item) => {
             return (
               <div className="flex items-center">
                 <img
@@ -279,7 +283,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           <div className="flex flex-col items-center w-full pt-16 space-y-12">
             <div className="text-center space-y-2">
               <h2 className="text-2xl lg:text-4xl text-green">
-                Conheça mais sobre o {data.nomeDoEmpreendimento}
+                Conheça mais sobre o {data.emp?.nomeDoEmpreendimento}
               </h2>
             </div>
 
@@ -321,14 +325,16 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center text-white gap-4 [&>div>p]:text-lg">
               <div className="p-2">
                 <p
-                  dangerouslySetInnerHTML={{ __html: data.listaItensTec || '' }}
+                  dangerouslySetInnerHTML={{
+                    __html: data.emp?.listaItensTec || '',
+                  }}
                 />
               </div>
 
               <div className="p-2">
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: data.listaItensTec2 || '',
+                    __html: data.emp?.listaItensTec2 || '',
                   }}
                 />
               </div>
@@ -375,7 +381,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const { empreendimento } = await ClientApp.query({
+  const { empreendimento, page } = await ClientApp.query({
     empreendimento: [
       {
         id: `${slug}`,
@@ -443,10 +449,32 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         },
       },
     ],
+    page: [
+      {
+        id: '201',
+        idType: 'DATABASE_ID',
+      },
+      {
+        informacoesDeContato: {
+          coTelefone: true,
+          coWhatsapp: true,
+          coEmail: true,
+          coEndereco: true,
+          linkFacebook: true,
+          linkInstagram: true,
+          linkYoutube: true,
+        },
+      },
+    ],
   });
 
   return {
-    props: { data: empreendimento?.empreendimento },
+    props: {
+      data: {
+        emp: empreendimento?.empreendimento,
+        social: page?.informacoesDeContato,
+      },
+    },
     revalidate: 30,
   };
 };

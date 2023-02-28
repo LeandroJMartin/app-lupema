@@ -19,8 +19,8 @@ const TimeLine = ({ prop }: Prop) => {
           </span>
           <span className={index % 2 === 0 ? 'arrow-t' : 'arrow-b'}></span>
         </div>
-        <div className="bg-black h-[20px] w-full order-2">
-          <p className="h-[28px] w-[28px] bg-white rounded-full relative -translate-y-1 mx-auto">
+        <div className="bg-black h-[14px] w-full order-2">
+          <p className="h-[28px] w-[28px] bg-white rounded-full relative -translate-y-2 mx-auto">
             <span className="h-4 w-4 bg-green rounded-full absolute top-2 left-2"></span>
           </p>
         </div>
