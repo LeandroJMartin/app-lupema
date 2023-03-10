@@ -18,6 +18,14 @@ const FooterApp = ({ data }: Props) => {
           <a href={`tel:+55${data.coTelefone}`} className="block my-4 text-xl">
             {data.coTelefone}
           </a>
+          {
+            <a
+              href="mail:lupema@lupemaengenharia.com.br"
+              className="block my-4 text-lg mb-6"
+            >
+              {data.coEmail}
+            </a>
+          }
           <a href="" className="button my-4 text-sm">
             Central de relacionamentos
           </a>

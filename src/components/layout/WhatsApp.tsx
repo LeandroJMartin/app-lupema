@@ -1,4 +1,6 @@
-import { SiWhatsapp } from 'react-icons/si';
+import { useEffect, useState } from 'react';
+import { MdWifiCalling3 } from 'react-icons/md';
+import { RiWhatsappFill } from 'react-icons/ri';
 import { Page_Informacoesdecontato } from '../../generated';
 
 interface Props {
@@ -9,12 +11,18 @@ const WhatsApp = ({ data }: Props) => {
   const number = data.coWhatsapp?.replace(/\s/g, '');
 
   return (
-    <a
-      href={`https://api.whatsapp.com/send?phone=55${number}`}
-      className="fixed bottom-6 right-6"
-    >
-      <SiWhatsapp size={25} className="text-green" />
-    </a>
+    <div className="fixed bottom-6 right-6 z-50">
+      <a href={`tel:${data.coTelefone}`}>
+        <MdWifiCalling3
+          size={35}
+          className="text-black bg-green rounded-full py-1 px-1 block mb-3"
+        />
+      </a>
+
+      <a href={`https://api.whatsapp.com/send?phone=55${number}`}>
+        <RiWhatsappFill size={40} className="text-green" />
+      </a>
+    </div>
   );
 };
 

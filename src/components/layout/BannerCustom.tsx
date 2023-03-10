@@ -28,10 +28,10 @@ const BannerCustom = ({ content }: Content) => {
             <h1 className="text-7xl font-semibold leading-3">
               {content.bhNomeDoEmpreendimento}
             </h1>
-            <div className="border border-white py-1 px-1 inline-block uppercase text-sm xl:text-lg my-4">
-              <span className="px-4">{`${content.bhQuantDormitorios} DORM.`}</span>
-              <span className="border-x border-white px-4">{`${content.bhQuantVagasGaragem} VAGAS`}</span>
-              <span className="px-4">
+            <div className="border border-white py-1 px-1 inline-block uppercase text-sm xl:text-lg my-4 bg-black/20">
+              <span className="px-2 sm:px-4">{`${content.bhQuantDormitorios} DORM.`}</span>
+              <span className="border-x border-white px-2 sm:px-4">{`${content.bhQuantVagasGaragem} VAGAS`}</span>
+              <span className="px-2 sm:px-4">
                 {`${content.bhMetrosQuadradoMaior} M² `} E
                 {` ${content.bhMetrosQuadrado} M²`}
               </span>

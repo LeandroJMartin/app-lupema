@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
+import { MdWifiCalling3 } from 'react-icons/md';
 import { HiMenuAlt2 } from 'react-icons/hi';
 import { IoIosSearch, IoMdClose } from 'react-icons/io';
 import Logo from '../../../public/logo.svg';
@@ -23,6 +24,21 @@ const HeaderApp = ({ data }: Props) => {
 
   const router = useRouter();
   const [clickSearch, setClickSearch] = useState(false);
+
+  const [device, setDevice] = useState(false);
+  function CheckResize() {
+    if (window.innerWidth < 1070) {
+      setDevice(true);
+    } else {
+      setDevice(false);
+    }
+  }
+
+  useEffect(() => {
+    CheckResize();
+    window.addEventListener('resize', CheckResize);
+    return () => window.removeEventListener('resize', CheckResize);
+  }, []);
 
   useEffect(() => {
     setClickSearch(false);
@@ -50,18 +66,20 @@ const HeaderApp = ({ data }: Props) => {
         </Link>
       </div>
       <div className="hidden sm:flex items-center justify-end sm:w-[60%] xl:w-[40%] h-[100px] sm:h-[72px]">
-        <a
-          href="tel:1740062300"
-          className="border-l border-l-white/20 px-6 h-[100px] sm:h-[72px] flex items-center"
-        >
-          {data.coTelefone}
-        </a>
-        <a
-          href="mail:lupema@lupemaengenharia.com.br"
-          className="border-x border-x-white/20 px-6 h-[100px] sm:h-[72px] flex items-center"
-        >
-          {data.coEmail}
-        </a>
+        {device ? (
+          <a
+            href={`tel:${data.coTelefone}`}
+            className="border-l border-l-white/20 border-r border-r-white/20 px-6 h-[100px] sm:h-[72px] flex items-center"
+          >
+            <span className="border border-white rounded-full py-2 px-2">
+              <MdWifiCalling3 />
+            </span>
+          </a>
+        ) : (
+          <div className="border-l border-l-white/20 border-r border-r-white/20 px-6 h-[100px] sm:h-[72px] flex items-center">
+            {data.coTelefone}
+          </div>
+        )}
         <button
           className="px-6 flex items-center h-[100px] sm:h-[72px]"
           onClick={() => setClickSearch((prev) => !prev)}

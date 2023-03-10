@@ -3,7 +3,7 @@ const NewsletterApp = () => {
     <section className="bg-green py-16">
       <div className="container grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
         <div className="text-black">
-          <h1 className="text-5xl">Newsletter</h1>
+          <h1 className="text-5xl">Cadastre-se:</h1>
           <p>Cadastre o seu e-mail e receba nossas novidades</p>
         </div>
         <form action="" className="col-span-2">

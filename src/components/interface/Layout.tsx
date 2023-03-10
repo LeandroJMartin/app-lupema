@@ -11,7 +11,7 @@ interface Props {
 
 const LayoutApp = ({ children, ApiData }: Props) => {
   return (
-    <div>
+    <div className="relative">
       <HeadApp />
       <HeaderApp data={ApiData.data?.social} />
 

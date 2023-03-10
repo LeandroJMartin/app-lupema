@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { RefObject, useEffect, useState } from 'react';
+import { RefObject, useEffect } from 'react';
 
 const UseChangeBg = (ref: RefObject<HTMLDivElement>) => {
   const router = useRouter();
@@ -10,7 +10,7 @@ const UseChangeBg = (ref: RefObject<HTMLDivElement>) => {
     '/empreendimentos/',
   ];
 
-  const regex = new RegExp('empreendimentos*');
+  const regex = new RegExp('empreendimentos(s)?/*');
   const color = (routschangeBackground.includes(router.asPath) || regex.test(router.asPath)) ? 'transparent' : '#28292e';
 
   useEffect(() => {
