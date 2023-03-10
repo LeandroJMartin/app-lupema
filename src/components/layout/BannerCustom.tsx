@@ -22,7 +22,7 @@ const BannerCustom = ({ content }: Content) => {
         alt="Imagem Banner"
         fill
       />
-      <div className="w-full h-full absolute top-0 left-0 right-0 bg-slate-900/40">
+      <div className="w-full h-full absolute top-0 left-0 right-0">
         <div className="flex items-center w-full h-full">
           <div className="max-w-[420px] text-white ml-[25px] 2xl:ml-[100px]">
             <h1 className="text-7xl font-semibold leading-3">

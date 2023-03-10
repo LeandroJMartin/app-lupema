@@ -4,6 +4,8 @@ import { Empreendimento_Empreendimento } from '../../generated';
 import ClientApp from '../../lib/genql';
 import FormEmpreendimento from '../../components/layout/forms/FormEmpreendimento';
 import SlideApp from '../../components/layout/Slide';
+import { TbArrowRightBar, TbCar } from 'react-icons/tb';
+import { BiBed } from 'react-icons/bi';
 
 interface Props {
   data: {
@@ -139,17 +141,21 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
               </a>
             </div>
             <ul className="order-2 sm:order-3">
-              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
-                {data.emp?.empMetragem}
+              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
+                <TbArrowRightBar size={20} />
+                <span className="ml-2">{data.emp?.empMetragem}</span>
               </li>
-              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
-                {data.emp?.empDormitorios}
+              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
+                <BiBed size={22} />
+                <span className="ml-2">{data.emp?.empDormitorios}</span>
               </li>
-              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
-                {data.emp?.empVagasDeGaragem}
+              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
+                <TbCar size={22} />
+                <span className="ml-2">{data.emp?.empVagasDeGaragem}</span>
               </li>
-              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold">
-                A partir de {data.emp?.empValorAPartirDe}
+              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
+                <span className="text-sm">A partir de </span>
+                <span className="ml-1">{data.emp?.empValorAPartirDe}</span>
               </li>
             </ul>
           </div>
@@ -173,53 +179,68 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           {data.emp?.diferenciaisItems?.map((item) => {
             return (
               <div className="flex items-center">
-                <img
-                  src={item?.iconeimagemDoDiferencial?.sourceUrl}
-                  alt="Icone do diferencial"
-                  className="w-7 h-7"
-                />
+                {item?.iconeimagemDoDiferencial?.sourceUrl && (
+                  <img
+                    src={item?.iconeimagemDoDiferencial?.sourceUrl}
+                    alt="Icone do diferencial"
+                    className="w-7 h-7"
+                  />
+                )}
+
                 <p className="text-white ml-3">{item?.nomeDiferencial}</p>
               </div>
             );
           })}
         </div>
       </section>
-      <section className="bg-white py-8 sm:py-12 plantas">
-        <div className="container">
-          <h2 className="text-2xl lg:text-4xl text-green text-center">
-            Plantas
-          </h2>
-          <div className="w-[75%] block mx-auto">
-            <SlideApp
-              items={plantas}
-              navigation={true}
-              responsive={responsiveGallery}
-              infinite={false}
-            />
-          </div>
-          <div className="mt-8">
-            <h2 className="text-2xl lg:text-4xl text-green text-center">
-              Áreas comuns
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10">
-              {data.emp?.itensAreacomuns?.map((item) => {
-                return (
-                  <div className="flex items-center">
-                    <img
-                      src={item?.iconeimagemAreacomuns?.sourceUrl}
-                      alt="Icone do diferencial"
-                      className="w-7 h-7"
-                    />
-                    <p className="ml-3 text-black">
-                      {item?.descricaoAreacomuns}
-                    </p>
+      {plantas && data.emp?.itensAreacomuns != undefined && (
+        <section className="bg-white py-8 sm:py-12 plantas">
+          <div className="container">
+            {plantas && (
+              <>
+                <h2 className="text-2xl lg:text-4xl text-green text-center">
+                  Plantas
+                </h2>
+                <div className="w-[75%] block mx-auto">
+                  <SlideApp
+                    items={plantas}
+                    navigation={true}
+                    responsive={responsiveGallery}
+                    infinite={false}
+                  />
+                </div>
+              </>
+            )}
+            {data.emp?.itensAreacomuns?.length > 0 &&
+              data.emp?.itensAreacomuns != undefined && (
+                <div className="mt-8">
+                  <h2 className="text-2xl lg:text-4xl text-green text-center">
+                    Áreas comuns
+                  </h2>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10">
+                    {data.emp?.itensAreacomuns?.map((item) => {
+                      return (
+                        <div className="flex items-center">
+                          {item?.iconeimagemAreacomuns?.sourceUrl && (
+                            <img
+                              src={item?.iconeimagemAreacomuns?.sourceUrl}
+                              alt="Icone do diferencial"
+                              className="w-7 h-7"
+                            />
+                          )}
+                          <p className="ml-3 text-black">
+                            {item?.descricaoAreacomuns}
+                          </p>
+                        </div>
+                      );
+                    })}
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              )}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
       <section className="container">
         <div className="flex items-center justify-center">
           <div className="flex flex-col items-center w-full pt-16 space-y-12">
@@ -228,31 +249,35 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
             </div>
             <div className="flex flex-wrap items-center justify-center w-full">
               <div className="w-full lg:w-3/12 space-y-8">
-                <div className="space-y-2">
-                  <h3 className="text-2xl lg:text-4xl text-green">
-                    Empreendimento
-                  </h3>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: data.emp?.enderecoDoEmpreendimento || '',
-                    }}
-                    className="text-base text-white"
-                  />
-                </div>
+                {data.emp?.enderecoDoEmpreendimento && (
+                  <div className="space-y-2">
+                    <h3 className="text-2xl lg:text-4xl text-green">
+                      Empreendimento
+                    </h3>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: data.emp?.enderecoDoEmpreendimento || '',
+                      }}
+                      className="text-base text-white"
+                    />
+                  </div>
+                )}
 
-                <div className="space-y-2">
-                  <h3 className="text-2xl lg:text-4xl text-green">
-                    Stands de vendas
-                  </h3>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: data.emp?.endStandVendas || '',
-                    }}
-                    className="text-base text-white"
-                  />
-                </div>
+                {data.emp?.endStandVendas && (
+                  <div className="space-y-2">
+                    <h3 className="text-2xl lg:text-4xl text-green">
+                      Stands de vendas
+                    </h3>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: data.emp?.endStandVendas || '',
+                      }}
+                      className="text-base text-white"
+                    />
+                  </div>
+                )}
               </div>
-              <div className="w-full lg:w-9/12 aspect-video">
+              <div className="w-full lg:w-9/12 min-h-[]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3728.900942186043!2d-49.37638008445357!3d-20.835706172491314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bdb2b7c2767b8f%3A0x818ad40282191728!2sR.%20Pedro%20D%C3%B3ria%20Sobrinho%2C%20360%20-%20Ouro%20Verde%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%20-%20SP%2C%2015084-280!5e0!3m2!1spt-BR!2sbr!4v1677102792807!5m2!1spt-BR!2sbr"
                   width="100%"
@@ -263,42 +288,51 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
             </div>
           </div>
         </div>
-        <div className="container grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10 pb-12">
-          {data.emp?.pontosDeReferencia?.map((item) => {
-            return (
-              <div className="flex items-center">
-                <img
-                  src={item?.iconeOuImagemRef?.sourceUrl}
-                  alt="Icone do diferencial"
-                  className="w-7 h-7"
-                />
-                <p className="ml-3 text-white">{item?.nomePontoReferencia}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-      <section className="container">
-        <div className="flex items-center justify-center">
-          <div className="flex flex-col items-center w-full pt-16 space-y-12">
-            <div className="text-center space-y-2">
-              <h2 className="text-2xl lg:text-4xl text-green">
-                Conheça mais sobre o {data.emp?.nomeDoEmpreendimento}
-              </h2>
-            </div>
 
-            <div className="block w-full">
-              <SlideApp
-                items={galleryProgress}
-                responsive={responsiveGalleryProgress}
-                gap={30}
-                infinite={true}
-                navigation={true}
-              />
+        {data.emp?.pontosDeReferencia != undefined &&
+          data.emp?.pontosDeReferencia?.length > 0 && (
+            <div className="container grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10 pb-12">
+              {data.emp?.pontosDeReferencia?.map((item) => {
+                return (
+                  <div className="flex items-center">
+                    <img
+                      src={item?.iconeOuImagemRef?.sourceUrl}
+                      alt="Icone do diferencial"
+                      className="w-7 h-7"
+                    />
+                    <p className="ml-3 text-white">
+                      {item?.nomePontoReferencia}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
-          </div>
-        </div>
+          )}
       </section>
+      {data.emp?.imagensOutros != undefined &&
+        data.emp?.imagensOutros?.length > 0 && (
+          <section className="container">
+            <div className="flex items-center justify-center">
+              <div className="flex flex-col items-center w-full pt-16 space-y-12">
+                <div className="text-center space-y-2">
+                  <h2 className="text-2xl lg:text-4xl text-green">
+                    Conheça mais sobre o {data.emp?.nomeDoEmpreendimento}
+                  </h2>
+                </div>
+
+                <div className="block w-full">
+                  <SlideApp
+                    items={galleryProgress}
+                    responsive={responsiveGalleryProgress}
+                    gap={30}
+                    infinite={true}
+                    navigation={true}
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
       <section id="form" className="bg-black">
         <div className="container flex items-center justify-center">
           <div className="flex flex-col items-center w-full xl:w-[60%] py-16 space-y-12">
@@ -317,31 +351,33 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           </div>
         </div>
       </section>
-      <section className="bg-green">
-        <div className="container flex items-center justify-center">
-          <div className="flex flex-col items-center w-full xl:w-[60%] py-16 space-y-12">
-            <h2 className="text-2xl lg:text-4xl text-white">Ficha Técnica</h2>
+      {(data.emp?.listaItensTec || data.emp?.listaItensTec2) && (
+        <section className="bg-green">
+          <div className="container flex items-center justify-center">
+            <div className="flex flex-col items-center w-full xl:w-[60%] py-16 space-y-12">
+              <h2 className="text-2xl lg:text-4xl text-white">Ficha Técnica</h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 items-center text-white gap-4 [&>div>p]:text-lg">
-              <div className="p-2">
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: data.emp?.listaItensTec || '',
-                  }}
-                />
-              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 items-center text-white gap-4 [&>div>p]:text-lg">
+                <div className="p-2">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: data.emp?.listaItensTec || '',
+                    }}
+                  />
+                </div>
 
-              <div className="p-2">
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: data.emp?.listaItensTec2 || '',
-                  }}
-                />
+                <div className="p-2">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: data.emp?.listaItensTec2 || '',
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 };
