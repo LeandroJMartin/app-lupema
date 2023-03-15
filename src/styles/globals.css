@@ -13,6 +13,11 @@
   textarea {
     @apply py-2 px-4 text-black border border-green placeholder:text-black;
   }
+
+  button:disabled,
+  input[type='submit']:disabled {
+    @apply opacity-70 cursor-default;
+  }
 }
 
 html {
@@ -172,7 +177,6 @@ button {
   z-index: 2;
 }
 
-
 .timeline .arrow-b::after {
   top: 0;
   left: -22px;
@@ -183,16 +187,15 @@ button {
   right: -22px;
 }
 
-.timeline .arrow-t::after{
+.timeline .arrow-t::after {
   top: -21px;
   left: -22px;
 }
 
-.timeline .arrow-t::before{
+.timeline .arrow-t::before {
   top: -21px;
   right: -22px;
 }
-
 
 input[type='search'] {
   outline: none;
