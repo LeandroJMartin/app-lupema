@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import StageForm from '../StageForm';
 
 import { useFormikWizard } from 'formik-wizard-form';
@@ -40,6 +39,21 @@ const MultiStepForm = () => {
       nomeRecado: '',
       ensino: '',
       graduacao: '',
+      anoformacao: '',
+      entidadeEscolar: '',
+      outroscursos: '',
+      empresa1: '',
+      periodo1: '',
+      funcao1: '',
+      atribuicoes1: '',
+      empresa2: '',
+      periodo2: '',
+      funcao2: '',
+      atribuicoes2: '',
+      empresa3: '',
+      periodo3: '',
+      funcao3: '',
+      atribuicoes3: '',
     },
     onSubmit: (values) => console.log(values),
     validateOnNext: true,
@@ -186,10 +200,45 @@ const MultiStepForm = () => {
         validationSchema: yup.object().shape({
           ensino: yup
             .string()
-            .required('O campo Qualificação escolar é obrigatório.'),
+            .required('O campo qualificação escolar é obrigatório.'),
           graduacao: yup
             .string()
-            .required('O campo Qualificação escolar é obrigatório.'),
+            .required('O campo graduação escolar é obrigatório.'),
+          anoformacao: yup
+            .string()
+            .matches(/^(\d{4})$/, 'Ano inválido.')
+            .required('O campo ano de formação é obrigatório.'),
+          entidadeEscolar: yup
+            .string()
+            .required('O campo entidade escolar é obrigatório.'),
+          outroscursos: yup.string().nullable(),
+        }),
+      },
+      {
+        component: Stage5,
+        validationSchema: yup.object().shape({
+          empresa1: yup.string().nullable(),
+          periodo1: yup.string().nullable(),
+          funcao1: yup.string().nullable(),
+          atribuicoes1: yup.string().nullable(),
+        }),
+      },
+      {
+        component: Stage6,
+        validationSchema: yup.object().shape({
+          empresa2: yup.string().nullable(),
+          periodo2: yup.string().nullable(),
+          funcao2: yup.string().nullable(),
+          atribuicoes2: yup.string().nullable(),
+        }),
+      },
+      {
+        component: Stage7,
+        validationSchema: yup.object().shape({
+          empresa3: yup.string().nullable(),
+          periodo3: yup.string().nullable(),
+          funcao3: yup.string().nullable(),
+          atribuicoes3: yup.string().nullable(),
         }),
       },
     ],
@@ -850,109 +899,245 @@ const Stage4 = ({ values, errors, touched, handleChange }: any) => {
             name="graduacao"
             placeholder="Graduação"
             className="w-full"
+            value={values.graducao}
+            onChange={handleChange}
           />
 
           {errors.graduacao && <Error msg={errors.graduacao} />}
         </div>
 
-        <input type="text" name="anoformacao" placeholder="Ano de Formação" />
+        <div className="col-span-1">
+          <input
+            type="text"
+            name="anoformacao"
+            placeholder="Ano de Formação"
+            className="w-full"
+            value={values.anoformacao}
+            onChange={handleChange}
+          />
 
-        <input
-          type="text"
-          name="entidadeescolar"
-          placeholder="Entidade Escolar"
-          className="col-span-2"
-        />
+          {errors.anoformacao && <Error msg={errors.anoformacao} />}
+        </div>
 
-        <textarea
-          name="outroscursos"
-          rows={5}
-          placeholder="Outros Cursos"
-          className="col-span-3"
-        ></textarea>
+        <div className="col-span-2">
+          <input
+            type="text"
+            name="entidadeEscolar"
+            placeholder="Entidade Escolar"
+            className="w-full"
+            value={values.entidadeEscolar}
+            onChange={handleChange}
+          />
+
+          {errors.entidadeEscolar && <Error msg={errors.entidadeEscolar} />}
+        </div>
+
+        <div className="col-span-3">
+          <textarea
+            name="outroscursos"
+            rows={5}
+            placeholder="Outros Cursos"
+            className="w-full"
+            value={values.outroscursos}
+            onChange={handleChange}
+          ></textarea>
+
+          {errors.outroscursos && <Error msg={errors.outroscursos} />}
+        </div>
       </div>
     </>
   );
 };
 
-// const Stage5 = () => {
-//   return (
-//     <>
-//       <div>
-//         <h2 className="font-semibold mb-2">QUALIFICAÇÃO PROFISSIONAL</h2>
-//         <p>Informar os Três Últimos Empregos</p>
-//         <div className="grid grid-cols-2 gap-4">
-//           <input
-//             type="text"
-//             name="empresa"
-//             placeholder="Empresa"
-//             className="col-span-2"
-//           />
-//           <input type="text" name="periodo" placeholder="Período" />
-//           <input type="text" name="funcao" placeholder="Função" />
-//           <textarea
-//             name="atribuicaos"
-//             rows={7}
-//             placeholder="Principais Atribuições"
-//             className="col-span-2"
-//           ></textarea>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
+const Stage5 = ({ values, errors, touched, handleChange }: any) => {
+  return (
+    <>
+      <div>
+        <h2 className="font-semibold mb-2">QUALIFICAÇÃO PROFISSIONAL</h2>
+        <p>Informar os Três Últimos Empregos</p>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="col-span-2">
+            <input
+              type="text"
+              name="empresa1"
+              placeholder="Empresa"
+              className="w-full"
+              value={values.empresa1}
+              onChange={handleChange}
+            />
 
-// const Stage6 = () => {
-//   return (
-//     <>
-//       <div>
-//         <h2 className="font-semibold mb-2">2º Emprego</h2>
-//         <div className="grid grid-cols-2 gap-4">
-//           <input
-//             type="text"
-//             name="empresa"
-//             placeholder="Empresa"
-//             className="col-span-2"
-//           />
-//           <input type="text" name="periodo" placeholder="Período" />
-//           <input type="text" name="funcao" placeholder="Função" />
-//           <textarea
-//             name="atribuicaos"
-//             rows={7}
-//             placeholder="Principais Atribuições"
-//             className="col-span-2"
-//           ></textarea>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
+            {errors.empresa1 && <Error msg={errors.empresa1} />}
+          </div>
 
-// const Stage7 = () => {
-//   return (
-//     <>
-//       <div>
-//         <h2 className="font-semibold mb-2">3º Emprego</h2>
-//         <div className="grid grid-cols-2 gap-4">
-//           <input
-//             type="text"
-//             name="empresa"
-//             placeholder="Empresa"
-//             className="col-span-2"
-//           />
-//           <input type="text" name="periodo" placeholder="Período" />
-//           <input type="text" name="funcao" placeholder="Função" />
-//           <textarea
-//             name="atribuicaos"
-//             rows={7}
-//             placeholder="Principais Atribuições"
-//             className="col-span-2"
-//           ></textarea>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
+          <div className="col-span-1">
+            <input
+              type="text"
+              name="periodo1"
+              placeholder="Período"
+              className="w-full"
+              value={values.periodo1}
+              onChange={handleChange}
+            />
+
+            {errors.graduacao && <Error msg={errors.graduacao} />}
+          </div>
+
+          <div className="col-span-1">
+            <input
+              type="text"
+              name="funcao1"
+              placeholder="Função"
+              className="w-full"
+              value={values.funcao1}
+              onChange={handleChange}
+            />
+
+            {errors.funcao1 && <Error msg={errors.funcao1} />}
+          </div>
+
+          <div className="col-span-2">
+            <textarea
+              name="atribuicoes1"
+              rows={7}
+              placeholder="Principais Atribuições"
+              className="w-full"
+              value={values.atribuicoes1}
+              onChange={handleChange}
+            ></textarea>
+
+            {errors.atribuicoes1 && <Error msg={errors.atribuicoes1} />}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const Stage6 = ({ values, errors, touched, handleChange }: any) => {
+  return (
+    <>
+      <div>
+        <h2 className="font-semibold mb-2">2º Emprego</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="col-span-2">
+            <input
+              type="text"
+              name="empresa1"
+              placeholder="Empresa"
+              className="w-full"
+              value={values.empresa1}
+              onChange={handleChange}
+            />
+
+            {errors.empresa1 && <Error msg={errors.empresa1} />}
+          </div>
+
+          <div className="col-span-1">
+            <input
+              type="text"
+              name="periodo1"
+              placeholder="Período"
+              className="w-full"
+              value={values.periodo1}
+              onChange={handleChange}
+            />
+
+            {errors.graduacao && <Error msg={errors.graduacao} />}
+          </div>
+
+          <div className="col-span-1">
+            <input
+              type="text"
+              name="funcao1"
+              placeholder="Função"
+              className="w-full"
+              value={values.funcao1}
+              onChange={handleChange}
+            />
+
+            {errors.funcao1 && <Error msg={errors.funcao1} />}
+          </div>
+
+          <div className="col-span-2">
+            <textarea
+              name="atribuicoes1"
+              rows={7}
+              placeholder="Principais Atribuições"
+              className="w-full"
+              value={values.atribuicoes1}
+              onChange={handleChange}
+            ></textarea>
+
+            {errors.atribuicoes1 && <Error msg={errors.atribuicoes1} />}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const Stage7 = ({ values, errors, touched, handleChange }: any) => {
+  return (
+    <>
+      <div>
+        <h2 className="font-semibold mb-2">3º Emprego</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="col-span-2">
+            <input
+              type="text"
+              name="empresa1"
+              placeholder="Empresa"
+              className="w-full"
+              value={values.empresa1}
+              onChange={handleChange}
+            />
+
+            {errors.empresa1 && <Error msg={errors.empresa1} />}
+          </div>
+
+          <div className="col-span-1">
+            <input
+              type="text"
+              name="periodo1"
+              placeholder="Período"
+              className="w-full"
+              value={values.periodo1}
+              onChange={handleChange}
+            />
+
+            {errors.graduacao && <Error msg={errors.graduacao} />}
+          </div>
+
+          <div className="col-span-1">
+            <input
+              type="text"
+              name="funcao1"
+              placeholder="Função"
+              className="w-full"
+              value={values.funcao1}
+              onChange={handleChange}
+            />
+
+            {errors.funcao1 && <Error msg={errors.funcao1} />}
+          </div>
+
+          <div className="col-span-2">
+            <textarea
+              name="atribuicoes1"
+              rows={7}
+              placeholder="Principais Atribuições"
+              className="w-full"
+              value={values.atribuicoes1}
+              onChange={handleChange}
+            ></textarea>
+
+            {errors.atribuicoes1 && <Error msg={errors.atribuicoes1} />}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 const Error = ({ msg }: { msg: string }) => {
   if (!msg) return null;

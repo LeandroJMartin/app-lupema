@@ -48,10 +48,12 @@ const FilterApp = ({ data, childToParent }: Props) => {
           <BsSearch size={18} className="text-green" />
         </button>
       </div>
+
       <details className="mt-3">
         <summary className="flex items-center justify-end mb-2 cursor-pointer">
           Busca avançada <BsFilterRight size={22} className="ml-3" />
         </summary>
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
           <select
             name="bairro"
@@ -84,6 +86,7 @@ const FilterApp = ({ data, childToParent }: Props) => {
             })}
           </select>
         </div>
+
         <div className="flex justify-center mt-6">
           <button
             value="Buscar"
