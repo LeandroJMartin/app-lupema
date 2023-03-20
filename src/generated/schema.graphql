@@ -1406,7 +1406,7 @@ type ContentTypeToTaxonomyConnection implements TaxonomyConnection & Connection 
   nodes: [Taxonomy!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: ContentTypeToTaxonomyConnectionPageInfo!
 }
 
 """Connection to Taxonomy Nodes"""
@@ -1418,6 +1418,9 @@ interface TaxonomyConnection implements Connection {
 
   """A list of connected Taxonomy Nodes"""
   nodes: [Taxonomy!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: TaxonomyConnectionPageInfo!
 }
 
 """
@@ -1429,6 +1432,24 @@ interface Connection {
 
   """A list of connected nodes"""
   nodes: [Node!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: PageInfo!
+}
+
+"""Information about pagination in a connection."""
+interface PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Edge between a Node and a connected Taxonomy"""
@@ -1544,7 +1565,7 @@ type TaxonomyToContentTypeConnection implements ContentTypeConnection & Connecti
   nodes: [ContentType!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: TaxonomyToContentTypeConnectionPageInfo!
 }
 
 """Connection to ContentType Nodes"""
@@ -1556,6 +1577,39 @@ interface ContentTypeConnection implements Connection {
 
   """A list of connected ContentType Nodes"""
   nodes: [ContentType!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: ContentTypeConnectionPageInfo!
+}
+
+"""Page Info on the connected ContentTypeConnectionEdge"""
+interface ContentTypeConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+"""Information about pagination in a connection."""
+interface WPPageInfo implements PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """An edge in a connection"""
@@ -1567,8 +1621,23 @@ type TaxonomyToContentTypeConnectionEdge implements ContentTypeConnectionEdge & 
   node: ContentType!
 }
 
-"""Information about pagination in a connection."""
-type WPPageInfo {
+"""Page Info on the &quot;TaxonomyToContentTypeConnection&quot;"""
+type TaxonomyToContentTypeConnectionPageInfo implements ContentTypeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+"""Page Info on the connected TaxonomyConnectionEdge"""
+interface TaxonomyConnectionPageInfo implements WPPageInfo & PageInfo {
   """When paginating forwards, the cursor to continue."""
   endCursor: String
 
@@ -1589,6 +1658,21 @@ type ContentTypeToTaxonomyConnectionEdge implements TaxonomyConnectionEdge & Edg
 
   """The item at the end of the edge"""
   node: Taxonomy!
+}
+
+"""Page Info on the &quot;ContentTypeToTaxonomyConnection&quot;"""
+type ContentTypeToTaxonomyConnectionPageInfo implements TaxonomyConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """
@@ -2144,7 +2228,7 @@ type ContentTypeToContentNodeConnection implements ContentNodeConnection & Conne
   nodes: [ContentNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: ContentTypeToContentNodeConnectionPageInfo!
 }
 
 """Connection to ContentNode Nodes"""
@@ -2156,6 +2240,9 @@ interface ContentNodeConnection implements Connection {
 
   """A list of connected ContentNode Nodes"""
   nodes: [ContentNode!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: ContentNodeConnectionPageInfo!
 }
 
 """Edge between a Node and a connected ContentNode"""
@@ -2169,6 +2256,21 @@ interface ContentNodeConnectionEdge implements Edge {
   node: ContentNode!
 }
 
+"""Page Info on the connected ContentNodeConnectionEdge"""
+interface ContentNodeConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type ContentTypeToContentNodeConnectionEdge implements ContentNodeConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -2176,6 +2278,21 @@ type ContentTypeToContentNodeConnectionEdge implements ContentNodeConnectionEdge
 
   """The item at the end of the edge"""
   node: ContentNode!
+}
+
+"""Page Info on the &quot;ContentTypeToContentNodeConnection&quot;"""
+type ContentTypeToContentNodeConnectionPageInfo implements ContentNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Details for labels of the PostType"""
@@ -2812,7 +2929,7 @@ type UserToCommentConnection implements CommentConnection & Connection {
   nodes: [Comment!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: UserToCommentConnectionPageInfo!
 }
 
 """Connection to Comment Nodes"""
@@ -2824,6 +2941,9 @@ interface CommentConnection implements Connection {
 
   """A list of connected Comment Nodes"""
   nodes: [Comment!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: CommentConnectionPageInfo!
 }
 
 """Edge between a Node and a connected Comment"""
@@ -3204,7 +3324,7 @@ type CommentToCommentConnection implements CommentConnection & Connection {
   nodes: [Comment!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: CommentToCommentConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -3214,6 +3334,36 @@ type CommentToCommentConnectionEdge implements CommentConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Comment!
+}
+
+"""Page Info on the &quot;CommentToCommentConnection&quot;"""
+type CommentToCommentConnectionPageInfo implements CommentConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+"""Page Info on the connected CommentConnectionEdge"""
+interface CommentConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The status of the comment object."""
@@ -3240,6 +3390,21 @@ type UserToCommentConnectionEdge implements CommentConnectionEdge & Edge {
   node: Comment!
 }
 
+"""Page Info on the &quot;UserToCommentConnection&quot;"""
+type UserToCommentConnectionPageInfo implements CommentConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """Connection between the User type and the EnqueuedScript type"""
 type UserToEnqueuedScriptConnection implements EnqueuedScriptConnection & Connection {
   """Edges for the UserToEnqueuedScriptConnection connection"""
@@ -3249,7 +3414,7 @@ type UserToEnqueuedScriptConnection implements EnqueuedScriptConnection & Connec
   nodes: [EnqueuedScript!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: UserToEnqueuedScriptConnectionPageInfo!
 }
 
 """Connection to EnqueuedScript Nodes"""
@@ -3261,6 +3426,9 @@ interface EnqueuedScriptConnection implements Connection {
 
   """A list of connected EnqueuedScript Nodes"""
   nodes: [EnqueuedScript!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: EnqueuedScriptConnectionPageInfo!
 }
 
 """Edge between a Node and a connected EnqueuedScript"""
@@ -3322,6 +3490,21 @@ interface EnqueuedAsset {
   version: String
 }
 
+"""Page Info on the connected EnqueuedScriptConnectionEdge"""
+interface EnqueuedScriptConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type UserToEnqueuedScriptConnectionEdge implements EnqueuedScriptConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -3329,6 +3512,21 @@ type UserToEnqueuedScriptConnectionEdge implements EnqueuedScriptConnectionEdge 
 
   """The item at the end of the edge"""
   node: EnqueuedScript!
+}
+
+"""Page Info on the &quot;UserToEnqueuedScriptConnection&quot;"""
+type UserToEnqueuedScriptConnectionPageInfo implements EnqueuedScriptConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Connection between the User type and the EnqueuedStylesheet type"""
@@ -3340,7 +3538,7 @@ type UserToEnqueuedStylesheetConnection implements EnqueuedStylesheetConnection 
   nodes: [EnqueuedStylesheet!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: UserToEnqueuedStylesheetConnectionPageInfo!
 }
 
 """Connection to EnqueuedStylesheet Nodes"""
@@ -3352,6 +3550,9 @@ interface EnqueuedStylesheetConnection implements Connection {
 
   """A list of connected EnqueuedStylesheet Nodes"""
   nodes: [EnqueuedStylesheet!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: EnqueuedStylesheetConnectionPageInfo!
 }
 
 """Edge between a Node and a connected EnqueuedStylesheet"""
@@ -3389,6 +3590,21 @@ type EnqueuedStylesheet implements Node & EnqueuedAsset {
   version: String
 }
 
+"""Page Info on the connected EnqueuedStylesheetConnectionEdge"""
+interface EnqueuedStylesheetConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type UserToEnqueuedStylesheetConnectionEdge implements EnqueuedStylesheetConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -3396,6 +3612,21 @@ type UserToEnqueuedStylesheetConnectionEdge implements EnqueuedStylesheetConnect
 
   """The item at the end of the edge"""
   node: EnqueuedStylesheet!
+}
+
+"""Page Info on the &quot;UserToEnqueuedStylesheetConnection&quot;"""
+type UserToEnqueuedStylesheetConnectionPageInfo implements EnqueuedStylesheetConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the UserToMediaItemConnection connection"""
@@ -3481,7 +3712,7 @@ type UserToMediaItemConnection implements MediaItemConnection & Connection {
   nodes: [MediaItem!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: UserToMediaItemConnectionPageInfo!
 }
 
 """Connection to mediaItem Nodes"""
@@ -3493,6 +3724,9 @@ interface MediaItemConnection implements Connection {
 
   """A list of connected mediaItem Nodes"""
   nodes: [MediaItem!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: MediaItemConnectionPageInfo!
 }
 
 """Edge between a Node and a connected mediaItem"""
@@ -4133,7 +4367,7 @@ type HierarchicalContentNodeToContentNodeAncestorsConnection implements ContentN
   nodes: [ContentNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -4143,6 +4377,23 @@ type HierarchicalContentNodeToContentNodeAncestorsConnectionEdge implements Cont
 
   """The item at the end of the edge"""
   node: ContentNode!
+}
+
+"""
+Page Info on the &quot;HierarchicalContentNodeToContentNodeAncestorsConnection&quot;
+"""
+type HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo implements ContentNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """
@@ -4221,7 +4472,7 @@ type HierarchicalContentNodeToContentNodeChildrenConnection implements ContentNo
   nodes: [ContentNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -4233,6 +4484,23 @@ type HierarchicalContentNodeToContentNodeChildrenConnectionEdge implements Conte
   node: ContentNode!
 }
 
+"""
+Page Info on the &quot;HierarchicalContentNodeToContentNodeChildrenConnection&quot;
+"""
+type HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo implements ContentNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """Connection between the ContentNode type and the EnqueuedScript type"""
 type ContentNodeToEnqueuedScriptConnection implements EnqueuedScriptConnection & Connection {
   """Edges for the ContentNodeToEnqueuedScriptConnection connection"""
@@ -4242,7 +4510,7 @@ type ContentNodeToEnqueuedScriptConnection implements EnqueuedScriptConnection &
   nodes: [EnqueuedScript!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: ContentNodeToEnqueuedScriptConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -4252,6 +4520,21 @@ type ContentNodeToEnqueuedScriptConnectionEdge implements EnqueuedScriptConnecti
 
   """The item at the end of the edge"""
   node: EnqueuedScript!
+}
+
+"""Page Info on the &quot;ContentNodeToEnqueuedScriptConnection&quot;"""
+type ContentNodeToEnqueuedScriptConnectionPageInfo implements EnqueuedScriptConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """
@@ -4265,7 +4548,7 @@ type ContentNodeToEnqueuedStylesheetConnection implements EnqueuedStylesheetConn
   nodes: [EnqueuedStylesheet!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: ContentNodeToEnqueuedStylesheetConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -4275,6 +4558,21 @@ type ContentNodeToEnqueuedStylesheetConnectionEdge implements EnqueuedStylesheet
 
   """The item at the end of the edge"""
   node: EnqueuedStylesheet!
+}
+
+"""Page Info on the &quot;ContentNodeToEnqueuedStylesheetConnection&quot;"""
+type ContentNodeToEnqueuedStylesheetConnectionPageInfo implements EnqueuedStylesheetConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Connection between the ContentNode type and the User type"""
@@ -4408,7 +4706,7 @@ type MediaItemToCommentConnection implements CommentConnection & Connection {
   nodes: [Comment!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: MediaItemToCommentConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -4418,6 +4716,21 @@ type MediaItemToCommentConnectionEdge implements CommentConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Comment!
+}
+
+"""Page Info on the &quot;MediaItemToCommentConnection&quot;"""
+type MediaItemToCommentConnectionPageInfo implements CommentConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The size of the media item object."""
@@ -4530,6 +4843,21 @@ type MediaSize {
   width: String
 }
 
+"""Page Info on the connected MediaItemConnectionEdge"""
+interface MediaItemConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type UserToMediaItemConnectionEdge implements MediaItemConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -4537,6 +4865,21 @@ type UserToMediaItemConnectionEdge implements MediaItemConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: MediaItem!
+}
+
+"""Page Info on the &quot;UserToMediaItemConnection&quot;"""
+type UserToMediaItemConnectionPageInfo implements MediaItemConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the UserToPageConnection connection"""
@@ -4622,7 +4965,7 @@ type UserToPageConnection implements PageConnection & Connection {
   nodes: [Page!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: UserToPageConnectionPageInfo!
 }
 
 """Connection to page Nodes"""
@@ -4634,6 +4977,9 @@ interface PageConnection implements Connection {
 
   """A list of connected page Nodes"""
   nodes: [Page!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: PageConnectionPageInfo!
 }
 
 """Edge between a Node and a connected page"""
@@ -5201,7 +5547,7 @@ type PageToCommentConnection implements CommentConnection & Connection {
   nodes: [Comment!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: PageToCommentConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -5211,6 +5557,21 @@ type PageToCommentConnectionEdge implements CommentConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Comment!
+}
+
+"""Page Info on the &quot;PageToCommentConnection&quot;"""
+type PageToCommentConnectionPageInfo implements CommentConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Field Group"""
@@ -5397,7 +5758,7 @@ type PageToRevisionConnection implements PageConnection & Connection {
   nodes: [Page!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: PageToRevisionConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -5409,6 +5770,36 @@ type PageToRevisionConnectionEdge implements PageConnectionEdge & Edge {
   node: Page!
 }
 
+"""Page Info on the &quot;PageToRevisionConnection&quot;"""
+type PageToRevisionConnectionPageInfo implements PageConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+"""Page Info on the connected PageConnectionEdge"""
+interface PageConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type UserToPageConnectionEdge implements PageConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -5416,6 +5807,21 @@ type UserToPageConnectionEdge implements PageConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Page!
+}
+
+"""Page Info on the &quot;UserToPageConnection&quot;"""
+type UserToPageConnectionPageInfo implements PageConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the UserToPostConnection connection"""
@@ -5535,7 +5941,7 @@ type UserToPostConnection implements PostConnection & Connection {
   nodes: [Post!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: UserToPostConnectionPageInfo!
 }
 
 """Connection to post Nodes"""
@@ -5547,6 +5953,9 @@ interface PostConnection implements Connection {
 
   """A list of connected post Nodes"""
   nodes: [Post!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: PostConnectionPageInfo!
 }
 
 """Edge between a Node and a connected post"""
@@ -6041,7 +6450,7 @@ type PostToCategoryConnection implements CategoryConnection & Connection {
   nodes: [Category!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: PostToCategoryConnectionPageInfo!
 }
 
 """Connection to category Nodes"""
@@ -6053,6 +6462,9 @@ interface CategoryConnection implements Connection {
 
   """A list of connected category Nodes"""
   nodes: [Category!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: CategoryConnectionPageInfo!
 }
 
 """Edge between a Node and a connected category"""
@@ -6367,7 +6779,7 @@ type TermNodeToEnqueuedScriptConnection implements EnqueuedScriptConnection & Co
   nodes: [EnqueuedScript!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: TermNodeToEnqueuedScriptConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -6379,6 +6791,21 @@ type TermNodeToEnqueuedScriptConnectionEdge implements EnqueuedScriptConnectionE
   node: EnqueuedScript!
 }
 
+"""Page Info on the &quot;TermNodeToEnqueuedScriptConnection&quot;"""
+type TermNodeToEnqueuedScriptConnectionPageInfo implements EnqueuedScriptConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """Connection between the TermNode type and the EnqueuedStylesheet type"""
 type TermNodeToEnqueuedStylesheetConnection implements EnqueuedStylesheetConnection & Connection {
   """Edges for the TermNodeToEnqueuedStylesheetConnection connection"""
@@ -6388,7 +6815,7 @@ type TermNodeToEnqueuedStylesheetConnection implements EnqueuedStylesheetConnect
   nodes: [EnqueuedStylesheet!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: TermNodeToEnqueuedStylesheetConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -6398,6 +6825,21 @@ type TermNodeToEnqueuedStylesheetConnectionEdge implements EnqueuedStylesheetCon
 
   """The item at the end of the edge"""
   node: EnqueuedStylesheet!
+}
+
+"""Page Info on the &quot;TermNodeToEnqueuedStylesheetConnection&quot;"""
+type TermNodeToEnqueuedStylesheetConnectionPageInfo implements EnqueuedStylesheetConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Term node with hierarchical (parent/child) relationships"""
@@ -6498,7 +6940,7 @@ type CategoryToAncestorsCategoryConnection implements CategoryConnection & Conne
   nodes: [Category!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: CategoryToAncestorsCategoryConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -6508,6 +6950,36 @@ type CategoryToAncestorsCategoryConnectionEdge implements CategoryConnectionEdge
 
   """The item at the end of the edge"""
   node: Category!
+}
+
+"""Page Info on the &quot;CategoryToAncestorsCategoryConnection&quot;"""
+type CategoryToAncestorsCategoryConnectionPageInfo implements CategoryConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+"""Page Info on the connected CategoryConnectionEdge"""
+interface CategoryConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the CategoryToCategoryConnection connection"""
@@ -6607,7 +7079,7 @@ type CategoryToCategoryConnection implements CategoryConnection & Connection {
   nodes: [Category!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: CategoryToCategoryConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -6617,6 +7089,21 @@ type CategoryToCategoryConnectionEdge implements CategoryConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Category!
+}
+
+"""Page Info on the &quot;CategoryToCategoryConnection&quot;"""
+type CategoryToCategoryConnectionPageInfo implements CategoryConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the CategoryToContentNodeConnection connection"""
@@ -6698,7 +7185,7 @@ type CategoryToContentNodeConnection implements ContentNodeConnection & Connecti
   nodes: [ContentNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: CategoryToContentNodeConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -6708,6 +7195,21 @@ type CategoryToContentNodeConnectionEdge implements ContentNodeConnectionEdge & 
 
   """The item at the end of the edge"""
   node: ContentNode!
+}
+
+"""Page Info on the &quot;CategoryToContentNodeConnection&quot;"""
+type CategoryToContentNodeConnectionPageInfo implements ContentNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """
@@ -6795,7 +7297,7 @@ type CategoryToEmpreendimentoConnection implements EmpreendimentoConnection & Co
   nodes: [Empreendimento!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: CategoryToEmpreendimentoConnectionPageInfo!
 }
 
 """Connection to Empreendimento Nodes"""
@@ -6807,6 +7309,9 @@ interface EmpreendimentoConnection implements Connection {
 
   """A list of connected Empreendimento Nodes"""
   nodes: [Empreendimento!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: EmpreendimentoConnectionPageInfo!
 }
 
 """Edge between a Node and a connected Empreendimento"""
@@ -7120,7 +7625,7 @@ type EmpreendimentoToCategoryConnection implements CategoryConnection & Connecti
   nodes: [Category!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: EmpreendimentoToCategoryConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -7130,6 +7635,21 @@ type EmpreendimentoToCategoryConnectionEdge implements CategoryConnectionEdge & 
 
   """The item at the end of the edge"""
   node: Category!
+}
+
+"""Page Info on the &quot;EmpreendimentoToCategoryConnection&quot;"""
+type EmpreendimentoToCategoryConnectionPageInfo implements CategoryConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Field Group"""
@@ -7165,7 +7685,13 @@ type Empreendimento_Empreendimento implements AcfFieldGroup {
   endStandVendas: String
 
   """"""
-  enderecoDoEmpreendimento: String
+  enderecoBairro: String
+
+  """"""
+  enderecoNumero: String
+
+  """"""
+  enderecoRua: String
 
   """"""
   estagioDaObra: Category
@@ -7395,7 +7921,7 @@ type EmpreendimentoToTermNodeConnection implements TermNodeConnection & Connecti
   nodes: [TermNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: EmpreendimentoToTermNodeConnectionPageInfo!
 }
 
 """Connection to TermNode Nodes"""
@@ -7407,6 +7933,9 @@ interface TermNodeConnection implements Connection {
 
   """A list of connected TermNode Nodes"""
   nodes: [TermNode!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: TermNodeConnectionPageInfo!
 }
 
 """Edge between a Node and a connected TermNode"""
@@ -7420,6 +7949,21 @@ interface TermNodeConnectionEdge implements Edge {
   node: TermNode!
 }
 
+"""Page Info on the connected TermNodeConnectionEdge"""
+interface TermNodeConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type EmpreendimentoToTermNodeConnectionEdge implements TermNodeConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -7429,6 +7973,36 @@ type EmpreendimentoToTermNodeConnectionEdge implements TermNodeConnectionEdge & 
   node: TermNode!
 }
 
+"""Page Info on the &quot;EmpreendimentoToTermNodeConnection&quot;"""
+type EmpreendimentoToTermNodeConnectionPageInfo implements TermNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+"""Page Info on the connected EmpreendimentoConnectionEdge"""
+interface EmpreendimentoConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type CategoryToEmpreendimentoConnectionEdge implements EmpreendimentoConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -7436,6 +8010,21 @@ type CategoryToEmpreendimentoConnectionEdge implements EmpreendimentoConnectionE
 
   """The item at the end of the edge"""
   node: Empreendimento!
+}
+
+"""Page Info on the &quot;CategoryToEmpreendimentoConnection&quot;"""
+type CategoryToEmpreendimentoConnectionPageInfo implements EmpreendimentoConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Connection between the Category type and the category type"""
@@ -7566,7 +8155,7 @@ type CategoryToPostConnection implements PostConnection & Connection {
   nodes: [Post!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: CategoryToPostConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -7576,6 +8165,36 @@ type CategoryToPostConnectionEdge implements PostConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Post!
+}
+
+"""Page Info on the &quot;CategoryToPostConnection&quot;"""
+type CategoryToPostConnectionPageInfo implements PostConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+"""Page Info on the connected PostConnectionEdge"""
+interface PostConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Connection between the Category type and the Taxonomy type"""
@@ -7596,6 +8215,21 @@ type PostToCategoryConnectionEdge implements CategoryConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Category!
+}
+
+"""Page Info on the &quot;PostToCategoryConnection&quot;"""
+type PostToCategoryConnectionPageInfo implements CategoryConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the PostToCommentConnection connection"""
@@ -7705,7 +8339,7 @@ type PostToCommentConnection implements CommentConnection & Connection {
   nodes: [Comment!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: PostToCommentConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -7715,6 +8349,21 @@ type PostToCommentConnectionEdge implements CommentConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Comment!
+}
+
+"""Page Info on the &quot;PostToCommentConnection&quot;"""
+type PostToCommentConnectionPageInfo implements CommentConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the PostToPostFormatConnection connection"""
@@ -7814,7 +8463,7 @@ type PostToPostFormatConnection implements PostFormatConnection & Connection {
   nodes: [PostFormat!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: PostToPostFormatConnectionPageInfo!
 }
 
 """Connection to postFormat Nodes"""
@@ -7826,6 +8475,9 @@ interface PostFormatConnection implements Connection {
 
   """A list of connected postFormat Nodes"""
   nodes: [PostFormat!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: PostFormatConnectionPageInfo!
 }
 
 """Edge between a Node and a connected postFormat"""
@@ -8050,7 +8702,7 @@ type PostFormatToContentNodeConnection implements ContentNodeConnection & Connec
   nodes: [ContentNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: PostFormatToContentNodeConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -8060,6 +8712,21 @@ type PostFormatToContentNodeConnectionEdge implements ContentNodeConnectionEdge 
 
   """The item at the end of the edge"""
   node: ContentNode!
+}
+
+"""Page Info on the &quot;PostFormatToContentNodeConnection&quot;"""
+type PostFormatToContentNodeConnectionPageInfo implements ContentNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the PostFormatToPostConnection connection"""
@@ -8179,7 +8846,7 @@ type PostFormatToPostConnection implements PostConnection & Connection {
   nodes: [Post!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: PostFormatToPostConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -8189,6 +8856,21 @@ type PostFormatToPostConnectionEdge implements PostConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Post!
+}
+
+"""Page Info on the &quot;PostFormatToPostConnection&quot;"""
+type PostFormatToPostConnectionPageInfo implements PostConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Connection between the PostFormat type and the Taxonomy type"""
@@ -8202,6 +8884,21 @@ type PostFormatToTaxonomyConnectionEdge implements OneToOneConnection & Edge & T
   node: Taxonomy!
 }
 
+"""Page Info on the connected PostFormatConnectionEdge"""
+interface PostFormatConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type PostToPostFormatConnectionEdge implements PostFormatConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -8209,6 +8906,21 @@ type PostToPostFormatConnectionEdge implements PostFormatConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: PostFormat!
+}
+
+"""Page Info on the &quot;PostToPostFormatConnection&quot;"""
+type PostToPostFormatConnectionPageInfo implements PostFormatConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Connection between the Post type and the post type"""
@@ -8339,7 +9051,7 @@ type PostToRevisionConnection implements PostConnection & Connection {
   nodes: [Post!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: PostToRevisionConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -8349,6 +9061,21 @@ type PostToRevisionConnectionEdge implements PostConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Post!
+}
+
+"""Page Info on the &quot;PostToRevisionConnection&quot;"""
+type PostToRevisionConnectionPageInfo implements PostConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the PostToTagConnection connection"""
@@ -8448,7 +9175,7 @@ type PostToTagConnection implements TagConnection & Connection {
   nodes: [Tag!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: PostToTagConnectionPageInfo!
 }
 
 """Connection to tag Nodes"""
@@ -8460,6 +9187,9 @@ interface TagConnection implements Connection {
 
   """A list of connected tag Nodes"""
   nodes: [Tag!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: TagConnectionPageInfo!
 }
 
 """Edge between a Node and a connected tag"""
@@ -8682,7 +9412,7 @@ type TagToContentNodeConnection implements ContentNodeConnection & Connection {
   nodes: [ContentNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: TagToContentNodeConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -8692,6 +9422,21 @@ type TagToContentNodeConnectionEdge implements ContentNodeConnectionEdge & Edge 
 
   """The item at the end of the edge"""
   node: ContentNode!
+}
+
+"""Page Info on the &quot;TagToContentNodeConnection&quot;"""
+type TagToContentNodeConnectionPageInfo implements ContentNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the TagToPostConnection connection"""
@@ -8811,7 +9556,7 @@ type TagToPostConnection implements PostConnection & Connection {
   nodes: [Post!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: TagToPostConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -8821,6 +9566,21 @@ type TagToPostConnectionEdge implements PostConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Post!
+}
+
+"""Page Info on the &quot;TagToPostConnection&quot;"""
+type TagToPostConnectionPageInfo implements PostConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Connection between the Tag type and the Taxonomy type"""
@@ -8834,6 +9594,21 @@ type TagToTaxonomyConnectionEdge implements OneToOneConnection & Edge & Taxonomy
   node: Taxonomy!
 }
 
+"""Page Info on the connected TagConnectionEdge"""
+interface TagConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type PostToTagConnectionEdge implements TagConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -8841,6 +9616,21 @@ type PostToTagConnectionEdge implements TagConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Tag!
+}
+
+"""Page Info on the &quot;PostToTagConnection&quot;"""
+type PostToTagConnectionPageInfo implements TagConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the PostToTermNodeConnection connection"""
@@ -8943,7 +9733,7 @@ type PostToTermNodeConnection implements TermNodeConnection & Connection {
   nodes: [TermNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: PostToTermNodeConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -8955,6 +9745,21 @@ type PostToTermNodeConnectionEdge implements TermNodeConnectionEdge & Edge {
   node: TermNode!
 }
 
+"""Page Info on the &quot;PostToTermNodeConnection&quot;"""
+type PostToTermNodeConnectionPageInfo implements TermNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type UserToPostConnectionEdge implements PostConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -8962,6 +9767,21 @@ type UserToPostConnectionEdge implements PostConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Post!
+}
+
+"""Page Info on the &quot;UserToPostConnection&quot;"""
+type UserToPostConnectionPageInfo implements PostConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the UserToRevisionsConnection connection"""
@@ -9034,7 +9854,7 @@ type UserToRevisionsConnection implements ContentNodeConnection & Connection {
   nodes: [ContentNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: UserToRevisionsConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -9046,6 +9866,21 @@ type UserToRevisionsConnectionEdge implements ContentNodeConnectionEdge & Edge {
   node: ContentNode!
 }
 
+"""Page Info on the &quot;UserToRevisionsConnection&quot;"""
+type UserToRevisionsConnectionPageInfo implements ContentNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """Connection between the User type and the UserRole type"""
 type UserToUserRoleConnection implements UserRoleConnection & Connection {
   """Edges for the UserToUserRoleConnection connection"""
@@ -9055,7 +9890,7 @@ type UserToUserRoleConnection implements UserRoleConnection & Connection {
   nodes: [UserRole!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: UserToUserRoleConnectionPageInfo!
 }
 
 """Connection to UserRole Nodes"""
@@ -9067,6 +9902,9 @@ interface UserRoleConnection implements Connection {
 
   """A list of connected UserRole Nodes"""
   nodes: [UserRole!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: UserRoleConnectionPageInfo!
 }
 
 """Edge between a Node and a connected UserRole"""
@@ -9098,6 +9936,21 @@ type UserRole implements Node {
   name: String
 }
 
+"""Page Info on the connected UserRoleConnectionEdge"""
+interface UserRoleConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type UserToUserRoleConnectionEdge implements UserRoleConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -9105,6 +9958,21 @@ type UserToUserRoleConnectionEdge implements UserRoleConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: UserRole!
+}
+
+"""Page Info on the &quot;UserToUserRoleConnection&quot;"""
+type UserToUserRoleConnectionPageInfo implements UserRoleConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Field Group"""
@@ -9218,7 +10086,7 @@ type RootQueryToArquivoAssessoriaConnection implements ArquivoAssessoriaConnecti
   nodes: [ArquivoAssessoria!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToArquivoAssessoriaConnectionPageInfo!
 }
 
 """Connection to ArquivoAssessoria Nodes"""
@@ -9230,6 +10098,24 @@ interface ArquivoAssessoriaConnection implements Connection {
 
   """A list of connected ArquivoAssessoria Nodes"""
   nodes: [ArquivoAssessoria!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: ArquivoAssessoriaConnectionPageInfo!
+}
+
+"""Page Info on the connected ArquivoAssessoriaConnectionEdge"""
+interface ArquivoAssessoriaConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """An edge in a connection"""
@@ -9239,6 +10125,21 @@ type RootQueryToArquivoAssessoriaConnectionEdge implements ArquivoAssessoriaConn
 
   """The item at the end of the edge"""
   node: ArquivoAssessoria!
+}
+
+"""Page Info on the &quot;RootQueryToArquivoAssessoriaConnection&quot;"""
+type RootQueryToArquivoAssessoriaConnectionPageInfo implements ArquivoAssessoriaConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The Type of Identifier used to fetch a single resource. Default is ID."""
@@ -9560,7 +10461,7 @@ type RootQueryToBannerConnection implements BannerConnection & Connection {
   nodes: [Banner!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToBannerConnectionPageInfo!
 }
 
 """Connection to Banner Nodes"""
@@ -9572,6 +10473,24 @@ interface BannerConnection implements Connection {
 
   """A list of connected Banner Nodes"""
   nodes: [Banner!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: BannerConnectionPageInfo!
+}
+
+"""Page Info on the connected BannerConnectionEdge"""
+interface BannerConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """An edge in a connection"""
@@ -9581,6 +10500,21 @@ type RootQueryToBannerConnectionEdge implements BannerConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Banner!
+}
+
+"""Page Info on the &quot;RootQueryToBannerConnection&quot;"""
+type RootQueryToBannerConnectionPageInfo implements BannerConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the RootQueryToCategoryConnection connection"""
@@ -9680,7 +10614,7 @@ type RootQueryToCategoryConnection implements CategoryConnection & Connection {
   nodes: [Category!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToCategoryConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -9690,6 +10624,21 @@ type RootQueryToCategoryConnectionEdge implements CategoryConnectionEdge & Edge 
 
   """The item at the end of the edge"""
   node: Category!
+}
+
+"""Page Info on the &quot;RootQueryToCategoryConnection&quot;"""
+type RootQueryToCategoryConnectionPageInfo implements CategoryConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The Type of Identifier used to fetch a single resource. Default is ID."""
@@ -9828,7 +10777,7 @@ type RootQueryToCommentConnection implements CommentConnection & Connection {
   nodes: [Comment!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToCommentConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -9838,6 +10787,21 @@ type RootQueryToCommentConnectionEdge implements CommentConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Comment!
+}
+
+"""Page Info on the &quot;RootQueryToCommentConnection&quot;"""
+type RootQueryToCommentConnectionPageInfo implements CommentConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The Type of Identifier used to fetch a single resource. Default is ID."""
@@ -9924,7 +10888,7 @@ type RootQueryToContentNodeConnection implements ContentNodeConnection & Connect
   nodes: [ContentNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToContentNodeConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -9934,6 +10898,21 @@ type RootQueryToContentNodeConnectionEdge implements ContentNodeConnectionEdge &
 
   """The item at the end of the edge"""
   node: ContentNode!
+}
+
+"""Page Info on the &quot;RootQueryToContentNodeConnection&quot;"""
+type RootQueryToContentNodeConnectionPageInfo implements ContentNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """
@@ -9956,7 +10935,7 @@ type RootQueryToContentTypeConnection implements ContentTypeConnection & Connect
   nodes: [ContentType!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToContentTypeConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -9966,6 +10945,21 @@ type RootQueryToContentTypeConnectionEdge implements ContentTypeConnectionEdge &
 
   """The item at the end of the edge"""
   node: ContentType!
+}
+
+"""Page Info on the &quot;RootQueryToContentTypeConnection&quot;"""
+type RootQueryToContentTypeConnectionPageInfo implements ContentTypeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The discussion setting type"""
@@ -10081,7 +11075,7 @@ type RootQueryToEmpreendimentoConnection implements EmpreendimentoConnection & C
   nodes: [Empreendimento!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToEmpreendimentoConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -10091,6 +11085,21 @@ type RootQueryToEmpreendimentoConnectionEdge implements EmpreendimentoConnection
 
   """The item at the end of the edge"""
   node: Empreendimento!
+}
+
+"""Page Info on the &quot;RootQueryToEmpreendimentoConnection&quot;"""
+type RootQueryToEmpreendimentoConnectionPageInfo implements EmpreendimentoConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The general setting type"""
@@ -10228,7 +11237,7 @@ type RootQueryToMediaItemConnection implements MediaItemConnection & Connection 
   nodes: [MediaItem!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToMediaItemConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -10238,6 +11247,21 @@ type RootQueryToMediaItemConnectionEdge implements MediaItemConnectionEdge & Edg
 
   """The item at the end of the edge"""
   node: MediaItem!
+}
+
+"""Page Info on the &quot;RootQueryToMediaItemConnection&quot;"""
+type RootQueryToMediaItemConnectionPageInfo implements MediaItemConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """
@@ -10343,7 +11367,7 @@ type MenuToMenuItemConnection implements MenuItemConnection & Connection {
   nodes: [MenuItem!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: MenuToMenuItemConnectionPageInfo!
 }
 
 """Connection to MenuItem Nodes"""
@@ -10355,6 +11379,9 @@ interface MenuItemConnection implements Connection {
 
   """A list of connected MenuItem Nodes"""
   nodes: [MenuItem!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: MenuItemConnectionPageInfo!
 }
 
 """Edge between a Node and a connected MenuItem"""
@@ -10481,7 +11508,7 @@ type MenuItemToMenuItemConnection implements MenuItemConnection & Connection {
   nodes: [MenuItem!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: MenuItemToMenuItemConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -10491,6 +11518,36 @@ type MenuItemToMenuItemConnectionEdge implements MenuItemConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: MenuItem!
+}
+
+"""Page Info on the &quot;MenuItemToMenuItemConnection&quot;"""
+type MenuItemToMenuItemConnectionPageInfo implements MenuItemConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+"""Page Info on the connected MenuItemConnectionEdge"""
+interface MenuItemConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Connection between the MenuItem type and the MenuItemLinkable type"""
@@ -10549,6 +11606,21 @@ type MenuToMenuItemConnectionEdge implements MenuItemConnectionEdge & Edge {
   node: MenuItem!
 }
 
+"""Page Info on the &quot;MenuToMenuItemConnection&quot;"""
+type MenuToMenuItemConnectionPageInfo implements MenuItemConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """
 The Type of Identifier used to fetch a single node. Default is "ID". To be used along with the "id" field.
 """
@@ -10584,7 +11656,7 @@ type RootQueryToMenuItemConnection implements MenuItemConnection & Connection {
   nodes: [MenuItem!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToMenuItemConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -10594,6 +11666,21 @@ type RootQueryToMenuItemConnectionEdge implements MenuItemConnectionEdge & Edge 
 
   """The item at the end of the edge"""
   node: MenuItem!
+}
+
+"""Page Info on the &quot;RootQueryToMenuItemConnection&quot;"""
+type RootQueryToMenuItemConnectionPageInfo implements MenuItemConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the RootQueryToMenuConnection connection"""
@@ -10617,7 +11704,7 @@ type RootQueryToMenuConnection implements MenuConnection & Connection {
   nodes: [Menu!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToMenuConnectionPageInfo!
 }
 
 """Connection to Menu Nodes"""
@@ -10629,6 +11716,24 @@ interface MenuConnection implements Connection {
 
   """A list of connected Menu Nodes"""
   nodes: [Menu!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: MenuConnectionPageInfo!
+}
+
+"""Page Info on the connected MenuConnectionEdge"""
+interface MenuConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """An edge in a connection"""
@@ -10638,6 +11743,21 @@ type RootQueryToMenuConnectionEdge implements MenuConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Menu!
+}
+
+"""Page Info on the &quot;RootQueryToMenuConnection&quot;"""
+type RootQueryToMenuConnectionPageInfo implements MenuConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The Type of Identifier used to fetch a single resource. Default is ID."""
@@ -10735,7 +11855,7 @@ type RootQueryToPageConnection implements PageConnection & Connection {
   nodes: [Page!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToPageConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -10745,6 +11865,21 @@ type RootQueryToPageConnectionEdge implements PageConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Page!
+}
+
+"""Page Info on the &quot;RootQueryToPageConnection&quot;"""
+type RootQueryToPageConnectionPageInfo implements PageConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """An plugin object"""
@@ -10824,7 +11959,7 @@ type RootQueryToPluginConnection implements PluginConnection & Connection {
   nodes: [Plugin!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToPluginConnectionPageInfo!
 }
 
 """Connection to Plugin Nodes"""
@@ -10836,6 +11971,9 @@ interface PluginConnection implements Connection {
 
   """A list of connected Plugin Nodes"""
   nodes: [Plugin!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: PluginConnectionPageInfo!
 }
 
 """Edge between a Node and a connected Plugin"""
@@ -10849,6 +11987,21 @@ interface PluginConnectionEdge implements Edge {
   node: Plugin!
 }
 
+"""Page Info on the connected PluginConnectionEdge"""
+interface PluginConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type RootQueryToPluginConnectionEdge implements PluginConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -10856,6 +12009,21 @@ type RootQueryToPluginConnectionEdge implements PluginConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Plugin!
+}
+
+"""Page Info on the &quot;RootQueryToPluginConnection&quot;"""
+type RootQueryToPluginConnectionPageInfo implements PluginConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The Type of Identifier used to fetch a single resource. Default is ID."""
@@ -10990,7 +12158,7 @@ type RootQueryToPostFormatConnection implements PostFormatConnection & Connectio
   nodes: [PostFormat!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToPostFormatConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -11000,6 +12168,21 @@ type RootQueryToPostFormatConnectionEdge implements PostFormatConnectionEdge & E
 
   """The item at the end of the edge"""
   node: PostFormat!
+}
+
+"""Page Info on the &quot;RootQueryToPostFormatConnection&quot;"""
+type RootQueryToPostFormatConnectionPageInfo implements PostFormatConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the RootQueryToPostConnection connection"""
@@ -11119,7 +12302,7 @@ type RootQueryToPostConnection implements PostConnection & Connection {
   nodes: [Post!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToPostConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -11129,6 +12312,21 @@ type RootQueryToPostConnectionEdge implements PostConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Post!
+}
+
+"""Page Info on the &quot;RootQueryToPostConnection&quot;"""
+type RootQueryToPostConnectionPageInfo implements PostConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The reading setting type"""
@@ -11155,7 +12353,7 @@ type RootQueryToEnqueuedScriptConnection implements EnqueuedScriptConnection & C
   nodes: [EnqueuedScript!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToEnqueuedScriptConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -11167,6 +12365,21 @@ type RootQueryToEnqueuedScriptConnectionEdge implements EnqueuedScriptConnection
   node: EnqueuedScript!
 }
 
+"""Page Info on the &quot;RootQueryToEnqueuedScriptConnection&quot;"""
+type RootQueryToEnqueuedScriptConnectionPageInfo implements EnqueuedScriptConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """Connection between the RootQuery type and the EnqueuedStylesheet type"""
 type RootQueryToEnqueuedStylesheetConnection implements EnqueuedStylesheetConnection & Connection {
   """Edges for the RootQueryToEnqueuedStylesheetConnection connection"""
@@ -11176,7 +12389,7 @@ type RootQueryToEnqueuedStylesheetConnection implements EnqueuedStylesheetConnec
   nodes: [EnqueuedStylesheet!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToEnqueuedStylesheetConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -11186,6 +12399,21 @@ type RootQueryToEnqueuedStylesheetConnectionEdge implements EnqueuedStylesheetCo
 
   """The item at the end of the edge"""
   node: EnqueuedStylesheet!
+}
+
+"""Page Info on the &quot;RootQueryToEnqueuedStylesheetConnection&quot;"""
+type RootQueryToEnqueuedStylesheetConnectionPageInfo implements EnqueuedStylesheetConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the RootQueryToRevisionsConnection connection"""
@@ -11258,7 +12486,7 @@ type RootQueryToRevisionsConnection implements ContentNodeConnection & Connectio
   nodes: [ContentNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToRevisionsConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -11268,6 +12496,21 @@ type RootQueryToRevisionsConnectionEdge implements ContentNodeConnectionEdge & E
 
   """The item at the end of the edge"""
   node: ContentNode!
+}
+
+"""Page Info on the &quot;RootQueryToRevisionsConnection&quot;"""
+type RootQueryToRevisionsConnectionPageInfo implements ContentNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The Type of Identifier used to fetch a single resource. Default is ID."""
@@ -11385,7 +12628,7 @@ type RootQueryToTagConnection implements TagConnection & Connection {
   nodes: [Tag!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToTagConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -11397,6 +12640,21 @@ type RootQueryToTagConnectionEdge implements TagConnectionEdge & Edge {
   node: Tag!
 }
 
+"""Page Info on the &quot;RootQueryToTagConnection&quot;"""
+type RootQueryToTagConnectionPageInfo implements TagConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """Connection between the RootQuery type and the Taxonomy type"""
 type RootQueryToTaxonomyConnection implements TaxonomyConnection & Connection {
   """Edges for the RootQueryToTaxonomyConnection connection"""
@@ -11406,7 +12664,7 @@ type RootQueryToTaxonomyConnection implements TaxonomyConnection & Connection {
   nodes: [Taxonomy!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToTaxonomyConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -11416,6 +12674,21 @@ type RootQueryToTaxonomyConnectionEdge implements TaxonomyConnectionEdge & Edge 
 
   """The item at the end of the edge"""
   node: Taxonomy!
+}
+
+"""Page Info on the &quot;RootQueryToTaxonomyConnection&quot;"""
+type RootQueryToTaxonomyConnectionPageInfo implements TaxonomyConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """
@@ -11549,7 +12822,7 @@ type RootQueryToTermNodeConnection implements TermNodeConnection & Connection {
   nodes: [TermNode!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToTermNodeConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -11559,6 +12832,21 @@ type RootQueryToTermNodeConnectionEdge implements TermNodeConnectionEdge & Edge 
 
   """The item at the end of the edge"""
   node: TermNode!
+}
+
+"""Page Info on the &quot;RootQueryToTermNodeConnection&quot;"""
+type RootQueryToTermNodeConnectionPageInfo implements TermNodeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """A theme object"""
@@ -11624,7 +12912,7 @@ type RootQueryToThemeConnection implements ThemeConnection & Connection {
   nodes: [Theme!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToThemeConnectionPageInfo!
 }
 
 """Connection to Theme Nodes"""
@@ -11636,6 +12924,9 @@ interface ThemeConnection implements Connection {
 
   """A list of connected Theme Nodes"""
   nodes: [Theme!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: ThemeConnectionPageInfo!
 }
 
 """Edge between a Node and a connected Theme"""
@@ -11649,6 +12940,21 @@ interface ThemeConnectionEdge implements Edge {
   node: Theme!
 }
 
+"""Page Info on the connected ThemeConnectionEdge"""
+interface ThemeConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
 """An edge in a connection"""
 type RootQueryToThemeConnectionEdge implements ThemeConnectionEdge & Edge {
   """A cursor for use in pagination"""
@@ -11656,6 +12962,21 @@ type RootQueryToThemeConnectionEdge implements ThemeConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: Theme!
+}
+
+"""Page Info on the &quot;RootQueryToThemeConnection&quot;"""
+type RootQueryToThemeConnectionPageInfo implements ThemeConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """
@@ -11690,7 +13011,7 @@ type RootQueryToUserRoleConnection implements UserRoleConnection & Connection {
   nodes: [UserRole!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToUserRoleConnectionPageInfo!
 }
 
 """An edge in a connection"""
@@ -11700,6 +13021,21 @@ type RootQueryToUserRoleConnectionEdge implements UserRoleConnectionEdge & Edge 
 
   """The item at the end of the edge"""
   node: UserRole!
+}
+
+"""Page Info on the &quot;RootQueryToUserRoleConnection&quot;"""
+type RootQueryToUserRoleConnectionPageInfo implements UserRoleConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Arguments for filtering the RootQueryToUserConnection connection"""
@@ -11838,7 +13174,7 @@ enum UsersConnectionSearchColumnEnum {
   """A URL-friendly name for the user. The default is the user's username."""
   NICENAME
 
-  """The URL of the user\s website."""
+  """The URL of the user's website."""
   URL
 }
 
@@ -11851,7 +13187,7 @@ type RootQueryToUserConnection implements UserConnection & Connection {
   nodes: [User!]!
 
   """Information about pagination in a connection."""
-  pageInfo: WPPageInfo
+  pageInfo: RootQueryToUserConnectionPageInfo!
 }
 
 """Connection to User Nodes"""
@@ -11863,6 +13199,24 @@ interface UserConnection implements Connection {
 
   """A list of connected User Nodes"""
   nodes: [User!]!
+
+  """Information about pagination in a connection."""
+  pageInfo: UserConnectionPageInfo!
+}
+
+"""Page Info on the connected UserConnectionEdge"""
+interface UserConnectionPageInfo implements WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """An edge in a connection"""
@@ -11872,6 +13226,21 @@ type RootQueryToUserConnectionEdge implements UserConnectionEdge & Edge {
 
   """The item at the end of the edge"""
   node: User!
+}
+
+"""Page Info on the &quot;RootQueryToUserConnection&quot;"""
+type RootQueryToUserConnectionPageInfo implements UserConnectionPageInfo & WPPageInfo & PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """The writing setting type"""
@@ -12841,6 +14210,9 @@ input DeleteArquivoAssessoriaInput {
 
   """The ID of the ArquivoAssessoria to delete"""
   id: ID!
+
+  """Override the edit lock when another user is editing the post"""
+  ignoreEditLock: Boolean
 }
 
 """The payload for the deleteArquivoAssessoria mutation."""
@@ -12871,6 +14243,9 @@ input DeleteBannerInput {
 
   """The ID of the Banner to delete"""
   id: ID!
+
+  """Override the edit lock when another user is editing the post"""
+  ignoreEditLock: Boolean
 }
 
 """The payload for the deleteBanner mutation."""
@@ -12956,6 +14331,9 @@ input DeleteEmpreendimentoInput {
 
   """The ID of the Empreendimento to delete"""
   id: ID!
+
+  """Override the edit lock when another user is editing the post"""
+  ignoreEditLock: Boolean
 }
 
 """The payload for the deleteEmpreendimento mutation."""
@@ -13016,6 +14394,9 @@ input DeletePageInput {
 
   """The ID of the page to delete"""
   id: ID!
+
+  """Override the edit lock when another user is editing the post"""
+  ignoreEditLock: Boolean
 }
 
 """The payload for the deletePage mutation."""
@@ -13046,6 +14427,9 @@ input DeletePostInput {
 
   """The ID of the post to delete"""
   id: ID!
+
+  """Override the edit lock when another user is editing the post"""
+  ignoreEditLock: Boolean
 }
 
 """The payload for the deletePost mutation."""
@@ -13308,6 +14692,9 @@ input UpdateArquivoAssessoriaInput {
   """The ID of the ArquivoAssessoria object"""
   id: ID!
 
+  """Override the edit lock when another user is editing the post"""
+  ignoreEditLock: Boolean
+
   """
   A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types.
   """
@@ -13351,6 +14738,9 @@ input UpdateBannerInput {
 
   """The ID of the Banner object"""
   id: ID!
+
+  """Override the edit lock when another user is editing the post"""
+  ignoreEditLock: Boolean
 
   """
   A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types.
@@ -13497,6 +14887,9 @@ input UpdateEmpreendimentoInput {
   """The ID of the Empreendimento object"""
   id: ID!
 
+  """Override the edit lock when another user is editing the post"""
+  ignoreEditLock: Boolean
+
   """
   A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types.
   """
@@ -13614,6 +15007,9 @@ input UpdatePageInput {
   """The ID of the page object"""
   id: ID!
 
+  """Override the edit lock when another user is editing the post"""
+  ignoreEditLock: Boolean
+
   """
   A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types.
   """
@@ -13675,6 +15071,9 @@ input UpdatePostInput {
 
   """The ID of the post object"""
   id: ID!
+
+  """Override the edit lock when another user is editing the post"""
+  ignoreEditLock: Boolean
 
   """
   A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types.

@@ -1,8 +1,42 @@
+import { useState } from 'react';
 import { BsSearch, BsFilterRight } from 'react-icons/bs';
+import { RootQueryToEmpreendimentoConnection } from '../../generated';
 
-const FilterApp = () => {
+interface Props {
+  data: RootQueryToEmpreendimentoConnection;
+  childToParent: any;
+}
+
+const FilterApp = ({ data, childToParent }: Props) => {
+  const [selectValue, setSelectValue] = useState('');
+
+  function ClearText(text: any) {
+    const clearText = text?.normalize('NFD').replace(/[^a-zA-Z\s]/g, '');
+    return clearText?.replace(/\s/g, '').toLowerCase();
+  }
+
+  const GetObjects = (object: string) => {
+    const itens = data.nodes.map((el) => {
+      if (object === 'bairro') {
+        return el.empreendimento?.enderecoBairro;
+      }
+      if (object === 'tipo') {
+        return el.empreendimento?.tipoDoEmpreendimento;
+      }
+      if (object === 'estagio') {
+        return el.empreendimento?.estagioDaObra?.name;
+      }
+    }, []);
+
+    const newArray = [...new Set(itens)];
+
+    return newArray.filter(function (i) {
+      return i;
+    });
+  };
+
   return (
-    <form action="" method="POST">
+    <form>
       <div className="relative">
         <input
           type="search"
@@ -19,25 +53,45 @@ const FilterApp = () => {
           Busca avançada <BsFilterRight size={22} className="ml-3" />
         </summary>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
-          <select name="bairro" className="border border-green py-2 px-3">
-            <option value="bairro 1">Bairro 1</option>
-            <option value="bairro 2">Bairro 2</option>
+          <select
+            name="bairro"
+            className="border border-green py-2 px-3"
+            onChange={(e) => setSelectValue(e.target.value)}
+          >
+            <option value="false">Bairro</option>
+            {GetObjects('bairro').map((item) => {
+              return <option value={ClearText(item)}>{item}</option>;
+            })}
           </select>
-          <select name="tipo" className="border border-green py-2 px-3">
-            <option value="tipo-imovel">Tipo de imóvel 1</option>
-            <option value="tipo-imovel2">Tipo de imóvel 2</option>
+          <select
+            name="tipo"
+            className="border border-green py-2 px-3"
+            onChange={(e) => setSelectValue(e.target.value)}
+          >
+            <option value="false">Tipo de imóvel</option>
+            {GetObjects('tipo').map((item) => {
+              return <option value={ClearText(item)}>{item}</option>;
+            })}
           </select>
-          <select name="estagio" className="border border-green py-2 px-3">
-            <option value="tipo-imovel">Estágio da obra</option>
-            <option value="estagio-da-obra2">Estágio da obra 2</option>
+          <select
+            name="estagio"
+            className="border border-green py-2 px-3"
+            onChange={(e) => setSelectValue(e.target.value)}
+          >
+            <option value="false">Estágio da obra</option>
+            {GetObjects('estagio').map((item) => {
+              return <option value={ClearText(item)}>{item}</option>;
+            })}
           </select>
         </div>
         <div className="flex justify-center mt-6">
-          <input
-            type="submit"
+          <button
             value="Buscar"
             className="text-black uppercase px-6 py-2 bg-green mr-3"
-          />
+            onClick={() => childToParent(selectValue)}
+          >
+            Buscar
+          </button>
           <button
             type="reset"
             className="text-green uppercase px-6 py-2 border border-green"

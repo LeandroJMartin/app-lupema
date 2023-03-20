@@ -373,7 +373,7 @@ export interface ContentTypeToTaxonomyConnection {
     /** The nodes of the connection, without the edges */
     nodes: Taxonomy[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: ContentTypeToTaxonomyConnectionPageInfo
     __typename: 'ContentTypeToTaxonomyConnection'
 }
 
@@ -384,6 +384,10 @@ export type TaxonomyConnection = (ContentTypeToTaxonomyConnection | RootQueryToT
 
 /** A plural connection from one Node Type in the Graph to another Node Type, with support for relational data via &quot;edges&quot;. */
 export type Connection = (ContentTypeToTaxonomyConnection | TaxonomyToContentTypeConnection | ContentTypeToContentNodeConnection | UserToCommentConnection | CommentToCommentConnection | UserToEnqueuedScriptConnection | UserToEnqueuedStylesheetConnection | UserToMediaItemConnection | HierarchicalContentNodeToContentNodeAncestorsConnection | HierarchicalContentNodeToContentNodeChildrenConnection | ContentNodeToEnqueuedScriptConnection | ContentNodeToEnqueuedStylesheetConnection | MediaItemToCommentConnection | UserToPageConnection | PageToCommentConnection | PageToRevisionConnection | UserToPostConnection | PostToCategoryConnection | TermNodeToEnqueuedScriptConnection | TermNodeToEnqueuedStylesheetConnection | CategoryToAncestorsCategoryConnection | CategoryToCategoryConnection | CategoryToContentNodeConnection | CategoryToEmpreendimentoConnection | EmpreendimentoToCategoryConnection | EmpreendimentoToTermNodeConnection | CategoryToPostConnection | PostToCommentConnection | PostToPostFormatConnection | PostFormatToContentNodeConnection | PostFormatToPostConnection | PostToRevisionConnection | PostToTagConnection | TagToContentNodeConnection | TagToPostConnection | PostToTermNodeConnection | UserToRevisionsConnection | UserToUserRoleConnection | RootQueryToArquivoAssessoriaConnection | RootQueryToBannerConnection | RootQueryToCategoryConnection | RootQueryToCommentConnection | RootQueryToContentNodeConnection | RootQueryToContentTypeConnection | RootQueryToEmpreendimentoConnection | RootQueryToMediaItemConnection | MenuToMenuItemConnection | MenuItemToMenuItemConnection | RootQueryToMenuItemConnection | RootQueryToMenuConnection | RootQueryToPageConnection | RootQueryToPluginConnection | RootQueryToPostFormatConnection | RootQueryToPostConnection | RootQueryToEnqueuedScriptConnection | RootQueryToEnqueuedStylesheetConnection | RootQueryToRevisionsConnection | RootQueryToTagConnection | RootQueryToTaxonomyConnection | RootQueryToTermNodeConnection | RootQueryToThemeConnection | RootQueryToUserRoleConnection | RootQueryToUserConnection) & { __isUnion?: true }
+
+
+/** Information about pagination in a connection. */
+export type PageInfo = (TaxonomyToContentTypeConnectionPageInfo | ContentTypeToTaxonomyConnectionPageInfo | ContentTypeToContentNodeConnectionPageInfo | CommentToCommentConnectionPageInfo | UserToCommentConnectionPageInfo | UserToEnqueuedScriptConnectionPageInfo | UserToEnqueuedStylesheetConnectionPageInfo | HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo | HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo | ContentNodeToEnqueuedScriptConnectionPageInfo | ContentNodeToEnqueuedStylesheetConnectionPageInfo | MediaItemToCommentConnectionPageInfo | UserToMediaItemConnectionPageInfo | PageToCommentConnectionPageInfo | PageToRevisionConnectionPageInfo | UserToPageConnectionPageInfo | TermNodeToEnqueuedScriptConnectionPageInfo | TermNodeToEnqueuedStylesheetConnectionPageInfo | CategoryToAncestorsCategoryConnectionPageInfo | CategoryToCategoryConnectionPageInfo | CategoryToContentNodeConnectionPageInfo | EmpreendimentoToCategoryConnectionPageInfo | EmpreendimentoToTermNodeConnectionPageInfo | CategoryToEmpreendimentoConnectionPageInfo | CategoryToPostConnectionPageInfo | PostToCategoryConnectionPageInfo | PostToCommentConnectionPageInfo | PostFormatToContentNodeConnectionPageInfo | PostFormatToPostConnectionPageInfo | PostToPostFormatConnectionPageInfo | PostToRevisionConnectionPageInfo | TagToContentNodeConnectionPageInfo | TagToPostConnectionPageInfo | PostToTagConnectionPageInfo | PostToTermNodeConnectionPageInfo | UserToPostConnectionPageInfo | UserToRevisionsConnectionPageInfo | UserToUserRoleConnectionPageInfo | RootQueryToArquivoAssessoriaConnectionPageInfo | RootQueryToBannerConnectionPageInfo | RootQueryToCategoryConnectionPageInfo | RootQueryToCommentConnectionPageInfo | RootQueryToContentNodeConnectionPageInfo | RootQueryToContentTypeConnectionPageInfo | RootQueryToEmpreendimentoConnectionPageInfo | RootQueryToMediaItemConnectionPageInfo | MenuItemToMenuItemConnectionPageInfo | MenuToMenuItemConnectionPageInfo | RootQueryToMenuItemConnectionPageInfo | RootQueryToMenuConnectionPageInfo | RootQueryToPageConnectionPageInfo | RootQueryToPluginConnectionPageInfo | RootQueryToPostFormatConnectionPageInfo | RootQueryToPostConnectionPageInfo | RootQueryToEnqueuedScriptConnectionPageInfo | RootQueryToEnqueuedStylesheetConnectionPageInfo | RootQueryToRevisionsConnectionPageInfo | RootQueryToTagConnectionPageInfo | RootQueryToTaxonomyConnectionPageInfo | RootQueryToTermNodeConnectionPageInfo | RootQueryToThemeConnectionPageInfo | RootQueryToUserRoleConnectionPageInfo | RootQueryToUserConnectionPageInfo) & { __isUnion?: true }
 
 
 /** Edge between a Node and a connected Taxonomy */
@@ -443,13 +447,21 @@ export interface TaxonomyToContentTypeConnection {
     /** The nodes of the connection, without the edges */
     nodes: ContentType[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: TaxonomyToContentTypeConnectionPageInfo
     __typename: 'TaxonomyToContentTypeConnection'
 }
 
 
 /** Connection to ContentType Nodes */
 export type ContentTypeConnection = (TaxonomyToContentTypeConnection | RootQueryToContentTypeConnection) & { __isUnion?: true }
+
+
+/** Page Info on the connected ContentTypeConnectionEdge */
+export type ContentTypeConnectionPageInfo = (TaxonomyToContentTypeConnectionPageInfo | RootQueryToContentTypeConnectionPageInfo) & { __isUnion?: true }
+
+
+/** Information about pagination in a connection. */
+export type WPPageInfo = (TaxonomyToContentTypeConnectionPageInfo | ContentTypeToTaxonomyConnectionPageInfo | ContentTypeToContentNodeConnectionPageInfo | CommentToCommentConnectionPageInfo | UserToCommentConnectionPageInfo | UserToEnqueuedScriptConnectionPageInfo | UserToEnqueuedStylesheetConnectionPageInfo | HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo | HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo | ContentNodeToEnqueuedScriptConnectionPageInfo | ContentNodeToEnqueuedStylesheetConnectionPageInfo | MediaItemToCommentConnectionPageInfo | UserToMediaItemConnectionPageInfo | PageToCommentConnectionPageInfo | PageToRevisionConnectionPageInfo | UserToPageConnectionPageInfo | TermNodeToEnqueuedScriptConnectionPageInfo | TermNodeToEnqueuedStylesheetConnectionPageInfo | CategoryToAncestorsCategoryConnectionPageInfo | CategoryToCategoryConnectionPageInfo | CategoryToContentNodeConnectionPageInfo | EmpreendimentoToCategoryConnectionPageInfo | EmpreendimentoToTermNodeConnectionPageInfo | CategoryToEmpreendimentoConnectionPageInfo | CategoryToPostConnectionPageInfo | PostToCategoryConnectionPageInfo | PostToCommentConnectionPageInfo | PostFormatToContentNodeConnectionPageInfo | PostFormatToPostConnectionPageInfo | PostToPostFormatConnectionPageInfo | PostToRevisionConnectionPageInfo | TagToContentNodeConnectionPageInfo | TagToPostConnectionPageInfo | PostToTagConnectionPageInfo | PostToTermNodeConnectionPageInfo | UserToPostConnectionPageInfo | UserToRevisionsConnectionPageInfo | UserToUserRoleConnectionPageInfo | RootQueryToArquivoAssessoriaConnectionPageInfo | RootQueryToBannerConnectionPageInfo | RootQueryToCategoryConnectionPageInfo | RootQueryToCommentConnectionPageInfo | RootQueryToContentNodeConnectionPageInfo | RootQueryToContentTypeConnectionPageInfo | RootQueryToEmpreendimentoConnectionPageInfo | RootQueryToMediaItemConnectionPageInfo | MenuItemToMenuItemConnectionPageInfo | MenuToMenuItemConnectionPageInfo | RootQueryToMenuItemConnectionPageInfo | RootQueryToMenuConnectionPageInfo | RootQueryToPageConnectionPageInfo | RootQueryToPluginConnectionPageInfo | RootQueryToPostFormatConnectionPageInfo | RootQueryToPostConnectionPageInfo | RootQueryToEnqueuedScriptConnectionPageInfo | RootQueryToEnqueuedStylesheetConnectionPageInfo | RootQueryToRevisionsConnectionPageInfo | RootQueryToTagConnectionPageInfo | RootQueryToTaxonomyConnectionPageInfo | RootQueryToTermNodeConnectionPageInfo | RootQueryToThemeConnectionPageInfo | RootQueryToUserRoleConnectionPageInfo | RootQueryToUserConnectionPageInfo) & { __isUnion?: true }
 
 
 /** An edge in a connection */
@@ -462,8 +474,8 @@ export interface TaxonomyToContentTypeConnectionEdge {
 }
 
 
-/** Information about pagination in a connection. */
-export interface WPPageInfo {
+/** Page Info on the &quot;TaxonomyToContentTypeConnection&quot; */
+export interface TaxonomyToContentTypeConnectionPageInfo {
     /** When paginating forwards, the cursor to continue. */
     endCursor?: Scalars['String']
     /** When paginating forwards, are there more items? */
@@ -472,8 +484,12 @@ export interface WPPageInfo {
     hasPreviousPage: Scalars['Boolean']
     /** When paginating backwards, the cursor to continue. */
     startCursor?: Scalars['String']
-    __typename: 'WPPageInfo'
+    __typename: 'TaxonomyToContentTypeConnectionPageInfo'
 }
+
+
+/** Page Info on the connected TaxonomyConnectionEdge */
+export type TaxonomyConnectionPageInfo = (ContentTypeToTaxonomyConnectionPageInfo | RootQueryToTaxonomyConnectionPageInfo) & { __isUnion?: true }
 
 
 /** An edge in a connection */
@@ -483,6 +499,20 @@ export interface ContentTypeToTaxonomyConnectionEdge {
     /** The item at the end of the edge */
     node: Taxonomy
     __typename: 'ContentTypeToTaxonomyConnectionEdge'
+}
+
+
+/** Page Info on the &quot;ContentTypeToTaxonomyConnection&quot; */
+export interface ContentTypeToTaxonomyConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'ContentTypeToTaxonomyConnectionPageInfo'
 }
 
 
@@ -521,7 +551,7 @@ export interface ContentTypeToContentNodeConnection {
     /** The nodes of the connection, without the edges */
     nodes: ContentNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: ContentTypeToContentNodeConnectionPageInfo
     __typename: 'ContentTypeToContentNodeConnection'
 }
 
@@ -534,6 +564,10 @@ export type ContentNodeConnection = (ContentTypeToContentNodeConnection | Hierar
 export type ContentNodeConnectionEdge = (ContentTypeToContentNodeConnectionEdge | CommentToContentNodeConnectionEdge | HierarchicalContentNodeToContentNodeAncestorsConnectionEdge | HierarchicalContentNodeToContentNodeChildrenConnectionEdge | HierarchicalContentNodeToParentContentNodeConnectionEdge | NodeWithRevisionsToContentNodeConnectionEdge | CategoryToContentNodeConnectionEdge | PostFormatToContentNodeConnectionEdge | TagToContentNodeConnectionEdge | UserToRevisionsConnectionEdge | RootQueryToContentNodeConnectionEdge | RootQueryToRevisionsConnectionEdge) & { __isUnion?: true }
 
 
+/** Page Info on the connected ContentNodeConnectionEdge */
+export type ContentNodeConnectionPageInfo = (ContentTypeToContentNodeConnectionPageInfo | HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo | HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo | CategoryToContentNodeConnectionPageInfo | PostFormatToContentNodeConnectionPageInfo | TagToContentNodeConnectionPageInfo | UserToRevisionsConnectionPageInfo | RootQueryToContentNodeConnectionPageInfo | RootQueryToRevisionsConnectionPageInfo) & { __isUnion?: true }
+
+
 /** An edge in a connection */
 export interface ContentTypeToContentNodeConnectionEdge {
     /** A cursor for use in pagination */
@@ -541,6 +575,20 @@ export interface ContentTypeToContentNodeConnectionEdge {
     /** The item at the end of the edge */
     node: ContentNode
     __typename: 'ContentTypeToContentNodeConnectionEdge'
+}
+
+
+/** Page Info on the &quot;ContentTypeToContentNodeConnection&quot; */
+export interface ContentTypeToContentNodeConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'ContentTypeToContentNodeConnectionPageInfo'
 }
 
 
@@ -738,7 +786,7 @@ export interface UserToCommentConnection {
     /** The nodes of the connection, without the edges */
     nodes: Comment[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: UserToCommentConnectionPageInfo
     __typename: 'UserToCommentConnection'
 }
 
@@ -846,7 +894,7 @@ export interface CommentToCommentConnection {
     /** The nodes of the connection, without the edges */
     nodes: Comment[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: CommentToCommentConnectionPageInfo
     __typename: 'CommentToCommentConnection'
 }
 
@@ -859,6 +907,24 @@ export interface CommentToCommentConnectionEdge {
     node: Comment
     __typename: 'CommentToCommentConnectionEdge'
 }
+
+
+/** Page Info on the &quot;CommentToCommentConnection&quot; */
+export interface CommentToCommentConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'CommentToCommentConnectionPageInfo'
+}
+
+
+/** Page Info on the connected CommentConnectionEdge */
+export type CommentConnectionPageInfo = (CommentToCommentConnectionPageInfo | UserToCommentConnectionPageInfo | MediaItemToCommentConnectionPageInfo | PageToCommentConnectionPageInfo | PostToCommentConnectionPageInfo | RootQueryToCommentConnectionPageInfo) & { __isUnion?: true }
 
 
 /** The status of the comment object. */
@@ -875,6 +941,20 @@ export interface UserToCommentConnectionEdge {
 }
 
 
+/** Page Info on the &quot;UserToCommentConnection&quot; */
+export interface UserToCommentConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'UserToCommentConnectionPageInfo'
+}
+
+
 /** Connection between the User type and the EnqueuedScript type */
 export interface UserToEnqueuedScriptConnection {
     /** Edges for the UserToEnqueuedScriptConnection connection */
@@ -882,7 +962,7 @@ export interface UserToEnqueuedScriptConnection {
     /** The nodes of the connection, without the edges */
     nodes: EnqueuedScript[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: UserToEnqueuedScriptConnectionPageInfo
     __typename: 'UserToEnqueuedScriptConnection'
 }
 
@@ -919,6 +999,10 @@ export interface EnqueuedScript {
 export type EnqueuedAsset = (EnqueuedScript | EnqueuedStylesheet) & { __isUnion?: true }
 
 
+/** Page Info on the connected EnqueuedScriptConnectionEdge */
+export type EnqueuedScriptConnectionPageInfo = (UserToEnqueuedScriptConnectionPageInfo | ContentNodeToEnqueuedScriptConnectionPageInfo | TermNodeToEnqueuedScriptConnectionPageInfo | RootQueryToEnqueuedScriptConnectionPageInfo) & { __isUnion?: true }
+
+
 /** An edge in a connection */
 export interface UserToEnqueuedScriptConnectionEdge {
     /** A cursor for use in pagination */
@@ -929,6 +1013,20 @@ export interface UserToEnqueuedScriptConnectionEdge {
 }
 
 
+/** Page Info on the &quot;UserToEnqueuedScriptConnection&quot; */
+export interface UserToEnqueuedScriptConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'UserToEnqueuedScriptConnectionPageInfo'
+}
+
+
 /** Connection between the User type and the EnqueuedStylesheet type */
 export interface UserToEnqueuedStylesheetConnection {
     /** Edges for the UserToEnqueuedStylesheetConnection connection */
@@ -936,7 +1034,7 @@ export interface UserToEnqueuedStylesheetConnection {
     /** The nodes of the connection, without the edges */
     nodes: EnqueuedStylesheet[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: UserToEnqueuedStylesheetConnectionPageInfo
     __typename: 'UserToEnqueuedStylesheetConnection'
 }
 
@@ -969,6 +1067,10 @@ export interface EnqueuedStylesheet {
 }
 
 
+/** Page Info on the connected EnqueuedStylesheetConnectionEdge */
+export type EnqueuedStylesheetConnectionPageInfo = (UserToEnqueuedStylesheetConnectionPageInfo | ContentNodeToEnqueuedStylesheetConnectionPageInfo | TermNodeToEnqueuedStylesheetConnectionPageInfo | RootQueryToEnqueuedStylesheetConnectionPageInfo) & { __isUnion?: true }
+
+
 /** An edge in a connection */
 export interface UserToEnqueuedStylesheetConnectionEdge {
     /** A cursor for use in pagination */
@@ -979,6 +1081,20 @@ export interface UserToEnqueuedStylesheetConnectionEdge {
 }
 
 
+/** Page Info on the &quot;UserToEnqueuedStylesheetConnection&quot; */
+export interface UserToEnqueuedStylesheetConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'UserToEnqueuedStylesheetConnectionPageInfo'
+}
+
+
 /** Connection between the User type and the mediaItem type */
 export interface UserToMediaItemConnection {
     /** Edges for the UserToMediaItemConnection connection */
@@ -986,7 +1102,7 @@ export interface UserToMediaItemConnection {
     /** The nodes of the connection, without the edges */
     nodes: MediaItem[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: UserToMediaItemConnectionPageInfo
     __typename: 'UserToMediaItemConnection'
 }
 
@@ -1153,7 +1269,7 @@ export interface HierarchicalContentNodeToContentNodeAncestorsConnection {
     /** The nodes of the connection, without the edges */
     nodes: ContentNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo
     __typename: 'HierarchicalContentNodeToContentNodeAncestorsConnection'
 }
 
@@ -1168,6 +1284,20 @@ export interface HierarchicalContentNodeToContentNodeAncestorsConnectionEdge {
 }
 
 
+/** Page Info on the &quot;HierarchicalContentNodeToContentNodeAncestorsConnection&quot; */
+export interface HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo'
+}
+
+
 /** Connection between the HierarchicalContentNode type and the ContentNode type */
 export interface HierarchicalContentNodeToContentNodeChildrenConnection {
     /** Edges for the HierarchicalContentNodeToContentNodeChildrenConnection connection */
@@ -1175,7 +1305,7 @@ export interface HierarchicalContentNodeToContentNodeChildrenConnection {
     /** The nodes of the connection, without the edges */
     nodes: ContentNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo
     __typename: 'HierarchicalContentNodeToContentNodeChildrenConnection'
 }
 
@@ -1190,6 +1320,20 @@ export interface HierarchicalContentNodeToContentNodeChildrenConnectionEdge {
 }
 
 
+/** Page Info on the &quot;HierarchicalContentNodeToContentNodeChildrenConnection&quot; */
+export interface HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo'
+}
+
+
 /** Connection between the ContentNode type and the EnqueuedScript type */
 export interface ContentNodeToEnqueuedScriptConnection {
     /** Edges for the ContentNodeToEnqueuedScriptConnection connection */
@@ -1197,7 +1341,7 @@ export interface ContentNodeToEnqueuedScriptConnection {
     /** The nodes of the connection, without the edges */
     nodes: EnqueuedScript[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: ContentNodeToEnqueuedScriptConnectionPageInfo
     __typename: 'ContentNodeToEnqueuedScriptConnection'
 }
 
@@ -1212,6 +1356,20 @@ export interface ContentNodeToEnqueuedScriptConnectionEdge {
 }
 
 
+/** Page Info on the &quot;ContentNodeToEnqueuedScriptConnection&quot; */
+export interface ContentNodeToEnqueuedScriptConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'ContentNodeToEnqueuedScriptConnectionPageInfo'
+}
+
+
 /** Connection between the ContentNode type and the EnqueuedStylesheet type */
 export interface ContentNodeToEnqueuedStylesheetConnection {
     /** Edges for the ContentNodeToEnqueuedStylesheetConnection connection */
@@ -1219,7 +1377,7 @@ export interface ContentNodeToEnqueuedStylesheetConnection {
     /** The nodes of the connection, without the edges */
     nodes: EnqueuedStylesheet[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: ContentNodeToEnqueuedStylesheetConnectionPageInfo
     __typename: 'ContentNodeToEnqueuedStylesheetConnection'
 }
 
@@ -1231,6 +1389,20 @@ export interface ContentNodeToEnqueuedStylesheetConnectionEdge {
     /** The item at the end of the edge */
     node: EnqueuedStylesheet
     __typename: 'ContentNodeToEnqueuedStylesheetConnectionEdge'
+}
+
+
+/** Page Info on the &quot;ContentNodeToEnqueuedStylesheetConnection&quot; */
+export interface ContentNodeToEnqueuedStylesheetConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'ContentNodeToEnqueuedStylesheetConnectionPageInfo'
 }
 
 
@@ -1261,7 +1433,7 @@ export interface MediaItemToCommentConnection {
     /** The nodes of the connection, without the edges */
     nodes: Comment[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: MediaItemToCommentConnectionPageInfo
     __typename: 'MediaItemToCommentConnection'
 }
 
@@ -1273,6 +1445,20 @@ export interface MediaItemToCommentConnectionEdge {
     /** The item at the end of the edge */
     node: Comment
     __typename: 'MediaItemToCommentConnectionEdge'
+}
+
+
+/** Page Info on the &quot;MediaItemToCommentConnection&quot; */
+export interface MediaItemToCommentConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'MediaItemToCommentConnectionPageInfo'
 }
 
 
@@ -1346,6 +1532,10 @@ export interface MediaSize {
 }
 
 
+/** Page Info on the connected MediaItemConnectionEdge */
+export type MediaItemConnectionPageInfo = (UserToMediaItemConnectionPageInfo | RootQueryToMediaItemConnectionPageInfo) & { __isUnion?: true }
+
+
 /** An edge in a connection */
 export interface UserToMediaItemConnectionEdge {
     /** A cursor for use in pagination */
@@ -1356,6 +1546,20 @@ export interface UserToMediaItemConnectionEdge {
 }
 
 
+/** Page Info on the &quot;UserToMediaItemConnection&quot; */
+export interface UserToMediaItemConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'UserToMediaItemConnectionPageInfo'
+}
+
+
 /** Connection between the User type and the page type */
 export interface UserToPageConnection {
     /** Edges for the UserToPageConnection connection */
@@ -1363,7 +1567,7 @@ export interface UserToPageConnection {
     /** The nodes of the connection, without the edges */
     nodes: Page[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: UserToPageConnectionPageInfo
     __typename: 'UserToPageConnection'
 }
 
@@ -1560,7 +1764,7 @@ export interface PageToCommentConnection {
     /** The nodes of the connection, without the edges */
     nodes: Comment[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: PageToCommentConnectionPageInfo
     __typename: 'PageToCommentConnection'
 }
 
@@ -1572,6 +1776,20 @@ export interface PageToCommentConnectionEdge {
     /** The item at the end of the edge */
     node: Comment
     __typename: 'PageToCommentConnectionEdge'
+}
+
+
+/** Page Info on the &quot;PageToCommentConnection&quot; */
+export interface PageToCommentConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'PageToCommentConnectionPageInfo'
 }
 
 
@@ -1640,7 +1858,7 @@ export interface PageToRevisionConnection {
     /** The nodes of the connection, without the edges */
     nodes: Page[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: PageToRevisionConnectionPageInfo
     __typename: 'PageToRevisionConnection'
 }
 
@@ -1655,6 +1873,24 @@ export interface PageToRevisionConnectionEdge {
 }
 
 
+/** Page Info on the &quot;PageToRevisionConnection&quot; */
+export interface PageToRevisionConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'PageToRevisionConnectionPageInfo'
+}
+
+
+/** Page Info on the connected PageConnectionEdge */
+export type PageConnectionPageInfo = (PageToRevisionConnectionPageInfo | UserToPageConnectionPageInfo | RootQueryToPageConnectionPageInfo) & { __isUnion?: true }
+
+
 /** An edge in a connection */
 export interface UserToPageConnectionEdge {
     /** A cursor for use in pagination */
@@ -1665,6 +1901,20 @@ export interface UserToPageConnectionEdge {
 }
 
 
+/** Page Info on the &quot;UserToPageConnection&quot; */
+export interface UserToPageConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'UserToPageConnectionPageInfo'
+}
+
+
 /** Connection between the User type and the post type */
 export interface UserToPostConnection {
     /** Edges for the UserToPostConnection connection */
@@ -1672,7 +1922,7 @@ export interface UserToPostConnection {
     /** The nodes of the connection, without the edges */
     nodes: Post[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: UserToPostConnectionPageInfo
     __typename: 'UserToPostConnection'
 }
 
@@ -1815,7 +2065,7 @@ export interface PostToCategoryConnection {
     /** The nodes of the connection, without the edges */
     nodes: Category[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: PostToCategoryConnectionPageInfo
     __typename: 'PostToCategoryConnection'
 }
 
@@ -1900,7 +2150,7 @@ export interface TermNodeToEnqueuedScriptConnection {
     /** The nodes of the connection, without the edges */
     nodes: EnqueuedScript[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: TermNodeToEnqueuedScriptConnectionPageInfo
     __typename: 'TermNodeToEnqueuedScriptConnection'
 }
 
@@ -1915,6 +2165,20 @@ export interface TermNodeToEnqueuedScriptConnectionEdge {
 }
 
 
+/** Page Info on the &quot;TermNodeToEnqueuedScriptConnection&quot; */
+export interface TermNodeToEnqueuedScriptConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'TermNodeToEnqueuedScriptConnectionPageInfo'
+}
+
+
 /** Connection between the TermNode type and the EnqueuedStylesheet type */
 export interface TermNodeToEnqueuedStylesheetConnection {
     /** Edges for the TermNodeToEnqueuedStylesheetConnection connection */
@@ -1922,7 +2186,7 @@ export interface TermNodeToEnqueuedStylesheetConnection {
     /** The nodes of the connection, without the edges */
     nodes: EnqueuedStylesheet[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: TermNodeToEnqueuedStylesheetConnectionPageInfo
     __typename: 'TermNodeToEnqueuedStylesheetConnection'
 }
 
@@ -1937,6 +2201,20 @@ export interface TermNodeToEnqueuedStylesheetConnectionEdge {
 }
 
 
+/** Page Info on the &quot;TermNodeToEnqueuedStylesheetConnection&quot; */
+export interface TermNodeToEnqueuedStylesheetConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'TermNodeToEnqueuedStylesheetConnectionPageInfo'
+}
+
+
 /** Term node with hierarchical (parent/child) relationships */
 export type HierarchicalTermNode = (Category) & { __isUnion?: true }
 
@@ -1948,7 +2226,7 @@ export interface CategoryToAncestorsCategoryConnection {
     /** The nodes of the connection, without the edges */
     nodes: Category[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: CategoryToAncestorsCategoryConnectionPageInfo
     __typename: 'CategoryToAncestorsCategoryConnection'
 }
 
@@ -1963,6 +2241,24 @@ export interface CategoryToAncestorsCategoryConnectionEdge {
 }
 
 
+/** Page Info on the &quot;CategoryToAncestorsCategoryConnection&quot; */
+export interface CategoryToAncestorsCategoryConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'CategoryToAncestorsCategoryConnectionPageInfo'
+}
+
+
+/** Page Info on the connected CategoryConnectionEdge */
+export type CategoryConnectionPageInfo = (CategoryToAncestorsCategoryConnectionPageInfo | CategoryToCategoryConnectionPageInfo | EmpreendimentoToCategoryConnectionPageInfo | PostToCategoryConnectionPageInfo | RootQueryToCategoryConnectionPageInfo) & { __isUnion?: true }
+
+
 /** Connection between the Category type and the category type */
 export interface CategoryToCategoryConnection {
     /** Edges for the CategoryToCategoryConnection connection */
@@ -1970,7 +2266,7 @@ export interface CategoryToCategoryConnection {
     /** The nodes of the connection, without the edges */
     nodes: Category[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: CategoryToCategoryConnectionPageInfo
     __typename: 'CategoryToCategoryConnection'
 }
 
@@ -1985,6 +2281,20 @@ export interface CategoryToCategoryConnectionEdge {
 }
 
 
+/** Page Info on the &quot;CategoryToCategoryConnection&quot; */
+export interface CategoryToCategoryConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'CategoryToCategoryConnectionPageInfo'
+}
+
+
 /** Allowed Content Types of the Category taxonomy. */
 export type ContentTypesOfCategoryEnum = 'EMPREENDIMENTOS' | 'POST'
 
@@ -1996,7 +2306,7 @@ export interface CategoryToContentNodeConnection {
     /** The nodes of the connection, without the edges */
     nodes: ContentNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: CategoryToContentNodeConnectionPageInfo
     __typename: 'CategoryToContentNodeConnection'
 }
 
@@ -2011,6 +2321,20 @@ export interface CategoryToContentNodeConnectionEdge {
 }
 
 
+/** Page Info on the &quot;CategoryToContentNodeConnection&quot; */
+export interface CategoryToContentNodeConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'CategoryToContentNodeConnectionPageInfo'
+}
+
+
 /** Connection between the Category type and the Empreendimento type */
 export interface CategoryToEmpreendimentoConnection {
     /** Edges for the CategoryToEmpreendimentoConnection connection */
@@ -2018,7 +2342,7 @@ export interface CategoryToEmpreendimentoConnection {
     /** The nodes of the connection, without the edges */
     nodes: Empreendimento[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: CategoryToEmpreendimentoConnectionPageInfo
     __typename: 'CategoryToEmpreendimentoConnection'
 }
 
@@ -2117,7 +2441,7 @@ export interface EmpreendimentoToCategoryConnection {
     /** The nodes of the connection, without the edges */
     nodes: Category[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: EmpreendimentoToCategoryConnectionPageInfo
     __typename: 'EmpreendimentoToCategoryConnection'
 }
 
@@ -2129,6 +2453,20 @@ export interface EmpreendimentoToCategoryConnectionEdge {
     /** The item at the end of the edge */
     node: Category
     __typename: 'EmpreendimentoToCategoryConnectionEdge'
+}
+
+
+/** Page Info on the &quot;EmpreendimentoToCategoryConnection&quot; */
+export interface EmpreendimentoToCategoryConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'EmpreendimentoToCategoryConnectionPageInfo'
 }
 
 
@@ -2144,7 +2482,9 @@ export interface Empreendimento_Empreendimento {
     empVagasDeGaragem?: Scalars['String']
     empValorAPartirDe?: Scalars['String']
     endStandVendas?: Scalars['String']
-    enderecoDoEmpreendimento?: Scalars['String']
+    enderecoBairro?: Scalars['String']
+    enderecoNumero?: Scalars['String']
+    enderecoRua?: Scalars['String']
     estagioDaObra?: Category
     /** The name of the ACF Field Group */
     fieldGroupName?: Scalars['String']
@@ -2235,7 +2575,7 @@ export interface EmpreendimentoToTermNodeConnection {
     /** The nodes of the connection, without the edges */
     nodes: TermNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: EmpreendimentoToTermNodeConnectionPageInfo
     __typename: 'EmpreendimentoToTermNodeConnection'
 }
 
@@ -2248,6 +2588,10 @@ export type TermNodeConnection = (EmpreendimentoToTermNodeConnection | PostToTer
 export type TermNodeConnectionEdge = (EmpreendimentoToTermNodeConnectionEdge | PostToTermNodeConnectionEdge | RootQueryToTermNodeConnectionEdge) & { __isUnion?: true }
 
 
+/** Page Info on the connected TermNodeConnectionEdge */
+export type TermNodeConnectionPageInfo = (EmpreendimentoToTermNodeConnectionPageInfo | PostToTermNodeConnectionPageInfo | RootQueryToTermNodeConnectionPageInfo) & { __isUnion?: true }
+
+
 /** An edge in a connection */
 export interface EmpreendimentoToTermNodeConnectionEdge {
     /** A cursor for use in pagination */
@@ -2258,6 +2602,24 @@ export interface EmpreendimentoToTermNodeConnectionEdge {
 }
 
 
+/** Page Info on the &quot;EmpreendimentoToTermNodeConnection&quot; */
+export interface EmpreendimentoToTermNodeConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'EmpreendimentoToTermNodeConnectionPageInfo'
+}
+
+
+/** Page Info on the connected EmpreendimentoConnectionEdge */
+export type EmpreendimentoConnectionPageInfo = (CategoryToEmpreendimentoConnectionPageInfo | RootQueryToEmpreendimentoConnectionPageInfo) & { __isUnion?: true }
+
+
 /** An edge in a connection */
 export interface CategoryToEmpreendimentoConnectionEdge {
     /** A cursor for use in pagination */
@@ -2265,6 +2627,20 @@ export interface CategoryToEmpreendimentoConnectionEdge {
     /** The item at the end of the edge */
     node: Empreendimento
     __typename: 'CategoryToEmpreendimentoConnectionEdge'
+}
+
+
+/** Page Info on the &quot;CategoryToEmpreendimentoConnection&quot; */
+export interface CategoryToEmpreendimentoConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'CategoryToEmpreendimentoConnectionPageInfo'
 }
 
 
@@ -2285,7 +2661,7 @@ export interface CategoryToPostConnection {
     /** The nodes of the connection, without the edges */
     nodes: Post[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: CategoryToPostConnectionPageInfo
     __typename: 'CategoryToPostConnection'
 }
 
@@ -2298,6 +2674,24 @@ export interface CategoryToPostConnectionEdge {
     node: Post
     __typename: 'CategoryToPostConnectionEdge'
 }
+
+
+/** Page Info on the &quot;CategoryToPostConnection&quot; */
+export interface CategoryToPostConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'CategoryToPostConnectionPageInfo'
+}
+
+
+/** Page Info on the connected PostConnectionEdge */
+export type PostConnectionPageInfo = (CategoryToPostConnectionPageInfo | PostFormatToPostConnectionPageInfo | PostToRevisionConnectionPageInfo | TagToPostConnectionPageInfo | UserToPostConnectionPageInfo | RootQueryToPostConnectionPageInfo) & { __isUnion?: true }
 
 
 /** Connection between the Category type and the Taxonomy type */
@@ -2320,6 +2714,20 @@ export interface PostToCategoryConnectionEdge {
 }
 
 
+/** Page Info on the &quot;PostToCategoryConnection&quot; */
+export interface PostToCategoryConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'PostToCategoryConnectionPageInfo'
+}
+
+
 /** Connection between the Post type and the Comment type */
 export interface PostToCommentConnection {
     /** Edges for the PostToCommentConnection connection */
@@ -2327,7 +2735,7 @@ export interface PostToCommentConnection {
     /** The nodes of the connection, without the edges */
     nodes: Comment[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: PostToCommentConnectionPageInfo
     __typename: 'PostToCommentConnection'
 }
 
@@ -2342,6 +2750,20 @@ export interface PostToCommentConnectionEdge {
 }
 
 
+/** Page Info on the &quot;PostToCommentConnection&quot; */
+export interface PostToCommentConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'PostToCommentConnectionPageInfo'
+}
+
+
 /** Connection between the Post type and the postFormat type */
 export interface PostToPostFormatConnection {
     /** Edges for the PostToPostFormatConnection connection */
@@ -2349,7 +2771,7 @@ export interface PostToPostFormatConnection {
     /** The nodes of the connection, without the edges */
     nodes: PostFormat[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: PostToPostFormatConnectionPageInfo
     __typename: 'PostToPostFormatConnection'
 }
 
@@ -2422,7 +2844,7 @@ export interface PostFormatToContentNodeConnection {
     /** The nodes of the connection, without the edges */
     nodes: ContentNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: PostFormatToContentNodeConnectionPageInfo
     __typename: 'PostFormatToContentNodeConnection'
 }
 
@@ -2437,6 +2859,20 @@ export interface PostFormatToContentNodeConnectionEdge {
 }
 
 
+/** Page Info on the &quot;PostFormatToContentNodeConnection&quot; */
+export interface PostFormatToContentNodeConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'PostFormatToContentNodeConnectionPageInfo'
+}
+
+
 /** Connection between the PostFormat type and the post type */
 export interface PostFormatToPostConnection {
     /** Edges for the PostFormatToPostConnection connection */
@@ -2444,7 +2880,7 @@ export interface PostFormatToPostConnection {
     /** The nodes of the connection, without the edges */
     nodes: Post[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: PostFormatToPostConnectionPageInfo
     __typename: 'PostFormatToPostConnection'
 }
 
@@ -2459,6 +2895,20 @@ export interface PostFormatToPostConnectionEdge {
 }
 
 
+/** Page Info on the &quot;PostFormatToPostConnection&quot; */
+export interface PostFormatToPostConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'PostFormatToPostConnectionPageInfo'
+}
+
+
 /** Connection between the PostFormat type and the Taxonomy type */
 export interface PostFormatToTaxonomyConnectionEdge {
     /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
@@ -2469,6 +2919,10 @@ export interface PostFormatToTaxonomyConnectionEdge {
 }
 
 
+/** Page Info on the connected PostFormatConnectionEdge */
+export type PostFormatConnectionPageInfo = (PostToPostFormatConnectionPageInfo | RootQueryToPostFormatConnectionPageInfo) & { __isUnion?: true }
+
+
 /** An edge in a connection */
 export interface PostToPostFormatConnectionEdge {
     /** A cursor for use in pagination */
@@ -2476,6 +2930,20 @@ export interface PostToPostFormatConnectionEdge {
     /** The item at the end of the edge */
     node: PostFormat
     __typename: 'PostToPostFormatConnectionEdge'
+}
+
+
+/** Page Info on the &quot;PostToPostFormatConnection&quot; */
+export interface PostToPostFormatConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'PostToPostFormatConnectionPageInfo'
 }
 
 
@@ -2496,7 +2964,7 @@ export interface PostToRevisionConnection {
     /** The nodes of the connection, without the edges */
     nodes: Post[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: PostToRevisionConnectionPageInfo
     __typename: 'PostToRevisionConnection'
 }
 
@@ -2511,6 +2979,20 @@ export interface PostToRevisionConnectionEdge {
 }
 
 
+/** Page Info on the &quot;PostToRevisionConnection&quot; */
+export interface PostToRevisionConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'PostToRevisionConnectionPageInfo'
+}
+
+
 /** Connection between the Post type and the tag type */
 export interface PostToTagConnection {
     /** Edges for the PostToTagConnection connection */
@@ -2518,7 +3000,7 @@ export interface PostToTagConnection {
     /** The nodes of the connection, without the edges */
     nodes: Tag[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: PostToTagConnectionPageInfo
     __typename: 'PostToTagConnection'
 }
 
@@ -2591,7 +3073,7 @@ export interface TagToContentNodeConnection {
     /** The nodes of the connection, without the edges */
     nodes: ContentNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: TagToContentNodeConnectionPageInfo
     __typename: 'TagToContentNodeConnection'
 }
 
@@ -2606,6 +3088,20 @@ export interface TagToContentNodeConnectionEdge {
 }
 
 
+/** Page Info on the &quot;TagToContentNodeConnection&quot; */
+export interface TagToContentNodeConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'TagToContentNodeConnectionPageInfo'
+}
+
+
 /** Connection between the Tag type and the post type */
 export interface TagToPostConnection {
     /** Edges for the TagToPostConnection connection */
@@ -2613,7 +3109,7 @@ export interface TagToPostConnection {
     /** The nodes of the connection, without the edges */
     nodes: Post[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: TagToPostConnectionPageInfo
     __typename: 'TagToPostConnection'
 }
 
@@ -2628,6 +3124,20 @@ export interface TagToPostConnectionEdge {
 }
 
 
+/** Page Info on the &quot;TagToPostConnection&quot; */
+export interface TagToPostConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'TagToPostConnectionPageInfo'
+}
+
+
 /** Connection between the Tag type and the Taxonomy type */
 export interface TagToTaxonomyConnectionEdge {
     /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
@@ -2636,6 +3146,10 @@ export interface TagToTaxonomyConnectionEdge {
     node: Taxonomy
     __typename: 'TagToTaxonomyConnectionEdge'
 }
+
+
+/** Page Info on the connected TagConnectionEdge */
+export type TagConnectionPageInfo = (PostToTagConnectionPageInfo | RootQueryToTagConnectionPageInfo) & { __isUnion?: true }
 
 
 /** An edge in a connection */
@@ -2648,6 +3162,20 @@ export interface PostToTagConnectionEdge {
 }
 
 
+/** Page Info on the &quot;PostToTagConnection&quot; */
+export interface PostToTagConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'PostToTagConnectionPageInfo'
+}
+
+
 /** Connection between the Post type and the TermNode type */
 export interface PostToTermNodeConnection {
     /** Edges for the PostToTermNodeConnection connection */
@@ -2655,7 +3183,7 @@ export interface PostToTermNodeConnection {
     /** The nodes of the connection, without the edges */
     nodes: TermNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: PostToTermNodeConnectionPageInfo
     __typename: 'PostToTermNodeConnection'
 }
 
@@ -2670,6 +3198,20 @@ export interface PostToTermNodeConnectionEdge {
 }
 
 
+/** Page Info on the &quot;PostToTermNodeConnection&quot; */
+export interface PostToTermNodeConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'PostToTermNodeConnectionPageInfo'
+}
+
+
 /** An edge in a connection */
 export interface UserToPostConnectionEdge {
     /** A cursor for use in pagination */
@@ -2680,6 +3222,20 @@ export interface UserToPostConnectionEdge {
 }
 
 
+/** Page Info on the &quot;UserToPostConnection&quot; */
+export interface UserToPostConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'UserToPostConnectionPageInfo'
+}
+
+
 /** Connection between the User type and the ContentNode type */
 export interface UserToRevisionsConnection {
     /** Edges for the UserToRevisionsConnection connection */
@@ -2687,7 +3243,7 @@ export interface UserToRevisionsConnection {
     /** The nodes of the connection, without the edges */
     nodes: ContentNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: UserToRevisionsConnectionPageInfo
     __typename: 'UserToRevisionsConnection'
 }
 
@@ -2702,6 +3258,20 @@ export interface UserToRevisionsConnectionEdge {
 }
 
 
+/** Page Info on the &quot;UserToRevisionsConnection&quot; */
+export interface UserToRevisionsConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'UserToRevisionsConnectionPageInfo'
+}
+
+
 /** Connection between the User type and the UserRole type */
 export interface UserToUserRoleConnection {
     /** Edges for the UserToUserRoleConnection connection */
@@ -2709,7 +3279,7 @@ export interface UserToUserRoleConnection {
     /** The nodes of the connection, without the edges */
     nodes: UserRole[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: UserToUserRoleConnectionPageInfo
     __typename: 'UserToUserRoleConnection'
 }
 
@@ -2738,6 +3308,10 @@ export interface UserRole {
 }
 
 
+/** Page Info on the connected UserRoleConnectionEdge */
+export type UserRoleConnectionPageInfo = (UserToUserRoleConnectionPageInfo | RootQueryToUserRoleConnectionPageInfo) & { __isUnion?: true }
+
+
 /** An edge in a connection */
 export interface UserToUserRoleConnectionEdge {
     /** A cursor for use in pagination */
@@ -2745,6 +3319,20 @@ export interface UserToUserRoleConnectionEdge {
     /** The item at the end of the edge */
     node: UserRole
     __typename: 'UserToUserRoleConnectionEdge'
+}
+
+
+/** Page Info on the &quot;UserToUserRoleConnection&quot; */
+export interface UserToUserRoleConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'UserToUserRoleConnectionPageInfo'
 }
 
 
@@ -2782,13 +3370,17 @@ export interface RootQueryToArquivoAssessoriaConnection {
     /** The nodes of the connection, without the edges */
     nodes: ArquivoAssessoria[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToArquivoAssessoriaConnectionPageInfo
     __typename: 'RootQueryToArquivoAssessoriaConnection'
 }
 
 
 /** Connection to ArquivoAssessoria Nodes */
 export type ArquivoAssessoriaConnection = (RootQueryToArquivoAssessoriaConnection) & { __isUnion?: true }
+
+
+/** Page Info on the connected ArquivoAssessoriaConnectionEdge */
+export type ArquivoAssessoriaConnectionPageInfo = (RootQueryToArquivoAssessoriaConnectionPageInfo) & { __isUnion?: true }
 
 
 /** An edge in a connection */
@@ -2798,6 +3390,20 @@ export interface RootQueryToArquivoAssessoriaConnectionEdge {
     /** The item at the end of the edge */
     node: ArquivoAssessoria
     __typename: 'RootQueryToArquivoAssessoriaConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToArquivoAssessoriaConnection&quot; */
+export interface RootQueryToArquivoAssessoriaConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToArquivoAssessoriaConnectionPageInfo'
 }
 
 
@@ -2944,13 +3550,17 @@ export interface RootQueryToBannerConnection {
     /** The nodes of the connection, without the edges */
     nodes: Banner[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToBannerConnectionPageInfo
     __typename: 'RootQueryToBannerConnection'
 }
 
 
 /** Connection to Banner Nodes */
 export type BannerConnection = (RootQueryToBannerConnection) & { __isUnion?: true }
+
+
+/** Page Info on the connected BannerConnectionEdge */
+export type BannerConnectionPageInfo = (RootQueryToBannerConnectionPageInfo) & { __isUnion?: true }
 
 
 /** An edge in a connection */
@@ -2963,6 +3573,20 @@ export interface RootQueryToBannerConnectionEdge {
 }
 
 
+/** Page Info on the &quot;RootQueryToBannerConnection&quot; */
+export interface RootQueryToBannerConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToBannerConnectionPageInfo'
+}
+
+
 /** Connection between the RootQuery type and the category type */
 export interface RootQueryToCategoryConnection {
     /** Edges for the RootQueryToCategoryConnection connection */
@@ -2970,7 +3594,7 @@ export interface RootQueryToCategoryConnection {
     /** The nodes of the connection, without the edges */
     nodes: Category[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToCategoryConnectionPageInfo
     __typename: 'RootQueryToCategoryConnection'
 }
 
@@ -2982,6 +3606,20 @@ export interface RootQueryToCategoryConnectionEdge {
     /** The item at the end of the edge */
     node: Category
     __typename: 'RootQueryToCategoryConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToCategoryConnection&quot; */
+export interface RootQueryToCategoryConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToCategoryConnectionPageInfo'
 }
 
 
@@ -3000,7 +3638,7 @@ export interface RootQueryToCommentConnection {
     /** The nodes of the connection, without the edges */
     nodes: Comment[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToCommentConnectionPageInfo
     __typename: 'RootQueryToCommentConnection'
 }
 
@@ -3015,6 +3653,20 @@ export interface RootQueryToCommentConnectionEdge {
 }
 
 
+/** Page Info on the &quot;RootQueryToCommentConnection&quot; */
+export interface RootQueryToCommentConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToCommentConnectionPageInfo'
+}
+
+
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
 export type ContentNodeIdTypeEnum = 'DATABASE_ID' | 'ID' | 'URI'
 
@@ -3026,7 +3678,7 @@ export interface RootQueryToContentNodeConnection {
     /** The nodes of the connection, without the edges */
     nodes: ContentNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToContentNodeConnectionPageInfo
     __typename: 'RootQueryToContentNodeConnection'
 }
 
@@ -3041,6 +3693,20 @@ export interface RootQueryToContentNodeConnectionEdge {
 }
 
 
+/** Page Info on the &quot;RootQueryToContentNodeConnection&quot; */
+export interface RootQueryToContentNodeConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToContentNodeConnectionPageInfo'
+}
+
+
 /** The Type of Identifier used to fetch a single Content Type node. To be used along with the "id" field. Default is "ID". */
 export type ContentTypeIdTypeEnum = 'ID' | 'NAME'
 
@@ -3052,7 +3718,7 @@ export interface RootQueryToContentTypeConnection {
     /** The nodes of the connection, without the edges */
     nodes: ContentType[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToContentTypeConnectionPageInfo
     __typename: 'RootQueryToContentTypeConnection'
 }
 
@@ -3064,6 +3730,20 @@ export interface RootQueryToContentTypeConnectionEdge {
     /** The item at the end of the edge */
     node: ContentType
     __typename: 'RootQueryToContentTypeConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToContentTypeConnection&quot; */
+export interface RootQueryToContentTypeConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToContentTypeConnectionPageInfo'
 }
 
 
@@ -3088,7 +3768,7 @@ export interface RootQueryToEmpreendimentoConnection {
     /** The nodes of the connection, without the edges */
     nodes: Empreendimento[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToEmpreendimentoConnectionPageInfo
     __typename: 'RootQueryToEmpreendimentoConnection'
 }
 
@@ -3100,6 +3780,20 @@ export interface RootQueryToEmpreendimentoConnectionEdge {
     /** The item at the end of the edge */
     node: Empreendimento
     __typename: 'RootQueryToEmpreendimentoConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToEmpreendimentoConnection&quot; */
+export interface RootQueryToEmpreendimentoConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToEmpreendimentoConnectionPageInfo'
 }
 
 
@@ -3138,7 +3832,7 @@ export interface RootQueryToMediaItemConnection {
     /** The nodes of the connection, without the edges */
     nodes: MediaItem[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToMediaItemConnectionPageInfo
     __typename: 'RootQueryToMediaItemConnection'
 }
 
@@ -3150,6 +3844,20 @@ export interface RootQueryToMediaItemConnectionEdge {
     /** The item at the end of the edge */
     node: MediaItem
     __typename: 'RootQueryToMediaItemConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToMediaItemConnection&quot; */
+export interface RootQueryToMediaItemConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToMediaItemConnectionPageInfo'
 }
 
 
@@ -3195,7 +3903,7 @@ export interface MenuToMenuItemConnection {
     /** The nodes of the connection, without the edges */
     nodes: MenuItem[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: MenuToMenuItemConnectionPageInfo
     __typename: 'MenuToMenuItemConnection'
 }
 
@@ -3269,7 +3977,7 @@ export interface MenuItemToMenuItemConnection {
     /** The nodes of the connection, without the edges */
     nodes: MenuItem[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: MenuItemToMenuItemConnectionPageInfo
     __typename: 'MenuItemToMenuItemConnection'
 }
 
@@ -3282,6 +3990,24 @@ export interface MenuItemToMenuItemConnectionEdge {
     node: MenuItem
     __typename: 'MenuItemToMenuItemConnectionEdge'
 }
+
+
+/** Page Info on the &quot;MenuItemToMenuItemConnection&quot; */
+export interface MenuItemToMenuItemConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'MenuItemToMenuItemConnectionPageInfo'
+}
+
+
+/** Page Info on the connected MenuItemConnectionEdge */
+export type MenuItemConnectionPageInfo = (MenuItemToMenuItemConnectionPageInfo | MenuToMenuItemConnectionPageInfo | RootQueryToMenuItemConnectionPageInfo) & { __isUnion?: true }
 
 
 /** Connection between the MenuItem type and the MenuItemLinkable type */
@@ -3326,6 +4052,20 @@ export interface MenuToMenuItemConnectionEdge {
 }
 
 
+/** Page Info on the &quot;MenuToMenuItemConnection&quot; */
+export interface MenuToMenuItemConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'MenuToMenuItemConnectionPageInfo'
+}
+
+
 /** The Type of Identifier used to fetch a single node. Default is "ID". To be used along with the "id" field. */
 export type MenuItemNodeIdTypeEnum = 'DATABASE_ID' | 'ID'
 
@@ -3337,7 +4077,7 @@ export interface RootQueryToMenuItemConnection {
     /** The nodes of the connection, without the edges */
     nodes: MenuItem[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToMenuItemConnectionPageInfo
     __typename: 'RootQueryToMenuItemConnection'
 }
 
@@ -3352,6 +4092,20 @@ export interface RootQueryToMenuItemConnectionEdge {
 }
 
 
+/** Page Info on the &quot;RootQueryToMenuItemConnection&quot; */
+export interface RootQueryToMenuItemConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToMenuItemConnectionPageInfo'
+}
+
+
 /** Connection between the RootQuery type and the Menu type */
 export interface RootQueryToMenuConnection {
     /** Edges for the RootQueryToMenuConnection connection */
@@ -3359,13 +4113,17 @@ export interface RootQueryToMenuConnection {
     /** The nodes of the connection, without the edges */
     nodes: Menu[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToMenuConnectionPageInfo
     __typename: 'RootQueryToMenuConnection'
 }
 
 
 /** Connection to Menu Nodes */
 export type MenuConnection = (RootQueryToMenuConnection) & { __isUnion?: true }
+
+
+/** Page Info on the connected MenuConnectionEdge */
+export type MenuConnectionPageInfo = (RootQueryToMenuConnectionPageInfo) & { __isUnion?: true }
 
 
 /** An edge in a connection */
@@ -3375,6 +4133,20 @@ export interface RootQueryToMenuConnectionEdge {
     /** The item at the end of the edge */
     node: Menu
     __typename: 'RootQueryToMenuConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToMenuConnection&quot; */
+export interface RootQueryToMenuConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToMenuConnectionPageInfo'
 }
 
 
@@ -3389,7 +4161,7 @@ export interface RootQueryToPageConnection {
     /** The nodes of the connection, without the edges */
     nodes: Page[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToPageConnectionPageInfo
     __typename: 'RootQueryToPageConnection'
 }
 
@@ -3401,6 +4173,20 @@ export interface RootQueryToPageConnectionEdge {
     /** The item at the end of the edge */
     node: Page
     __typename: 'RootQueryToPageConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToPageConnection&quot; */
+export interface RootQueryToPageConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToPageConnectionPageInfo'
 }
 
 
@@ -3439,7 +4225,7 @@ export interface RootQueryToPluginConnection {
     /** The nodes of the connection, without the edges */
     nodes: Plugin[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToPluginConnectionPageInfo
     __typename: 'RootQueryToPluginConnection'
 }
 
@@ -3452,6 +4238,10 @@ export type PluginConnection = (RootQueryToPluginConnection) & { __isUnion?: tru
 export type PluginConnectionEdge = (RootQueryToPluginConnectionEdge) & { __isUnion?: true }
 
 
+/** Page Info on the connected PluginConnectionEdge */
+export type PluginConnectionPageInfo = (RootQueryToPluginConnectionPageInfo) & { __isUnion?: true }
+
+
 /** An edge in a connection */
 export interface RootQueryToPluginConnectionEdge {
     /** A cursor for use in pagination */
@@ -3459,6 +4249,20 @@ export interface RootQueryToPluginConnectionEdge {
     /** The item at the end of the edge */
     node: Plugin
     __typename: 'RootQueryToPluginConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToPluginConnection&quot; */
+export interface RootQueryToPluginConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToPluginConnectionPageInfo'
 }
 
 
@@ -3477,7 +4281,7 @@ export interface RootQueryToPostFormatConnection {
     /** The nodes of the connection, without the edges */
     nodes: PostFormat[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToPostFormatConnectionPageInfo
     __typename: 'RootQueryToPostFormatConnection'
 }
 
@@ -3492,6 +4296,20 @@ export interface RootQueryToPostFormatConnectionEdge {
 }
 
 
+/** Page Info on the &quot;RootQueryToPostFormatConnection&quot; */
+export interface RootQueryToPostFormatConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToPostFormatConnectionPageInfo'
+}
+
+
 /** Connection between the RootQuery type and the post type */
 export interface RootQueryToPostConnection {
     /** Edges for the RootQueryToPostConnection connection */
@@ -3499,7 +4317,7 @@ export interface RootQueryToPostConnection {
     /** The nodes of the connection, without the edges */
     nodes: Post[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToPostConnectionPageInfo
     __typename: 'RootQueryToPostConnection'
 }
 
@@ -3511,6 +4329,20 @@ export interface RootQueryToPostConnectionEdge {
     /** The item at the end of the edge */
     node: Post
     __typename: 'RootQueryToPostConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToPostConnection&quot; */
+export interface RootQueryToPostConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToPostConnectionPageInfo'
 }
 
 
@@ -3535,7 +4367,7 @@ export interface RootQueryToEnqueuedScriptConnection {
     /** The nodes of the connection, without the edges */
     nodes: EnqueuedScript[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToEnqueuedScriptConnectionPageInfo
     __typename: 'RootQueryToEnqueuedScriptConnection'
 }
 
@@ -3550,6 +4382,20 @@ export interface RootQueryToEnqueuedScriptConnectionEdge {
 }
 
 
+/** Page Info on the &quot;RootQueryToEnqueuedScriptConnection&quot; */
+export interface RootQueryToEnqueuedScriptConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToEnqueuedScriptConnectionPageInfo'
+}
+
+
 /** Connection between the RootQuery type and the EnqueuedStylesheet type */
 export interface RootQueryToEnqueuedStylesheetConnection {
     /** Edges for the RootQueryToEnqueuedStylesheetConnection connection */
@@ -3557,7 +4403,7 @@ export interface RootQueryToEnqueuedStylesheetConnection {
     /** The nodes of the connection, without the edges */
     nodes: EnqueuedStylesheet[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToEnqueuedStylesheetConnectionPageInfo
     __typename: 'RootQueryToEnqueuedStylesheetConnection'
 }
 
@@ -3572,6 +4418,20 @@ export interface RootQueryToEnqueuedStylesheetConnectionEdge {
 }
 
 
+/** Page Info on the &quot;RootQueryToEnqueuedStylesheetConnection&quot; */
+export interface RootQueryToEnqueuedStylesheetConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToEnqueuedStylesheetConnectionPageInfo'
+}
+
+
 /** Connection between the RootQuery type and the ContentNode type */
 export interface RootQueryToRevisionsConnection {
     /** Edges for the RootQueryToRevisionsConnection connection */
@@ -3579,7 +4439,7 @@ export interface RootQueryToRevisionsConnection {
     /** The nodes of the connection, without the edges */
     nodes: ContentNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToRevisionsConnectionPageInfo
     __typename: 'RootQueryToRevisionsConnection'
 }
 
@@ -3594,6 +4454,20 @@ export interface RootQueryToRevisionsConnectionEdge {
 }
 
 
+/** Page Info on the &quot;RootQueryToRevisionsConnection&quot; */
+export interface RootQueryToRevisionsConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToRevisionsConnectionPageInfo'
+}
+
+
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
 export type TagIdType = 'DATABASE_ID' | 'ID' | 'NAME' | 'SLUG' | 'URI'
 
@@ -3605,7 +4479,7 @@ export interface RootQueryToTagConnection {
     /** The nodes of the connection, without the edges */
     nodes: Tag[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToTagConnectionPageInfo
     __typename: 'RootQueryToTagConnection'
 }
 
@@ -3620,6 +4494,20 @@ export interface RootQueryToTagConnectionEdge {
 }
 
 
+/** Page Info on the &quot;RootQueryToTagConnection&quot; */
+export interface RootQueryToTagConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToTagConnectionPageInfo'
+}
+
+
 /** Connection between the RootQuery type and the Taxonomy type */
 export interface RootQueryToTaxonomyConnection {
     /** Edges for the RootQueryToTaxonomyConnection connection */
@@ -3627,7 +4515,7 @@ export interface RootQueryToTaxonomyConnection {
     /** The nodes of the connection, without the edges */
     nodes: Taxonomy[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToTaxonomyConnectionPageInfo
     __typename: 'RootQueryToTaxonomyConnection'
 }
 
@@ -3639,6 +4527,20 @@ export interface RootQueryToTaxonomyConnectionEdge {
     /** The item at the end of the edge */
     node: Taxonomy
     __typename: 'RootQueryToTaxonomyConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToTaxonomyConnection&quot; */
+export interface RootQueryToTaxonomyConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToTaxonomyConnectionPageInfo'
 }
 
 
@@ -3657,7 +4559,7 @@ export interface RootQueryToTermNodeConnection {
     /** The nodes of the connection, without the edges */
     nodes: TermNode[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToTermNodeConnectionPageInfo
     __typename: 'RootQueryToTermNodeConnection'
 }
 
@@ -3669,6 +4571,20 @@ export interface RootQueryToTermNodeConnectionEdge {
     /** The item at the end of the edge */
     node: TermNode
     __typename: 'RootQueryToTermNodeConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToTermNodeConnection&quot; */
+export interface RootQueryToTermNodeConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToTermNodeConnectionPageInfo'
 }
 
 
@@ -3707,7 +4623,7 @@ export interface RootQueryToThemeConnection {
     /** The nodes of the connection, without the edges */
     nodes: Theme[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToThemeConnectionPageInfo
     __typename: 'RootQueryToThemeConnection'
 }
 
@@ -3720,6 +4636,10 @@ export type ThemeConnection = (RootQueryToThemeConnection) & { __isUnion?: true 
 export type ThemeConnectionEdge = (RootQueryToThemeConnectionEdge) & { __isUnion?: true }
 
 
+/** Page Info on the connected ThemeConnectionEdge */
+export type ThemeConnectionPageInfo = (RootQueryToThemeConnectionPageInfo) & { __isUnion?: true }
+
+
 /** An edge in a connection */
 export interface RootQueryToThemeConnectionEdge {
     /** A cursor for use in pagination */
@@ -3727,6 +4647,20 @@ export interface RootQueryToThemeConnectionEdge {
     /** The item at the end of the edge */
     node: Theme
     __typename: 'RootQueryToThemeConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToThemeConnection&quot; */
+export interface RootQueryToThemeConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToThemeConnectionPageInfo'
 }
 
 
@@ -3741,7 +4675,7 @@ export interface RootQueryToUserRoleConnection {
     /** The nodes of the connection, without the edges */
     nodes: UserRole[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToUserRoleConnectionPageInfo
     __typename: 'RootQueryToUserRoleConnection'
 }
 
@@ -3753,6 +4687,20 @@ export interface RootQueryToUserRoleConnectionEdge {
     /** The item at the end of the edge */
     node: UserRole
     __typename: 'RootQueryToUserRoleConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToUserRoleConnection&quot; */
+export interface RootQueryToUserRoleConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToUserRoleConnectionPageInfo'
 }
 
 
@@ -3775,13 +4723,17 @@ export interface RootQueryToUserConnection {
     /** The nodes of the connection, without the edges */
     nodes: User[]
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfo
+    pageInfo: RootQueryToUserConnectionPageInfo
     __typename: 'RootQueryToUserConnection'
 }
 
 
 /** Connection to User Nodes */
 export type UserConnection = (RootQueryToUserConnection) & { __isUnion?: true }
+
+
+/** Page Info on the connected UserConnectionEdge */
+export type UserConnectionPageInfo = (RootQueryToUserConnectionPageInfo) & { __isUnion?: true }
 
 
 /** An edge in a connection */
@@ -3791,6 +4743,20 @@ export interface RootQueryToUserConnectionEdge {
     /** The item at the end of the edge */
     node: User
     __typename: 'RootQueryToUserConnectionEdge'
+}
+
+
+/** Page Info on the &quot;RootQueryToUserConnection&quot; */
+export interface RootQueryToUserConnectionPageInfo {
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: Scalars['String']
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: Scalars['String']
+    __typename: 'RootQueryToUserConnectionPageInfo'
 }
 
 
@@ -5361,7 +6327,7 @@ export interface ContentTypeToTaxonomyConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: TaxonomyRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: ContentTypeToTaxonomyConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5373,6 +6339,8 @@ export interface TaxonomyConnectionRequest{
     edges?: TaxonomyConnectionEdgeRequest
     /** A list of connected Taxonomy Nodes */
     nodes?: TaxonomyRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: TaxonomyConnectionPageInfoRequest
     on_ContentTypeToTaxonomyConnection?: ContentTypeToTaxonomyConnectionRequest
     on_RootQueryToTaxonomyConnection?: RootQueryToTaxonomyConnectionRequest
     __typename?: boolean | number
@@ -5386,6 +6354,8 @@ export interface ConnectionRequest{
     edges?: EdgeRequest
     /** A list of connected nodes */
     nodes?: NodeRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: PageInfoRequest
     on_ContentTypeToTaxonomyConnection?: ContentTypeToTaxonomyConnectionRequest
     on_TaxonomyToContentTypeConnection?: TaxonomyToContentTypeConnectionRequest
     on_ContentTypeToContentNodeConnection?: ContentTypeToContentNodeConnectionRequest
@@ -5449,6 +6419,84 @@ export interface ConnectionRequest{
     on_RootQueryToThemeConnection?: RootQueryToThemeConnectionRequest
     on_RootQueryToUserRoleConnection?: RootQueryToUserRoleConnectionRequest
     on_RootQueryToUserConnection?: RootQueryToUserConnectionRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Information about pagination in a connection. */
+export interface PageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_TaxonomyToContentTypeConnectionPageInfo?: TaxonomyToContentTypeConnectionPageInfoRequest
+    on_ContentTypeToTaxonomyConnectionPageInfo?: ContentTypeToTaxonomyConnectionPageInfoRequest
+    on_ContentTypeToContentNodeConnectionPageInfo?: ContentTypeToContentNodeConnectionPageInfoRequest
+    on_CommentToCommentConnectionPageInfo?: CommentToCommentConnectionPageInfoRequest
+    on_UserToCommentConnectionPageInfo?: UserToCommentConnectionPageInfoRequest
+    on_UserToEnqueuedScriptConnectionPageInfo?: UserToEnqueuedScriptConnectionPageInfoRequest
+    on_UserToEnqueuedStylesheetConnectionPageInfo?: UserToEnqueuedStylesheetConnectionPageInfoRequest
+    on_HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo?: HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoRequest
+    on_HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo?: HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoRequest
+    on_ContentNodeToEnqueuedScriptConnectionPageInfo?: ContentNodeToEnqueuedScriptConnectionPageInfoRequest
+    on_ContentNodeToEnqueuedStylesheetConnectionPageInfo?: ContentNodeToEnqueuedStylesheetConnectionPageInfoRequest
+    on_MediaItemToCommentConnectionPageInfo?: MediaItemToCommentConnectionPageInfoRequest
+    on_UserToMediaItemConnectionPageInfo?: UserToMediaItemConnectionPageInfoRequest
+    on_PageToCommentConnectionPageInfo?: PageToCommentConnectionPageInfoRequest
+    on_PageToRevisionConnectionPageInfo?: PageToRevisionConnectionPageInfoRequest
+    on_UserToPageConnectionPageInfo?: UserToPageConnectionPageInfoRequest
+    on_TermNodeToEnqueuedScriptConnectionPageInfo?: TermNodeToEnqueuedScriptConnectionPageInfoRequest
+    on_TermNodeToEnqueuedStylesheetConnectionPageInfo?: TermNodeToEnqueuedStylesheetConnectionPageInfoRequest
+    on_CategoryToAncestorsCategoryConnectionPageInfo?: CategoryToAncestorsCategoryConnectionPageInfoRequest
+    on_CategoryToCategoryConnectionPageInfo?: CategoryToCategoryConnectionPageInfoRequest
+    on_CategoryToContentNodeConnectionPageInfo?: CategoryToContentNodeConnectionPageInfoRequest
+    on_EmpreendimentoToCategoryConnectionPageInfo?: EmpreendimentoToCategoryConnectionPageInfoRequest
+    on_EmpreendimentoToTermNodeConnectionPageInfo?: EmpreendimentoToTermNodeConnectionPageInfoRequest
+    on_CategoryToEmpreendimentoConnectionPageInfo?: CategoryToEmpreendimentoConnectionPageInfoRequest
+    on_CategoryToPostConnectionPageInfo?: CategoryToPostConnectionPageInfoRequest
+    on_PostToCategoryConnectionPageInfo?: PostToCategoryConnectionPageInfoRequest
+    on_PostToCommentConnectionPageInfo?: PostToCommentConnectionPageInfoRequest
+    on_PostFormatToContentNodeConnectionPageInfo?: PostFormatToContentNodeConnectionPageInfoRequest
+    on_PostFormatToPostConnectionPageInfo?: PostFormatToPostConnectionPageInfoRequest
+    on_PostToPostFormatConnectionPageInfo?: PostToPostFormatConnectionPageInfoRequest
+    on_PostToRevisionConnectionPageInfo?: PostToRevisionConnectionPageInfoRequest
+    on_TagToContentNodeConnectionPageInfo?: TagToContentNodeConnectionPageInfoRequest
+    on_TagToPostConnectionPageInfo?: TagToPostConnectionPageInfoRequest
+    on_PostToTagConnectionPageInfo?: PostToTagConnectionPageInfoRequest
+    on_PostToTermNodeConnectionPageInfo?: PostToTermNodeConnectionPageInfoRequest
+    on_UserToPostConnectionPageInfo?: UserToPostConnectionPageInfoRequest
+    on_UserToRevisionsConnectionPageInfo?: UserToRevisionsConnectionPageInfoRequest
+    on_UserToUserRoleConnectionPageInfo?: UserToUserRoleConnectionPageInfoRequest
+    on_RootQueryToArquivoAssessoriaConnectionPageInfo?: RootQueryToArquivoAssessoriaConnectionPageInfoRequest
+    on_RootQueryToBannerConnectionPageInfo?: RootQueryToBannerConnectionPageInfoRequest
+    on_RootQueryToCategoryConnectionPageInfo?: RootQueryToCategoryConnectionPageInfoRequest
+    on_RootQueryToCommentConnectionPageInfo?: RootQueryToCommentConnectionPageInfoRequest
+    on_RootQueryToContentNodeConnectionPageInfo?: RootQueryToContentNodeConnectionPageInfoRequest
+    on_RootQueryToContentTypeConnectionPageInfo?: RootQueryToContentTypeConnectionPageInfoRequest
+    on_RootQueryToEmpreendimentoConnectionPageInfo?: RootQueryToEmpreendimentoConnectionPageInfoRequest
+    on_RootQueryToMediaItemConnectionPageInfo?: RootQueryToMediaItemConnectionPageInfoRequest
+    on_MenuItemToMenuItemConnectionPageInfo?: MenuItemToMenuItemConnectionPageInfoRequest
+    on_MenuToMenuItemConnectionPageInfo?: MenuToMenuItemConnectionPageInfoRequest
+    on_RootQueryToMenuItemConnectionPageInfo?: RootQueryToMenuItemConnectionPageInfoRequest
+    on_RootQueryToMenuConnectionPageInfo?: RootQueryToMenuConnectionPageInfoRequest
+    on_RootQueryToPageConnectionPageInfo?: RootQueryToPageConnectionPageInfoRequest
+    on_RootQueryToPluginConnectionPageInfo?: RootQueryToPluginConnectionPageInfoRequest
+    on_RootQueryToPostFormatConnectionPageInfo?: RootQueryToPostFormatConnectionPageInfoRequest
+    on_RootQueryToPostConnectionPageInfo?: RootQueryToPostConnectionPageInfoRequest
+    on_RootQueryToEnqueuedScriptConnectionPageInfo?: RootQueryToEnqueuedScriptConnectionPageInfoRequest
+    on_RootQueryToEnqueuedStylesheetConnectionPageInfo?: RootQueryToEnqueuedStylesheetConnectionPageInfoRequest
+    on_RootQueryToRevisionsConnectionPageInfo?: RootQueryToRevisionsConnectionPageInfoRequest
+    on_RootQueryToTagConnectionPageInfo?: RootQueryToTagConnectionPageInfoRequest
+    on_RootQueryToTaxonomyConnectionPageInfo?: RootQueryToTaxonomyConnectionPageInfoRequest
+    on_RootQueryToTermNodeConnectionPageInfo?: RootQueryToTermNodeConnectionPageInfoRequest
+    on_RootQueryToThemeConnectionPageInfo?: RootQueryToThemeConnectionPageInfoRequest
+    on_RootQueryToUserRoleConnectionPageInfo?: RootQueryToUserRoleConnectionPageInfoRequest
+    on_RootQueryToUserConnectionPageInfo?: RootQueryToUserConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5532,7 +6580,7 @@ export interface TaxonomyToContentTypeConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ContentTypeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: TaxonomyToContentTypeConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5544,8 +6592,105 @@ export interface ContentTypeConnectionRequest{
     edges?: ContentTypeConnectionEdgeRequest
     /** A list of connected ContentType Nodes */
     nodes?: ContentTypeRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: ContentTypeConnectionPageInfoRequest
     on_TaxonomyToContentTypeConnection?: TaxonomyToContentTypeConnectionRequest
     on_RootQueryToContentTypeConnection?: RootQueryToContentTypeConnectionRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the connected ContentTypeConnectionEdge */
+export interface ContentTypeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_TaxonomyToContentTypeConnectionPageInfo?: TaxonomyToContentTypeConnectionPageInfoRequest
+    on_RootQueryToContentTypeConnectionPageInfo?: RootQueryToContentTypeConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Information about pagination in a connection. */
+export interface WPPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_TaxonomyToContentTypeConnectionPageInfo?: TaxonomyToContentTypeConnectionPageInfoRequest
+    on_ContentTypeToTaxonomyConnectionPageInfo?: ContentTypeToTaxonomyConnectionPageInfoRequest
+    on_ContentTypeToContentNodeConnectionPageInfo?: ContentTypeToContentNodeConnectionPageInfoRequest
+    on_CommentToCommentConnectionPageInfo?: CommentToCommentConnectionPageInfoRequest
+    on_UserToCommentConnectionPageInfo?: UserToCommentConnectionPageInfoRequest
+    on_UserToEnqueuedScriptConnectionPageInfo?: UserToEnqueuedScriptConnectionPageInfoRequest
+    on_UserToEnqueuedStylesheetConnectionPageInfo?: UserToEnqueuedStylesheetConnectionPageInfoRequest
+    on_HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo?: HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoRequest
+    on_HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo?: HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoRequest
+    on_ContentNodeToEnqueuedScriptConnectionPageInfo?: ContentNodeToEnqueuedScriptConnectionPageInfoRequest
+    on_ContentNodeToEnqueuedStylesheetConnectionPageInfo?: ContentNodeToEnqueuedStylesheetConnectionPageInfoRequest
+    on_MediaItemToCommentConnectionPageInfo?: MediaItemToCommentConnectionPageInfoRequest
+    on_UserToMediaItemConnectionPageInfo?: UserToMediaItemConnectionPageInfoRequest
+    on_PageToCommentConnectionPageInfo?: PageToCommentConnectionPageInfoRequest
+    on_PageToRevisionConnectionPageInfo?: PageToRevisionConnectionPageInfoRequest
+    on_UserToPageConnectionPageInfo?: UserToPageConnectionPageInfoRequest
+    on_TermNodeToEnqueuedScriptConnectionPageInfo?: TermNodeToEnqueuedScriptConnectionPageInfoRequest
+    on_TermNodeToEnqueuedStylesheetConnectionPageInfo?: TermNodeToEnqueuedStylesheetConnectionPageInfoRequest
+    on_CategoryToAncestorsCategoryConnectionPageInfo?: CategoryToAncestorsCategoryConnectionPageInfoRequest
+    on_CategoryToCategoryConnectionPageInfo?: CategoryToCategoryConnectionPageInfoRequest
+    on_CategoryToContentNodeConnectionPageInfo?: CategoryToContentNodeConnectionPageInfoRequest
+    on_EmpreendimentoToCategoryConnectionPageInfo?: EmpreendimentoToCategoryConnectionPageInfoRequest
+    on_EmpreendimentoToTermNodeConnectionPageInfo?: EmpreendimentoToTermNodeConnectionPageInfoRequest
+    on_CategoryToEmpreendimentoConnectionPageInfo?: CategoryToEmpreendimentoConnectionPageInfoRequest
+    on_CategoryToPostConnectionPageInfo?: CategoryToPostConnectionPageInfoRequest
+    on_PostToCategoryConnectionPageInfo?: PostToCategoryConnectionPageInfoRequest
+    on_PostToCommentConnectionPageInfo?: PostToCommentConnectionPageInfoRequest
+    on_PostFormatToContentNodeConnectionPageInfo?: PostFormatToContentNodeConnectionPageInfoRequest
+    on_PostFormatToPostConnectionPageInfo?: PostFormatToPostConnectionPageInfoRequest
+    on_PostToPostFormatConnectionPageInfo?: PostToPostFormatConnectionPageInfoRequest
+    on_PostToRevisionConnectionPageInfo?: PostToRevisionConnectionPageInfoRequest
+    on_TagToContentNodeConnectionPageInfo?: TagToContentNodeConnectionPageInfoRequest
+    on_TagToPostConnectionPageInfo?: TagToPostConnectionPageInfoRequest
+    on_PostToTagConnectionPageInfo?: PostToTagConnectionPageInfoRequest
+    on_PostToTermNodeConnectionPageInfo?: PostToTermNodeConnectionPageInfoRequest
+    on_UserToPostConnectionPageInfo?: UserToPostConnectionPageInfoRequest
+    on_UserToRevisionsConnectionPageInfo?: UserToRevisionsConnectionPageInfoRequest
+    on_UserToUserRoleConnectionPageInfo?: UserToUserRoleConnectionPageInfoRequest
+    on_RootQueryToArquivoAssessoriaConnectionPageInfo?: RootQueryToArquivoAssessoriaConnectionPageInfoRequest
+    on_RootQueryToBannerConnectionPageInfo?: RootQueryToBannerConnectionPageInfoRequest
+    on_RootQueryToCategoryConnectionPageInfo?: RootQueryToCategoryConnectionPageInfoRequest
+    on_RootQueryToCommentConnectionPageInfo?: RootQueryToCommentConnectionPageInfoRequest
+    on_RootQueryToContentNodeConnectionPageInfo?: RootQueryToContentNodeConnectionPageInfoRequest
+    on_RootQueryToContentTypeConnectionPageInfo?: RootQueryToContentTypeConnectionPageInfoRequest
+    on_RootQueryToEmpreendimentoConnectionPageInfo?: RootQueryToEmpreendimentoConnectionPageInfoRequest
+    on_RootQueryToMediaItemConnectionPageInfo?: RootQueryToMediaItemConnectionPageInfoRequest
+    on_MenuItemToMenuItemConnectionPageInfo?: MenuItemToMenuItemConnectionPageInfoRequest
+    on_MenuToMenuItemConnectionPageInfo?: MenuToMenuItemConnectionPageInfoRequest
+    on_RootQueryToMenuItemConnectionPageInfo?: RootQueryToMenuItemConnectionPageInfoRequest
+    on_RootQueryToMenuConnectionPageInfo?: RootQueryToMenuConnectionPageInfoRequest
+    on_RootQueryToPageConnectionPageInfo?: RootQueryToPageConnectionPageInfoRequest
+    on_RootQueryToPluginConnectionPageInfo?: RootQueryToPluginConnectionPageInfoRequest
+    on_RootQueryToPostFormatConnectionPageInfo?: RootQueryToPostFormatConnectionPageInfoRequest
+    on_RootQueryToPostConnectionPageInfo?: RootQueryToPostConnectionPageInfoRequest
+    on_RootQueryToEnqueuedScriptConnectionPageInfo?: RootQueryToEnqueuedScriptConnectionPageInfoRequest
+    on_RootQueryToEnqueuedStylesheetConnectionPageInfo?: RootQueryToEnqueuedStylesheetConnectionPageInfoRequest
+    on_RootQueryToRevisionsConnectionPageInfo?: RootQueryToRevisionsConnectionPageInfoRequest
+    on_RootQueryToTagConnectionPageInfo?: RootQueryToTagConnectionPageInfoRequest
+    on_RootQueryToTaxonomyConnectionPageInfo?: RootQueryToTaxonomyConnectionPageInfoRequest
+    on_RootQueryToTermNodeConnectionPageInfo?: RootQueryToTermNodeConnectionPageInfoRequest
+    on_RootQueryToThemeConnectionPageInfo?: RootQueryToThemeConnectionPageInfoRequest
+    on_RootQueryToUserRoleConnectionPageInfo?: RootQueryToUserRoleConnectionPageInfoRequest
+    on_RootQueryToUserConnectionPageInfo?: RootQueryToUserConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5562,8 +6707,8 @@ export interface TaxonomyToContentTypeConnectionEdgeRequest{
 }
 
 
-/** Information about pagination in a connection. */
-export interface WPPageInfoRequest{
+/** Page Info on the &quot;TaxonomyToContentTypeConnection&quot; */
+export interface TaxonomyToContentTypeConnectionPageInfoRequest{
     /** When paginating forwards, the cursor to continue. */
     endCursor?: boolean | number
     /** When paginating forwards, are there more items? */
@@ -5577,12 +6722,44 @@ export interface WPPageInfoRequest{
 }
 
 
+/** Page Info on the connected TaxonomyConnectionEdge */
+export interface TaxonomyConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_ContentTypeToTaxonomyConnectionPageInfo?: ContentTypeToTaxonomyConnectionPageInfoRequest
+    on_RootQueryToTaxonomyConnectionPageInfo?: RootQueryToTaxonomyConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface ContentTypeToTaxonomyConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: TaxonomyRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;ContentTypeToTaxonomyConnection&quot; */
+export interface ContentTypeToTaxonomyConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5683,7 +6860,7 @@ export interface ContentTypeToContentNodeConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ContentNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: ContentTypeToContentNodeConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5695,6 +6872,8 @@ export interface ContentNodeConnectionRequest{
     edges?: ContentNodeConnectionEdgeRequest
     /** A list of connected ContentNode Nodes */
     nodes?: ContentNodeRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: ContentNodeConnectionPageInfoRequest
     on_ContentTypeToContentNodeConnection?: ContentTypeToContentNodeConnectionRequest
     on_HierarchicalContentNodeToContentNodeAncestorsConnection?: HierarchicalContentNodeToContentNodeAncestorsConnectionRequest
     on_HierarchicalContentNodeToContentNodeChildrenConnection?: HierarchicalContentNodeToContentNodeChildrenConnectionRequest
@@ -5732,12 +6911,51 @@ export interface ContentNodeConnectionEdgeRequest{
 }
 
 
+/** Page Info on the connected ContentNodeConnectionEdge */
+export interface ContentNodeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_ContentTypeToContentNodeConnectionPageInfo?: ContentTypeToContentNodeConnectionPageInfoRequest
+    on_HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo?: HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoRequest
+    on_HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo?: HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoRequest
+    on_CategoryToContentNodeConnectionPageInfo?: CategoryToContentNodeConnectionPageInfoRequest
+    on_PostFormatToContentNodeConnectionPageInfo?: PostFormatToContentNodeConnectionPageInfoRequest
+    on_TagToContentNodeConnectionPageInfo?: TagToContentNodeConnectionPageInfoRequest
+    on_UserToRevisionsConnectionPageInfo?: UserToRevisionsConnectionPageInfoRequest
+    on_RootQueryToContentNodeConnectionPageInfo?: RootQueryToContentNodeConnectionPageInfoRequest
+    on_RootQueryToRevisionsConnectionPageInfo?: RootQueryToRevisionsConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface ContentTypeToContentNodeConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: ContentNodeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;ContentTypeToContentNodeConnection&quot; */
+export interface ContentTypeToContentNodeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6124,7 +7342,7 @@ export interface UserToCommentConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: CommentRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: UserToCommentConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6136,6 +7354,8 @@ export interface CommentConnectionRequest{
     edges?: CommentConnectionEdgeRequest
     /** A list of connected Comment Nodes */
     nodes?: CommentRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: CommentConnectionPageInfoRequest
     on_UserToCommentConnection?: UserToCommentConnectionRequest
     on_CommentToCommentConnection?: CommentToCommentConnectionRequest
     on_MediaItemToCommentConnection?: MediaItemToCommentConnectionRequest
@@ -6406,7 +7626,7 @@ export interface CommentToCommentConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: CommentRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: CommentToCommentConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6423,12 +7643,63 @@ export interface CommentToCommentConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;CommentToCommentConnection&quot; */
+export interface CommentToCommentConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the connected CommentConnectionEdge */
+export interface CommentConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_CommentToCommentConnectionPageInfo?: CommentToCommentConnectionPageInfoRequest
+    on_UserToCommentConnectionPageInfo?: UserToCommentConnectionPageInfoRequest
+    on_MediaItemToCommentConnectionPageInfo?: MediaItemToCommentConnectionPageInfoRequest
+    on_PageToCommentConnectionPageInfo?: PageToCommentConnectionPageInfoRequest
+    on_PostToCommentConnectionPageInfo?: PostToCommentConnectionPageInfoRequest
+    on_RootQueryToCommentConnectionPageInfo?: RootQueryToCommentConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface UserToCommentConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: CommentRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;UserToCommentConnection&quot; */
+export interface UserToCommentConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6441,7 +7712,7 @@ export interface UserToEnqueuedScriptConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: EnqueuedScriptRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: UserToEnqueuedScriptConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6453,6 +7724,8 @@ export interface EnqueuedScriptConnectionRequest{
     edges?: EnqueuedScriptConnectionEdgeRequest
     /** A list of connected EnqueuedScript Nodes */
     nodes?: EnqueuedScriptRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: EnqueuedScriptConnectionPageInfoRequest
     on_UserToEnqueuedScriptConnection?: UserToEnqueuedScriptConnectionRequest
     on_ContentNodeToEnqueuedScriptConnection?: ContentNodeToEnqueuedScriptConnectionRequest
     on_TermNodeToEnqueuedScriptConnection?: TermNodeToEnqueuedScriptConnectionRequest
@@ -6521,12 +7794,46 @@ export interface EnqueuedAssetRequest{
 }
 
 
+/** Page Info on the connected EnqueuedScriptConnectionEdge */
+export interface EnqueuedScriptConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_UserToEnqueuedScriptConnectionPageInfo?: UserToEnqueuedScriptConnectionPageInfoRequest
+    on_ContentNodeToEnqueuedScriptConnectionPageInfo?: ContentNodeToEnqueuedScriptConnectionPageInfoRequest
+    on_TermNodeToEnqueuedScriptConnectionPageInfo?: TermNodeToEnqueuedScriptConnectionPageInfoRequest
+    on_RootQueryToEnqueuedScriptConnectionPageInfo?: RootQueryToEnqueuedScriptConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface UserToEnqueuedScriptConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: EnqueuedScriptRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;UserToEnqueuedScriptConnection&quot; */
+export interface UserToEnqueuedScriptConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6539,7 +7846,7 @@ export interface UserToEnqueuedStylesheetConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: EnqueuedStylesheetRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: UserToEnqueuedStylesheetConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6551,6 +7858,8 @@ export interface EnqueuedStylesheetConnectionRequest{
     edges?: EnqueuedStylesheetConnectionEdgeRequest
     /** A list of connected EnqueuedStylesheet Nodes */
     nodes?: EnqueuedStylesheetRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: EnqueuedStylesheetConnectionPageInfoRequest
     on_UserToEnqueuedStylesheetConnection?: UserToEnqueuedStylesheetConnectionRequest
     on_ContentNodeToEnqueuedStylesheetConnection?: ContentNodeToEnqueuedStylesheetConnectionRequest
     on_TermNodeToEnqueuedStylesheetConnection?: TermNodeToEnqueuedStylesheetConnectionRequest
@@ -6596,12 +7905,46 @@ export interface EnqueuedStylesheetRequest{
 }
 
 
+/** Page Info on the connected EnqueuedStylesheetConnectionEdge */
+export interface EnqueuedStylesheetConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_UserToEnqueuedStylesheetConnectionPageInfo?: UserToEnqueuedStylesheetConnectionPageInfoRequest
+    on_ContentNodeToEnqueuedStylesheetConnectionPageInfo?: ContentNodeToEnqueuedStylesheetConnectionPageInfoRequest
+    on_TermNodeToEnqueuedStylesheetConnectionPageInfo?: TermNodeToEnqueuedStylesheetConnectionPageInfoRequest
+    on_RootQueryToEnqueuedStylesheetConnectionPageInfo?: RootQueryToEnqueuedStylesheetConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface UserToEnqueuedStylesheetConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: EnqueuedStylesheetRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;UserToEnqueuedStylesheetConnection&quot; */
+export interface UserToEnqueuedStylesheetConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6660,7 +8003,7 @@ export interface UserToMediaItemConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: MediaItemRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: UserToMediaItemConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6672,6 +8015,8 @@ export interface MediaItemConnectionRequest{
     edges?: MediaItemConnectionEdgeRequest
     /** A list of connected mediaItem Nodes */
     nodes?: MediaItemRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: MediaItemConnectionPageInfoRequest
     on_UserToMediaItemConnection?: UserToMediaItemConnectionRequest
     on_RootQueryToMediaItemConnection?: RootQueryToMediaItemConnectionRequest
     __typename?: boolean | number
@@ -7126,7 +8471,7 @@ export interface HierarchicalContentNodeToContentNodeAncestorsConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ContentNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7138,6 +8483,21 @@ export interface HierarchicalContentNodeToContentNodeAncestorsConnectionEdgeRequ
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: ContentNodeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;HierarchicalContentNodeToContentNodeAncestorsConnection&quot; */
+export interface HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7190,7 +8550,7 @@ export interface HierarchicalContentNodeToContentNodeChildrenConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ContentNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7207,6 +8567,21 @@ export interface HierarchicalContentNodeToContentNodeChildrenConnectionEdgeReque
 }
 
 
+/** Page Info on the &quot;HierarchicalContentNodeToContentNodeChildrenConnection&quot; */
+export interface HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Connection between the ContentNode type and the EnqueuedScript type */
 export interface ContentNodeToEnqueuedScriptConnectionRequest{
     /** Edges for the ContentNodeToEnqueuedScriptConnection connection */
@@ -7214,7 +8589,7 @@ export interface ContentNodeToEnqueuedScriptConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: EnqueuedScriptRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: ContentNodeToEnqueuedScriptConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7231,6 +8606,21 @@ export interface ContentNodeToEnqueuedScriptConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;ContentNodeToEnqueuedScriptConnection&quot; */
+export interface ContentNodeToEnqueuedScriptConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Connection between the ContentNode type and the EnqueuedStylesheet type */
 export interface ContentNodeToEnqueuedStylesheetConnectionRequest{
     /** Edges for the ContentNodeToEnqueuedStylesheetConnection connection */
@@ -7238,7 +8628,7 @@ export interface ContentNodeToEnqueuedStylesheetConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: EnqueuedStylesheetRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: ContentNodeToEnqueuedStylesheetConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7250,6 +8640,21 @@ export interface ContentNodeToEnqueuedStylesheetConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: EnqueuedStylesheetRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;ContentNodeToEnqueuedStylesheetConnection&quot; */
+export interface ContentNodeToEnqueuedStylesheetConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7346,7 +8751,7 @@ export interface MediaItemToCommentConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: CommentRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: MediaItemToCommentConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7358,6 +8763,21 @@ export interface MediaItemToCommentConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: CommentRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;MediaItemToCommentConnection&quot; */
+export interface MediaItemToCommentConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7436,12 +8856,44 @@ export interface MediaSizeRequest{
 }
 
 
+/** Page Info on the connected MediaItemConnectionEdge */
+export interface MediaItemConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_UserToMediaItemConnectionPageInfo?: UserToMediaItemConnectionPageInfoRequest
+    on_RootQueryToMediaItemConnectionPageInfo?: RootQueryToMediaItemConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface UserToMediaItemConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: MediaItemRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;UserToMediaItemConnection&quot; */
+export interface UserToMediaItemConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7500,7 +8952,7 @@ export interface UserToPageConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PageRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: UserToPageConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7512,6 +8964,8 @@ export interface PageConnectionRequest{
     edges?: PageConnectionEdgeRequest
     /** A list of connected page Nodes */
     nodes?: PageRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: PageConnectionPageInfoRequest
     on_UserToPageConnection?: UserToPageConnectionRequest
     on_PageToRevisionConnection?: PageToRevisionConnectionRequest
     on_RootQueryToPageConnection?: RootQueryToPageConnectionRequest
@@ -7942,7 +9396,7 @@ export interface PageToCommentConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: CommentRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: PageToCommentConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -7954,6 +9408,21 @@ export interface PageToCommentConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: CommentRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;PageToCommentConnection&quot; */
+export interface PageToCommentConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8074,7 +9543,7 @@ export interface PageToRevisionConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PageRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: PageToRevisionConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8091,12 +9560,60 @@ export interface PageToRevisionConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;PageToRevisionConnection&quot; */
+export interface PageToRevisionConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the connected PageConnectionEdge */
+export interface PageConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_PageToRevisionConnectionPageInfo?: PageToRevisionConnectionPageInfoRequest
+    on_UserToPageConnectionPageInfo?: UserToPageConnectionPageInfoRequest
+    on_RootQueryToPageConnectionPageInfo?: RootQueryToPageConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface UserToPageConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: PageRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;UserToPageConnection&quot; */
+export interface UserToPageConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8175,7 +9692,7 @@ export interface UserToPostConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PostRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: UserToPostConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8187,6 +9704,8 @@ export interface PostConnectionRequest{
     edges?: PostConnectionEdgeRequest
     /** A list of connected post Nodes */
     nodes?: PostRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: PostConnectionPageInfoRequest
     on_UserToPostConnection?: UserToPostConnectionRequest
     on_CategoryToPostConnection?: CategoryToPostConnectionRequest
     on_PostFormatToPostConnection?: PostFormatToPostConnectionRequest
@@ -8493,7 +10012,7 @@ export interface PostToCategoryConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: CategoryRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: PostToCategoryConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8505,6 +10024,8 @@ export interface CategoryConnectionRequest{
     edges?: CategoryConnectionEdgeRequest
     /** A list of connected category Nodes */
     nodes?: CategoryRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: CategoryConnectionPageInfoRequest
     on_PostToCategoryConnection?: PostToCategoryConnectionRequest
     on_CategoryToAncestorsCategoryConnection?: CategoryToAncestorsCategoryConnectionRequest
     on_CategoryToCategoryConnection?: CategoryToCategoryConnectionRequest
@@ -8723,7 +10244,7 @@ export interface TermNodeToEnqueuedScriptConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: EnqueuedScriptRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: TermNodeToEnqueuedScriptConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8740,6 +10261,21 @@ export interface TermNodeToEnqueuedScriptConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;TermNodeToEnqueuedScriptConnection&quot; */
+export interface TermNodeToEnqueuedScriptConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Connection between the TermNode type and the EnqueuedStylesheet type */
 export interface TermNodeToEnqueuedStylesheetConnectionRequest{
     /** Edges for the TermNodeToEnqueuedStylesheetConnection connection */
@@ -8747,7 +10283,7 @@ export interface TermNodeToEnqueuedStylesheetConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: EnqueuedStylesheetRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: TermNodeToEnqueuedStylesheetConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8759,6 +10295,21 @@ export interface TermNodeToEnqueuedStylesheetConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: EnqueuedStylesheetRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;TermNodeToEnqueuedStylesheetConnection&quot; */
+export interface TermNodeToEnqueuedStylesheetConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8831,7 +10382,7 @@ export interface CategoryToAncestorsCategoryConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: CategoryRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: CategoryToAncestorsCategoryConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8843,6 +10394,41 @@ export interface CategoryToAncestorsCategoryConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: CategoryRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;CategoryToAncestorsCategoryConnection&quot; */
+export interface CategoryToAncestorsCategoryConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the connected CategoryConnectionEdge */
+export interface CategoryConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_CategoryToAncestorsCategoryConnectionPageInfo?: CategoryToAncestorsCategoryConnectionPageInfoRequest
+    on_CategoryToCategoryConnectionPageInfo?: CategoryToCategoryConnectionPageInfoRequest
+    on_EmpreendimentoToCategoryConnectionPageInfo?: EmpreendimentoToCategoryConnectionPageInfoRequest
+    on_PostToCategoryConnectionPageInfo?: PostToCategoryConnectionPageInfoRequest
+    on_RootQueryToCategoryConnectionPageInfo?: RootQueryToCategoryConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8901,7 +10487,7 @@ export interface CategoryToCategoryConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: CategoryRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: CategoryToCategoryConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8913,6 +10499,21 @@ export interface CategoryToCategoryConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: CategoryRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;CategoryToCategoryConnection&quot; */
+export interface CategoryToCategoryConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8965,7 +10566,7 @@ export interface CategoryToContentNodeConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ContentNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: CategoryToContentNodeConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -8977,6 +10578,21 @@ export interface CategoryToContentNodeConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: ContentNodeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;CategoryToContentNodeConnection&quot; */
+export interface CategoryToContentNodeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9035,7 +10651,7 @@ export interface CategoryToEmpreendimentoConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: EmpreendimentoRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: CategoryToEmpreendimentoConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9047,6 +10663,8 @@ export interface EmpreendimentoConnectionRequest{
     edges?: EmpreendimentoConnectionEdgeRequest
     /** A list of connected Empreendimento Nodes */
     nodes?: EmpreendimentoRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: EmpreendimentoConnectionPageInfoRequest
     on_CategoryToEmpreendimentoConnection?: CategoryToEmpreendimentoConnectionRequest
     on_RootQueryToEmpreendimentoConnection?: RootQueryToEmpreendimentoConnectionRequest
     __typename?: boolean | number
@@ -9239,7 +10857,7 @@ export interface EmpreendimentoToCategoryConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: CategoryRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: EmpreendimentoToCategoryConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9251,6 +10869,21 @@ export interface EmpreendimentoToCategoryConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: CategoryRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;EmpreendimentoToCategoryConnection&quot; */
+export interface EmpreendimentoToCategoryConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9268,7 +10901,9 @@ export interface Empreendimento_EmpreendimentoRequest{
     empVagasDeGaragem?: boolean | number
     empValorAPartirDe?: boolean | number
     endStandVendas?: boolean | number
-    enderecoDoEmpreendimento?: boolean | number
+    enderecoBairro?: boolean | number
+    enderecoNumero?: boolean | number
+    enderecoRua?: boolean | number
     estagioDaObra?: CategoryRequest
     /** The name of the ACF Field Group */
     fieldGroupName?: boolean | number
@@ -9410,7 +11045,7 @@ export interface EmpreendimentoToTermNodeConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: TermNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: EmpreendimentoToTermNodeConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9422,6 +11057,8 @@ export interface TermNodeConnectionRequest{
     edges?: TermNodeConnectionEdgeRequest
     /** A list of connected TermNode Nodes */
     nodes?: TermNodeRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: TermNodeConnectionPageInfoRequest
     on_EmpreendimentoToTermNodeConnection?: EmpreendimentoToTermNodeConnectionRequest
     on_PostToTermNodeConnection?: PostToTermNodeConnectionRequest
     on_RootQueryToTermNodeConnection?: RootQueryToTermNodeConnectionRequest
@@ -9444,6 +11081,24 @@ export interface TermNodeConnectionEdgeRequest{
 }
 
 
+/** Page Info on the connected TermNodeConnectionEdge */
+export interface TermNodeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_EmpreendimentoToTermNodeConnectionPageInfo?: EmpreendimentoToTermNodeConnectionPageInfoRequest
+    on_PostToTermNodeConnectionPageInfo?: PostToTermNodeConnectionPageInfoRequest
+    on_RootQueryToTermNodeConnectionPageInfo?: RootQueryToTermNodeConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface EmpreendimentoToTermNodeConnectionEdgeRequest{
     /** A cursor for use in pagination */
@@ -9455,12 +11110,59 @@ export interface EmpreendimentoToTermNodeConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;EmpreendimentoToTermNodeConnection&quot; */
+export interface EmpreendimentoToTermNodeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the connected EmpreendimentoConnectionEdge */
+export interface EmpreendimentoConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_CategoryToEmpreendimentoConnectionPageInfo?: CategoryToEmpreendimentoConnectionPageInfoRequest
+    on_RootQueryToEmpreendimentoConnectionPageInfo?: RootQueryToEmpreendimentoConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface CategoryToEmpreendimentoConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: EmpreendimentoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;CategoryToEmpreendimentoConnection&quot; */
+export interface CategoryToEmpreendimentoConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9550,7 +11252,7 @@ export interface CategoryToPostConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PostRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: CategoryToPostConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9562,6 +11264,42 @@ export interface CategoryToPostConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: PostRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;CategoryToPostConnection&quot; */
+export interface CategoryToPostConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the connected PostConnectionEdge */
+export interface PostConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_CategoryToPostConnectionPageInfo?: CategoryToPostConnectionPageInfoRequest
+    on_PostFormatToPostConnectionPageInfo?: PostFormatToPostConnectionPageInfoRequest
+    on_PostToRevisionConnectionPageInfo?: PostToRevisionConnectionPageInfoRequest
+    on_TagToPostConnectionPageInfo?: TagToPostConnectionPageInfoRequest
+    on_UserToPostConnectionPageInfo?: UserToPostConnectionPageInfoRequest
+    on_RootQueryToPostConnectionPageInfo?: RootQueryToPostConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9584,6 +11322,21 @@ export interface PostToCategoryConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: CategoryRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;PostToCategoryConnection&quot; */
+export interface PostToCategoryConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9658,7 +11411,7 @@ export interface PostToCommentConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: CommentRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: PostToCommentConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9670,6 +11423,21 @@ export interface PostToCommentConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: CommentRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;PostToCommentConnection&quot; */
+export interface PostToCommentConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9728,7 +11496,7 @@ export interface PostToPostFormatConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PostFormatRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: PostToPostFormatConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9740,6 +11508,8 @@ export interface PostFormatConnectionRequest{
     edges?: PostFormatConnectionEdgeRequest
     /** A list of connected postFormat Nodes */
     nodes?: PostFormatRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: PostFormatConnectionPageInfoRequest
     on_PostToPostFormatConnection?: PostToPostFormatConnectionRequest
     on_RootQueryToPostFormatConnection?: RootQueryToPostFormatConnectionRequest
     __typename?: boolean | number
@@ -9893,7 +11663,7 @@ export interface PostFormatToContentNodeConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ContentNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: PostFormatToContentNodeConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9905,6 +11675,21 @@ export interface PostFormatToContentNodeConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: ContentNodeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;PostFormatToContentNodeConnection&quot; */
+export interface PostFormatToContentNodeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9983,7 +11768,7 @@ export interface PostFormatToPostConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PostRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: PostFormatToPostConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10000,6 +11785,21 @@ export interface PostFormatToPostConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;PostFormatToPostConnection&quot; */
+export interface PostFormatToPostConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Connection between the PostFormat type and the Taxonomy type */
 export interface PostFormatToTaxonomyConnectionEdgeRequest{
     /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
@@ -10011,12 +11811,44 @@ export interface PostFormatToTaxonomyConnectionEdgeRequest{
 }
 
 
+/** Page Info on the connected PostFormatConnectionEdge */
+export interface PostFormatConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_PostToPostFormatConnectionPageInfo?: PostToPostFormatConnectionPageInfoRequest
+    on_RootQueryToPostFormatConnectionPageInfo?: RootQueryToPostFormatConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface PostToPostFormatConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: PostFormatRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;PostToPostFormatConnection&quot; */
+export interface PostToPostFormatConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10106,7 +11938,7 @@ export interface PostToRevisionConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PostRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: PostToRevisionConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10118,6 +11950,21 @@ export interface PostToRevisionConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: PostRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;PostToRevisionConnection&quot; */
+export interface PostToRevisionConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10176,7 +12023,7 @@ export interface PostToTagConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: TagRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: PostToTagConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10188,6 +12035,8 @@ export interface TagConnectionRequest{
     edges?: TagConnectionEdgeRequest
     /** A list of connected tag Nodes */
     nodes?: TagRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: TagConnectionPageInfoRequest
     on_PostToTagConnection?: PostToTagConnectionRequest
     on_RootQueryToTagConnection?: RootQueryToTagConnectionRequest
     __typename?: boolean | number
@@ -10341,7 +12190,7 @@ export interface TagToContentNodeConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ContentNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: TagToContentNodeConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10353,6 +12202,21 @@ export interface TagToContentNodeConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: ContentNodeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;TagToContentNodeConnection&quot; */
+export interface TagToContentNodeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10431,7 +12295,7 @@ export interface TagToPostConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PostRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: TagToPostConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10448,6 +12312,21 @@ export interface TagToPostConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;TagToPostConnection&quot; */
+export interface TagToPostConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Connection between the Tag type and the Taxonomy type */
 export interface TagToTaxonomyConnectionEdgeRequest{
     /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
@@ -10459,12 +12338,44 @@ export interface TagToTaxonomyConnectionEdgeRequest{
 }
 
 
+/** Page Info on the connected TagConnectionEdge */
+export interface TagConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_PostToTagConnectionPageInfo?: PostToTagConnectionPageInfoRequest
+    on_RootQueryToTagConnectionPageInfo?: RootQueryToTagConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface PostToTagConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: TagRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;PostToTagConnection&quot; */
+export interface PostToTagConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10525,7 +12436,7 @@ export interface PostToTermNodeConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: TermNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: PostToTermNodeConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10542,12 +12453,42 @@ export interface PostToTermNodeConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;PostToTermNodeConnection&quot; */
+export interface PostToTermNodeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface UserToPostConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: PostRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;UserToPostConnection&quot; */
+export interface UserToPostConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10600,7 +12541,7 @@ export interface UserToRevisionsConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ContentNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: UserToRevisionsConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10617,6 +12558,21 @@ export interface UserToRevisionsConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;UserToRevisionsConnection&quot; */
+export interface UserToRevisionsConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Connection between the User type and the UserRole type */
 export interface UserToUserRoleConnectionRequest{
     /** Edges for the UserToUserRoleConnection connection */
@@ -10624,7 +12580,7 @@ export interface UserToUserRoleConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: UserRoleRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: UserToUserRoleConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10636,6 +12592,8 @@ export interface UserRoleConnectionRequest{
     edges?: UserRoleConnectionEdgeRequest
     /** A list of connected UserRole Nodes */
     nodes?: UserRoleRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: UserRoleConnectionPageInfoRequest
     on_UserToUserRoleConnection?: UserToUserRoleConnectionRequest
     on_RootQueryToUserRoleConnection?: RootQueryToUserRoleConnectionRequest
     __typename?: boolean | number
@@ -10673,12 +12631,44 @@ export interface UserRoleRequest{
 }
 
 
+/** Page Info on the connected UserRoleConnectionEdge */
+export interface UserRoleConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_UserToUserRoleConnectionPageInfo?: UserToUserRoleConnectionPageInfoRequest
+    on_RootQueryToUserRoleConnectionPageInfo?: RootQueryToUserRoleConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface UserToUserRoleConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: UserRoleRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;UserToUserRoleConnection&quot; */
+export interface UserToUserRoleConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10767,7 +12757,7 @@ export interface RootQueryToArquivoAssessoriaConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ArquivoAssessoriaRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToArquivoAssessoriaConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10779,7 +12769,25 @@ export interface ArquivoAssessoriaConnectionRequest{
     edges?: ArquivoAssessoriaConnectionEdgeRequest
     /** A list of connected ArquivoAssessoria Nodes */
     nodes?: ArquivoAssessoriaRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: ArquivoAssessoriaConnectionPageInfoRequest
     on_RootQueryToArquivoAssessoriaConnection?: RootQueryToArquivoAssessoriaConnectionRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the connected ArquivoAssessoriaConnectionEdge */
+export interface ArquivoAssessoriaConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_RootQueryToArquivoAssessoriaConnectionPageInfo?: RootQueryToArquivoAssessoriaConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -10791,6 +12799,21 @@ export interface RootQueryToArquivoAssessoriaConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: ArquivoAssessoriaRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToArquivoAssessoriaConnection&quot; */
+export interface RootQueryToArquivoAssessoriaConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11005,7 +13028,7 @@ export interface RootQueryToBannerConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: BannerRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToBannerConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11017,7 +13040,25 @@ export interface BannerConnectionRequest{
     edges?: BannerConnectionEdgeRequest
     /** A list of connected Banner Nodes */
     nodes?: BannerRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: BannerConnectionPageInfoRequest
     on_RootQueryToBannerConnection?: RootQueryToBannerConnectionRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the connected BannerConnectionEdge */
+export interface BannerConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_RootQueryToBannerConnectionPageInfo?: RootQueryToBannerConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11029,6 +13070,21 @@ export interface RootQueryToBannerConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: BannerRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToBannerConnection&quot; */
+export interface RootQueryToBannerConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11087,7 +13143,7 @@ export interface RootQueryToCategoryConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: CategoryRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToCategoryConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11099,6 +13155,21 @@ export interface RootQueryToCategoryConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: CategoryRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToCategoryConnection&quot; */
+export interface RootQueryToCategoryConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11173,7 +13244,7 @@ export interface RootQueryToCommentConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: CommentRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToCommentConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11185,6 +13256,21 @@ export interface RootQueryToCommentConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: CommentRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToCommentConnection&quot; */
+export interface RootQueryToCommentConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11237,7 +13323,7 @@ export interface RootQueryToContentNodeConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ContentNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToContentNodeConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11254,6 +13340,21 @@ export interface RootQueryToContentNodeConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;RootQueryToContentNodeConnection&quot; */
+export interface RootQueryToContentNodeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Connection between the RootQuery type and the ContentType type */
 export interface RootQueryToContentTypeConnectionRequest{
     /** Edges for the RootQueryToContentTypeConnection connection */
@@ -11261,7 +13362,7 @@ export interface RootQueryToContentTypeConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ContentTypeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToContentTypeConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11273,6 +13374,21 @@ export interface RootQueryToContentTypeConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: ContentTypeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToContentTypeConnection&quot; */
+export interface RootQueryToContentTypeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11342,7 +13458,7 @@ export interface RootQueryToEmpreendimentoConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: EmpreendimentoRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToEmpreendimentoConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11354,6 +13470,21 @@ export interface RootQueryToEmpreendimentoConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: EmpreendimentoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToEmpreendimentoConnection&quot; */
+export interface RootQueryToEmpreendimentoConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11437,7 +13568,7 @@ export interface RootQueryToMediaItemConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: MediaItemRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToMediaItemConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11449,6 +13580,21 @@ export interface RootQueryToMediaItemConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: MediaItemRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToMediaItemConnection&quot; */
+export interface RootQueryToMediaItemConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11511,7 +13657,7 @@ export interface MenuToMenuItemConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: MenuItemRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: MenuToMenuItemConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11523,6 +13669,8 @@ export interface MenuItemConnectionRequest{
     edges?: MenuItemConnectionEdgeRequest
     /** A list of connected MenuItem Nodes */
     nodes?: MenuItemRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: MenuItemConnectionPageInfoRequest
     on_MenuToMenuItemConnection?: MenuToMenuItemConnectionRequest
     on_MenuItemToMenuItemConnection?: MenuItemToMenuItemConnectionRequest
     on_RootQueryToMenuItemConnection?: RootQueryToMenuItemConnectionRequest
@@ -11629,7 +13777,7 @@ export interface MenuItemToMenuItemConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: MenuItemRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: MenuItemToMenuItemConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11641,6 +13789,39 @@ export interface MenuItemToMenuItemConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: MenuItemRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;MenuItemToMenuItemConnection&quot; */
+export interface MenuItemToMenuItemConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the connected MenuItemConnectionEdge */
+export interface MenuItemConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_MenuItemToMenuItemConnectionPageInfo?: MenuItemToMenuItemConnectionPageInfoRequest
+    on_MenuToMenuItemConnectionPageInfo?: MenuToMenuItemConnectionPageInfoRequest
+    on_RootQueryToMenuItemConnectionPageInfo?: RootQueryToMenuItemConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11737,6 +13918,21 @@ export interface MenuToMenuItemConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;MenuToMenuItemConnection&quot; */
+export interface MenuToMenuItemConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Arguments for filtering the RootQueryToMenuItemConnection connection */
 export interface RootQueryToMenuItemConnectionWhereArgs {
 /** The database ID of the object */
@@ -11756,7 +13952,7 @@ export interface RootQueryToMenuItemConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: MenuItemRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToMenuItemConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11768,6 +13964,21 @@ export interface RootQueryToMenuItemConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: MenuItemRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToMenuItemConnection&quot; */
+export interface RootQueryToMenuItemConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11790,7 +14001,7 @@ export interface RootQueryToMenuConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: MenuRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToMenuConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11802,7 +14013,25 @@ export interface MenuConnectionRequest{
     edges?: MenuConnectionEdgeRequest
     /** A list of connected Menu Nodes */
     nodes?: MenuRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: MenuConnectionPageInfoRequest
     on_RootQueryToMenuConnection?: RootQueryToMenuConnectionRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the connected MenuConnectionEdge */
+export interface MenuConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_RootQueryToMenuConnectionPageInfo?: RootQueryToMenuConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11814,6 +14043,21 @@ export interface RootQueryToMenuConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: MenuRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToMenuConnection&quot; */
+export interface RootQueryToMenuConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11872,7 +14116,7 @@ export interface RootQueryToPageConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PageRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToPageConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11884,6 +14128,21 @@ export interface RootQueryToPageConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: PageRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToPageConnection&quot; */
+export interface RootQueryToPageConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11931,7 +14190,7 @@ export interface RootQueryToPluginConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PluginRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToPluginConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -11943,6 +14202,8 @@ export interface PluginConnectionRequest{
     edges?: PluginConnectionEdgeRequest
     /** A list of connected Plugin Nodes */
     nodes?: PluginRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: PluginConnectionPageInfoRequest
     on_RootQueryToPluginConnection?: RootQueryToPluginConnectionRequest
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -11961,12 +14222,43 @@ export interface PluginConnectionEdgeRequest{
 }
 
 
+/** Page Info on the connected PluginConnectionEdge */
+export interface PluginConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_RootQueryToPluginConnectionPageInfo?: RootQueryToPluginConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface RootQueryToPluginConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: PluginRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToPluginConnection&quot; */
+export interface RootQueryToPluginConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12025,7 +14317,7 @@ export interface RootQueryToPostFormatConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PostFormatRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToPostFormatConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12037,6 +14329,21 @@ export interface RootQueryToPostFormatConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: PostFormatRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToPostFormatConnection&quot; */
+export interface RootQueryToPostFormatConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12115,7 +14422,7 @@ export interface RootQueryToPostConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: PostRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToPostConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12127,6 +14434,21 @@ export interface RootQueryToPostConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: PostRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToPostConnection&quot; */
+export interface RootQueryToPostConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12154,7 +14476,7 @@ export interface RootQueryToEnqueuedScriptConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: EnqueuedScriptRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToEnqueuedScriptConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12171,6 +14493,21 @@ export interface RootQueryToEnqueuedScriptConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;RootQueryToEnqueuedScriptConnection&quot; */
+export interface RootQueryToEnqueuedScriptConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Connection between the RootQuery type and the EnqueuedStylesheet type */
 export interface RootQueryToEnqueuedStylesheetConnectionRequest{
     /** Edges for the RootQueryToEnqueuedStylesheetConnection connection */
@@ -12178,7 +14515,7 @@ export interface RootQueryToEnqueuedStylesheetConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: EnqueuedStylesheetRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToEnqueuedStylesheetConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12190,6 +14527,21 @@ export interface RootQueryToEnqueuedStylesheetConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: EnqueuedStylesheetRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToEnqueuedStylesheetConnection&quot; */
+export interface RootQueryToEnqueuedStylesheetConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12242,7 +14594,7 @@ export interface RootQueryToRevisionsConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ContentNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToRevisionsConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12254,6 +14606,21 @@ export interface RootQueryToRevisionsConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: ContentNodeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToRevisionsConnection&quot; */
+export interface RootQueryToRevisionsConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12312,7 +14679,7 @@ export interface RootQueryToTagConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: TagRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToTagConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12329,6 +14696,21 @@ export interface RootQueryToTagConnectionEdgeRequest{
 }
 
 
+/** Page Info on the &quot;RootQueryToTagConnection&quot; */
+export interface RootQueryToTagConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Connection between the RootQuery type and the Taxonomy type */
 export interface RootQueryToTaxonomyConnectionRequest{
     /** Edges for the RootQueryToTaxonomyConnection connection */
@@ -12336,7 +14718,7 @@ export interface RootQueryToTaxonomyConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: TaxonomyRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToTaxonomyConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12348,6 +14730,21 @@ export interface RootQueryToTaxonomyConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: TaxonomyRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToTaxonomyConnection&quot; */
+export interface RootQueryToTaxonomyConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12408,7 +14805,7 @@ export interface RootQueryToTermNodeConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: TermNodeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToTermNodeConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12420,6 +14817,21 @@ export interface RootQueryToTermNodeConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: TermNodeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToTermNodeConnection&quot; */
+export interface RootQueryToTermNodeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12461,7 +14873,7 @@ export interface RootQueryToThemeConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: ThemeRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToThemeConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12473,6 +14885,8 @@ export interface ThemeConnectionRequest{
     edges?: ThemeConnectionEdgeRequest
     /** A list of connected Theme Nodes */
     nodes?: ThemeRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: ThemeConnectionPageInfoRequest
     on_RootQueryToThemeConnection?: RootQueryToThemeConnectionRequest
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -12491,12 +14905,43 @@ export interface ThemeConnectionEdgeRequest{
 }
 
 
+/** Page Info on the connected ThemeConnectionEdge */
+export interface ThemeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_RootQueryToThemeConnectionPageInfo?: RootQueryToThemeConnectionPageInfoRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** An edge in a connection */
 export interface RootQueryToThemeConnectionEdgeRequest{
     /** A cursor for use in pagination */
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: ThemeRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToThemeConnection&quot; */
+export interface RootQueryToThemeConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12509,7 +14954,7 @@ export interface RootQueryToUserRoleConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: UserRoleRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToUserRoleConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12521,6 +14966,21 @@ export interface RootQueryToUserRoleConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: UserRoleRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToUserRoleConnection&quot; */
+export interface RootQueryToUserRoleConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12575,7 +15035,7 @@ export interface RootQueryToUserConnectionRequest{
     /** The nodes of the connection, without the edges */
     nodes?: UserRequest
     /** Information about pagination in a connection. */
-    pageInfo?: WPPageInfoRequest
+    pageInfo?: RootQueryToUserConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12587,7 +15047,25 @@ export interface UserConnectionRequest{
     edges?: UserConnectionEdgeRequest
     /** A list of connected User Nodes */
     nodes?: UserRequest
+    /** Information about pagination in a connection. */
+    pageInfo?: UserConnectionPageInfoRequest
     on_RootQueryToUserConnection?: RootQueryToUserConnectionRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the connected UserConnectionEdge */
+export interface UserConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    on_RootQueryToUserConnectionPageInfo?: RootQueryToUserConnectionPageInfoRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -12599,6 +15077,21 @@ export interface RootQueryToUserConnectionEdgeRequest{
     cursor?: boolean | number
     /** The item at the end of the edge */
     node?: UserRequest
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Page Info on the &quot;RootQueryToUserConnection&quot; */
+export interface RootQueryToUserConnectionPageInfoRequest{
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -13254,7 +15747,9 @@ clientMutationId?: (Scalars['String'] | null),
 /** Whether the object should be force deleted instead of being moved to the trash */
 forceDelete?: (Scalars['Boolean'] | null),
 /** The ID of the ArquivoAssessoria to delete */
-id: Scalars['ID']}
+id: Scalars['ID'],
+/** Override the edit lock when another user is editing the post */
+ignoreEditLock?: (Scalars['Boolean'] | null)}
 
 
 /** The payload for the deleteArquivoAssessoria mutation. */
@@ -13277,7 +15772,9 @@ clientMutationId?: (Scalars['String'] | null),
 /** Whether the object should be force deleted instead of being moved to the trash */
 forceDelete?: (Scalars['Boolean'] | null),
 /** The ID of the Banner to delete */
-id: Scalars['ID']}
+id: Scalars['ID'],
+/** Override the edit lock when another user is editing the post */
+ignoreEditLock?: (Scalars['Boolean'] | null)}
 
 
 /** The payload for the deleteBanner mutation. */
@@ -13344,7 +15841,9 @@ clientMutationId?: (Scalars['String'] | null),
 /** Whether the object should be force deleted instead of being moved to the trash */
 forceDelete?: (Scalars['Boolean'] | null),
 /** The ID of the Empreendimento to delete */
-id: Scalars['ID']}
+id: Scalars['ID'],
+/** Override the edit lock when another user is editing the post */
+ignoreEditLock?: (Scalars['Boolean'] | null)}
 
 
 /** The payload for the deleteEmpreendimento mutation. */
@@ -13390,7 +15889,9 @@ clientMutationId?: (Scalars['String'] | null),
 /** Whether the object should be force deleted instead of being moved to the trash */
 forceDelete?: (Scalars['Boolean'] | null),
 /** The ID of the page to delete */
-id: Scalars['ID']}
+id: Scalars['ID'],
+/** Override the edit lock when another user is editing the post */
+ignoreEditLock?: (Scalars['Boolean'] | null)}
 
 
 /** The payload for the deletePage mutation. */
@@ -13413,7 +15914,9 @@ clientMutationId?: (Scalars['String'] | null),
 /** Whether the object should be force deleted instead of being moved to the trash */
 forceDelete?: (Scalars['Boolean'] | null),
 /** The ID of the post to delete */
-id: Scalars['ID']}
+id: Scalars['ID'],
+/** Override the edit lock when another user is editing the post */
+ignoreEditLock?: (Scalars['Boolean'] | null)}
 
 
 /** The payload for the deletePost mutation. */
@@ -13619,6 +16122,8 @@ clientMutationId?: (Scalars['String'] | null),
 date?: (Scalars['String'] | null),
 /** The ID of the ArquivoAssessoria object */
 id: Scalars['ID'],
+/** Override the edit lock when another user is editing the post */
+ignoreEditLock?: (Scalars['Boolean'] | null),
 /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
 menuOrder?: (Scalars['Int'] | null),
 /** The password used to protect the content of the object */
@@ -13650,6 +16155,8 @@ clientMutationId?: (Scalars['String'] | null),
 date?: (Scalars['String'] | null),
 /** The ID of the Banner object */
 id: Scalars['ID'],
+/** Override the edit lock when another user is editing the post */
+ignoreEditLock?: (Scalars['Boolean'] | null),
 /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
 menuOrder?: (Scalars['Int'] | null),
 /** The password used to protect the content of the object */
@@ -13753,6 +16260,8 @@ clientMutationId?: (Scalars['String'] | null),
 date?: (Scalars['String'] | null),
 /** The ID of the Empreendimento object */
 id: Scalars['ID'],
+/** Override the edit lock when another user is editing the post */
+ignoreEditLock?: (Scalars['Boolean'] | null),
 /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
 menuOrder?: (Scalars['Int'] | null),
 /** The password used to protect the content of the object */
@@ -13837,6 +16346,8 @@ content?: (Scalars['String'] | null),
 date?: (Scalars['String'] | null),
 /** The ID of the page object */
 id: Scalars['ID'],
+/** Override the edit lock when another user is editing the post */
+ignoreEditLock?: (Scalars['Boolean'] | null),
 /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
 menuOrder?: (Scalars['Int'] | null),
 /** The ID of the parent object */
@@ -13880,6 +16391,8 @@ date?: (Scalars['String'] | null),
 excerpt?: (Scalars['String'] | null),
 /** The ID of the post object */
 id: Scalars['ID'],
+/** Override the edit lock when another user is editing the post */
+ignoreEditLock?: (Scalars['Boolean'] | null),
 /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
 menuOrder?: (Scalars['Int'] | null),
 /** The password used to protect the content of the object */
@@ -14230,6 +16743,14 @@ export const isConnection = (obj?: { __typename?: any } | null): obj is Connecti
 
 
 
+const PageInfo_possibleTypes: string[] = ['TaxonomyToContentTypeConnectionPageInfo','ContentTypeToTaxonomyConnectionPageInfo','ContentTypeToContentNodeConnectionPageInfo','CommentToCommentConnectionPageInfo','UserToCommentConnectionPageInfo','UserToEnqueuedScriptConnectionPageInfo','UserToEnqueuedStylesheetConnectionPageInfo','HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo','HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo','ContentNodeToEnqueuedScriptConnectionPageInfo','ContentNodeToEnqueuedStylesheetConnectionPageInfo','MediaItemToCommentConnectionPageInfo','UserToMediaItemConnectionPageInfo','PageToCommentConnectionPageInfo','PageToRevisionConnectionPageInfo','UserToPageConnectionPageInfo','TermNodeToEnqueuedScriptConnectionPageInfo','TermNodeToEnqueuedStylesheetConnectionPageInfo','CategoryToAncestorsCategoryConnectionPageInfo','CategoryToCategoryConnectionPageInfo','CategoryToContentNodeConnectionPageInfo','EmpreendimentoToCategoryConnectionPageInfo','EmpreendimentoToTermNodeConnectionPageInfo','CategoryToEmpreendimentoConnectionPageInfo','CategoryToPostConnectionPageInfo','PostToCategoryConnectionPageInfo','PostToCommentConnectionPageInfo','PostFormatToContentNodeConnectionPageInfo','PostFormatToPostConnectionPageInfo','PostToPostFormatConnectionPageInfo','PostToRevisionConnectionPageInfo','TagToContentNodeConnectionPageInfo','TagToPostConnectionPageInfo','PostToTagConnectionPageInfo','PostToTermNodeConnectionPageInfo','UserToPostConnectionPageInfo','UserToRevisionsConnectionPageInfo','UserToUserRoleConnectionPageInfo','RootQueryToArquivoAssessoriaConnectionPageInfo','RootQueryToBannerConnectionPageInfo','RootQueryToCategoryConnectionPageInfo','RootQueryToCommentConnectionPageInfo','RootQueryToContentNodeConnectionPageInfo','RootQueryToContentTypeConnectionPageInfo','RootQueryToEmpreendimentoConnectionPageInfo','RootQueryToMediaItemConnectionPageInfo','MenuItemToMenuItemConnectionPageInfo','MenuToMenuItemConnectionPageInfo','RootQueryToMenuItemConnectionPageInfo','RootQueryToMenuConnectionPageInfo','RootQueryToPageConnectionPageInfo','RootQueryToPluginConnectionPageInfo','RootQueryToPostFormatConnectionPageInfo','RootQueryToPostConnectionPageInfo','RootQueryToEnqueuedScriptConnectionPageInfo','RootQueryToEnqueuedStylesheetConnectionPageInfo','RootQueryToRevisionsConnectionPageInfo','RootQueryToTagConnectionPageInfo','RootQueryToTaxonomyConnectionPageInfo','RootQueryToTermNodeConnectionPageInfo','RootQueryToThemeConnectionPageInfo','RootQueryToUserRoleConnectionPageInfo','RootQueryToUserConnectionPageInfo']
+export const isPageInfo = (obj?: { __typename?: any } | null): obj is PageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPageInfo"')
+  return PageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const TaxonomyConnectionEdge_possibleTypes: string[] = ['ContentTypeToTaxonomyConnectionEdge','CategoryToTaxonomyConnectionEdge','PostFormatToTaxonomyConnectionEdge','TagToTaxonomyConnectionEdge','RootQueryToTaxonomyConnectionEdge']
 export const isTaxonomyConnectionEdge = (obj?: { __typename?: any } | null): obj is TaxonomyConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTaxonomyConnectionEdge"')
@@ -14262,6 +16783,22 @@ export const isContentTypeConnection = (obj?: { __typename?: any } | null): obj 
 
 
 
+const ContentTypeConnectionPageInfo_possibleTypes: string[] = ['TaxonomyToContentTypeConnectionPageInfo','RootQueryToContentTypeConnectionPageInfo']
+export const isContentTypeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is ContentTypeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isContentTypeConnectionPageInfo"')
+  return ContentTypeConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const WPPageInfo_possibleTypes: string[] = ['TaxonomyToContentTypeConnectionPageInfo','ContentTypeToTaxonomyConnectionPageInfo','ContentTypeToContentNodeConnectionPageInfo','CommentToCommentConnectionPageInfo','UserToCommentConnectionPageInfo','UserToEnqueuedScriptConnectionPageInfo','UserToEnqueuedStylesheetConnectionPageInfo','HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo','HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo','ContentNodeToEnqueuedScriptConnectionPageInfo','ContentNodeToEnqueuedStylesheetConnectionPageInfo','MediaItemToCommentConnectionPageInfo','UserToMediaItemConnectionPageInfo','PageToCommentConnectionPageInfo','PageToRevisionConnectionPageInfo','UserToPageConnectionPageInfo','TermNodeToEnqueuedScriptConnectionPageInfo','TermNodeToEnqueuedStylesheetConnectionPageInfo','CategoryToAncestorsCategoryConnectionPageInfo','CategoryToCategoryConnectionPageInfo','CategoryToContentNodeConnectionPageInfo','EmpreendimentoToCategoryConnectionPageInfo','EmpreendimentoToTermNodeConnectionPageInfo','CategoryToEmpreendimentoConnectionPageInfo','CategoryToPostConnectionPageInfo','PostToCategoryConnectionPageInfo','PostToCommentConnectionPageInfo','PostFormatToContentNodeConnectionPageInfo','PostFormatToPostConnectionPageInfo','PostToPostFormatConnectionPageInfo','PostToRevisionConnectionPageInfo','TagToContentNodeConnectionPageInfo','TagToPostConnectionPageInfo','PostToTagConnectionPageInfo','PostToTermNodeConnectionPageInfo','UserToPostConnectionPageInfo','UserToRevisionsConnectionPageInfo','UserToUserRoleConnectionPageInfo','RootQueryToArquivoAssessoriaConnectionPageInfo','RootQueryToBannerConnectionPageInfo','RootQueryToCategoryConnectionPageInfo','RootQueryToCommentConnectionPageInfo','RootQueryToContentNodeConnectionPageInfo','RootQueryToContentTypeConnectionPageInfo','RootQueryToEmpreendimentoConnectionPageInfo','RootQueryToMediaItemConnectionPageInfo','MenuItemToMenuItemConnectionPageInfo','MenuToMenuItemConnectionPageInfo','RootQueryToMenuItemConnectionPageInfo','RootQueryToMenuConnectionPageInfo','RootQueryToPageConnectionPageInfo','RootQueryToPluginConnectionPageInfo','RootQueryToPostFormatConnectionPageInfo','RootQueryToPostConnectionPageInfo','RootQueryToEnqueuedScriptConnectionPageInfo','RootQueryToEnqueuedStylesheetConnectionPageInfo','RootQueryToRevisionsConnectionPageInfo','RootQueryToTagConnectionPageInfo','RootQueryToTaxonomyConnectionPageInfo','RootQueryToTermNodeConnectionPageInfo','RootQueryToThemeConnectionPageInfo','RootQueryToUserRoleConnectionPageInfo','RootQueryToUserConnectionPageInfo']
+export const isWPPageInfo = (obj?: { __typename?: any } | null): obj is WPPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isWPPageInfo"')
+  return WPPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const TaxonomyToContentTypeConnectionEdge_possibleTypes: string[] = ['TaxonomyToContentTypeConnectionEdge']
 export const isTaxonomyToContentTypeConnectionEdge = (obj?: { __typename?: any } | null): obj is TaxonomyToContentTypeConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTaxonomyToContentTypeConnectionEdge"')
@@ -14270,10 +16807,18 @@ export const isTaxonomyToContentTypeConnectionEdge = (obj?: { __typename?: any }
 
 
 
-const WPPageInfo_possibleTypes: string[] = ['WPPageInfo']
-export const isWPPageInfo = (obj?: { __typename?: any } | null): obj is WPPageInfo => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isWPPageInfo"')
-  return WPPageInfo_possibleTypes.includes(obj.__typename)
+const TaxonomyToContentTypeConnectionPageInfo_possibleTypes: string[] = ['TaxonomyToContentTypeConnectionPageInfo']
+export const isTaxonomyToContentTypeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is TaxonomyToContentTypeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isTaxonomyToContentTypeConnectionPageInfo"')
+  return TaxonomyToContentTypeConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const TaxonomyConnectionPageInfo_possibleTypes: string[] = ['ContentTypeToTaxonomyConnectionPageInfo','RootQueryToTaxonomyConnectionPageInfo']
+export const isTaxonomyConnectionPageInfo = (obj?: { __typename?: any } | null): obj is TaxonomyConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isTaxonomyConnectionPageInfo"')
+  return TaxonomyConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14282,6 +16827,14 @@ const ContentTypeToTaxonomyConnectionEdge_possibleTypes: string[] = ['ContentTyp
 export const isContentTypeToTaxonomyConnectionEdge = (obj?: { __typename?: any } | null): obj is ContentTypeToTaxonomyConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContentTypeToTaxonomyConnectionEdge"')
   return ContentTypeToTaxonomyConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const ContentTypeToTaxonomyConnectionPageInfo_possibleTypes: string[] = ['ContentTypeToTaxonomyConnectionPageInfo']
+export const isContentTypeToTaxonomyConnectionPageInfo = (obj?: { __typename?: any } | null): obj is ContentTypeToTaxonomyConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isContentTypeToTaxonomyConnectionPageInfo"')
+  return ContentTypeToTaxonomyConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14310,10 +16863,26 @@ export const isContentNodeConnectionEdge = (obj?: { __typename?: any } | null): 
 
 
 
+const ContentNodeConnectionPageInfo_possibleTypes: string[] = ['ContentTypeToContentNodeConnectionPageInfo','HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo','HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo','CategoryToContentNodeConnectionPageInfo','PostFormatToContentNodeConnectionPageInfo','TagToContentNodeConnectionPageInfo','UserToRevisionsConnectionPageInfo','RootQueryToContentNodeConnectionPageInfo','RootQueryToRevisionsConnectionPageInfo']
+export const isContentNodeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is ContentNodeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isContentNodeConnectionPageInfo"')
+  return ContentNodeConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const ContentTypeToContentNodeConnectionEdge_possibleTypes: string[] = ['ContentTypeToContentNodeConnectionEdge']
 export const isContentTypeToContentNodeConnectionEdge = (obj?: { __typename?: any } | null): obj is ContentTypeToContentNodeConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContentTypeToContentNodeConnectionEdge"')
   return ContentTypeToContentNodeConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const ContentTypeToContentNodeConnectionPageInfo_possibleTypes: string[] = ['ContentTypeToContentNodeConnectionPageInfo']
+export const isContentTypeToContentNodeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is ContentTypeToContentNodeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isContentTypeToContentNodeConnectionPageInfo"')
+  return ContentTypeToContentNodeConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14454,10 +17023,34 @@ export const isCommentToCommentConnectionEdge = (obj?: { __typename?: any } | nu
 
 
 
+const CommentToCommentConnectionPageInfo_possibleTypes: string[] = ['CommentToCommentConnectionPageInfo']
+export const isCommentToCommentConnectionPageInfo = (obj?: { __typename?: any } | null): obj is CommentToCommentConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCommentToCommentConnectionPageInfo"')
+  return CommentToCommentConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const CommentConnectionPageInfo_possibleTypes: string[] = ['CommentToCommentConnectionPageInfo','UserToCommentConnectionPageInfo','MediaItemToCommentConnectionPageInfo','PageToCommentConnectionPageInfo','PostToCommentConnectionPageInfo','RootQueryToCommentConnectionPageInfo']
+export const isCommentConnectionPageInfo = (obj?: { __typename?: any } | null): obj is CommentConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCommentConnectionPageInfo"')
+  return CommentConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const UserToCommentConnectionEdge_possibleTypes: string[] = ['UserToCommentConnectionEdge']
 export const isUserToCommentConnectionEdge = (obj?: { __typename?: any } | null): obj is UserToCommentConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserToCommentConnectionEdge"')
   return UserToCommentConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const UserToCommentConnectionPageInfo_possibleTypes: string[] = ['UserToCommentConnectionPageInfo']
+export const isUserToCommentConnectionPageInfo = (obj?: { __typename?: any } | null): obj is UserToCommentConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUserToCommentConnectionPageInfo"')
+  return UserToCommentConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14502,10 +17095,26 @@ export const isEnqueuedAsset = (obj?: { __typename?: any } | null): obj is Enque
 
 
 
+const EnqueuedScriptConnectionPageInfo_possibleTypes: string[] = ['UserToEnqueuedScriptConnectionPageInfo','ContentNodeToEnqueuedScriptConnectionPageInfo','TermNodeToEnqueuedScriptConnectionPageInfo','RootQueryToEnqueuedScriptConnectionPageInfo']
+export const isEnqueuedScriptConnectionPageInfo = (obj?: { __typename?: any } | null): obj is EnqueuedScriptConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEnqueuedScriptConnectionPageInfo"')
+  return EnqueuedScriptConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const UserToEnqueuedScriptConnectionEdge_possibleTypes: string[] = ['UserToEnqueuedScriptConnectionEdge']
 export const isUserToEnqueuedScriptConnectionEdge = (obj?: { __typename?: any } | null): obj is UserToEnqueuedScriptConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserToEnqueuedScriptConnectionEdge"')
   return UserToEnqueuedScriptConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const UserToEnqueuedScriptConnectionPageInfo_possibleTypes: string[] = ['UserToEnqueuedScriptConnectionPageInfo']
+export const isUserToEnqueuedScriptConnectionPageInfo = (obj?: { __typename?: any } | null): obj is UserToEnqueuedScriptConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUserToEnqueuedScriptConnectionPageInfo"')
+  return UserToEnqueuedScriptConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14542,10 +17151,26 @@ export const isEnqueuedStylesheet = (obj?: { __typename?: any } | null): obj is 
 
 
 
+const EnqueuedStylesheetConnectionPageInfo_possibleTypes: string[] = ['UserToEnqueuedStylesheetConnectionPageInfo','ContentNodeToEnqueuedStylesheetConnectionPageInfo','TermNodeToEnqueuedStylesheetConnectionPageInfo','RootQueryToEnqueuedStylesheetConnectionPageInfo']
+export const isEnqueuedStylesheetConnectionPageInfo = (obj?: { __typename?: any } | null): obj is EnqueuedStylesheetConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEnqueuedStylesheetConnectionPageInfo"')
+  return EnqueuedStylesheetConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const UserToEnqueuedStylesheetConnectionEdge_possibleTypes: string[] = ['UserToEnqueuedStylesheetConnectionEdge']
 export const isUserToEnqueuedStylesheetConnectionEdge = (obj?: { __typename?: any } | null): obj is UserToEnqueuedStylesheetConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserToEnqueuedStylesheetConnectionEdge"')
   return UserToEnqueuedStylesheetConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const UserToEnqueuedStylesheetConnectionPageInfo_possibleTypes: string[] = ['UserToEnqueuedStylesheetConnectionPageInfo']
+export const isUserToEnqueuedStylesheetConnectionPageInfo = (obj?: { __typename?: any } | null): obj is UserToEnqueuedStylesheetConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUserToEnqueuedStylesheetConnectionPageInfo"')
+  return UserToEnqueuedStylesheetConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14662,6 +17287,14 @@ export const isHierarchicalContentNodeToContentNodeAncestorsConnectionEdge = (ob
 
 
 
+const HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo_possibleTypes: string[] = ['HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo']
+export const isHierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo = (obj?: { __typename?: any } | null): obj is HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isHierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo"')
+  return HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const HierarchicalContentNodeToContentNodeChildrenConnection_possibleTypes: string[] = ['HierarchicalContentNodeToContentNodeChildrenConnection']
 export const isHierarchicalContentNodeToContentNodeChildrenConnection = (obj?: { __typename?: any } | null): obj is HierarchicalContentNodeToContentNodeChildrenConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isHierarchicalContentNodeToContentNodeChildrenConnection"')
@@ -14674,6 +17307,14 @@ const HierarchicalContentNodeToContentNodeChildrenConnectionEdge_possibleTypes: 
 export const isHierarchicalContentNodeToContentNodeChildrenConnectionEdge = (obj?: { __typename?: any } | null): obj is HierarchicalContentNodeToContentNodeChildrenConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isHierarchicalContentNodeToContentNodeChildrenConnectionEdge"')
   return HierarchicalContentNodeToContentNodeChildrenConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo_possibleTypes: string[] = ['HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo']
+export const isHierarchicalContentNodeToContentNodeChildrenConnectionPageInfo = (obj?: { __typename?: any } | null): obj is HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isHierarchicalContentNodeToContentNodeChildrenConnectionPageInfo"')
+  return HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14694,6 +17335,14 @@ export const isContentNodeToEnqueuedScriptConnectionEdge = (obj?: { __typename?:
 
 
 
+const ContentNodeToEnqueuedScriptConnectionPageInfo_possibleTypes: string[] = ['ContentNodeToEnqueuedScriptConnectionPageInfo']
+export const isContentNodeToEnqueuedScriptConnectionPageInfo = (obj?: { __typename?: any } | null): obj is ContentNodeToEnqueuedScriptConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isContentNodeToEnqueuedScriptConnectionPageInfo"')
+  return ContentNodeToEnqueuedScriptConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const ContentNodeToEnqueuedStylesheetConnection_possibleTypes: string[] = ['ContentNodeToEnqueuedStylesheetConnection']
 export const isContentNodeToEnqueuedStylesheetConnection = (obj?: { __typename?: any } | null): obj is ContentNodeToEnqueuedStylesheetConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContentNodeToEnqueuedStylesheetConnection"')
@@ -14706,6 +17355,14 @@ const ContentNodeToEnqueuedStylesheetConnectionEdge_possibleTypes: string[] = ['
 export const isContentNodeToEnqueuedStylesheetConnectionEdge = (obj?: { __typename?: any } | null): obj is ContentNodeToEnqueuedStylesheetConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isContentNodeToEnqueuedStylesheetConnectionEdge"')
   return ContentNodeToEnqueuedStylesheetConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const ContentNodeToEnqueuedStylesheetConnectionPageInfo_possibleTypes: string[] = ['ContentNodeToEnqueuedStylesheetConnectionPageInfo']
+export const isContentNodeToEnqueuedStylesheetConnectionPageInfo = (obj?: { __typename?: any } | null): obj is ContentNodeToEnqueuedStylesheetConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isContentNodeToEnqueuedStylesheetConnectionPageInfo"')
+  return ContentNodeToEnqueuedStylesheetConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14742,6 +17399,14 @@ export const isMediaItemToCommentConnectionEdge = (obj?: { __typename?: any } | 
 
 
 
+const MediaItemToCommentConnectionPageInfo_possibleTypes: string[] = ['MediaItemToCommentConnectionPageInfo']
+export const isMediaItemToCommentConnectionPageInfo = (obj?: { __typename?: any } | null): obj is MediaItemToCommentConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isMediaItemToCommentConnectionPageInfo"')
+  return MediaItemToCommentConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const MediaDetails_possibleTypes: string[] = ['MediaDetails']
 export const isMediaDetails = (obj?: { __typename?: any } | null): obj is MediaDetails => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMediaDetails"')
@@ -14766,10 +17431,26 @@ export const isMediaSize = (obj?: { __typename?: any } | null): obj is MediaSize
 
 
 
+const MediaItemConnectionPageInfo_possibleTypes: string[] = ['UserToMediaItemConnectionPageInfo','RootQueryToMediaItemConnectionPageInfo']
+export const isMediaItemConnectionPageInfo = (obj?: { __typename?: any } | null): obj is MediaItemConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isMediaItemConnectionPageInfo"')
+  return MediaItemConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const UserToMediaItemConnectionEdge_possibleTypes: string[] = ['UserToMediaItemConnectionEdge']
 export const isUserToMediaItemConnectionEdge = (obj?: { __typename?: any } | null): obj is UserToMediaItemConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserToMediaItemConnectionEdge"')
   return UserToMediaItemConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const UserToMediaItemConnectionPageInfo_possibleTypes: string[] = ['UserToMediaItemConnectionPageInfo']
+export const isUserToMediaItemConnectionPageInfo = (obj?: { __typename?: any } | null): obj is UserToMediaItemConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUserToMediaItemConnectionPageInfo"')
+  return UserToMediaItemConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -14902,6 +17583,14 @@ export const isPageToCommentConnectionEdge = (obj?: { __typename?: any } | null)
 
 
 
+const PageToCommentConnectionPageInfo_possibleTypes: string[] = ['PageToCommentConnectionPageInfo']
+export const isPageToCommentConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PageToCommentConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPageToCommentConnectionPageInfo"')
+  return PageToCommentConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const Page_Conteusobre_possibleTypes: string[] = ['Page_Conteusobre']
 export const isPage_Conteusobre = (obj?: { __typename?: any } | null): obj is Page_Conteusobre => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPage_Conteusobre"')
@@ -14950,10 +17639,34 @@ export const isPageToRevisionConnectionEdge = (obj?: { __typename?: any } | null
 
 
 
+const PageToRevisionConnectionPageInfo_possibleTypes: string[] = ['PageToRevisionConnectionPageInfo']
+export const isPageToRevisionConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PageToRevisionConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPageToRevisionConnectionPageInfo"')
+  return PageToRevisionConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const PageConnectionPageInfo_possibleTypes: string[] = ['PageToRevisionConnectionPageInfo','UserToPageConnectionPageInfo','RootQueryToPageConnectionPageInfo']
+export const isPageConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PageConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPageConnectionPageInfo"')
+  return PageConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const UserToPageConnectionEdge_possibleTypes: string[] = ['UserToPageConnectionEdge']
 export const isUserToPageConnectionEdge = (obj?: { __typename?: any } | null): obj is UserToPageConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserToPageConnectionEdge"')
   return UserToPageConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const UserToPageConnectionPageInfo_possibleTypes: string[] = ['UserToPageConnectionPageInfo']
+export const isUserToPageConnectionPageInfo = (obj?: { __typename?: any } | null): obj is UserToPageConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUserToPageConnectionPageInfo"')
+  return UserToPageConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15062,6 +17775,14 @@ export const isTermNodeToEnqueuedScriptConnectionEdge = (obj?: { __typename?: an
 
 
 
+const TermNodeToEnqueuedScriptConnectionPageInfo_possibleTypes: string[] = ['TermNodeToEnqueuedScriptConnectionPageInfo']
+export const isTermNodeToEnqueuedScriptConnectionPageInfo = (obj?: { __typename?: any } | null): obj is TermNodeToEnqueuedScriptConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isTermNodeToEnqueuedScriptConnectionPageInfo"')
+  return TermNodeToEnqueuedScriptConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const TermNodeToEnqueuedStylesheetConnection_possibleTypes: string[] = ['TermNodeToEnqueuedStylesheetConnection']
 export const isTermNodeToEnqueuedStylesheetConnection = (obj?: { __typename?: any } | null): obj is TermNodeToEnqueuedStylesheetConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTermNodeToEnqueuedStylesheetConnection"')
@@ -15074,6 +17795,14 @@ const TermNodeToEnqueuedStylesheetConnectionEdge_possibleTypes: string[] = ['Ter
 export const isTermNodeToEnqueuedStylesheetConnectionEdge = (obj?: { __typename?: any } | null): obj is TermNodeToEnqueuedStylesheetConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTermNodeToEnqueuedStylesheetConnectionEdge"')
   return TermNodeToEnqueuedStylesheetConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const TermNodeToEnqueuedStylesheetConnectionPageInfo_possibleTypes: string[] = ['TermNodeToEnqueuedStylesheetConnectionPageInfo']
+export const isTermNodeToEnqueuedStylesheetConnectionPageInfo = (obj?: { __typename?: any } | null): obj is TermNodeToEnqueuedStylesheetConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isTermNodeToEnqueuedStylesheetConnectionPageInfo"')
+  return TermNodeToEnqueuedStylesheetConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15102,6 +17831,22 @@ export const isCategoryToAncestorsCategoryConnectionEdge = (obj?: { __typename?:
 
 
 
+const CategoryToAncestorsCategoryConnectionPageInfo_possibleTypes: string[] = ['CategoryToAncestorsCategoryConnectionPageInfo']
+export const isCategoryToAncestorsCategoryConnectionPageInfo = (obj?: { __typename?: any } | null): obj is CategoryToAncestorsCategoryConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToAncestorsCategoryConnectionPageInfo"')
+  return CategoryToAncestorsCategoryConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const CategoryConnectionPageInfo_possibleTypes: string[] = ['CategoryToAncestorsCategoryConnectionPageInfo','CategoryToCategoryConnectionPageInfo','EmpreendimentoToCategoryConnectionPageInfo','PostToCategoryConnectionPageInfo','RootQueryToCategoryConnectionPageInfo']
+export const isCategoryConnectionPageInfo = (obj?: { __typename?: any } | null): obj is CategoryConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryConnectionPageInfo"')
+  return CategoryConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const CategoryToCategoryConnection_possibleTypes: string[] = ['CategoryToCategoryConnection']
 export const isCategoryToCategoryConnection = (obj?: { __typename?: any } | null): obj is CategoryToCategoryConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToCategoryConnection"')
@@ -15118,6 +17863,14 @@ export const isCategoryToCategoryConnectionEdge = (obj?: { __typename?: any } | 
 
 
 
+const CategoryToCategoryConnectionPageInfo_possibleTypes: string[] = ['CategoryToCategoryConnectionPageInfo']
+export const isCategoryToCategoryConnectionPageInfo = (obj?: { __typename?: any } | null): obj is CategoryToCategoryConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToCategoryConnectionPageInfo"')
+  return CategoryToCategoryConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const CategoryToContentNodeConnection_possibleTypes: string[] = ['CategoryToContentNodeConnection']
 export const isCategoryToContentNodeConnection = (obj?: { __typename?: any } | null): obj is CategoryToContentNodeConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToContentNodeConnection"')
@@ -15130,6 +17883,14 @@ const CategoryToContentNodeConnectionEdge_possibleTypes: string[] = ['CategoryTo
 export const isCategoryToContentNodeConnectionEdge = (obj?: { __typename?: any } | null): obj is CategoryToContentNodeConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToContentNodeConnectionEdge"')
   return CategoryToContentNodeConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const CategoryToContentNodeConnectionPageInfo_possibleTypes: string[] = ['CategoryToContentNodeConnectionPageInfo']
+export const isCategoryToContentNodeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is CategoryToContentNodeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToContentNodeConnectionPageInfo"')
+  return CategoryToContentNodeConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15178,6 +17939,14 @@ const EmpreendimentoToCategoryConnectionEdge_possibleTypes: string[] = ['Empreen
 export const isEmpreendimentoToCategoryConnectionEdge = (obj?: { __typename?: any } | null): obj is EmpreendimentoToCategoryConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoToCategoryConnectionEdge"')
   return EmpreendimentoToCategoryConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const EmpreendimentoToCategoryConnectionPageInfo_possibleTypes: string[] = ['EmpreendimentoToCategoryConnectionPageInfo']
+export const isEmpreendimentoToCategoryConnectionPageInfo = (obj?: { __typename?: any } | null): obj is EmpreendimentoToCategoryConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoToCategoryConnectionPageInfo"')
+  return EmpreendimentoToCategoryConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15262,6 +18031,14 @@ export const isTermNodeConnectionEdge = (obj?: { __typename?: any } | null): obj
 
 
 
+const TermNodeConnectionPageInfo_possibleTypes: string[] = ['EmpreendimentoToTermNodeConnectionPageInfo','PostToTermNodeConnectionPageInfo','RootQueryToTermNodeConnectionPageInfo']
+export const isTermNodeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is TermNodeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isTermNodeConnectionPageInfo"')
+  return TermNodeConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const EmpreendimentoToTermNodeConnectionEdge_possibleTypes: string[] = ['EmpreendimentoToTermNodeConnectionEdge']
 export const isEmpreendimentoToTermNodeConnectionEdge = (obj?: { __typename?: any } | null): obj is EmpreendimentoToTermNodeConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoToTermNodeConnectionEdge"')
@@ -15270,10 +18047,34 @@ export const isEmpreendimentoToTermNodeConnectionEdge = (obj?: { __typename?: an
 
 
 
+const EmpreendimentoToTermNodeConnectionPageInfo_possibleTypes: string[] = ['EmpreendimentoToTermNodeConnectionPageInfo']
+export const isEmpreendimentoToTermNodeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is EmpreendimentoToTermNodeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoToTermNodeConnectionPageInfo"')
+  return EmpreendimentoToTermNodeConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const EmpreendimentoConnectionPageInfo_possibleTypes: string[] = ['CategoryToEmpreendimentoConnectionPageInfo','RootQueryToEmpreendimentoConnectionPageInfo']
+export const isEmpreendimentoConnectionPageInfo = (obj?: { __typename?: any } | null): obj is EmpreendimentoConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimentoConnectionPageInfo"')
+  return EmpreendimentoConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const CategoryToEmpreendimentoConnectionEdge_possibleTypes: string[] = ['CategoryToEmpreendimentoConnectionEdge']
 export const isCategoryToEmpreendimentoConnectionEdge = (obj?: { __typename?: any } | null): obj is CategoryToEmpreendimentoConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToEmpreendimentoConnectionEdge"')
   return CategoryToEmpreendimentoConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const CategoryToEmpreendimentoConnectionPageInfo_possibleTypes: string[] = ['CategoryToEmpreendimentoConnectionPageInfo']
+export const isCategoryToEmpreendimentoConnectionPageInfo = (obj?: { __typename?: any } | null): obj is CategoryToEmpreendimentoConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToEmpreendimentoConnectionPageInfo"')
+  return CategoryToEmpreendimentoConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15302,6 +18103,22 @@ export const isCategoryToPostConnectionEdge = (obj?: { __typename?: any } | null
 
 
 
+const CategoryToPostConnectionPageInfo_possibleTypes: string[] = ['CategoryToPostConnectionPageInfo']
+export const isCategoryToPostConnectionPageInfo = (obj?: { __typename?: any } | null): obj is CategoryToPostConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToPostConnectionPageInfo"')
+  return CategoryToPostConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const PostConnectionPageInfo_possibleTypes: string[] = ['CategoryToPostConnectionPageInfo','PostFormatToPostConnectionPageInfo','PostToRevisionConnectionPageInfo','TagToPostConnectionPageInfo','UserToPostConnectionPageInfo','RootQueryToPostConnectionPageInfo']
+export const isPostConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PostConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPostConnectionPageInfo"')
+  return PostConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const CategoryToTaxonomyConnectionEdge_possibleTypes: string[] = ['CategoryToTaxonomyConnectionEdge']
 export const isCategoryToTaxonomyConnectionEdge = (obj?: { __typename?: any } | null): obj is CategoryToTaxonomyConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryToTaxonomyConnectionEdge"')
@@ -15318,6 +18135,14 @@ export const isPostToCategoryConnectionEdge = (obj?: { __typename?: any } | null
 
 
 
+const PostToCategoryConnectionPageInfo_possibleTypes: string[] = ['PostToCategoryConnectionPageInfo']
+export const isPostToCategoryConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PostToCategoryConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPostToCategoryConnectionPageInfo"')
+  return PostToCategoryConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const PostToCommentConnection_possibleTypes: string[] = ['PostToCommentConnection']
 export const isPostToCommentConnection = (obj?: { __typename?: any } | null): obj is PostToCommentConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPostToCommentConnection"')
@@ -15330,6 +18155,14 @@ const PostToCommentConnectionEdge_possibleTypes: string[] = ['PostToCommentConne
 export const isPostToCommentConnectionEdge = (obj?: { __typename?: any } | null): obj is PostToCommentConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPostToCommentConnectionEdge"')
   return PostToCommentConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const PostToCommentConnectionPageInfo_possibleTypes: string[] = ['PostToCommentConnectionPageInfo']
+export const isPostToCommentConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PostToCommentConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPostToCommentConnectionPageInfo"')
+  return PostToCommentConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15382,6 +18215,14 @@ export const isPostFormatToContentNodeConnectionEdge = (obj?: { __typename?: any
 
 
 
+const PostFormatToContentNodeConnectionPageInfo_possibleTypes: string[] = ['PostFormatToContentNodeConnectionPageInfo']
+export const isPostFormatToContentNodeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PostFormatToContentNodeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPostFormatToContentNodeConnectionPageInfo"')
+  return PostFormatToContentNodeConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const PostFormatToPostConnection_possibleTypes: string[] = ['PostFormatToPostConnection']
 export const isPostFormatToPostConnection = (obj?: { __typename?: any } | null): obj is PostFormatToPostConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPostFormatToPostConnection"')
@@ -15398,6 +18239,14 @@ export const isPostFormatToPostConnectionEdge = (obj?: { __typename?: any } | nu
 
 
 
+const PostFormatToPostConnectionPageInfo_possibleTypes: string[] = ['PostFormatToPostConnectionPageInfo']
+export const isPostFormatToPostConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PostFormatToPostConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPostFormatToPostConnectionPageInfo"')
+  return PostFormatToPostConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const PostFormatToTaxonomyConnectionEdge_possibleTypes: string[] = ['PostFormatToTaxonomyConnectionEdge']
 export const isPostFormatToTaxonomyConnectionEdge = (obj?: { __typename?: any } | null): obj is PostFormatToTaxonomyConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPostFormatToTaxonomyConnectionEdge"')
@@ -15406,10 +18255,26 @@ export const isPostFormatToTaxonomyConnectionEdge = (obj?: { __typename?: any } 
 
 
 
+const PostFormatConnectionPageInfo_possibleTypes: string[] = ['PostToPostFormatConnectionPageInfo','RootQueryToPostFormatConnectionPageInfo']
+export const isPostFormatConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PostFormatConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPostFormatConnectionPageInfo"')
+  return PostFormatConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const PostToPostFormatConnectionEdge_possibleTypes: string[] = ['PostToPostFormatConnectionEdge']
 export const isPostToPostFormatConnectionEdge = (obj?: { __typename?: any } | null): obj is PostToPostFormatConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPostToPostFormatConnectionEdge"')
   return PostToPostFormatConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const PostToPostFormatConnectionPageInfo_possibleTypes: string[] = ['PostToPostFormatConnectionPageInfo']
+export const isPostToPostFormatConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PostToPostFormatConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPostToPostFormatConnectionPageInfo"')
+  return PostToPostFormatConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15434,6 +18299,14 @@ const PostToRevisionConnectionEdge_possibleTypes: string[] = ['PostToRevisionCon
 export const isPostToRevisionConnectionEdge = (obj?: { __typename?: any } | null): obj is PostToRevisionConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPostToRevisionConnectionEdge"')
   return PostToRevisionConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const PostToRevisionConnectionPageInfo_possibleTypes: string[] = ['PostToRevisionConnectionPageInfo']
+export const isPostToRevisionConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PostToRevisionConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPostToRevisionConnectionPageInfo"')
+  return PostToRevisionConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15486,6 +18359,14 @@ export const isTagToContentNodeConnectionEdge = (obj?: { __typename?: any } | nu
 
 
 
+const TagToContentNodeConnectionPageInfo_possibleTypes: string[] = ['TagToContentNodeConnectionPageInfo']
+export const isTagToContentNodeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is TagToContentNodeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isTagToContentNodeConnectionPageInfo"')
+  return TagToContentNodeConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const TagToPostConnection_possibleTypes: string[] = ['TagToPostConnection']
 export const isTagToPostConnection = (obj?: { __typename?: any } | null): obj is TagToPostConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTagToPostConnection"')
@@ -15502,6 +18383,14 @@ export const isTagToPostConnectionEdge = (obj?: { __typename?: any } | null): ob
 
 
 
+const TagToPostConnectionPageInfo_possibleTypes: string[] = ['TagToPostConnectionPageInfo']
+export const isTagToPostConnectionPageInfo = (obj?: { __typename?: any } | null): obj is TagToPostConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isTagToPostConnectionPageInfo"')
+  return TagToPostConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const TagToTaxonomyConnectionEdge_possibleTypes: string[] = ['TagToTaxonomyConnectionEdge']
 export const isTagToTaxonomyConnectionEdge = (obj?: { __typename?: any } | null): obj is TagToTaxonomyConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTagToTaxonomyConnectionEdge"')
@@ -15510,10 +18399,26 @@ export const isTagToTaxonomyConnectionEdge = (obj?: { __typename?: any } | null)
 
 
 
+const TagConnectionPageInfo_possibleTypes: string[] = ['PostToTagConnectionPageInfo','RootQueryToTagConnectionPageInfo']
+export const isTagConnectionPageInfo = (obj?: { __typename?: any } | null): obj is TagConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isTagConnectionPageInfo"')
+  return TagConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const PostToTagConnectionEdge_possibleTypes: string[] = ['PostToTagConnectionEdge']
 export const isPostToTagConnectionEdge = (obj?: { __typename?: any } | null): obj is PostToTagConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isPostToTagConnectionEdge"')
   return PostToTagConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const PostToTagConnectionPageInfo_possibleTypes: string[] = ['PostToTagConnectionPageInfo']
+export const isPostToTagConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PostToTagConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPostToTagConnectionPageInfo"')
+  return PostToTagConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15534,10 +18439,26 @@ export const isPostToTermNodeConnectionEdge = (obj?: { __typename?: any } | null
 
 
 
+const PostToTermNodeConnectionPageInfo_possibleTypes: string[] = ['PostToTermNodeConnectionPageInfo']
+export const isPostToTermNodeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PostToTermNodeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPostToTermNodeConnectionPageInfo"')
+  return PostToTermNodeConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const UserToPostConnectionEdge_possibleTypes: string[] = ['UserToPostConnectionEdge']
 export const isUserToPostConnectionEdge = (obj?: { __typename?: any } | null): obj is UserToPostConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserToPostConnectionEdge"')
   return UserToPostConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const UserToPostConnectionPageInfo_possibleTypes: string[] = ['UserToPostConnectionPageInfo']
+export const isUserToPostConnectionPageInfo = (obj?: { __typename?: any } | null): obj is UserToPostConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUserToPostConnectionPageInfo"')
+  return UserToPostConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15554,6 +18475,14 @@ const UserToRevisionsConnectionEdge_possibleTypes: string[] = ['UserToRevisionsC
 export const isUserToRevisionsConnectionEdge = (obj?: { __typename?: any } | null): obj is UserToRevisionsConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserToRevisionsConnectionEdge"')
   return UserToRevisionsConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const UserToRevisionsConnectionPageInfo_possibleTypes: string[] = ['UserToRevisionsConnectionPageInfo']
+export const isUserToRevisionsConnectionPageInfo = (obj?: { __typename?: any } | null): obj is UserToRevisionsConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUserToRevisionsConnectionPageInfo"')
+  return UserToRevisionsConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15590,10 +18519,26 @@ export const isUserRole = (obj?: { __typename?: any } | null): obj is UserRole =
 
 
 
+const UserRoleConnectionPageInfo_possibleTypes: string[] = ['UserToUserRoleConnectionPageInfo','RootQueryToUserRoleConnectionPageInfo']
+export const isUserRoleConnectionPageInfo = (obj?: { __typename?: any } | null): obj is UserRoleConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUserRoleConnectionPageInfo"')
+  return UserRoleConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const UserToUserRoleConnectionEdge_possibleTypes: string[] = ['UserToUserRoleConnectionEdge']
 export const isUserToUserRoleConnectionEdge = (obj?: { __typename?: any } | null): obj is UserToUserRoleConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isUserToUserRoleConnectionEdge"')
   return UserToUserRoleConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const UserToUserRoleConnectionPageInfo_possibleTypes: string[] = ['UserToUserRoleConnectionPageInfo']
+export const isUserToUserRoleConnectionPageInfo = (obj?: { __typename?: any } | null): obj is UserToUserRoleConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUserToUserRoleConnectionPageInfo"')
+  return UserToUserRoleConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15638,10 +18583,26 @@ export const isArquivoAssessoriaConnection = (obj?: { __typename?: any } | null)
 
 
 
+const ArquivoAssessoriaConnectionPageInfo_possibleTypes: string[] = ['RootQueryToArquivoAssessoriaConnectionPageInfo']
+export const isArquivoAssessoriaConnectionPageInfo = (obj?: { __typename?: any } | null): obj is ArquivoAssessoriaConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isArquivoAssessoriaConnectionPageInfo"')
+  return ArquivoAssessoriaConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToArquivoAssessoriaConnectionEdge_possibleTypes: string[] = ['RootQueryToArquivoAssessoriaConnectionEdge']
 export const isRootQueryToArquivoAssessoriaConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToArquivoAssessoriaConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToArquivoAssessoriaConnectionEdge"')
   return RootQueryToArquivoAssessoriaConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToArquivoAssessoriaConnectionPageInfo_possibleTypes: string[] = ['RootQueryToArquivoAssessoriaConnectionPageInfo']
+export const isRootQueryToArquivoAssessoriaConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToArquivoAssessoriaConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToArquivoAssessoriaConnectionPageInfo"')
+  return RootQueryToArquivoAssessoriaConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15710,10 +18671,26 @@ export const isBannerConnection = (obj?: { __typename?: any } | null): obj is Ba
 
 
 
+const BannerConnectionPageInfo_possibleTypes: string[] = ['RootQueryToBannerConnectionPageInfo']
+export const isBannerConnectionPageInfo = (obj?: { __typename?: any } | null): obj is BannerConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isBannerConnectionPageInfo"')
+  return BannerConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToBannerConnectionEdge_possibleTypes: string[] = ['RootQueryToBannerConnectionEdge']
 export const isRootQueryToBannerConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToBannerConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToBannerConnectionEdge"')
   return RootQueryToBannerConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToBannerConnectionPageInfo_possibleTypes: string[] = ['RootQueryToBannerConnectionPageInfo']
+export const isRootQueryToBannerConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToBannerConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToBannerConnectionPageInfo"')
+  return RootQueryToBannerConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15734,6 +18711,14 @@ export const isRootQueryToCategoryConnectionEdge = (obj?: { __typename?: any } |
 
 
 
+const RootQueryToCategoryConnectionPageInfo_possibleTypes: string[] = ['RootQueryToCategoryConnectionPageInfo']
+export const isRootQueryToCategoryConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToCategoryConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToCategoryConnectionPageInfo"')
+  return RootQueryToCategoryConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToCommentConnection_possibleTypes: string[] = ['RootQueryToCommentConnection']
 export const isRootQueryToCommentConnection = (obj?: { __typename?: any } | null): obj is RootQueryToCommentConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToCommentConnection"')
@@ -15746,6 +18731,14 @@ const RootQueryToCommentConnectionEdge_possibleTypes: string[] = ['RootQueryToCo
 export const isRootQueryToCommentConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToCommentConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToCommentConnectionEdge"')
   return RootQueryToCommentConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToCommentConnectionPageInfo_possibleTypes: string[] = ['RootQueryToCommentConnectionPageInfo']
+export const isRootQueryToCommentConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToCommentConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToCommentConnectionPageInfo"')
+  return RootQueryToCommentConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15766,6 +18759,14 @@ export const isRootQueryToContentNodeConnectionEdge = (obj?: { __typename?: any 
 
 
 
+const RootQueryToContentNodeConnectionPageInfo_possibleTypes: string[] = ['RootQueryToContentNodeConnectionPageInfo']
+export const isRootQueryToContentNodeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToContentNodeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToContentNodeConnectionPageInfo"')
+  return RootQueryToContentNodeConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToContentTypeConnection_possibleTypes: string[] = ['RootQueryToContentTypeConnection']
 export const isRootQueryToContentTypeConnection = (obj?: { __typename?: any } | null): obj is RootQueryToContentTypeConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToContentTypeConnection"')
@@ -15778,6 +18779,14 @@ const RootQueryToContentTypeConnectionEdge_possibleTypes: string[] = ['RootQuery
 export const isRootQueryToContentTypeConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToContentTypeConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToContentTypeConnectionEdge"')
   return RootQueryToContentTypeConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToContentTypeConnectionPageInfo_possibleTypes: string[] = ['RootQueryToContentTypeConnectionPageInfo']
+export const isRootQueryToContentTypeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToContentTypeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToContentTypeConnectionPageInfo"')
+  return RootQueryToContentTypeConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15806,6 +18815,14 @@ export const isRootQueryToEmpreendimentoConnectionEdge = (obj?: { __typename?: a
 
 
 
+const RootQueryToEmpreendimentoConnectionPageInfo_possibleTypes: string[] = ['RootQueryToEmpreendimentoConnectionPageInfo']
+export const isRootQueryToEmpreendimentoConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToEmpreendimentoConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToEmpreendimentoConnectionPageInfo"')
+  return RootQueryToEmpreendimentoConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const GeneralSettings_possibleTypes: string[] = ['GeneralSettings']
 export const isGeneralSettings = (obj?: { __typename?: any } | null): obj is GeneralSettings => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isGeneralSettings"')
@@ -15826,6 +18843,14 @@ const RootQueryToMediaItemConnectionEdge_possibleTypes: string[] = ['RootQueryTo
 export const isRootQueryToMediaItemConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToMediaItemConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToMediaItemConnectionEdge"')
   return RootQueryToMediaItemConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToMediaItemConnectionPageInfo_possibleTypes: string[] = ['RootQueryToMediaItemConnectionPageInfo']
+export const isRootQueryToMediaItemConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToMediaItemConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToMediaItemConnectionPageInfo"')
+  return RootQueryToMediaItemConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15886,6 +18911,22 @@ export const isMenuItemToMenuItemConnectionEdge = (obj?: { __typename?: any } | 
 
 
 
+const MenuItemToMenuItemConnectionPageInfo_possibleTypes: string[] = ['MenuItemToMenuItemConnectionPageInfo']
+export const isMenuItemToMenuItemConnectionPageInfo = (obj?: { __typename?: any } | null): obj is MenuItemToMenuItemConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isMenuItemToMenuItemConnectionPageInfo"')
+  return MenuItemToMenuItemConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const MenuItemConnectionPageInfo_possibleTypes: string[] = ['MenuItemToMenuItemConnectionPageInfo','MenuToMenuItemConnectionPageInfo','RootQueryToMenuItemConnectionPageInfo']
+export const isMenuItemConnectionPageInfo = (obj?: { __typename?: any } | null): obj is MenuItemConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isMenuItemConnectionPageInfo"')
+  return MenuItemConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const MenuItemToMenuItemLinkableConnectionEdge_possibleTypes: string[] = ['MenuItemToMenuItemLinkableConnectionEdge']
 export const isMenuItemToMenuItemLinkableConnectionEdge = (obj?: { __typename?: any } | null): obj is MenuItemToMenuItemLinkableConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isMenuItemToMenuItemLinkableConnectionEdge"')
@@ -15934,6 +18975,14 @@ export const isMenuToMenuItemConnectionEdge = (obj?: { __typename?: any } | null
 
 
 
+const MenuToMenuItemConnectionPageInfo_possibleTypes: string[] = ['MenuToMenuItemConnectionPageInfo']
+export const isMenuToMenuItemConnectionPageInfo = (obj?: { __typename?: any } | null): obj is MenuToMenuItemConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isMenuToMenuItemConnectionPageInfo"')
+  return MenuToMenuItemConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToMenuItemConnection_possibleTypes: string[] = ['RootQueryToMenuItemConnection']
 export const isRootQueryToMenuItemConnection = (obj?: { __typename?: any } | null): obj is RootQueryToMenuItemConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToMenuItemConnection"')
@@ -15946,6 +18995,14 @@ const RootQueryToMenuItemConnectionEdge_possibleTypes: string[] = ['RootQueryToM
 export const isRootQueryToMenuItemConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToMenuItemConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToMenuItemConnectionEdge"')
   return RootQueryToMenuItemConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToMenuItemConnectionPageInfo_possibleTypes: string[] = ['RootQueryToMenuItemConnectionPageInfo']
+export const isRootQueryToMenuItemConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToMenuItemConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToMenuItemConnectionPageInfo"')
+  return RootQueryToMenuItemConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15966,10 +19023,26 @@ export const isMenuConnection = (obj?: { __typename?: any } | null): obj is Menu
 
 
 
+const MenuConnectionPageInfo_possibleTypes: string[] = ['RootQueryToMenuConnectionPageInfo']
+export const isMenuConnectionPageInfo = (obj?: { __typename?: any } | null): obj is MenuConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isMenuConnectionPageInfo"')
+  return MenuConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToMenuConnectionEdge_possibleTypes: string[] = ['RootQueryToMenuConnectionEdge']
 export const isRootQueryToMenuConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToMenuConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToMenuConnectionEdge"')
   return RootQueryToMenuConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToMenuConnectionPageInfo_possibleTypes: string[] = ['RootQueryToMenuConnectionPageInfo']
+export const isRootQueryToMenuConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToMenuConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToMenuConnectionPageInfo"')
+  return RootQueryToMenuConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -15986,6 +19059,14 @@ const RootQueryToPageConnectionEdge_possibleTypes: string[] = ['RootQueryToPageC
 export const isRootQueryToPageConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToPageConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToPageConnectionEdge"')
   return RootQueryToPageConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToPageConnectionPageInfo_possibleTypes: string[] = ['RootQueryToPageConnectionPageInfo']
+export const isRootQueryToPageConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToPageConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToPageConnectionPageInfo"')
+  return RootQueryToPageConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -16022,10 +19103,26 @@ export const isPluginConnectionEdge = (obj?: { __typename?: any } | null): obj i
 
 
 
+const PluginConnectionPageInfo_possibleTypes: string[] = ['RootQueryToPluginConnectionPageInfo']
+export const isPluginConnectionPageInfo = (obj?: { __typename?: any } | null): obj is PluginConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isPluginConnectionPageInfo"')
+  return PluginConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToPluginConnectionEdge_possibleTypes: string[] = ['RootQueryToPluginConnectionEdge']
 export const isRootQueryToPluginConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToPluginConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToPluginConnectionEdge"')
   return RootQueryToPluginConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToPluginConnectionPageInfo_possibleTypes: string[] = ['RootQueryToPluginConnectionPageInfo']
+export const isRootQueryToPluginConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToPluginConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToPluginConnectionPageInfo"')
+  return RootQueryToPluginConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -16046,6 +19143,14 @@ export const isRootQueryToPostFormatConnectionEdge = (obj?: { __typename?: any }
 
 
 
+const RootQueryToPostFormatConnectionPageInfo_possibleTypes: string[] = ['RootQueryToPostFormatConnectionPageInfo']
+export const isRootQueryToPostFormatConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToPostFormatConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToPostFormatConnectionPageInfo"')
+  return RootQueryToPostFormatConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToPostConnection_possibleTypes: string[] = ['RootQueryToPostConnection']
 export const isRootQueryToPostConnection = (obj?: { __typename?: any } | null): obj is RootQueryToPostConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToPostConnection"')
@@ -16058,6 +19163,14 @@ const RootQueryToPostConnectionEdge_possibleTypes: string[] = ['RootQueryToPostC
 export const isRootQueryToPostConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToPostConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToPostConnectionEdge"')
   return RootQueryToPostConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToPostConnectionPageInfo_possibleTypes: string[] = ['RootQueryToPostConnectionPageInfo']
+export const isRootQueryToPostConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToPostConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToPostConnectionPageInfo"')
+  return RootQueryToPostConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -16086,6 +19199,14 @@ export const isRootQueryToEnqueuedScriptConnectionEdge = (obj?: { __typename?: a
 
 
 
+const RootQueryToEnqueuedScriptConnectionPageInfo_possibleTypes: string[] = ['RootQueryToEnqueuedScriptConnectionPageInfo']
+export const isRootQueryToEnqueuedScriptConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToEnqueuedScriptConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToEnqueuedScriptConnectionPageInfo"')
+  return RootQueryToEnqueuedScriptConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToEnqueuedStylesheetConnection_possibleTypes: string[] = ['RootQueryToEnqueuedStylesheetConnection']
 export const isRootQueryToEnqueuedStylesheetConnection = (obj?: { __typename?: any } | null): obj is RootQueryToEnqueuedStylesheetConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToEnqueuedStylesheetConnection"')
@@ -16098,6 +19219,14 @@ const RootQueryToEnqueuedStylesheetConnectionEdge_possibleTypes: string[] = ['Ro
 export const isRootQueryToEnqueuedStylesheetConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToEnqueuedStylesheetConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToEnqueuedStylesheetConnectionEdge"')
   return RootQueryToEnqueuedStylesheetConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToEnqueuedStylesheetConnectionPageInfo_possibleTypes: string[] = ['RootQueryToEnqueuedStylesheetConnectionPageInfo']
+export const isRootQueryToEnqueuedStylesheetConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToEnqueuedStylesheetConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToEnqueuedStylesheetConnectionPageInfo"')
+  return RootQueryToEnqueuedStylesheetConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -16118,6 +19247,14 @@ export const isRootQueryToRevisionsConnectionEdge = (obj?: { __typename?: any } 
 
 
 
+const RootQueryToRevisionsConnectionPageInfo_possibleTypes: string[] = ['RootQueryToRevisionsConnectionPageInfo']
+export const isRootQueryToRevisionsConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToRevisionsConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToRevisionsConnectionPageInfo"')
+  return RootQueryToRevisionsConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToTagConnection_possibleTypes: string[] = ['RootQueryToTagConnection']
 export const isRootQueryToTagConnection = (obj?: { __typename?: any } | null): obj is RootQueryToTagConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToTagConnection"')
@@ -16130,6 +19267,14 @@ const RootQueryToTagConnectionEdge_possibleTypes: string[] = ['RootQueryToTagCon
 export const isRootQueryToTagConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToTagConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToTagConnectionEdge"')
   return RootQueryToTagConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToTagConnectionPageInfo_possibleTypes: string[] = ['RootQueryToTagConnectionPageInfo']
+export const isRootQueryToTagConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToTagConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToTagConnectionPageInfo"')
+  return RootQueryToTagConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -16150,6 +19295,14 @@ export const isRootQueryToTaxonomyConnectionEdge = (obj?: { __typename?: any } |
 
 
 
+const RootQueryToTaxonomyConnectionPageInfo_possibleTypes: string[] = ['RootQueryToTaxonomyConnectionPageInfo']
+export const isRootQueryToTaxonomyConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToTaxonomyConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToTaxonomyConnectionPageInfo"')
+  return RootQueryToTaxonomyConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToTermNodeConnection_possibleTypes: string[] = ['RootQueryToTermNodeConnection']
 export const isRootQueryToTermNodeConnection = (obj?: { __typename?: any } | null): obj is RootQueryToTermNodeConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToTermNodeConnection"')
@@ -16162,6 +19315,14 @@ const RootQueryToTermNodeConnectionEdge_possibleTypes: string[] = ['RootQueryToT
 export const isRootQueryToTermNodeConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToTermNodeConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToTermNodeConnectionEdge"')
   return RootQueryToTermNodeConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToTermNodeConnectionPageInfo_possibleTypes: string[] = ['RootQueryToTermNodeConnectionPageInfo']
+export const isRootQueryToTermNodeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToTermNodeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToTermNodeConnectionPageInfo"')
+  return RootQueryToTermNodeConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -16198,10 +19359,26 @@ export const isThemeConnectionEdge = (obj?: { __typename?: any } | null): obj is
 
 
 
+const ThemeConnectionPageInfo_possibleTypes: string[] = ['RootQueryToThemeConnectionPageInfo']
+export const isThemeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is ThemeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isThemeConnectionPageInfo"')
+  return ThemeConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToThemeConnectionEdge_possibleTypes: string[] = ['RootQueryToThemeConnectionEdge']
 export const isRootQueryToThemeConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToThemeConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToThemeConnectionEdge"')
   return RootQueryToThemeConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToThemeConnectionPageInfo_possibleTypes: string[] = ['RootQueryToThemeConnectionPageInfo']
+export const isRootQueryToThemeConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToThemeConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToThemeConnectionPageInfo"')
+  return RootQueryToThemeConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -16222,6 +19399,14 @@ export const isRootQueryToUserRoleConnectionEdge = (obj?: { __typename?: any } |
 
 
 
+const RootQueryToUserRoleConnectionPageInfo_possibleTypes: string[] = ['RootQueryToUserRoleConnectionPageInfo']
+export const isRootQueryToUserRoleConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToUserRoleConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToUserRoleConnectionPageInfo"')
+  return RootQueryToUserRoleConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToUserConnection_possibleTypes: string[] = ['RootQueryToUserConnection']
 export const isRootQueryToUserConnection = (obj?: { __typename?: any } | null): obj is RootQueryToUserConnection => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToUserConnection"')
@@ -16238,10 +19423,26 @@ export const isUserConnection = (obj?: { __typename?: any } | null): obj is User
 
 
 
+const UserConnectionPageInfo_possibleTypes: string[] = ['RootQueryToUserConnectionPageInfo']
+export const isUserConnectionPageInfo = (obj?: { __typename?: any } | null): obj is UserConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isUserConnectionPageInfo"')
+  return UserConnectionPageInfo_possibleTypes.includes(obj.__typename)
+}
+
+
+
 const RootQueryToUserConnectionEdge_possibleTypes: string[] = ['RootQueryToUserConnectionEdge']
 export const isRootQueryToUserConnectionEdge = (obj?: { __typename?: any } | null): obj is RootQueryToUserConnectionEdge => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToUserConnectionEdge"')
   return RootQueryToUserConnectionEdge_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const RootQueryToUserConnectionPageInfo_possibleTypes: string[] = ['RootQueryToUserConnectionPageInfo']
+export const isRootQueryToUserConnectionPageInfo = (obj?: { __typename?: any } | null): obj is RootQueryToUserConnectionPageInfo => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isRootQueryToUserConnectionPageInfo"')
+  return RootQueryToUserConnectionPageInfo_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -18624,7 +21825,7 @@ edges: ({get: <R extends ContentTypeToTaxonomyConnectionEdgeRequest>(request: R,
 nodes: ({get: <R extends TaxonomyRequest>(request: R, defaultValue?: FieldsSelection<Taxonomy, R>[]) => Promise<FieldsSelection<Taxonomy, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (ContentTypeToTaxonomyConnectionPageInfoPromiseChain & {get: <R extends ContentTypeToTaxonomyConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentTypeToTaxonomyConnectionPageInfo, R>) => Promise<FieldsSelection<ContentTypeToTaxonomyConnectionPageInfo, R>>})
 }
 
 
@@ -18638,7 +21839,7 @@ edges: ({get: <R extends ContentTypeToTaxonomyConnectionEdgeRequest>(request: R,
 nodes: ({get: <R extends TaxonomyRequest>(request: R, defaultValue?: FieldsSelection<Taxonomy, R>[]) => Observable<FieldsSelection<Taxonomy, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (ContentTypeToTaxonomyConnectionPageInfoObservableChain & {get: <R extends ContentTypeToTaxonomyConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentTypeToTaxonomyConnectionPageInfo, R>) => Observable<FieldsSelection<ContentTypeToTaxonomyConnectionPageInfo, R>>})
 }
 
 
@@ -18649,7 +21850,10 @@ export interface TaxonomyConnectionPromiseChain{
 edges: ({get: <R extends TaxonomyConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<TaxonomyConnectionEdge, R>[]) => Promise<FieldsSelection<TaxonomyConnectionEdge, R>[]>}),
     
 /** A list of connected Taxonomy Nodes */
-nodes: ({get: <R extends TaxonomyRequest>(request: R, defaultValue?: FieldsSelection<Taxonomy, R>[]) => Promise<FieldsSelection<Taxonomy, R>[]>})
+nodes: ({get: <R extends TaxonomyRequest>(request: R, defaultValue?: FieldsSelection<Taxonomy, R>[]) => Promise<FieldsSelection<Taxonomy, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (TaxonomyConnectionPageInfoPromiseChain & {get: <R extends TaxonomyConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TaxonomyConnectionPageInfo, R>) => Promise<FieldsSelection<TaxonomyConnectionPageInfo, R>>})
 }
 
 
@@ -18660,7 +21864,10 @@ export interface TaxonomyConnectionObservableChain{
 edges: ({get: <R extends TaxonomyConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<TaxonomyConnectionEdge, R>[]) => Observable<FieldsSelection<TaxonomyConnectionEdge, R>[]>}),
     
 /** A list of connected Taxonomy Nodes */
-nodes: ({get: <R extends TaxonomyRequest>(request: R, defaultValue?: FieldsSelection<Taxonomy, R>[]) => Observable<FieldsSelection<Taxonomy, R>[]>})
+nodes: ({get: <R extends TaxonomyRequest>(request: R, defaultValue?: FieldsSelection<Taxonomy, R>[]) => Observable<FieldsSelection<Taxonomy, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (TaxonomyConnectionPageInfoObservableChain & {get: <R extends TaxonomyConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TaxonomyConnectionPageInfo, R>) => Observable<FieldsSelection<TaxonomyConnectionPageInfo, R>>})
 }
 
 
@@ -18671,7 +21878,10 @@ export interface ConnectionPromiseChain{
 edges: ({get: <R extends EdgeRequest>(request: R, defaultValue?: FieldsSelection<Edge, R>[]) => Promise<FieldsSelection<Edge, R>[]>}),
     
 /** A list of connected nodes */
-nodes: ({get: <R extends NodeRequest>(request: R, defaultValue?: FieldsSelection<Node, R>[]) => Promise<FieldsSelection<Node, R>[]>})
+nodes: ({get: <R extends NodeRequest>(request: R, defaultValue?: FieldsSelection<Node, R>[]) => Promise<FieldsSelection<Node, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (PageInfoPromiseChain & {get: <R extends PageInfoRequest>(request: R, defaultValue?: FieldsSelection<PageInfo, R>) => Promise<FieldsSelection<PageInfo, R>>})
 }
 
 
@@ -18682,7 +21892,44 @@ export interface ConnectionObservableChain{
 edges: ({get: <R extends EdgeRequest>(request: R, defaultValue?: FieldsSelection<Edge, R>[]) => Observable<FieldsSelection<Edge, R>[]>}),
     
 /** A list of connected nodes */
-nodes: ({get: <R extends NodeRequest>(request: R, defaultValue?: FieldsSelection<Node, R>[]) => Observable<FieldsSelection<Node, R>[]>})
+nodes: ({get: <R extends NodeRequest>(request: R, defaultValue?: FieldsSelection<Node, R>[]) => Observable<FieldsSelection<Node, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (PageInfoObservableChain & {get: <R extends PageInfoRequest>(request: R, defaultValue?: FieldsSelection<PageInfo, R>) => Observable<FieldsSelection<PageInfo, R>>})
+}
+
+
+/** Information about pagination in a connection. */
+export interface PageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Information about pagination in a connection. */
+export interface PageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -18864,7 +22111,7 @@ edges: ({get: <R extends TaxonomyToContentTypeConnectionEdgeRequest>(request: R,
 nodes: ({get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>[]) => Promise<FieldsSelection<ContentType, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (TaxonomyToContentTypeConnectionPageInfoPromiseChain & {get: <R extends TaxonomyToContentTypeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TaxonomyToContentTypeConnectionPageInfo, R>) => Promise<FieldsSelection<TaxonomyToContentTypeConnectionPageInfo, R>>})
 }
 
 
@@ -18878,7 +22125,7 @@ edges: ({get: <R extends TaxonomyToContentTypeConnectionEdgeRequest>(request: R,
 nodes: ({get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>[]) => Observable<FieldsSelection<ContentType, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (TaxonomyToContentTypeConnectionPageInfoObservableChain & {get: <R extends TaxonomyToContentTypeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TaxonomyToContentTypeConnectionPageInfo, R>) => Observable<FieldsSelection<TaxonomyToContentTypeConnectionPageInfo, R>>})
 }
 
 
@@ -18889,7 +22136,10 @@ export interface ContentTypeConnectionPromiseChain{
 edges: ({get: <R extends ContentTypeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<ContentTypeConnectionEdge, R>[]) => Promise<FieldsSelection<ContentTypeConnectionEdge, R>[]>}),
     
 /** A list of connected ContentType Nodes */
-nodes: ({get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>[]) => Promise<FieldsSelection<ContentType, R>[]>})
+nodes: ({get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>[]) => Promise<FieldsSelection<ContentType, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (ContentTypeConnectionPageInfoPromiseChain & {get: <R extends ContentTypeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentTypeConnectionPageInfo, R>) => Promise<FieldsSelection<ContentTypeConnectionPageInfo, R>>})
 }
 
 
@@ -18900,29 +22150,44 @@ export interface ContentTypeConnectionObservableChain{
 edges: ({get: <R extends ContentTypeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<ContentTypeConnectionEdge, R>[]) => Observable<FieldsSelection<ContentTypeConnectionEdge, R>[]>}),
     
 /** A list of connected ContentType Nodes */
-nodes: ({get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>[]) => Observable<FieldsSelection<ContentType, R>[]>})
+nodes: ({get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>[]) => Observable<FieldsSelection<ContentType, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (ContentTypeConnectionPageInfoObservableChain & {get: <R extends ContentTypeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentTypeConnectionPageInfo, R>) => Observable<FieldsSelection<ContentTypeConnectionPageInfo, R>>})
 }
 
 
-/** An edge in a connection */
-export interface TaxonomyToContentTypeConnectionEdgePromiseChain{
+/** Page Info on the connected ContentTypeConnectionEdge */
+export interface ContentTypeConnectionPageInfoPromiseChain{
     
-/** A cursor for use in pagination */
-cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     
-/** The item at the end of the edge */
-node: (ContentTypePromiseChain & {get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>) => Promise<FieldsSelection<ContentType, R>>})
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
 }
 
 
-/** An edge in a connection */
-export interface TaxonomyToContentTypeConnectionEdgeObservableChain{
+/** Page Info on the connected ContentTypeConnectionEdge */
+export interface ContentTypeConnectionPageInfoObservableChain{
     
-/** A cursor for use in pagination */
-cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     
-/** The item at the end of the edge */
-node: (ContentTypeObservableChain & {get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>) => Observable<FieldsSelection<ContentType, R>>})
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -18961,6 +22226,96 @@ startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String']
 
 
 /** An edge in a connection */
+export interface TaxonomyToContentTypeConnectionEdgePromiseChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (ContentTypePromiseChain & {get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>) => Promise<FieldsSelection<ContentType, R>>})
+}
+
+
+/** An edge in a connection */
+export interface TaxonomyToContentTypeConnectionEdgeObservableChain{
+    
+/** A cursor for use in pagination */
+cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** The item at the end of the edge */
+node: (ContentTypeObservableChain & {get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>) => Observable<FieldsSelection<ContentType, R>>})
+}
+
+
+/** Page Info on the &quot;TaxonomyToContentTypeConnection&quot; */
+export interface TaxonomyToContentTypeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;TaxonomyToContentTypeConnection&quot; */
+export interface TaxonomyToContentTypeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected TaxonomyConnectionEdge */
+export interface TaxonomyConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected TaxonomyConnectionEdge */
+export interface TaxonomyConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** An edge in a connection */
 export interface ContentTypeToTaxonomyConnectionEdgePromiseChain{
     
 /** A cursor for use in pagination */
@@ -18982,6 +22337,40 @@ node: (TaxonomyObservableChain & {get: <R extends TaxonomyRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;ContentTypeToTaxonomyConnection&quot; */
+export interface ContentTypeToTaxonomyConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;ContentTypeToTaxonomyConnection&quot; */
+export interface ContentTypeToTaxonomyConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the ContentType type and the ContentNode type */
 export interface ContentTypeToContentNodeConnectionPromiseChain{
     
@@ -18992,7 +22381,7 @@ edges: ({get: <R extends ContentTypeToContentNodeConnectionEdgeRequest>(request:
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Promise<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (ContentTypeToContentNodeConnectionPageInfoPromiseChain & {get: <R extends ContentTypeToContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentTypeToContentNodeConnectionPageInfo, R>) => Promise<FieldsSelection<ContentTypeToContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -19006,7 +22395,7 @@ edges: ({get: <R extends ContentTypeToContentNodeConnectionEdgeRequest>(request:
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Observable<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (ContentTypeToContentNodeConnectionPageInfoObservableChain & {get: <R extends ContentTypeToContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentTypeToContentNodeConnectionPageInfo, R>) => Observable<FieldsSelection<ContentTypeToContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -19017,7 +22406,10 @@ export interface ContentNodeConnectionPromiseChain{
 edges: ({get: <R extends ContentNodeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<ContentNodeConnectionEdge, R>[]) => Promise<FieldsSelection<ContentNodeConnectionEdge, R>[]>}),
     
 /** A list of connected ContentNode Nodes */
-nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Promise<FieldsSelection<ContentNode, R>[]>})
+nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Promise<FieldsSelection<ContentNode, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (ContentNodeConnectionPageInfoPromiseChain & {get: <R extends ContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentNodeConnectionPageInfo, R>) => Promise<FieldsSelection<ContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -19028,7 +22420,10 @@ export interface ContentNodeConnectionObservableChain{
 edges: ({get: <R extends ContentNodeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<ContentNodeConnectionEdge, R>[]) => Observable<FieldsSelection<ContentNodeConnectionEdge, R>[]>}),
     
 /** A list of connected ContentNode Nodes */
-nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Observable<FieldsSelection<ContentNode, R>[]>})
+nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Observable<FieldsSelection<ContentNode, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (ContentNodeConnectionPageInfoObservableChain & {get: <R extends ContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentNodeConnectionPageInfo, R>) => Observable<FieldsSelection<ContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -19054,6 +22449,40 @@ node: (ContentNodeObservableChain & {get: <R extends ContentNodeRequest>(request
 }
 
 
+/** Page Info on the connected ContentNodeConnectionEdge */
+export interface ContentNodeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected ContentNodeConnectionEdge */
+export interface ContentNodeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface ContentTypeToContentNodeConnectionEdgePromiseChain{
     
@@ -19073,6 +22502,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (ContentNodeObservableChain & {get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>) => Observable<FieldsSelection<ContentNode, R>>})
+}
+
+
+/** Page Info on the &quot;ContentTypeToContentNodeConnection&quot; */
+export interface ContentTypeToContentNodeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;ContentTypeToContentNodeConnection&quot; */
+export interface ContentTypeToContentNodeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -19802,7 +23265,7 @@ edges: ({get: <R extends UserToCommentConnectionEdgeRequest>(request: R, default
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Promise<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToCommentConnectionPageInfoPromiseChain & {get: <R extends UserToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToCommentConnectionPageInfo, R>) => Promise<FieldsSelection<UserToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -19816,7 +23279,7 @@ edges: ({get: <R extends UserToCommentConnectionEdgeRequest>(request: R, default
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Observable<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToCommentConnectionPageInfoObservableChain & {get: <R extends UserToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToCommentConnectionPageInfo, R>) => Observable<FieldsSelection<UserToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -19827,7 +23290,10 @@ export interface CommentConnectionPromiseChain{
 edges: ({get: <R extends CommentConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<CommentConnectionEdge, R>[]) => Promise<FieldsSelection<CommentConnectionEdge, R>[]>}),
     
 /** A list of connected Comment Nodes */
-nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Promise<FieldsSelection<Comment, R>[]>})
+nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Promise<FieldsSelection<Comment, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (CommentConnectionPageInfoPromiseChain & {get: <R extends CommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CommentConnectionPageInfo, R>) => Promise<FieldsSelection<CommentConnectionPageInfo, R>>})
 }
 
 
@@ -19838,7 +23304,10 @@ export interface CommentConnectionObservableChain{
 edges: ({get: <R extends CommentConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<CommentConnectionEdge, R>[]) => Observable<FieldsSelection<CommentConnectionEdge, R>[]>}),
     
 /** A list of connected Comment Nodes */
-nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Observable<FieldsSelection<Comment, R>[]>})
+nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Observable<FieldsSelection<Comment, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (CommentConnectionPageInfoObservableChain & {get: <R extends CommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CommentConnectionPageInfo, R>) => Observable<FieldsSelection<CommentConnectionPageInfo, R>>})
 }
 
 
@@ -20126,7 +23595,7 @@ edges: ({get: <R extends CommentToCommentConnectionEdgeRequest>(request: R, defa
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Promise<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CommentToCommentConnectionPageInfoPromiseChain & {get: <R extends CommentToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CommentToCommentConnectionPageInfo, R>) => Promise<FieldsSelection<CommentToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -20140,7 +23609,7 @@ edges: ({get: <R extends CommentToCommentConnectionEdgeRequest>(request: R, defa
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Observable<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CommentToCommentConnectionPageInfoObservableChain & {get: <R extends CommentToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CommentToCommentConnectionPageInfo, R>) => Observable<FieldsSelection<CommentToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -20166,6 +23635,74 @@ node: (CommentObservableChain & {get: <R extends CommentRequest>(request: R, def
 }
 
 
+/** Page Info on the &quot;CommentToCommentConnection&quot; */
+export interface CommentToCommentConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;CommentToCommentConnection&quot; */
+export interface CommentToCommentConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected CommentConnectionEdge */
+export interface CommentConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected CommentConnectionEdge */
+export interface CommentConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface UserToCommentConnectionEdgePromiseChain{
     
@@ -20188,6 +23725,40 @@ node: (CommentObservableChain & {get: <R extends CommentRequest>(request: R, def
 }
 
 
+/** Page Info on the &quot;UserToCommentConnection&quot; */
+export interface UserToCommentConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;UserToCommentConnection&quot; */
+export interface UserToCommentConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the User type and the EnqueuedScript type */
 export interface UserToEnqueuedScriptConnectionPromiseChain{
     
@@ -20198,7 +23769,7 @@ edges: ({get: <R extends UserToEnqueuedScriptConnectionEdgeRequest>(request: R, 
 nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Promise<FieldsSelection<EnqueuedScript, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToEnqueuedScriptConnectionPageInfoPromiseChain & {get: <R extends UserToEnqueuedScriptConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToEnqueuedScriptConnectionPageInfo, R>) => Promise<FieldsSelection<UserToEnqueuedScriptConnectionPageInfo, R>>})
 }
 
 
@@ -20212,7 +23783,7 @@ edges: ({get: <R extends UserToEnqueuedScriptConnectionEdgeRequest>(request: R, 
 nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Observable<FieldsSelection<EnqueuedScript, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToEnqueuedScriptConnectionPageInfoObservableChain & {get: <R extends UserToEnqueuedScriptConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToEnqueuedScriptConnectionPageInfo, R>) => Observable<FieldsSelection<UserToEnqueuedScriptConnectionPageInfo, R>>})
 }
 
 
@@ -20223,7 +23794,10 @@ export interface EnqueuedScriptConnectionPromiseChain{
 edges: ({get: <R extends EnqueuedScriptConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScriptConnectionEdge, R>[]) => Promise<FieldsSelection<EnqueuedScriptConnectionEdge, R>[]>}),
     
 /** A list of connected EnqueuedScript Nodes */
-nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Promise<FieldsSelection<EnqueuedScript, R>[]>})
+nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Promise<FieldsSelection<EnqueuedScript, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (EnqueuedScriptConnectionPageInfoPromiseChain & {get: <R extends EnqueuedScriptConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScriptConnectionPageInfo, R>) => Promise<FieldsSelection<EnqueuedScriptConnectionPageInfo, R>>})
 }
 
 
@@ -20234,7 +23808,10 @@ export interface EnqueuedScriptConnectionObservableChain{
 edges: ({get: <R extends EnqueuedScriptConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScriptConnectionEdge, R>[]) => Observable<FieldsSelection<EnqueuedScriptConnectionEdge, R>[]>}),
     
 /** A list of connected EnqueuedScript Nodes */
-nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Observable<FieldsSelection<EnqueuedScript, R>[]>})
+nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Observable<FieldsSelection<EnqueuedScript, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (EnqueuedScriptConnectionPageInfoObservableChain & {get: <R extends EnqueuedScriptConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScriptConnectionPageInfo, R>) => Observable<FieldsSelection<EnqueuedScriptConnectionPageInfo, R>>})
 }
 
 
@@ -20364,6 +23941,40 @@ version: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | u
 }
 
 
+/** Page Info on the connected EnqueuedScriptConnectionEdge */
+export interface EnqueuedScriptConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected EnqueuedScriptConnectionEdge */
+export interface EnqueuedScriptConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface UserToEnqueuedScriptConnectionEdgePromiseChain{
     
@@ -20386,6 +23997,40 @@ node: (EnqueuedScriptObservableChain & {get: <R extends EnqueuedScriptRequest>(r
 }
 
 
+/** Page Info on the &quot;UserToEnqueuedScriptConnection&quot; */
+export interface UserToEnqueuedScriptConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;UserToEnqueuedScriptConnection&quot; */
+export interface UserToEnqueuedScriptConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the User type and the EnqueuedStylesheet type */
 export interface UserToEnqueuedStylesheetConnectionPromiseChain{
     
@@ -20396,7 +24041,7 @@ edges: ({get: <R extends UserToEnqueuedStylesheetConnectionEdgeRequest>(request:
 nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Promise<FieldsSelection<EnqueuedStylesheet, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToEnqueuedStylesheetConnectionPageInfoPromiseChain & {get: <R extends UserToEnqueuedStylesheetConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToEnqueuedStylesheetConnectionPageInfo, R>) => Promise<FieldsSelection<UserToEnqueuedStylesheetConnectionPageInfo, R>>})
 }
 
 
@@ -20410,7 +24055,7 @@ edges: ({get: <R extends UserToEnqueuedStylesheetConnectionEdgeRequest>(request:
 nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Observable<FieldsSelection<EnqueuedStylesheet, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToEnqueuedStylesheetConnectionPageInfoObservableChain & {get: <R extends UserToEnqueuedStylesheetConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToEnqueuedStylesheetConnectionPageInfo, R>) => Observable<FieldsSelection<UserToEnqueuedStylesheetConnectionPageInfo, R>>})
 }
 
 
@@ -20421,7 +24066,10 @@ export interface EnqueuedStylesheetConnectionPromiseChain{
 edges: ({get: <R extends EnqueuedStylesheetConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheetConnectionEdge, R>[]) => Promise<FieldsSelection<EnqueuedStylesheetConnectionEdge, R>[]>}),
     
 /** A list of connected EnqueuedStylesheet Nodes */
-nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Promise<FieldsSelection<EnqueuedStylesheet, R>[]>})
+nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Promise<FieldsSelection<EnqueuedStylesheet, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (EnqueuedStylesheetConnectionPageInfoPromiseChain & {get: <R extends EnqueuedStylesheetConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheetConnectionPageInfo, R>) => Promise<FieldsSelection<EnqueuedStylesheetConnectionPageInfo, R>>})
 }
 
 
@@ -20432,7 +24080,10 @@ export interface EnqueuedStylesheetConnectionObservableChain{
 edges: ({get: <R extends EnqueuedStylesheetConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheetConnectionEdge, R>[]) => Observable<FieldsSelection<EnqueuedStylesheetConnectionEdge, R>[]>}),
     
 /** A list of connected EnqueuedStylesheet Nodes */
-nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Observable<FieldsSelection<EnqueuedStylesheet, R>[]>})
+nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Observable<FieldsSelection<EnqueuedStylesheet, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (EnqueuedStylesheetConnectionPageInfoObservableChain & {get: <R extends EnqueuedStylesheetConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheetConnectionPageInfo, R>) => Observable<FieldsSelection<EnqueuedStylesheetConnectionPageInfo, R>>})
 }
 
 
@@ -20510,6 +24161,40 @@ version: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | u
 }
 
 
+/** Page Info on the connected EnqueuedStylesheetConnectionEdge */
+export interface EnqueuedStylesheetConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected EnqueuedStylesheetConnectionEdge */
+export interface EnqueuedStylesheetConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface UserToEnqueuedStylesheetConnectionEdgePromiseChain{
     
@@ -20532,6 +24217,40 @@ node: (EnqueuedStylesheetObservableChain & {get: <R extends EnqueuedStylesheetRe
 }
 
 
+/** Page Info on the &quot;UserToEnqueuedStylesheetConnection&quot; */
+export interface UserToEnqueuedStylesheetConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;UserToEnqueuedStylesheetConnection&quot; */
+export interface UserToEnqueuedStylesheetConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the User type and the mediaItem type */
 export interface UserToMediaItemConnectionPromiseChain{
     
@@ -20542,7 +24261,7 @@ edges: ({get: <R extends UserToMediaItemConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: FieldsSelection<MediaItem, R>[]) => Promise<FieldsSelection<MediaItem, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToMediaItemConnectionPageInfoPromiseChain & {get: <R extends UserToMediaItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToMediaItemConnectionPageInfo, R>) => Promise<FieldsSelection<UserToMediaItemConnectionPageInfo, R>>})
 }
 
 
@@ -20556,7 +24275,7 @@ edges: ({get: <R extends UserToMediaItemConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: FieldsSelection<MediaItem, R>[]) => Observable<FieldsSelection<MediaItem, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToMediaItemConnectionPageInfoObservableChain & {get: <R extends UserToMediaItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToMediaItemConnectionPageInfo, R>) => Observable<FieldsSelection<UserToMediaItemConnectionPageInfo, R>>})
 }
 
 
@@ -20567,7 +24286,10 @@ export interface MediaItemConnectionPromiseChain{
 edges: ({get: <R extends MediaItemConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<MediaItemConnectionEdge, R>[]) => Promise<FieldsSelection<MediaItemConnectionEdge, R>[]>}),
     
 /** A list of connected mediaItem Nodes */
-nodes: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: FieldsSelection<MediaItem, R>[]) => Promise<FieldsSelection<MediaItem, R>[]>})
+nodes: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: FieldsSelection<MediaItem, R>[]) => Promise<FieldsSelection<MediaItem, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (MediaItemConnectionPageInfoPromiseChain & {get: <R extends MediaItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MediaItemConnectionPageInfo, R>) => Promise<FieldsSelection<MediaItemConnectionPageInfo, R>>})
 }
 
 
@@ -20578,7 +24300,10 @@ export interface MediaItemConnectionObservableChain{
 edges: ({get: <R extends MediaItemConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<MediaItemConnectionEdge, R>[]) => Observable<FieldsSelection<MediaItemConnectionEdge, R>[]>}),
     
 /** A list of connected mediaItem Nodes */
-nodes: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: FieldsSelection<MediaItem, R>[]) => Observable<FieldsSelection<MediaItem, R>[]>})
+nodes: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: FieldsSelection<MediaItem, R>[]) => Observable<FieldsSelection<MediaItem, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (MediaItemConnectionPageInfoObservableChain & {get: <R extends MediaItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MediaItemConnectionPageInfo, R>) => Observable<FieldsSelection<MediaItemConnectionPageInfo, R>>})
 }
 
 
@@ -21500,7 +25225,7 @@ edges: ({get: <R extends HierarchicalContentNodeToContentNodeAncestorsConnection
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Promise<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoPromiseChain & {get: <R extends HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo, R>) => Promise<FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo, R>>})
 }
 
 
@@ -21514,7 +25239,7 @@ edges: ({get: <R extends HierarchicalContentNodeToContentNodeAncestorsConnection
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Observable<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoObservableChain & {get: <R extends HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo, R>) => Observable<FieldsSelection<HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo, R>>})
 }
 
 
@@ -21540,6 +25265,40 @@ node: (ContentNodeObservableChain & {get: <R extends ContentNodeRequest>(request
 }
 
 
+/** Page Info on the &quot;HierarchicalContentNodeToContentNodeAncestorsConnection&quot; */
+export interface HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;HierarchicalContentNodeToContentNodeAncestorsConnection&quot; */
+export interface HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the HierarchicalContentNode type and the ContentNode type */
 export interface HierarchicalContentNodeToContentNodeChildrenConnectionPromiseChain{
     
@@ -21550,7 +25309,7 @@ edges: ({get: <R extends HierarchicalContentNodeToContentNodeChildrenConnectionE
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Promise<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoPromiseChain & {get: <R extends HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo, R>) => Promise<FieldsSelection<HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo, R>>})
 }
 
 
@@ -21564,7 +25323,7 @@ edges: ({get: <R extends HierarchicalContentNodeToContentNodeChildrenConnectionE
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Observable<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoObservableChain & {get: <R extends HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo, R>) => Observable<FieldsSelection<HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo, R>>})
 }
 
 
@@ -21590,6 +25349,40 @@ node: (ContentNodeObservableChain & {get: <R extends ContentNodeRequest>(request
 }
 
 
+/** Page Info on the &quot;HierarchicalContentNodeToContentNodeChildrenConnection&quot; */
+export interface HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;HierarchicalContentNodeToContentNodeChildrenConnection&quot; */
+export interface HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the ContentNode type and the EnqueuedScript type */
 export interface ContentNodeToEnqueuedScriptConnectionPromiseChain{
     
@@ -21600,7 +25393,7 @@ edges: ({get: <R extends ContentNodeToEnqueuedScriptConnectionEdgeRequest>(reque
 nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Promise<FieldsSelection<EnqueuedScript, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (ContentNodeToEnqueuedScriptConnectionPageInfoPromiseChain & {get: <R extends ContentNodeToEnqueuedScriptConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentNodeToEnqueuedScriptConnectionPageInfo, R>) => Promise<FieldsSelection<ContentNodeToEnqueuedScriptConnectionPageInfo, R>>})
 }
 
 
@@ -21614,7 +25407,7 @@ edges: ({get: <R extends ContentNodeToEnqueuedScriptConnectionEdgeRequest>(reque
 nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Observable<FieldsSelection<EnqueuedScript, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (ContentNodeToEnqueuedScriptConnectionPageInfoObservableChain & {get: <R extends ContentNodeToEnqueuedScriptConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentNodeToEnqueuedScriptConnectionPageInfo, R>) => Observable<FieldsSelection<ContentNodeToEnqueuedScriptConnectionPageInfo, R>>})
 }
 
 
@@ -21640,6 +25433,40 @@ node: (EnqueuedScriptObservableChain & {get: <R extends EnqueuedScriptRequest>(r
 }
 
 
+/** Page Info on the &quot;ContentNodeToEnqueuedScriptConnection&quot; */
+export interface ContentNodeToEnqueuedScriptConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;ContentNodeToEnqueuedScriptConnection&quot; */
+export interface ContentNodeToEnqueuedScriptConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the ContentNode type and the EnqueuedStylesheet type */
 export interface ContentNodeToEnqueuedStylesheetConnectionPromiseChain{
     
@@ -21650,7 +25477,7 @@ edges: ({get: <R extends ContentNodeToEnqueuedStylesheetConnectionEdgeRequest>(r
 nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Promise<FieldsSelection<EnqueuedStylesheet, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (ContentNodeToEnqueuedStylesheetConnectionPageInfoPromiseChain & {get: <R extends ContentNodeToEnqueuedStylesheetConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentNodeToEnqueuedStylesheetConnectionPageInfo, R>) => Promise<FieldsSelection<ContentNodeToEnqueuedStylesheetConnectionPageInfo, R>>})
 }
 
 
@@ -21664,7 +25491,7 @@ edges: ({get: <R extends ContentNodeToEnqueuedStylesheetConnectionEdgeRequest>(r
 nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Observable<FieldsSelection<EnqueuedStylesheet, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (ContentNodeToEnqueuedStylesheetConnectionPageInfoObservableChain & {get: <R extends ContentNodeToEnqueuedStylesheetConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ContentNodeToEnqueuedStylesheetConnectionPageInfo, R>) => Observable<FieldsSelection<ContentNodeToEnqueuedStylesheetConnectionPageInfo, R>>})
 }
 
 
@@ -21687,6 +25514,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (EnqueuedStylesheetObservableChain & {get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>) => Observable<FieldsSelection<EnqueuedStylesheet, R>>})
+}
+
+
+/** Page Info on the &quot;ContentNodeToEnqueuedStylesheetConnection&quot; */
+export interface ContentNodeToEnqueuedStylesheetConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;ContentNodeToEnqueuedStylesheetConnection&quot; */
+export interface ContentNodeToEnqueuedStylesheetConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -21744,7 +25605,7 @@ edges: ({get: <R extends MediaItemToCommentConnectionEdgeRequest>(request: R, de
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Promise<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (MediaItemToCommentConnectionPageInfoPromiseChain & {get: <R extends MediaItemToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MediaItemToCommentConnectionPageInfo, R>) => Promise<FieldsSelection<MediaItemToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -21758,7 +25619,7 @@ edges: ({get: <R extends MediaItemToCommentConnectionEdgeRequest>(request: R, de
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Observable<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (MediaItemToCommentConnectionPageInfoObservableChain & {get: <R extends MediaItemToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MediaItemToCommentConnectionPageInfo, R>) => Observable<FieldsSelection<MediaItemToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -21781,6 +25642,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (CommentObservableChain & {get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>) => Observable<FieldsSelection<Comment, R>>})
+}
+
+
+/** Page Info on the &quot;MediaItemToCommentConnection&quot; */
+export interface MediaItemToCommentConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;MediaItemToCommentConnection&quot; */
+export interface MediaItemToCommentConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -21966,6 +25861,40 @@ width: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | und
 }
 
 
+/** Page Info on the connected MediaItemConnectionEdge */
+export interface MediaItemConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected MediaItemConnectionEdge */
+export interface MediaItemConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface UserToMediaItemConnectionEdgePromiseChain{
     
@@ -21988,6 +25917,40 @@ node: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R,
 }
 
 
+/** Page Info on the &quot;UserToMediaItemConnection&quot; */
+export interface UserToMediaItemConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;UserToMediaItemConnection&quot; */
+export interface UserToMediaItemConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the User type and the page type */
 export interface UserToPageConnectionPromiseChain{
     
@@ -21998,7 +25961,7 @@ edges: ({get: <R extends UserToPageConnectionEdgeRequest>(request: R, defaultVal
 nodes: ({get: <R extends PageRequest>(request: R, defaultValue?: FieldsSelection<Page, R>[]) => Promise<FieldsSelection<Page, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToPageConnectionPageInfoPromiseChain & {get: <R extends UserToPageConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToPageConnectionPageInfo, R>) => Promise<FieldsSelection<UserToPageConnectionPageInfo, R>>})
 }
 
 
@@ -22012,7 +25975,7 @@ edges: ({get: <R extends UserToPageConnectionEdgeRequest>(request: R, defaultVal
 nodes: ({get: <R extends PageRequest>(request: R, defaultValue?: FieldsSelection<Page, R>[]) => Observable<FieldsSelection<Page, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToPageConnectionPageInfoObservableChain & {get: <R extends UserToPageConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToPageConnectionPageInfo, R>) => Observable<FieldsSelection<UserToPageConnectionPageInfo, R>>})
 }
 
 
@@ -22023,7 +25986,10 @@ export interface PageConnectionPromiseChain{
 edges: ({get: <R extends PageConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<PageConnectionEdge, R>[]) => Promise<FieldsSelection<PageConnectionEdge, R>[]>}),
     
 /** A list of connected page Nodes */
-nodes: ({get: <R extends PageRequest>(request: R, defaultValue?: FieldsSelection<Page, R>[]) => Promise<FieldsSelection<Page, R>[]>})
+nodes: ({get: <R extends PageRequest>(request: R, defaultValue?: FieldsSelection<Page, R>[]) => Promise<FieldsSelection<Page, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (PageConnectionPageInfoPromiseChain & {get: <R extends PageConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PageConnectionPageInfo, R>) => Promise<FieldsSelection<PageConnectionPageInfo, R>>})
 }
 
 
@@ -22034,7 +26000,10 @@ export interface PageConnectionObservableChain{
 edges: ({get: <R extends PageConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<PageConnectionEdge, R>[]) => Observable<FieldsSelection<PageConnectionEdge, R>[]>}),
     
 /** A list of connected page Nodes */
-nodes: ({get: <R extends PageRequest>(request: R, defaultValue?: FieldsSelection<Page, R>[]) => Observable<FieldsSelection<Page, R>[]>})
+nodes: ({get: <R extends PageRequest>(request: R, defaultValue?: FieldsSelection<Page, R>[]) => Observable<FieldsSelection<Page, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (PageConnectionPageInfoObservableChain & {get: <R extends PageConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PageConnectionPageInfo, R>) => Observable<FieldsSelection<PageConnectionPageInfo, R>>})
 }
 
 
@@ -22792,7 +26761,7 @@ edges: ({get: <R extends PageToCommentConnectionEdgeRequest>(request: R, default
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Promise<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PageToCommentConnectionPageInfoPromiseChain & {get: <R extends PageToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PageToCommentConnectionPageInfo, R>) => Promise<FieldsSelection<PageToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -22806,7 +26775,7 @@ edges: ({get: <R extends PageToCommentConnectionEdgeRequest>(request: R, default
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Observable<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PageToCommentConnectionPageInfoObservableChain & {get: <R extends PageToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PageToCommentConnectionPageInfo, R>) => Observable<FieldsSelection<PageToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -22829,6 +26798,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (CommentObservableChain & {get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>) => Observable<FieldsSelection<Comment, R>>})
+}
+
+
+/** Page Info on the &quot;PageToCommentConnection&quot; */
+export interface PageToCommentConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;PageToCommentConnection&quot; */
+export interface PageToCommentConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -22960,7 +26963,7 @@ edges: ({get: <R extends PageToRevisionConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends PageRequest>(request: R, defaultValue?: FieldsSelection<Page, R>[]) => Promise<FieldsSelection<Page, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PageToRevisionConnectionPageInfoPromiseChain & {get: <R extends PageToRevisionConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PageToRevisionConnectionPageInfo, R>) => Promise<FieldsSelection<PageToRevisionConnectionPageInfo, R>>})
 }
 
 
@@ -22974,7 +26977,7 @@ edges: ({get: <R extends PageToRevisionConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends PageRequest>(request: R, defaultValue?: FieldsSelection<Page, R>[]) => Observable<FieldsSelection<Page, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PageToRevisionConnectionPageInfoObservableChain & {get: <R extends PageToRevisionConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PageToRevisionConnectionPageInfo, R>) => Observable<FieldsSelection<PageToRevisionConnectionPageInfo, R>>})
 }
 
 
@@ -23000,6 +27003,74 @@ node: (PageObservableChain & {get: <R extends PageRequest>(request: R, defaultVa
 }
 
 
+/** Page Info on the &quot;PageToRevisionConnection&quot; */
+export interface PageToRevisionConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;PageToRevisionConnection&quot; */
+export interface PageToRevisionConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected PageConnectionEdge */
+export interface PageConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected PageConnectionEdge */
+export interface PageConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface UserToPageConnectionEdgePromiseChain{
     
@@ -23022,6 +27093,40 @@ node: (PageObservableChain & {get: <R extends PageRequest>(request: R, defaultVa
 }
 
 
+/** Page Info on the &quot;UserToPageConnection&quot; */
+export interface UserToPageConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;UserToPageConnection&quot; */
+export interface UserToPageConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the User type and the post type */
 export interface UserToPostConnectionPromiseChain{
     
@@ -23032,7 +27137,7 @@ edges: ({get: <R extends UserToPostConnectionEdgeRequest>(request: R, defaultVal
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Promise<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToPostConnectionPageInfoPromiseChain & {get: <R extends UserToPostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToPostConnectionPageInfo, R>) => Promise<FieldsSelection<UserToPostConnectionPageInfo, R>>})
 }
 
 
@@ -23046,7 +27151,7 @@ edges: ({get: <R extends UserToPostConnectionEdgeRequest>(request: R, defaultVal
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Observable<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToPostConnectionPageInfoObservableChain & {get: <R extends UserToPostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToPostConnectionPageInfo, R>) => Observable<FieldsSelection<UserToPostConnectionPageInfo, R>>})
 }
 
 
@@ -23057,7 +27162,10 @@ export interface PostConnectionPromiseChain{
 edges: ({get: <R extends PostConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<PostConnectionEdge, R>[]) => Promise<FieldsSelection<PostConnectionEdge, R>[]>}),
     
 /** A list of connected post Nodes */
-nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Promise<FieldsSelection<Post, R>[]>})
+nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Promise<FieldsSelection<Post, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (PostConnectionPageInfoPromiseChain & {get: <R extends PostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostConnectionPageInfo, R>) => Promise<FieldsSelection<PostConnectionPageInfo, R>>})
 }
 
 
@@ -23068,7 +27176,10 @@ export interface PostConnectionObservableChain{
 edges: ({get: <R extends PostConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<PostConnectionEdge, R>[]) => Observable<FieldsSelection<PostConnectionEdge, R>[]>}),
     
 /** A list of connected post Nodes */
-nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Observable<FieldsSelection<Post, R>[]>})
+nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Observable<FieldsSelection<Post, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (PostConnectionPageInfoObservableChain & {get: <R extends PostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostConnectionPageInfo, R>) => Observable<FieldsSelection<PostConnectionPageInfo, R>>})
 }
 
 
@@ -23650,7 +27761,7 @@ edges: ({get: <R extends PostToCategoryConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Promise<FieldsSelection<Category, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToCategoryConnectionPageInfoPromiseChain & {get: <R extends PostToCategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToCategoryConnectionPageInfo, R>) => Promise<FieldsSelection<PostToCategoryConnectionPageInfo, R>>})
 }
 
 
@@ -23664,7 +27775,7 @@ edges: ({get: <R extends PostToCategoryConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Observable<FieldsSelection<Category, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToCategoryConnectionPageInfoObservableChain & {get: <R extends PostToCategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToCategoryConnectionPageInfo, R>) => Observable<FieldsSelection<PostToCategoryConnectionPageInfo, R>>})
 }
 
 
@@ -23675,7 +27786,10 @@ export interface CategoryConnectionPromiseChain{
 edges: ({get: <R extends CategoryConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<CategoryConnectionEdge, R>[]) => Promise<FieldsSelection<CategoryConnectionEdge, R>[]>}),
     
 /** A list of connected category Nodes */
-nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Promise<FieldsSelection<Category, R>[]>})
+nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Promise<FieldsSelection<Category, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (CategoryConnectionPageInfoPromiseChain & {get: <R extends CategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryConnectionPageInfo, R>) => Promise<FieldsSelection<CategoryConnectionPageInfo, R>>})
 }
 
 
@@ -23686,7 +27800,10 @@ export interface CategoryConnectionObservableChain{
 edges: ({get: <R extends CategoryConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<CategoryConnectionEdge, R>[]) => Observable<FieldsSelection<CategoryConnectionEdge, R>[]>}),
     
 /** A list of connected category Nodes */
-nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Observable<FieldsSelection<Category, R>[]>})
+nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Observable<FieldsSelection<Category, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (CategoryConnectionPageInfoObservableChain & {get: <R extends CategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryConnectionPageInfo, R>) => Observable<FieldsSelection<CategoryConnectionPageInfo, R>>})
 }
 
 
@@ -24160,7 +28277,7 @@ edges: ({get: <R extends TermNodeToEnqueuedScriptConnectionEdgeRequest>(request:
 nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Promise<FieldsSelection<EnqueuedScript, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (TermNodeToEnqueuedScriptConnectionPageInfoPromiseChain & {get: <R extends TermNodeToEnqueuedScriptConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TermNodeToEnqueuedScriptConnectionPageInfo, R>) => Promise<FieldsSelection<TermNodeToEnqueuedScriptConnectionPageInfo, R>>})
 }
 
 
@@ -24174,7 +28291,7 @@ edges: ({get: <R extends TermNodeToEnqueuedScriptConnectionEdgeRequest>(request:
 nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Observable<FieldsSelection<EnqueuedScript, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (TermNodeToEnqueuedScriptConnectionPageInfoObservableChain & {get: <R extends TermNodeToEnqueuedScriptConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TermNodeToEnqueuedScriptConnectionPageInfo, R>) => Observable<FieldsSelection<TermNodeToEnqueuedScriptConnectionPageInfo, R>>})
 }
 
 
@@ -24200,6 +28317,40 @@ node: (EnqueuedScriptObservableChain & {get: <R extends EnqueuedScriptRequest>(r
 }
 
 
+/** Page Info on the &quot;TermNodeToEnqueuedScriptConnection&quot; */
+export interface TermNodeToEnqueuedScriptConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;TermNodeToEnqueuedScriptConnection&quot; */
+export interface TermNodeToEnqueuedScriptConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the TermNode type and the EnqueuedStylesheet type */
 export interface TermNodeToEnqueuedStylesheetConnectionPromiseChain{
     
@@ -24210,7 +28361,7 @@ edges: ({get: <R extends TermNodeToEnqueuedStylesheetConnectionEdgeRequest>(requ
 nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Promise<FieldsSelection<EnqueuedStylesheet, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (TermNodeToEnqueuedStylesheetConnectionPageInfoPromiseChain & {get: <R extends TermNodeToEnqueuedStylesheetConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TermNodeToEnqueuedStylesheetConnectionPageInfo, R>) => Promise<FieldsSelection<TermNodeToEnqueuedStylesheetConnectionPageInfo, R>>})
 }
 
 
@@ -24224,7 +28375,7 @@ edges: ({get: <R extends TermNodeToEnqueuedStylesheetConnectionEdgeRequest>(requ
 nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Observable<FieldsSelection<EnqueuedStylesheet, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (TermNodeToEnqueuedStylesheetConnectionPageInfoObservableChain & {get: <R extends TermNodeToEnqueuedStylesheetConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TermNodeToEnqueuedStylesheetConnectionPageInfo, R>) => Observable<FieldsSelection<TermNodeToEnqueuedStylesheetConnectionPageInfo, R>>})
 }
 
 
@@ -24247,6 +28398,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (EnqueuedStylesheetObservableChain & {get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>) => Observable<FieldsSelection<EnqueuedStylesheet, R>>})
+}
+
+
+/** Page Info on the &quot;TermNodeToEnqueuedStylesheetConnection&quot; */
+export interface TermNodeToEnqueuedStylesheetConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;TermNodeToEnqueuedStylesheetConnection&quot; */
+export interface TermNodeToEnqueuedStylesheetConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -24410,7 +28595,7 @@ edges: ({get: <R extends CategoryToAncestorsCategoryConnectionEdgeRequest>(reque
 nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Promise<FieldsSelection<Category, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CategoryToAncestorsCategoryConnectionPageInfoPromiseChain & {get: <R extends CategoryToAncestorsCategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryToAncestorsCategoryConnectionPageInfo, R>) => Promise<FieldsSelection<CategoryToAncestorsCategoryConnectionPageInfo, R>>})
 }
 
 
@@ -24424,7 +28609,7 @@ edges: ({get: <R extends CategoryToAncestorsCategoryConnectionEdgeRequest>(reque
 nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Observable<FieldsSelection<Category, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CategoryToAncestorsCategoryConnectionPageInfoObservableChain & {get: <R extends CategoryToAncestorsCategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryToAncestorsCategoryConnectionPageInfo, R>) => Observable<FieldsSelection<CategoryToAncestorsCategoryConnectionPageInfo, R>>})
 }
 
 
@@ -24450,6 +28635,74 @@ node: (CategoryObservableChain & {get: <R extends CategoryRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;CategoryToAncestorsCategoryConnection&quot; */
+export interface CategoryToAncestorsCategoryConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;CategoryToAncestorsCategoryConnection&quot; */
+export interface CategoryToAncestorsCategoryConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected CategoryConnectionEdge */
+export interface CategoryConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected CategoryConnectionEdge */
+export interface CategoryConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the Category type and the category type */
 export interface CategoryToCategoryConnectionPromiseChain{
     
@@ -24460,7 +28713,7 @@ edges: ({get: <R extends CategoryToCategoryConnectionEdgeRequest>(request: R, de
 nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Promise<FieldsSelection<Category, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CategoryToCategoryConnectionPageInfoPromiseChain & {get: <R extends CategoryToCategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryToCategoryConnectionPageInfo, R>) => Promise<FieldsSelection<CategoryToCategoryConnectionPageInfo, R>>})
 }
 
 
@@ -24474,7 +28727,7 @@ edges: ({get: <R extends CategoryToCategoryConnectionEdgeRequest>(request: R, de
 nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Observable<FieldsSelection<Category, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CategoryToCategoryConnectionPageInfoObservableChain & {get: <R extends CategoryToCategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryToCategoryConnectionPageInfo, R>) => Observable<FieldsSelection<CategoryToCategoryConnectionPageInfo, R>>})
 }
 
 
@@ -24500,6 +28753,40 @@ node: (CategoryObservableChain & {get: <R extends CategoryRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;CategoryToCategoryConnection&quot; */
+export interface CategoryToCategoryConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;CategoryToCategoryConnection&quot; */
+export interface CategoryToCategoryConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the Category type and the ContentNode type */
 export interface CategoryToContentNodeConnectionPromiseChain{
     
@@ -24510,7 +28797,7 @@ edges: ({get: <R extends CategoryToContentNodeConnectionEdgeRequest>(request: R,
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Promise<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CategoryToContentNodeConnectionPageInfoPromiseChain & {get: <R extends CategoryToContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryToContentNodeConnectionPageInfo, R>) => Promise<FieldsSelection<CategoryToContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -24524,7 +28811,7 @@ edges: ({get: <R extends CategoryToContentNodeConnectionEdgeRequest>(request: R,
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Observable<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CategoryToContentNodeConnectionPageInfoObservableChain & {get: <R extends CategoryToContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryToContentNodeConnectionPageInfo, R>) => Observable<FieldsSelection<CategoryToContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -24550,6 +28837,40 @@ node: (ContentNodeObservableChain & {get: <R extends ContentNodeRequest>(request
 }
 
 
+/** Page Info on the &quot;CategoryToContentNodeConnection&quot; */
+export interface CategoryToContentNodeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;CategoryToContentNodeConnection&quot; */
+export interface CategoryToContentNodeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the Category type and the Empreendimento type */
 export interface CategoryToEmpreendimentoConnectionPromiseChain{
     
@@ -24560,7 +28881,7 @@ edges: ({get: <R extends CategoryToEmpreendimentoConnectionEdgeRequest>(request:
 nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Promise<FieldsSelection<Empreendimento, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CategoryToEmpreendimentoConnectionPageInfoPromiseChain & {get: <R extends CategoryToEmpreendimentoConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryToEmpreendimentoConnectionPageInfo, R>) => Promise<FieldsSelection<CategoryToEmpreendimentoConnectionPageInfo, R>>})
 }
 
 
@@ -24574,7 +28895,7 @@ edges: ({get: <R extends CategoryToEmpreendimentoConnectionEdgeRequest>(request:
 nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Observable<FieldsSelection<Empreendimento, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CategoryToEmpreendimentoConnectionPageInfoObservableChain & {get: <R extends CategoryToEmpreendimentoConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryToEmpreendimentoConnectionPageInfo, R>) => Observable<FieldsSelection<CategoryToEmpreendimentoConnectionPageInfo, R>>})
 }
 
 
@@ -24585,7 +28906,10 @@ export interface EmpreendimentoConnectionPromiseChain{
 edges: ({get: <R extends EmpreendimentoConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoConnectionEdge, R>[]) => Promise<FieldsSelection<EmpreendimentoConnectionEdge, R>[]>}),
     
 /** A list of connected Empreendimento Nodes */
-nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Promise<FieldsSelection<Empreendimento, R>[]>})
+nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Promise<FieldsSelection<Empreendimento, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (EmpreendimentoConnectionPageInfoPromiseChain & {get: <R extends EmpreendimentoConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoConnectionPageInfo, R>) => Promise<FieldsSelection<EmpreendimentoConnectionPageInfo, R>>})
 }
 
 
@@ -24596,7 +28920,10 @@ export interface EmpreendimentoConnectionObservableChain{
 edges: ({get: <R extends EmpreendimentoConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoConnectionEdge, R>[]) => Observable<FieldsSelection<EmpreendimentoConnectionEdge, R>[]>}),
     
 /** A list of connected Empreendimento Nodes */
-nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Observable<FieldsSelection<Empreendimento, R>[]>})
+nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Observable<FieldsSelection<Empreendimento, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (EmpreendimentoConnectionPageInfoObservableChain & {get: <R extends EmpreendimentoConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoConnectionPageInfo, R>) => Observable<FieldsSelection<EmpreendimentoConnectionPageInfo, R>>})
 }
 
 
@@ -24934,7 +29261,7 @@ edges: ({get: <R extends EmpreendimentoToCategoryConnectionEdgeRequest>(request:
 nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Promise<FieldsSelection<Category, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (EmpreendimentoToCategoryConnectionPageInfoPromiseChain & {get: <R extends EmpreendimentoToCategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoToCategoryConnectionPageInfo, R>) => Promise<FieldsSelection<EmpreendimentoToCategoryConnectionPageInfo, R>>})
 }
 
 
@@ -24948,7 +29275,7 @@ edges: ({get: <R extends EmpreendimentoToCategoryConnectionEdgeRequest>(request:
 nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Observable<FieldsSelection<Category, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (EmpreendimentoToCategoryConnectionPageInfoObservableChain & {get: <R extends EmpreendimentoToCategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoToCategoryConnectionPageInfo, R>) => Observable<FieldsSelection<EmpreendimentoToCategoryConnectionPageInfo, R>>})
 }
 
 
@@ -24974,6 +29301,40 @@ node: (CategoryObservableChain & {get: <R extends CategoryRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;EmpreendimentoToCategoryConnection&quot; */
+export interface EmpreendimentoToCategoryConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;EmpreendimentoToCategoryConnection&quot; */
+export interface EmpreendimentoToCategoryConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Field Group */
 export interface Empreendimento_EmpreendimentoPromiseChain{
     andamentoDaObra: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
@@ -24986,7 +29347,9 @@ export interface Empreendimento_EmpreendimentoPromiseChain{
     empVagasDeGaragem: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     empValorAPartirDe: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     endStandVendas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    enderecoDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    enderecoBairro: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    enderecoNumero: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    enderecoRua: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     estagioDaObra: (CategoryPromiseChain & {get: <R extends CategoryRequest>(request: R, defaultValue?: (FieldsSelection<Category, R> | undefined)) => Promise<(FieldsSelection<Category, R> | undefined)>}),
     
 /** The name of the ACF Field Group */
@@ -25019,7 +29382,9 @@ export interface Empreendimento_EmpreendimentoObservableChain{
     empVagasDeGaragem: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     empValorAPartirDe: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     endStandVendas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    enderecoDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    enderecoBairro: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    enderecoNumero: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    enderecoRua: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     estagioDaObra: (CategoryObservableChain & {get: <R extends CategoryRequest>(request: R, defaultValue?: (FieldsSelection<Category, R> | undefined)) => Observable<(FieldsSelection<Category, R> | undefined)>}),
     
 /** The name of the ACF Field Group */
@@ -25170,7 +29535,7 @@ edges: ({get: <R extends EmpreendimentoToTermNodeConnectionEdgeRequest>(request:
 nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Promise<FieldsSelection<TermNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (EmpreendimentoToTermNodeConnectionPageInfoPromiseChain & {get: <R extends EmpreendimentoToTermNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoToTermNodeConnectionPageInfo, R>) => Promise<FieldsSelection<EmpreendimentoToTermNodeConnectionPageInfo, R>>})
 }
 
 
@@ -25184,7 +29549,7 @@ edges: ({get: <R extends EmpreendimentoToTermNodeConnectionEdgeRequest>(request:
 nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Observable<FieldsSelection<TermNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (EmpreendimentoToTermNodeConnectionPageInfoObservableChain & {get: <R extends EmpreendimentoToTermNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<EmpreendimentoToTermNodeConnectionPageInfo, R>) => Observable<FieldsSelection<EmpreendimentoToTermNodeConnectionPageInfo, R>>})
 }
 
 
@@ -25195,7 +29560,10 @@ export interface TermNodeConnectionPromiseChain{
 edges: ({get: <R extends TermNodeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<TermNodeConnectionEdge, R>[]) => Promise<FieldsSelection<TermNodeConnectionEdge, R>[]>}),
     
 /** A list of connected TermNode Nodes */
-nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Promise<FieldsSelection<TermNode, R>[]>})
+nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Promise<FieldsSelection<TermNode, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (TermNodeConnectionPageInfoPromiseChain & {get: <R extends TermNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TermNodeConnectionPageInfo, R>) => Promise<FieldsSelection<TermNodeConnectionPageInfo, R>>})
 }
 
 
@@ -25206,7 +29574,10 @@ export interface TermNodeConnectionObservableChain{
 edges: ({get: <R extends TermNodeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<TermNodeConnectionEdge, R>[]) => Observable<FieldsSelection<TermNodeConnectionEdge, R>[]>}),
     
 /** A list of connected TermNode Nodes */
-nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Observable<FieldsSelection<TermNode, R>[]>})
+nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Observable<FieldsSelection<TermNode, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (TermNodeConnectionPageInfoObservableChain & {get: <R extends TermNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TermNodeConnectionPageInfo, R>) => Observable<FieldsSelection<TermNodeConnectionPageInfo, R>>})
 }
 
 
@@ -25232,6 +29603,40 @@ node: (TermNodeObservableChain & {get: <R extends TermNodeRequest>(request: R, d
 }
 
 
+/** Page Info on the connected TermNodeConnectionEdge */
+export interface TermNodeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected TermNodeConnectionEdge */
+export interface TermNodeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface EmpreendimentoToTermNodeConnectionEdgePromiseChain{
     
@@ -25254,6 +29659,74 @@ node: (TermNodeObservableChain & {get: <R extends TermNodeRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;EmpreendimentoToTermNodeConnection&quot; */
+export interface EmpreendimentoToTermNodeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;EmpreendimentoToTermNodeConnection&quot; */
+export interface EmpreendimentoToTermNodeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected EmpreendimentoConnectionEdge */
+export interface EmpreendimentoConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected EmpreendimentoConnectionEdge */
+export interface EmpreendimentoConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface CategoryToEmpreendimentoConnectionEdgePromiseChain{
     
@@ -25273,6 +29746,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>) => Observable<FieldsSelection<Empreendimento, R>>})
+}
+
+
+/** Page Info on the &quot;CategoryToEmpreendimentoConnection&quot; */
+export interface CategoryToEmpreendimentoConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;CategoryToEmpreendimentoConnection&quot; */
+export interface CategoryToEmpreendimentoConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -25308,7 +29815,7 @@ edges: ({get: <R extends CategoryToPostConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Promise<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CategoryToPostConnectionPageInfoPromiseChain & {get: <R extends CategoryToPostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryToPostConnectionPageInfo, R>) => Promise<FieldsSelection<CategoryToPostConnectionPageInfo, R>>})
 }
 
 
@@ -25322,7 +29829,7 @@ edges: ({get: <R extends CategoryToPostConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Observable<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (CategoryToPostConnectionPageInfoObservableChain & {get: <R extends CategoryToPostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<CategoryToPostConnectionPageInfo, R>) => Observable<FieldsSelection<CategoryToPostConnectionPageInfo, R>>})
 }
 
 
@@ -25345,6 +29852,74 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (PostObservableChain & {get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>) => Observable<FieldsSelection<Post, R>>})
+}
+
+
+/** Page Info on the &quot;CategoryToPostConnection&quot; */
+export interface CategoryToPostConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;CategoryToPostConnection&quot; */
+export interface CategoryToPostConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected PostConnectionEdge */
+export interface PostConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected PostConnectionEdge */
+export interface PostConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -25392,6 +29967,40 @@ node: (CategoryObservableChain & {get: <R extends CategoryRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;PostToCategoryConnection&quot; */
+export interface PostToCategoryConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;PostToCategoryConnection&quot; */
+export interface PostToCategoryConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the Post type and the Comment type */
 export interface PostToCommentConnectionPromiseChain{
     
@@ -25402,7 +30011,7 @@ edges: ({get: <R extends PostToCommentConnectionEdgeRequest>(request: R, default
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Promise<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToCommentConnectionPageInfoPromiseChain & {get: <R extends PostToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToCommentConnectionPageInfo, R>) => Promise<FieldsSelection<PostToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -25416,7 +30025,7 @@ edges: ({get: <R extends PostToCommentConnectionEdgeRequest>(request: R, default
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Observable<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToCommentConnectionPageInfoObservableChain & {get: <R extends PostToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToCommentConnectionPageInfo, R>) => Observable<FieldsSelection<PostToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -25442,6 +30051,40 @@ node: (CommentObservableChain & {get: <R extends CommentRequest>(request: R, def
 }
 
 
+/** Page Info on the &quot;PostToCommentConnection&quot; */
+export interface PostToCommentConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;PostToCommentConnection&quot; */
+export interface PostToCommentConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the Post type and the postFormat type */
 export interface PostToPostFormatConnectionPromiseChain{
     
@@ -25452,7 +30095,7 @@ edges: ({get: <R extends PostToPostFormatConnectionEdgeRequest>(request: R, defa
 nodes: ({get: <R extends PostFormatRequest>(request: R, defaultValue?: FieldsSelection<PostFormat, R>[]) => Promise<FieldsSelection<PostFormat, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToPostFormatConnectionPageInfoPromiseChain & {get: <R extends PostToPostFormatConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToPostFormatConnectionPageInfo, R>) => Promise<FieldsSelection<PostToPostFormatConnectionPageInfo, R>>})
 }
 
 
@@ -25466,7 +30109,7 @@ edges: ({get: <R extends PostToPostFormatConnectionEdgeRequest>(request: R, defa
 nodes: ({get: <R extends PostFormatRequest>(request: R, defaultValue?: FieldsSelection<PostFormat, R>[]) => Observable<FieldsSelection<PostFormat, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToPostFormatConnectionPageInfoObservableChain & {get: <R extends PostToPostFormatConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToPostFormatConnectionPageInfo, R>) => Observable<FieldsSelection<PostToPostFormatConnectionPageInfo, R>>})
 }
 
 
@@ -25477,7 +30120,10 @@ export interface PostFormatConnectionPromiseChain{
 edges: ({get: <R extends PostFormatConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<PostFormatConnectionEdge, R>[]) => Promise<FieldsSelection<PostFormatConnectionEdge, R>[]>}),
     
 /** A list of connected postFormat Nodes */
-nodes: ({get: <R extends PostFormatRequest>(request: R, defaultValue?: FieldsSelection<PostFormat, R>[]) => Promise<FieldsSelection<PostFormat, R>[]>})
+nodes: ({get: <R extends PostFormatRequest>(request: R, defaultValue?: FieldsSelection<PostFormat, R>[]) => Promise<FieldsSelection<PostFormat, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (PostFormatConnectionPageInfoPromiseChain & {get: <R extends PostFormatConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostFormatConnectionPageInfo, R>) => Promise<FieldsSelection<PostFormatConnectionPageInfo, R>>})
 }
 
 
@@ -25488,7 +30134,10 @@ export interface PostFormatConnectionObservableChain{
 edges: ({get: <R extends PostFormatConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<PostFormatConnectionEdge, R>[]) => Observable<FieldsSelection<PostFormatConnectionEdge, R>[]>}),
     
 /** A list of connected postFormat Nodes */
-nodes: ({get: <R extends PostFormatRequest>(request: R, defaultValue?: FieldsSelection<PostFormat, R>[]) => Observable<FieldsSelection<PostFormat, R>[]>})
+nodes: ({get: <R extends PostFormatRequest>(request: R, defaultValue?: FieldsSelection<PostFormat, R>[]) => Observable<FieldsSelection<PostFormat, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (PostFormatConnectionPageInfoObservableChain & {get: <R extends PostFormatConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostFormatConnectionPageInfo, R>) => Observable<FieldsSelection<PostFormatConnectionPageInfo, R>>})
 }
 
 
@@ -25732,7 +30381,7 @@ edges: ({get: <R extends PostFormatToContentNodeConnectionEdgeRequest>(request: 
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Promise<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostFormatToContentNodeConnectionPageInfoPromiseChain & {get: <R extends PostFormatToContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostFormatToContentNodeConnectionPageInfo, R>) => Promise<FieldsSelection<PostFormatToContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -25746,7 +30395,7 @@ edges: ({get: <R extends PostFormatToContentNodeConnectionEdgeRequest>(request: 
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Observable<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostFormatToContentNodeConnectionPageInfoObservableChain & {get: <R extends PostFormatToContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostFormatToContentNodeConnectionPageInfo, R>) => Observable<FieldsSelection<PostFormatToContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -25772,6 +30421,40 @@ node: (ContentNodeObservableChain & {get: <R extends ContentNodeRequest>(request
 }
 
 
+/** Page Info on the &quot;PostFormatToContentNodeConnection&quot; */
+export interface PostFormatToContentNodeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;PostFormatToContentNodeConnection&quot; */
+export interface PostFormatToContentNodeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the PostFormat type and the post type */
 export interface PostFormatToPostConnectionPromiseChain{
     
@@ -25782,7 +30465,7 @@ edges: ({get: <R extends PostFormatToPostConnectionEdgeRequest>(request: R, defa
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Promise<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostFormatToPostConnectionPageInfoPromiseChain & {get: <R extends PostFormatToPostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostFormatToPostConnectionPageInfo, R>) => Promise<FieldsSelection<PostFormatToPostConnectionPageInfo, R>>})
 }
 
 
@@ -25796,7 +30479,7 @@ edges: ({get: <R extends PostFormatToPostConnectionEdgeRequest>(request: R, defa
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Observable<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostFormatToPostConnectionPageInfoObservableChain & {get: <R extends PostFormatToPostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostFormatToPostConnectionPageInfo, R>) => Observable<FieldsSelection<PostFormatToPostConnectionPageInfo, R>>})
 }
 
 
@@ -25822,6 +30505,40 @@ node: (PostObservableChain & {get: <R extends PostRequest>(request: R, defaultVa
 }
 
 
+/** Page Info on the &quot;PostFormatToPostConnection&quot; */
+export interface PostFormatToPostConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;PostFormatToPostConnection&quot; */
+export interface PostFormatToPostConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the PostFormat type and the Taxonomy type */
 export interface PostFormatToTaxonomyConnectionEdgePromiseChain{
     
@@ -25844,6 +30561,40 @@ node: (TaxonomyObservableChain & {get: <R extends TaxonomyRequest>(request: R, d
 }
 
 
+/** Page Info on the connected PostFormatConnectionEdge */
+export interface PostFormatConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected PostFormatConnectionEdge */
+export interface PostFormatConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface PostToPostFormatConnectionEdgePromiseChain{
     
@@ -25863,6 +30614,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (PostFormatObservableChain & {get: <R extends PostFormatRequest>(request: R, defaultValue?: FieldsSelection<PostFormat, R>) => Observable<FieldsSelection<PostFormat, R>>})
+}
+
+
+/** Page Info on the &quot;PostToPostFormatConnection&quot; */
+export interface PostToPostFormatConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;PostToPostFormatConnection&quot; */
+export interface PostToPostFormatConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -25898,7 +30683,7 @@ edges: ({get: <R extends PostToRevisionConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Promise<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToRevisionConnectionPageInfoPromiseChain & {get: <R extends PostToRevisionConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToRevisionConnectionPageInfo, R>) => Promise<FieldsSelection<PostToRevisionConnectionPageInfo, R>>})
 }
 
 
@@ -25912,7 +30697,7 @@ edges: ({get: <R extends PostToRevisionConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Observable<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToRevisionConnectionPageInfoObservableChain & {get: <R extends PostToRevisionConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToRevisionConnectionPageInfo, R>) => Observable<FieldsSelection<PostToRevisionConnectionPageInfo, R>>})
 }
 
 
@@ -25938,6 +30723,40 @@ node: (PostObservableChain & {get: <R extends PostRequest>(request: R, defaultVa
 }
 
 
+/** Page Info on the &quot;PostToRevisionConnection&quot; */
+export interface PostToRevisionConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;PostToRevisionConnection&quot; */
+export interface PostToRevisionConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the Post type and the tag type */
 export interface PostToTagConnectionPromiseChain{
     
@@ -25948,7 +30767,7 @@ edges: ({get: <R extends PostToTagConnectionEdgeRequest>(request: R, defaultValu
 nodes: ({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToTagConnectionPageInfoPromiseChain & {get: <R extends PostToTagConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToTagConnectionPageInfo, R>) => Promise<FieldsSelection<PostToTagConnectionPageInfo, R>>})
 }
 
 
@@ -25962,7 +30781,7 @@ edges: ({get: <R extends PostToTagConnectionEdgeRequest>(request: R, defaultValu
 nodes: ({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToTagConnectionPageInfoObservableChain & {get: <R extends PostToTagConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToTagConnectionPageInfo, R>) => Observable<FieldsSelection<PostToTagConnectionPageInfo, R>>})
 }
 
 
@@ -25973,7 +30792,10 @@ export interface TagConnectionPromiseChain{
 edges: ({get: <R extends TagConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<TagConnectionEdge, R>[]) => Promise<FieldsSelection<TagConnectionEdge, R>[]>}),
     
 /** A list of connected tag Nodes */
-nodes: ({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})
+nodes: ({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (TagConnectionPageInfoPromiseChain & {get: <R extends TagConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TagConnectionPageInfo, R>) => Promise<FieldsSelection<TagConnectionPageInfo, R>>})
 }
 
 
@@ -25984,7 +30806,10 @@ export interface TagConnectionObservableChain{
 edges: ({get: <R extends TagConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<TagConnectionEdge, R>[]) => Observable<FieldsSelection<TagConnectionEdge, R>[]>}),
     
 /** A list of connected tag Nodes */
-nodes: ({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})
+nodes: ({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (TagConnectionPageInfoObservableChain & {get: <R extends TagConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TagConnectionPageInfo, R>) => Observable<FieldsSelection<TagConnectionPageInfo, R>>})
 }
 
 
@@ -26228,7 +31053,7 @@ edges: ({get: <R extends TagToContentNodeConnectionEdgeRequest>(request: R, defa
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Promise<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (TagToContentNodeConnectionPageInfoPromiseChain & {get: <R extends TagToContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TagToContentNodeConnectionPageInfo, R>) => Promise<FieldsSelection<TagToContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -26242,7 +31067,7 @@ edges: ({get: <R extends TagToContentNodeConnectionEdgeRequest>(request: R, defa
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Observable<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (TagToContentNodeConnectionPageInfoObservableChain & {get: <R extends TagToContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TagToContentNodeConnectionPageInfo, R>) => Observable<FieldsSelection<TagToContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -26268,6 +31093,40 @@ node: (ContentNodeObservableChain & {get: <R extends ContentNodeRequest>(request
 }
 
 
+/** Page Info on the &quot;TagToContentNodeConnection&quot; */
+export interface TagToContentNodeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;TagToContentNodeConnection&quot; */
+export interface TagToContentNodeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the Tag type and the post type */
 export interface TagToPostConnectionPromiseChain{
     
@@ -26278,7 +31137,7 @@ edges: ({get: <R extends TagToPostConnectionEdgeRequest>(request: R, defaultValu
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Promise<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (TagToPostConnectionPageInfoPromiseChain & {get: <R extends TagToPostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TagToPostConnectionPageInfo, R>) => Promise<FieldsSelection<TagToPostConnectionPageInfo, R>>})
 }
 
 
@@ -26292,7 +31151,7 @@ edges: ({get: <R extends TagToPostConnectionEdgeRequest>(request: R, defaultValu
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Observable<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (TagToPostConnectionPageInfoObservableChain & {get: <R extends TagToPostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<TagToPostConnectionPageInfo, R>) => Observable<FieldsSelection<TagToPostConnectionPageInfo, R>>})
 }
 
 
@@ -26318,6 +31177,40 @@ node: (PostObservableChain & {get: <R extends PostRequest>(request: R, defaultVa
 }
 
 
+/** Page Info on the &quot;TagToPostConnection&quot; */
+export interface TagToPostConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;TagToPostConnection&quot; */
+export interface TagToPostConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the Tag type and the Taxonomy type */
 export interface TagToTaxonomyConnectionEdgePromiseChain{
     
@@ -26337,6 +31230,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The node of the connection, without the edges */
 node: (TaxonomyObservableChain & {get: <R extends TaxonomyRequest>(request: R, defaultValue?: FieldsSelection<Taxonomy, R>) => Observable<FieldsSelection<Taxonomy, R>>})
+}
+
+
+/** Page Info on the connected TagConnectionEdge */
+export interface TagConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected TagConnectionEdge */
+export interface TagConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -26362,6 +31289,40 @@ node: (TagObservableChain & {get: <R extends TagRequest>(request: R, defaultValu
 }
 
 
+/** Page Info on the &quot;PostToTagConnection&quot; */
+export interface PostToTagConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;PostToTagConnection&quot; */
+export interface PostToTagConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the Post type and the TermNode type */
 export interface PostToTermNodeConnectionPromiseChain{
     
@@ -26372,7 +31333,7 @@ edges: ({get: <R extends PostToTermNodeConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Promise<FieldsSelection<TermNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToTermNodeConnectionPageInfoPromiseChain & {get: <R extends PostToTermNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToTermNodeConnectionPageInfo, R>) => Promise<FieldsSelection<PostToTermNodeConnectionPageInfo, R>>})
 }
 
 
@@ -26386,7 +31347,7 @@ edges: ({get: <R extends PostToTermNodeConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Observable<FieldsSelection<TermNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (PostToTermNodeConnectionPageInfoObservableChain & {get: <R extends PostToTermNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PostToTermNodeConnectionPageInfo, R>) => Observable<FieldsSelection<PostToTermNodeConnectionPageInfo, R>>})
 }
 
 
@@ -26412,6 +31373,40 @@ node: (TermNodeObservableChain & {get: <R extends TermNodeRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;PostToTermNodeConnection&quot; */
+export interface PostToTermNodeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;PostToTermNodeConnection&quot; */
+export interface PostToTermNodeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface UserToPostConnectionEdgePromiseChain{
     
@@ -26434,6 +31429,40 @@ node: (PostObservableChain & {get: <R extends PostRequest>(request: R, defaultVa
 }
 
 
+/** Page Info on the &quot;UserToPostConnection&quot; */
+export interface UserToPostConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;UserToPostConnection&quot; */
+export interface UserToPostConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the User type and the ContentNode type */
 export interface UserToRevisionsConnectionPromiseChain{
     
@@ -26444,7 +31473,7 @@ edges: ({get: <R extends UserToRevisionsConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Promise<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToRevisionsConnectionPageInfoPromiseChain & {get: <R extends UserToRevisionsConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToRevisionsConnectionPageInfo, R>) => Promise<FieldsSelection<UserToRevisionsConnectionPageInfo, R>>})
 }
 
 
@@ -26458,7 +31487,7 @@ edges: ({get: <R extends UserToRevisionsConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Observable<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToRevisionsConnectionPageInfoObservableChain & {get: <R extends UserToRevisionsConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToRevisionsConnectionPageInfo, R>) => Observable<FieldsSelection<UserToRevisionsConnectionPageInfo, R>>})
 }
 
 
@@ -26484,6 +31513,40 @@ node: (ContentNodeObservableChain & {get: <R extends ContentNodeRequest>(request
 }
 
 
+/** Page Info on the &quot;UserToRevisionsConnection&quot; */
+export interface UserToRevisionsConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;UserToRevisionsConnection&quot; */
+export interface UserToRevisionsConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the User type and the UserRole type */
 export interface UserToUserRoleConnectionPromiseChain{
     
@@ -26494,7 +31557,7 @@ edges: ({get: <R extends UserToUserRoleConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends UserRoleRequest>(request: R, defaultValue?: FieldsSelection<UserRole, R>[]) => Promise<FieldsSelection<UserRole, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToUserRoleConnectionPageInfoPromiseChain & {get: <R extends UserToUserRoleConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToUserRoleConnectionPageInfo, R>) => Promise<FieldsSelection<UserToUserRoleConnectionPageInfo, R>>})
 }
 
 
@@ -26508,7 +31571,7 @@ edges: ({get: <R extends UserToUserRoleConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends UserRoleRequest>(request: R, defaultValue?: FieldsSelection<UserRole, R>[]) => Observable<FieldsSelection<UserRole, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (UserToUserRoleConnectionPageInfoObservableChain & {get: <R extends UserToUserRoleConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserToUserRoleConnectionPageInfo, R>) => Observable<FieldsSelection<UserToUserRoleConnectionPageInfo, R>>})
 }
 
 
@@ -26519,7 +31582,10 @@ export interface UserRoleConnectionPromiseChain{
 edges: ({get: <R extends UserRoleConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<UserRoleConnectionEdge, R>[]) => Promise<FieldsSelection<UserRoleConnectionEdge, R>[]>}),
     
 /** A list of connected UserRole Nodes */
-nodes: ({get: <R extends UserRoleRequest>(request: R, defaultValue?: FieldsSelection<UserRole, R>[]) => Promise<FieldsSelection<UserRole, R>[]>})
+nodes: ({get: <R extends UserRoleRequest>(request: R, defaultValue?: FieldsSelection<UserRole, R>[]) => Promise<FieldsSelection<UserRole, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (UserRoleConnectionPageInfoPromiseChain & {get: <R extends UserRoleConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserRoleConnectionPageInfo, R>) => Promise<FieldsSelection<UserRoleConnectionPageInfo, R>>})
 }
 
 
@@ -26530,7 +31596,10 @@ export interface UserRoleConnectionObservableChain{
 edges: ({get: <R extends UserRoleConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<UserRoleConnectionEdge, R>[]) => Observable<FieldsSelection<UserRoleConnectionEdge, R>[]>}),
     
 /** A list of connected UserRole Nodes */
-nodes: ({get: <R extends UserRoleRequest>(request: R, defaultValue?: FieldsSelection<UserRole, R>[]) => Observable<FieldsSelection<UserRole, R>[]>})
+nodes: ({get: <R extends UserRoleRequest>(request: R, defaultValue?: FieldsSelection<UserRole, R>[]) => Observable<FieldsSelection<UserRole, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (UserRoleConnectionPageInfoObservableChain & {get: <R extends UserRoleConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserRoleConnectionPageInfo, R>) => Observable<FieldsSelection<UserRoleConnectionPageInfo, R>>})
 }
 
 
@@ -26596,6 +31665,40 @@ name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | unde
 }
 
 
+/** Page Info on the connected UserRoleConnectionEdge */
+export interface UserRoleConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected UserRoleConnectionEdge */
+export interface UserRoleConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface UserToUserRoleConnectionEdgePromiseChain{
     
@@ -26615,6 +31718,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (UserRoleObservableChain & {get: <R extends UserRoleRequest>(request: R, defaultValue?: FieldsSelection<UserRole, R>) => Observable<FieldsSelection<UserRole, R>>})
+}
+
+
+/** Page Info on the &quot;UserToUserRoleConnection&quot; */
+export interface UserToUserRoleConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;UserToUserRoleConnection&quot; */
+export interface UserToUserRoleConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -26700,7 +31837,7 @@ edges: ({get: <R extends RootQueryToArquivoAssessoriaConnectionEdgeRequest>(requ
 nodes: ({get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>[]) => Promise<FieldsSelection<ArquivoAssessoria, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToArquivoAssessoriaConnectionPageInfoPromiseChain & {get: <R extends RootQueryToArquivoAssessoriaConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToArquivoAssessoriaConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToArquivoAssessoriaConnectionPageInfo, R>>})
 }
 
 
@@ -26714,7 +31851,7 @@ edges: ({get: <R extends RootQueryToArquivoAssessoriaConnectionEdgeRequest>(requ
 nodes: ({get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>[]) => Observable<FieldsSelection<ArquivoAssessoria, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToArquivoAssessoriaConnectionPageInfoObservableChain & {get: <R extends RootQueryToArquivoAssessoriaConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToArquivoAssessoriaConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToArquivoAssessoriaConnectionPageInfo, R>>})
 }
 
 
@@ -26725,7 +31862,10 @@ export interface ArquivoAssessoriaConnectionPromiseChain{
 edges: ({get: <R extends ArquivoAssessoriaConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoriaConnectionEdge, R>[]) => Promise<FieldsSelection<ArquivoAssessoriaConnectionEdge, R>[]>}),
     
 /** A list of connected ArquivoAssessoria Nodes */
-nodes: ({get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>[]) => Promise<FieldsSelection<ArquivoAssessoria, R>[]>})
+nodes: ({get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>[]) => Promise<FieldsSelection<ArquivoAssessoria, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (ArquivoAssessoriaConnectionPageInfoPromiseChain & {get: <R extends ArquivoAssessoriaConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoriaConnectionPageInfo, R>) => Promise<FieldsSelection<ArquivoAssessoriaConnectionPageInfo, R>>})
 }
 
 
@@ -26736,7 +31876,44 @@ export interface ArquivoAssessoriaConnectionObservableChain{
 edges: ({get: <R extends ArquivoAssessoriaConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoriaConnectionEdge, R>[]) => Observable<FieldsSelection<ArquivoAssessoriaConnectionEdge, R>[]>}),
     
 /** A list of connected ArquivoAssessoria Nodes */
-nodes: ({get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>[]) => Observable<FieldsSelection<ArquivoAssessoria, R>[]>})
+nodes: ({get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>[]) => Observable<FieldsSelection<ArquivoAssessoria, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (ArquivoAssessoriaConnectionPageInfoObservableChain & {get: <R extends ArquivoAssessoriaConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoriaConnectionPageInfo, R>) => Observable<FieldsSelection<ArquivoAssessoriaConnectionPageInfo, R>>})
+}
+
+
+/** Page Info on the connected ArquivoAssessoriaConnectionEdge */
+export interface ArquivoAssessoriaConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected ArquivoAssessoriaConnectionEdge */
+export interface ArquivoAssessoriaConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -26759,6 +31936,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (ArquivoAssessoriaObservableChain & {get: <R extends ArquivoAssessoriaRequest>(request: R, defaultValue?: FieldsSelection<ArquivoAssessoria, R>) => Observable<FieldsSelection<ArquivoAssessoria, R>>})
+}
+
+
+/** Page Info on the &quot;RootQueryToArquivoAssessoriaConnection&quot; */
+export interface RootQueryToArquivoAssessoriaConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToArquivoAssessoriaConnection&quot; */
+export interface RootQueryToArquivoAssessoriaConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -27162,7 +32373,7 @@ edges: ({get: <R extends RootQueryToBannerConnectionEdgeRequest>(request: R, def
 nodes: ({get: <R extends BannerRequest>(request: R, defaultValue?: FieldsSelection<Banner, R>[]) => Promise<FieldsSelection<Banner, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToBannerConnectionPageInfoPromiseChain & {get: <R extends RootQueryToBannerConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToBannerConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToBannerConnectionPageInfo, R>>})
 }
 
 
@@ -27176,7 +32387,7 @@ edges: ({get: <R extends RootQueryToBannerConnectionEdgeRequest>(request: R, def
 nodes: ({get: <R extends BannerRequest>(request: R, defaultValue?: FieldsSelection<Banner, R>[]) => Observable<FieldsSelection<Banner, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToBannerConnectionPageInfoObservableChain & {get: <R extends RootQueryToBannerConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToBannerConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToBannerConnectionPageInfo, R>>})
 }
 
 
@@ -27187,7 +32398,10 @@ export interface BannerConnectionPromiseChain{
 edges: ({get: <R extends BannerConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<BannerConnectionEdge, R>[]) => Promise<FieldsSelection<BannerConnectionEdge, R>[]>}),
     
 /** A list of connected Banner Nodes */
-nodes: ({get: <R extends BannerRequest>(request: R, defaultValue?: FieldsSelection<Banner, R>[]) => Promise<FieldsSelection<Banner, R>[]>})
+nodes: ({get: <R extends BannerRequest>(request: R, defaultValue?: FieldsSelection<Banner, R>[]) => Promise<FieldsSelection<Banner, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (BannerConnectionPageInfoPromiseChain & {get: <R extends BannerConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<BannerConnectionPageInfo, R>) => Promise<FieldsSelection<BannerConnectionPageInfo, R>>})
 }
 
 
@@ -27198,7 +32412,44 @@ export interface BannerConnectionObservableChain{
 edges: ({get: <R extends BannerConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<BannerConnectionEdge, R>[]) => Observable<FieldsSelection<BannerConnectionEdge, R>[]>}),
     
 /** A list of connected Banner Nodes */
-nodes: ({get: <R extends BannerRequest>(request: R, defaultValue?: FieldsSelection<Banner, R>[]) => Observable<FieldsSelection<Banner, R>[]>})
+nodes: ({get: <R extends BannerRequest>(request: R, defaultValue?: FieldsSelection<Banner, R>[]) => Observable<FieldsSelection<Banner, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (BannerConnectionPageInfoObservableChain & {get: <R extends BannerConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<BannerConnectionPageInfo, R>) => Observable<FieldsSelection<BannerConnectionPageInfo, R>>})
+}
+
+
+/** Page Info on the connected BannerConnectionEdge */
+export interface BannerConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected BannerConnectionEdge */
+export interface BannerConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -27224,6 +32475,40 @@ node: (BannerObservableChain & {get: <R extends BannerRequest>(request: R, defau
 }
 
 
+/** Page Info on the &quot;RootQueryToBannerConnection&quot; */
+export interface RootQueryToBannerConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToBannerConnection&quot; */
+export interface RootQueryToBannerConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the category type */
 export interface RootQueryToCategoryConnectionPromiseChain{
     
@@ -27234,7 +32519,7 @@ edges: ({get: <R extends RootQueryToCategoryConnectionEdgeRequest>(request: R, d
 nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Promise<FieldsSelection<Category, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToCategoryConnectionPageInfoPromiseChain & {get: <R extends RootQueryToCategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToCategoryConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToCategoryConnectionPageInfo, R>>})
 }
 
 
@@ -27248,7 +32533,7 @@ edges: ({get: <R extends RootQueryToCategoryConnectionEdgeRequest>(request: R, d
 nodes: ({get: <R extends CategoryRequest>(request: R, defaultValue?: FieldsSelection<Category, R>[]) => Observable<FieldsSelection<Category, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToCategoryConnectionPageInfoObservableChain & {get: <R extends RootQueryToCategoryConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToCategoryConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToCategoryConnectionPageInfo, R>>})
 }
 
 
@@ -27274,6 +32559,40 @@ node: (CategoryObservableChain & {get: <R extends CategoryRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;RootQueryToCategoryConnection&quot; */
+export interface RootQueryToCategoryConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToCategoryConnection&quot; */
+export interface RootQueryToCategoryConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the Comment type */
 export interface RootQueryToCommentConnectionPromiseChain{
     
@@ -27284,7 +32603,7 @@ edges: ({get: <R extends RootQueryToCommentConnectionEdgeRequest>(request: R, de
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Promise<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToCommentConnectionPageInfoPromiseChain & {get: <R extends RootQueryToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToCommentConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -27298,7 +32617,7 @@ edges: ({get: <R extends RootQueryToCommentConnectionEdgeRequest>(request: R, de
 nodes: ({get: <R extends CommentRequest>(request: R, defaultValue?: FieldsSelection<Comment, R>[]) => Observable<FieldsSelection<Comment, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToCommentConnectionPageInfoObservableChain & {get: <R extends RootQueryToCommentConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToCommentConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToCommentConnectionPageInfo, R>>})
 }
 
 
@@ -27324,6 +32643,40 @@ node: (CommentObservableChain & {get: <R extends CommentRequest>(request: R, def
 }
 
 
+/** Page Info on the &quot;RootQueryToCommentConnection&quot; */
+export interface RootQueryToCommentConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToCommentConnection&quot; */
+export interface RootQueryToCommentConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the ContentNode type */
 export interface RootQueryToContentNodeConnectionPromiseChain{
     
@@ -27334,7 +32687,7 @@ edges: ({get: <R extends RootQueryToContentNodeConnectionEdgeRequest>(request: R
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Promise<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToContentNodeConnectionPageInfoPromiseChain & {get: <R extends RootQueryToContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToContentNodeConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -27348,7 +32701,7 @@ edges: ({get: <R extends RootQueryToContentNodeConnectionEdgeRequest>(request: R
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Observable<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToContentNodeConnectionPageInfoObservableChain & {get: <R extends RootQueryToContentNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToContentNodeConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToContentNodeConnectionPageInfo, R>>})
 }
 
 
@@ -27374,6 +32727,40 @@ node: (ContentNodeObservableChain & {get: <R extends ContentNodeRequest>(request
 }
 
 
+/** Page Info on the &quot;RootQueryToContentNodeConnection&quot; */
+export interface RootQueryToContentNodeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToContentNodeConnection&quot; */
+export interface RootQueryToContentNodeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the ContentType type */
 export interface RootQueryToContentTypeConnectionPromiseChain{
     
@@ -27384,7 +32771,7 @@ edges: ({get: <R extends RootQueryToContentTypeConnectionEdgeRequest>(request: R
 nodes: ({get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>[]) => Promise<FieldsSelection<ContentType, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToContentTypeConnectionPageInfoPromiseChain & {get: <R extends RootQueryToContentTypeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToContentTypeConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToContentTypeConnectionPageInfo, R>>})
 }
 
 
@@ -27398,7 +32785,7 @@ edges: ({get: <R extends RootQueryToContentTypeConnectionEdgeRequest>(request: R
 nodes: ({get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>[]) => Observable<FieldsSelection<ContentType, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToContentTypeConnectionPageInfoObservableChain & {get: <R extends RootQueryToContentTypeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToContentTypeConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToContentTypeConnectionPageInfo, R>>})
 }
 
 
@@ -27421,6 +32808,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (ContentTypeObservableChain & {get: <R extends ContentTypeRequest>(request: R, defaultValue?: FieldsSelection<ContentType, R>) => Observable<FieldsSelection<ContentType, R>>})
+}
+
+
+/** Page Info on the &quot;RootQueryToContentTypeConnection&quot; */
+export interface RootQueryToContentTypeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToContentTypeConnection&quot; */
+export interface RootQueryToContentTypeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -27456,7 +32877,7 @@ edges: ({get: <R extends RootQueryToEmpreendimentoConnectionEdgeRequest>(request
 nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Promise<FieldsSelection<Empreendimento, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToEmpreendimentoConnectionPageInfoPromiseChain & {get: <R extends RootQueryToEmpreendimentoConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToEmpreendimentoConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToEmpreendimentoConnectionPageInfo, R>>})
 }
 
 
@@ -27470,7 +32891,7 @@ edges: ({get: <R extends RootQueryToEmpreendimentoConnectionEdgeRequest>(request
 nodes: ({get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>[]) => Observable<FieldsSelection<Empreendimento, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToEmpreendimentoConnectionPageInfoObservableChain & {get: <R extends RootQueryToEmpreendimentoConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToEmpreendimentoConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToEmpreendimentoConnectionPageInfo, R>>})
 }
 
 
@@ -27493,6 +32914,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (EmpreendimentoObservableChain & {get: <R extends EmpreendimentoRequest>(request: R, defaultValue?: FieldsSelection<Empreendimento, R>) => Observable<FieldsSelection<Empreendimento, R>>})
+}
+
+
+/** Page Info on the &quot;RootQueryToEmpreendimentoConnection&quot; */
+export interface RootQueryToEmpreendimentoConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToEmpreendimentoConnection&quot; */
+export interface RootQueryToEmpreendimentoConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -27570,7 +33025,7 @@ edges: ({get: <R extends RootQueryToMediaItemConnectionEdgeRequest>(request: R, 
 nodes: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: FieldsSelection<MediaItem, R>[]) => Promise<FieldsSelection<MediaItem, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToMediaItemConnectionPageInfoPromiseChain & {get: <R extends RootQueryToMediaItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToMediaItemConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToMediaItemConnectionPageInfo, R>>})
 }
 
 
@@ -27584,7 +33039,7 @@ edges: ({get: <R extends RootQueryToMediaItemConnectionEdgeRequest>(request: R, 
 nodes: ({get: <R extends MediaItemRequest>(request: R, defaultValue?: FieldsSelection<MediaItem, R>[]) => Observable<FieldsSelection<MediaItem, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToMediaItemConnectionPageInfoObservableChain & {get: <R extends RootQueryToMediaItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToMediaItemConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToMediaItemConnectionPageInfo, R>>})
 }
 
 
@@ -27607,6 +33062,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: FieldsSelection<MediaItem, R>) => Observable<FieldsSelection<MediaItem, R>>})
+}
+
+
+/** Page Info on the &quot;RootQueryToMediaItemConnection&quot; */
+export interface RootQueryToMediaItemConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToMediaItemConnection&quot; */
+export interface RootQueryToMediaItemConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -27710,7 +33199,7 @@ edges: ({get: <R extends MenuToMenuItemConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends MenuItemRequest>(request: R, defaultValue?: FieldsSelection<MenuItem, R>[]) => Promise<FieldsSelection<MenuItem, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (MenuToMenuItemConnectionPageInfoPromiseChain & {get: <R extends MenuToMenuItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MenuToMenuItemConnectionPageInfo, R>) => Promise<FieldsSelection<MenuToMenuItemConnectionPageInfo, R>>})
 }
 
 
@@ -27724,7 +33213,7 @@ edges: ({get: <R extends MenuToMenuItemConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends MenuItemRequest>(request: R, defaultValue?: FieldsSelection<MenuItem, R>[]) => Observable<FieldsSelection<MenuItem, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (MenuToMenuItemConnectionPageInfoObservableChain & {get: <R extends MenuToMenuItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MenuToMenuItemConnectionPageInfo, R>) => Observable<FieldsSelection<MenuToMenuItemConnectionPageInfo, R>>})
 }
 
 
@@ -27735,7 +33224,10 @@ export interface MenuItemConnectionPromiseChain{
 edges: ({get: <R extends MenuItemConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<MenuItemConnectionEdge, R>[]) => Promise<FieldsSelection<MenuItemConnectionEdge, R>[]>}),
     
 /** A list of connected MenuItem Nodes */
-nodes: ({get: <R extends MenuItemRequest>(request: R, defaultValue?: FieldsSelection<MenuItem, R>[]) => Promise<FieldsSelection<MenuItem, R>[]>})
+nodes: ({get: <R extends MenuItemRequest>(request: R, defaultValue?: FieldsSelection<MenuItem, R>[]) => Promise<FieldsSelection<MenuItem, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (MenuItemConnectionPageInfoPromiseChain & {get: <R extends MenuItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MenuItemConnectionPageInfo, R>) => Promise<FieldsSelection<MenuItemConnectionPageInfo, R>>})
 }
 
 
@@ -27746,7 +33238,10 @@ export interface MenuItemConnectionObservableChain{
 edges: ({get: <R extends MenuItemConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<MenuItemConnectionEdge, R>[]) => Observable<FieldsSelection<MenuItemConnectionEdge, R>[]>}),
     
 /** A list of connected MenuItem Nodes */
-nodes: ({get: <R extends MenuItemRequest>(request: R, defaultValue?: FieldsSelection<MenuItem, R>[]) => Observable<FieldsSelection<MenuItem, R>[]>})
+nodes: ({get: <R extends MenuItemRequest>(request: R, defaultValue?: FieldsSelection<MenuItem, R>[]) => Observable<FieldsSelection<MenuItem, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (MenuItemConnectionPageInfoObservableChain & {get: <R extends MenuItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MenuItemConnectionPageInfo, R>) => Observable<FieldsSelection<MenuItemConnectionPageInfo, R>>})
 }
 
 
@@ -27950,7 +33445,7 @@ edges: ({get: <R extends MenuItemToMenuItemConnectionEdgeRequest>(request: R, de
 nodes: ({get: <R extends MenuItemRequest>(request: R, defaultValue?: FieldsSelection<MenuItem, R>[]) => Promise<FieldsSelection<MenuItem, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (MenuItemToMenuItemConnectionPageInfoPromiseChain & {get: <R extends MenuItemToMenuItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MenuItemToMenuItemConnectionPageInfo, R>) => Promise<FieldsSelection<MenuItemToMenuItemConnectionPageInfo, R>>})
 }
 
 
@@ -27964,7 +33459,7 @@ edges: ({get: <R extends MenuItemToMenuItemConnectionEdgeRequest>(request: R, de
 nodes: ({get: <R extends MenuItemRequest>(request: R, defaultValue?: FieldsSelection<MenuItem, R>[]) => Observable<FieldsSelection<MenuItem, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (MenuItemToMenuItemConnectionPageInfoObservableChain & {get: <R extends MenuItemToMenuItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MenuItemToMenuItemConnectionPageInfo, R>) => Observable<FieldsSelection<MenuItemToMenuItemConnectionPageInfo, R>>})
 }
 
 
@@ -27987,6 +33482,74 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (MenuItemObservableChain & {get: <R extends MenuItemRequest>(request: R, defaultValue?: FieldsSelection<MenuItem, R>) => Observable<FieldsSelection<MenuItem, R>>})
+}
+
+
+/** Page Info on the &quot;MenuItemToMenuItemConnection&quot; */
+export interface MenuItemToMenuItemConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;MenuItemToMenuItemConnection&quot; */
+export interface MenuItemToMenuItemConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected MenuItemConnectionEdge */
+export interface MenuItemConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected MenuItemConnectionEdge */
+export interface MenuItemConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -28100,6 +33663,40 @@ node: (MenuItemObservableChain & {get: <R extends MenuItemRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;MenuToMenuItemConnection&quot; */
+export interface MenuToMenuItemConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;MenuToMenuItemConnection&quot; */
+export interface MenuToMenuItemConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the MenuItem type */
 export interface RootQueryToMenuItemConnectionPromiseChain{
     
@@ -28110,7 +33707,7 @@ edges: ({get: <R extends RootQueryToMenuItemConnectionEdgeRequest>(request: R, d
 nodes: ({get: <R extends MenuItemRequest>(request: R, defaultValue?: FieldsSelection<MenuItem, R>[]) => Promise<FieldsSelection<MenuItem, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToMenuItemConnectionPageInfoPromiseChain & {get: <R extends RootQueryToMenuItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToMenuItemConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToMenuItemConnectionPageInfo, R>>})
 }
 
 
@@ -28124,7 +33721,7 @@ edges: ({get: <R extends RootQueryToMenuItemConnectionEdgeRequest>(request: R, d
 nodes: ({get: <R extends MenuItemRequest>(request: R, defaultValue?: FieldsSelection<MenuItem, R>[]) => Observable<FieldsSelection<MenuItem, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToMenuItemConnectionPageInfoObservableChain & {get: <R extends RootQueryToMenuItemConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToMenuItemConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToMenuItemConnectionPageInfo, R>>})
 }
 
 
@@ -28150,6 +33747,40 @@ node: (MenuItemObservableChain & {get: <R extends MenuItemRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;RootQueryToMenuItemConnection&quot; */
+export interface RootQueryToMenuItemConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToMenuItemConnection&quot; */
+export interface RootQueryToMenuItemConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the Menu type */
 export interface RootQueryToMenuConnectionPromiseChain{
     
@@ -28160,7 +33791,7 @@ edges: ({get: <R extends RootQueryToMenuConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends MenuRequest>(request: R, defaultValue?: FieldsSelection<Menu, R>[]) => Promise<FieldsSelection<Menu, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToMenuConnectionPageInfoPromiseChain & {get: <R extends RootQueryToMenuConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToMenuConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToMenuConnectionPageInfo, R>>})
 }
 
 
@@ -28174,7 +33805,7 @@ edges: ({get: <R extends RootQueryToMenuConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends MenuRequest>(request: R, defaultValue?: FieldsSelection<Menu, R>[]) => Observable<FieldsSelection<Menu, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToMenuConnectionPageInfoObservableChain & {get: <R extends RootQueryToMenuConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToMenuConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToMenuConnectionPageInfo, R>>})
 }
 
 
@@ -28185,7 +33816,10 @@ export interface MenuConnectionPromiseChain{
 edges: ({get: <R extends MenuConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<MenuConnectionEdge, R>[]) => Promise<FieldsSelection<MenuConnectionEdge, R>[]>}),
     
 /** A list of connected Menu Nodes */
-nodes: ({get: <R extends MenuRequest>(request: R, defaultValue?: FieldsSelection<Menu, R>[]) => Promise<FieldsSelection<Menu, R>[]>})
+nodes: ({get: <R extends MenuRequest>(request: R, defaultValue?: FieldsSelection<Menu, R>[]) => Promise<FieldsSelection<Menu, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (MenuConnectionPageInfoPromiseChain & {get: <R extends MenuConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MenuConnectionPageInfo, R>) => Promise<FieldsSelection<MenuConnectionPageInfo, R>>})
 }
 
 
@@ -28196,7 +33830,44 @@ export interface MenuConnectionObservableChain{
 edges: ({get: <R extends MenuConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<MenuConnectionEdge, R>[]) => Observable<FieldsSelection<MenuConnectionEdge, R>[]>}),
     
 /** A list of connected Menu Nodes */
-nodes: ({get: <R extends MenuRequest>(request: R, defaultValue?: FieldsSelection<Menu, R>[]) => Observable<FieldsSelection<Menu, R>[]>})
+nodes: ({get: <R extends MenuRequest>(request: R, defaultValue?: FieldsSelection<Menu, R>[]) => Observable<FieldsSelection<Menu, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (MenuConnectionPageInfoObservableChain & {get: <R extends MenuConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<MenuConnectionPageInfo, R>) => Observable<FieldsSelection<MenuConnectionPageInfo, R>>})
+}
+
+
+/** Page Info on the connected MenuConnectionEdge */
+export interface MenuConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected MenuConnectionEdge */
+export interface MenuConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -28222,6 +33893,40 @@ node: (MenuObservableChain & {get: <R extends MenuRequest>(request: R, defaultVa
 }
 
 
+/** Page Info on the &quot;RootQueryToMenuConnection&quot; */
+export interface RootQueryToMenuConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToMenuConnection&quot; */
+export interface RootQueryToMenuConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the page type */
 export interface RootQueryToPageConnectionPromiseChain{
     
@@ -28232,7 +33937,7 @@ edges: ({get: <R extends RootQueryToPageConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends PageRequest>(request: R, defaultValue?: FieldsSelection<Page, R>[]) => Promise<FieldsSelection<Page, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToPageConnectionPageInfoPromiseChain & {get: <R extends RootQueryToPageConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToPageConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToPageConnectionPageInfo, R>>})
 }
 
 
@@ -28246,7 +33951,7 @@ edges: ({get: <R extends RootQueryToPageConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends PageRequest>(request: R, defaultValue?: FieldsSelection<Page, R>[]) => Observable<FieldsSelection<Page, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToPageConnectionPageInfoObservableChain & {get: <R extends RootQueryToPageConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToPageConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToPageConnectionPageInfo, R>>})
 }
 
 
@@ -28269,6 +33974,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (PageObservableChain & {get: <R extends PageRequest>(request: R, defaultValue?: FieldsSelection<Page, R>) => Observable<FieldsSelection<Page, R>>})
+}
+
+
+/** Page Info on the &quot;RootQueryToPageConnection&quot; */
+export interface RootQueryToPageConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToPageConnection&quot; */
+export interface RootQueryToPageConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -28346,7 +34085,7 @@ edges: ({get: <R extends RootQueryToPluginConnectionEdgeRequest>(request: R, def
 nodes: ({get: <R extends PluginRequest>(request: R, defaultValue?: FieldsSelection<Plugin, R>[]) => Promise<FieldsSelection<Plugin, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToPluginConnectionPageInfoPromiseChain & {get: <R extends RootQueryToPluginConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToPluginConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToPluginConnectionPageInfo, R>>})
 }
 
 
@@ -28360,7 +34099,7 @@ edges: ({get: <R extends RootQueryToPluginConnectionEdgeRequest>(request: R, def
 nodes: ({get: <R extends PluginRequest>(request: R, defaultValue?: FieldsSelection<Plugin, R>[]) => Observable<FieldsSelection<Plugin, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToPluginConnectionPageInfoObservableChain & {get: <R extends RootQueryToPluginConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToPluginConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToPluginConnectionPageInfo, R>>})
 }
 
 
@@ -28371,7 +34110,10 @@ export interface PluginConnectionPromiseChain{
 edges: ({get: <R extends PluginConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<PluginConnectionEdge, R>[]) => Promise<FieldsSelection<PluginConnectionEdge, R>[]>}),
     
 /** A list of connected Plugin Nodes */
-nodes: ({get: <R extends PluginRequest>(request: R, defaultValue?: FieldsSelection<Plugin, R>[]) => Promise<FieldsSelection<Plugin, R>[]>})
+nodes: ({get: <R extends PluginRequest>(request: R, defaultValue?: FieldsSelection<Plugin, R>[]) => Promise<FieldsSelection<Plugin, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (PluginConnectionPageInfoPromiseChain & {get: <R extends PluginConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PluginConnectionPageInfo, R>) => Promise<FieldsSelection<PluginConnectionPageInfo, R>>})
 }
 
 
@@ -28382,7 +34124,10 @@ export interface PluginConnectionObservableChain{
 edges: ({get: <R extends PluginConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<PluginConnectionEdge, R>[]) => Observable<FieldsSelection<PluginConnectionEdge, R>[]>}),
     
 /** A list of connected Plugin Nodes */
-nodes: ({get: <R extends PluginRequest>(request: R, defaultValue?: FieldsSelection<Plugin, R>[]) => Observable<FieldsSelection<Plugin, R>[]>})
+nodes: ({get: <R extends PluginRequest>(request: R, defaultValue?: FieldsSelection<Plugin, R>[]) => Observable<FieldsSelection<Plugin, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (PluginConnectionPageInfoObservableChain & {get: <R extends PluginConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<PluginConnectionPageInfo, R>) => Observable<FieldsSelection<PluginConnectionPageInfo, R>>})
 }
 
 
@@ -28408,6 +34153,40 @@ node: (PluginObservableChain & {get: <R extends PluginRequest>(request: R, defau
 }
 
 
+/** Page Info on the connected PluginConnectionEdge */
+export interface PluginConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected PluginConnectionEdge */
+export interface PluginConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface RootQueryToPluginConnectionEdgePromiseChain{
     
@@ -28430,6 +34209,40 @@ node: (PluginObservableChain & {get: <R extends PluginRequest>(request: R, defau
 }
 
 
+/** Page Info on the &quot;RootQueryToPluginConnection&quot; */
+export interface RootQueryToPluginConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToPluginConnection&quot; */
+export interface RootQueryToPluginConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the postFormat type */
 export interface RootQueryToPostFormatConnectionPromiseChain{
     
@@ -28440,7 +34253,7 @@ edges: ({get: <R extends RootQueryToPostFormatConnectionEdgeRequest>(request: R,
 nodes: ({get: <R extends PostFormatRequest>(request: R, defaultValue?: FieldsSelection<PostFormat, R>[]) => Promise<FieldsSelection<PostFormat, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToPostFormatConnectionPageInfoPromiseChain & {get: <R extends RootQueryToPostFormatConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToPostFormatConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToPostFormatConnectionPageInfo, R>>})
 }
 
 
@@ -28454,7 +34267,7 @@ edges: ({get: <R extends RootQueryToPostFormatConnectionEdgeRequest>(request: R,
 nodes: ({get: <R extends PostFormatRequest>(request: R, defaultValue?: FieldsSelection<PostFormat, R>[]) => Observable<FieldsSelection<PostFormat, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToPostFormatConnectionPageInfoObservableChain & {get: <R extends RootQueryToPostFormatConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToPostFormatConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToPostFormatConnectionPageInfo, R>>})
 }
 
 
@@ -28480,6 +34293,40 @@ node: (PostFormatObservableChain & {get: <R extends PostFormatRequest>(request: 
 }
 
 
+/** Page Info on the &quot;RootQueryToPostFormatConnection&quot; */
+export interface RootQueryToPostFormatConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToPostFormatConnection&quot; */
+export interface RootQueryToPostFormatConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the post type */
 export interface RootQueryToPostConnectionPromiseChain{
     
@@ -28490,7 +34337,7 @@ edges: ({get: <R extends RootQueryToPostConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Promise<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToPostConnectionPageInfoPromiseChain & {get: <R extends RootQueryToPostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToPostConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToPostConnectionPageInfo, R>>})
 }
 
 
@@ -28504,7 +34351,7 @@ edges: ({get: <R extends RootQueryToPostConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>[]) => Observable<FieldsSelection<Post, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToPostConnectionPageInfoObservableChain & {get: <R extends RootQueryToPostConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToPostConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToPostConnectionPageInfo, R>>})
 }
 
 
@@ -28527,6 +34374,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (PostObservableChain & {get: <R extends PostRequest>(request: R, defaultValue?: FieldsSelection<Post, R>) => Observable<FieldsSelection<Post, R>>})
+}
+
+
+/** Page Info on the &quot;RootQueryToPostConnection&quot; */
+export interface RootQueryToPostConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToPostConnection&quot; */
+export interface RootQueryToPostConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -28574,7 +34455,7 @@ edges: ({get: <R extends RootQueryToEnqueuedScriptConnectionEdgeRequest>(request
 nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Promise<FieldsSelection<EnqueuedScript, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToEnqueuedScriptConnectionPageInfoPromiseChain & {get: <R extends RootQueryToEnqueuedScriptConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToEnqueuedScriptConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToEnqueuedScriptConnectionPageInfo, R>>})
 }
 
 
@@ -28588,7 +34469,7 @@ edges: ({get: <R extends RootQueryToEnqueuedScriptConnectionEdgeRequest>(request
 nodes: ({get: <R extends EnqueuedScriptRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedScript, R>[]) => Observable<FieldsSelection<EnqueuedScript, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToEnqueuedScriptConnectionPageInfoObservableChain & {get: <R extends RootQueryToEnqueuedScriptConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToEnqueuedScriptConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToEnqueuedScriptConnectionPageInfo, R>>})
 }
 
 
@@ -28614,6 +34495,40 @@ node: (EnqueuedScriptObservableChain & {get: <R extends EnqueuedScriptRequest>(r
 }
 
 
+/** Page Info on the &quot;RootQueryToEnqueuedScriptConnection&quot; */
+export interface RootQueryToEnqueuedScriptConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToEnqueuedScriptConnection&quot; */
+export interface RootQueryToEnqueuedScriptConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the EnqueuedStylesheet type */
 export interface RootQueryToEnqueuedStylesheetConnectionPromiseChain{
     
@@ -28624,7 +34539,7 @@ edges: ({get: <R extends RootQueryToEnqueuedStylesheetConnectionEdgeRequest>(req
 nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Promise<FieldsSelection<EnqueuedStylesheet, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToEnqueuedStylesheetConnectionPageInfoPromiseChain & {get: <R extends RootQueryToEnqueuedStylesheetConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToEnqueuedStylesheetConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToEnqueuedStylesheetConnectionPageInfo, R>>})
 }
 
 
@@ -28638,7 +34553,7 @@ edges: ({get: <R extends RootQueryToEnqueuedStylesheetConnectionEdgeRequest>(req
 nodes: ({get: <R extends EnqueuedStylesheetRequest>(request: R, defaultValue?: FieldsSelection<EnqueuedStylesheet, R>[]) => Observable<FieldsSelection<EnqueuedStylesheet, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToEnqueuedStylesheetConnectionPageInfoObservableChain & {get: <R extends RootQueryToEnqueuedStylesheetConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToEnqueuedStylesheetConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToEnqueuedStylesheetConnectionPageInfo, R>>})
 }
 
 
@@ -28664,6 +34579,40 @@ node: (EnqueuedStylesheetObservableChain & {get: <R extends EnqueuedStylesheetRe
 }
 
 
+/** Page Info on the &quot;RootQueryToEnqueuedStylesheetConnection&quot; */
+export interface RootQueryToEnqueuedStylesheetConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToEnqueuedStylesheetConnection&quot; */
+export interface RootQueryToEnqueuedStylesheetConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the ContentNode type */
 export interface RootQueryToRevisionsConnectionPromiseChain{
     
@@ -28674,7 +34623,7 @@ edges: ({get: <R extends RootQueryToRevisionsConnectionEdgeRequest>(request: R, 
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Promise<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToRevisionsConnectionPageInfoPromiseChain & {get: <R extends RootQueryToRevisionsConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToRevisionsConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToRevisionsConnectionPageInfo, R>>})
 }
 
 
@@ -28688,7 +34637,7 @@ edges: ({get: <R extends RootQueryToRevisionsConnectionEdgeRequest>(request: R, 
 nodes: ({get: <R extends ContentNodeRequest>(request: R, defaultValue?: FieldsSelection<ContentNode, R>[]) => Observable<FieldsSelection<ContentNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToRevisionsConnectionPageInfoObservableChain & {get: <R extends RootQueryToRevisionsConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToRevisionsConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToRevisionsConnectionPageInfo, R>>})
 }
 
 
@@ -28714,6 +34663,40 @@ node: (ContentNodeObservableChain & {get: <R extends ContentNodeRequest>(request
 }
 
 
+/** Page Info on the &quot;RootQueryToRevisionsConnection&quot; */
+export interface RootQueryToRevisionsConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToRevisionsConnection&quot; */
+export interface RootQueryToRevisionsConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the tag type */
 export interface RootQueryToTagConnectionPromiseChain{
     
@@ -28724,7 +34707,7 @@ edges: ({get: <R extends RootQueryToTagConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToTagConnectionPageInfoPromiseChain & {get: <R extends RootQueryToTagConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToTagConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToTagConnectionPageInfo, R>>})
 }
 
 
@@ -28738,7 +34721,7 @@ edges: ({get: <R extends RootQueryToTagConnectionEdgeRequest>(request: R, defaul
 nodes: ({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToTagConnectionPageInfoObservableChain & {get: <R extends RootQueryToTagConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToTagConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToTagConnectionPageInfo, R>>})
 }
 
 
@@ -28764,6 +34747,40 @@ node: (TagObservableChain & {get: <R extends TagRequest>(request: R, defaultValu
 }
 
 
+/** Page Info on the &quot;RootQueryToTagConnection&quot; */
+export interface RootQueryToTagConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToTagConnection&quot; */
+export interface RootQueryToTagConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the Taxonomy type */
 export interface RootQueryToTaxonomyConnectionPromiseChain{
     
@@ -28774,7 +34791,7 @@ edges: ({get: <R extends RootQueryToTaxonomyConnectionEdgeRequest>(request: R, d
 nodes: ({get: <R extends TaxonomyRequest>(request: R, defaultValue?: FieldsSelection<Taxonomy, R>[]) => Promise<FieldsSelection<Taxonomy, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToTaxonomyConnectionPageInfoPromiseChain & {get: <R extends RootQueryToTaxonomyConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToTaxonomyConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToTaxonomyConnectionPageInfo, R>>})
 }
 
 
@@ -28788,7 +34805,7 @@ edges: ({get: <R extends RootQueryToTaxonomyConnectionEdgeRequest>(request: R, d
 nodes: ({get: <R extends TaxonomyRequest>(request: R, defaultValue?: FieldsSelection<Taxonomy, R>[]) => Observable<FieldsSelection<Taxonomy, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToTaxonomyConnectionPageInfoObservableChain & {get: <R extends RootQueryToTaxonomyConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToTaxonomyConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToTaxonomyConnectionPageInfo, R>>})
 }
 
 
@@ -28814,6 +34831,40 @@ node: (TaxonomyObservableChain & {get: <R extends TaxonomyRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;RootQueryToTaxonomyConnection&quot; */
+export interface RootQueryToTaxonomyConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToTaxonomyConnection&quot; */
+export interface RootQueryToTaxonomyConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the TermNode type */
 export interface RootQueryToTermNodeConnectionPromiseChain{
     
@@ -28824,7 +34875,7 @@ edges: ({get: <R extends RootQueryToTermNodeConnectionEdgeRequest>(request: R, d
 nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Promise<FieldsSelection<TermNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToTermNodeConnectionPageInfoPromiseChain & {get: <R extends RootQueryToTermNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToTermNodeConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToTermNodeConnectionPageInfo, R>>})
 }
 
 
@@ -28838,7 +34889,7 @@ edges: ({get: <R extends RootQueryToTermNodeConnectionEdgeRequest>(request: R, d
 nodes: ({get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>[]) => Observable<FieldsSelection<TermNode, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToTermNodeConnectionPageInfoObservableChain & {get: <R extends RootQueryToTermNodeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToTermNodeConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToTermNodeConnectionPageInfo, R>>})
 }
 
 
@@ -28861,6 +34912,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (TermNodeObservableChain & {get: <R extends TermNodeRequest>(request: R, defaultValue?: FieldsSelection<TermNode, R>) => Observable<FieldsSelection<TermNode, R>>})
+}
+
+
+/** Page Info on the &quot;RootQueryToTermNodeConnection&quot; */
+export interface RootQueryToTermNodeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToTermNodeConnection&quot; */
+export interface RootQueryToTermNodeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -28950,7 +35035,7 @@ edges: ({get: <R extends RootQueryToThemeConnectionEdgeRequest>(request: R, defa
 nodes: ({get: <R extends ThemeRequest>(request: R, defaultValue?: FieldsSelection<Theme, R>[]) => Promise<FieldsSelection<Theme, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToThemeConnectionPageInfoPromiseChain & {get: <R extends RootQueryToThemeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToThemeConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToThemeConnectionPageInfo, R>>})
 }
 
 
@@ -28964,7 +35049,7 @@ edges: ({get: <R extends RootQueryToThemeConnectionEdgeRequest>(request: R, defa
 nodes: ({get: <R extends ThemeRequest>(request: R, defaultValue?: FieldsSelection<Theme, R>[]) => Observable<FieldsSelection<Theme, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToThemeConnectionPageInfoObservableChain & {get: <R extends RootQueryToThemeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToThemeConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToThemeConnectionPageInfo, R>>})
 }
 
 
@@ -28975,7 +35060,10 @@ export interface ThemeConnectionPromiseChain{
 edges: ({get: <R extends ThemeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<ThemeConnectionEdge, R>[]) => Promise<FieldsSelection<ThemeConnectionEdge, R>[]>}),
     
 /** A list of connected Theme Nodes */
-nodes: ({get: <R extends ThemeRequest>(request: R, defaultValue?: FieldsSelection<Theme, R>[]) => Promise<FieldsSelection<Theme, R>[]>})
+nodes: ({get: <R extends ThemeRequest>(request: R, defaultValue?: FieldsSelection<Theme, R>[]) => Promise<FieldsSelection<Theme, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (ThemeConnectionPageInfoPromiseChain & {get: <R extends ThemeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ThemeConnectionPageInfo, R>) => Promise<FieldsSelection<ThemeConnectionPageInfo, R>>})
 }
 
 
@@ -28986,7 +35074,10 @@ export interface ThemeConnectionObservableChain{
 edges: ({get: <R extends ThemeConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<ThemeConnectionEdge, R>[]) => Observable<FieldsSelection<ThemeConnectionEdge, R>[]>}),
     
 /** A list of connected Theme Nodes */
-nodes: ({get: <R extends ThemeRequest>(request: R, defaultValue?: FieldsSelection<Theme, R>[]) => Observable<FieldsSelection<Theme, R>[]>})
+nodes: ({get: <R extends ThemeRequest>(request: R, defaultValue?: FieldsSelection<Theme, R>[]) => Observable<FieldsSelection<Theme, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (ThemeConnectionPageInfoObservableChain & {get: <R extends ThemeConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<ThemeConnectionPageInfo, R>) => Observable<FieldsSelection<ThemeConnectionPageInfo, R>>})
 }
 
 
@@ -29012,6 +35103,40 @@ node: (ThemeObservableChain & {get: <R extends ThemeRequest>(request: R, default
 }
 
 
+/** Page Info on the connected ThemeConnectionEdge */
+export interface ThemeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected ThemeConnectionEdge */
+export interface ThemeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** An edge in a connection */
 export interface RootQueryToThemeConnectionEdgePromiseChain{
     
@@ -29034,6 +35159,40 @@ node: (ThemeObservableChain & {get: <R extends ThemeRequest>(request: R, default
 }
 
 
+/** Page Info on the &quot;RootQueryToThemeConnection&quot; */
+export interface RootQueryToThemeConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToThemeConnection&quot; */
+export interface RootQueryToThemeConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the UserRole type */
 export interface RootQueryToUserRoleConnectionPromiseChain{
     
@@ -29044,7 +35203,7 @@ edges: ({get: <R extends RootQueryToUserRoleConnectionEdgeRequest>(request: R, d
 nodes: ({get: <R extends UserRoleRequest>(request: R, defaultValue?: FieldsSelection<UserRole, R>[]) => Promise<FieldsSelection<UserRole, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToUserRoleConnectionPageInfoPromiseChain & {get: <R extends RootQueryToUserRoleConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToUserRoleConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToUserRoleConnectionPageInfo, R>>})
 }
 
 
@@ -29058,7 +35217,7 @@ edges: ({get: <R extends RootQueryToUserRoleConnectionEdgeRequest>(request: R, d
 nodes: ({get: <R extends UserRoleRequest>(request: R, defaultValue?: FieldsSelection<UserRole, R>[]) => Observable<FieldsSelection<UserRole, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToUserRoleConnectionPageInfoObservableChain & {get: <R extends RootQueryToUserRoleConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToUserRoleConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToUserRoleConnectionPageInfo, R>>})
 }
 
 
@@ -29084,6 +35243,40 @@ node: (UserRoleObservableChain & {get: <R extends UserRoleRequest>(request: R, d
 }
 
 
+/** Page Info on the &quot;RootQueryToUserRoleConnection&quot; */
+export interface RootQueryToUserRoleConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToUserRoleConnection&quot; */
+export interface RootQueryToUserRoleConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
 /** Connection between the RootQuery type and the User type */
 export interface RootQueryToUserConnectionPromiseChain{
     
@@ -29094,7 +35287,7 @@ edges: ({get: <R extends RootQueryToUserConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends UserRequest>(request: R, defaultValue?: FieldsSelection<User, R>[]) => Promise<FieldsSelection<User, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoPromiseChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Promise<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToUserConnectionPageInfoPromiseChain & {get: <R extends RootQueryToUserConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToUserConnectionPageInfo, R>) => Promise<FieldsSelection<RootQueryToUserConnectionPageInfo, R>>})
 }
 
 
@@ -29108,7 +35301,7 @@ edges: ({get: <R extends RootQueryToUserConnectionEdgeRequest>(request: R, defau
 nodes: ({get: <R extends UserRequest>(request: R, defaultValue?: FieldsSelection<User, R>[]) => Observable<FieldsSelection<User, R>[]>}),
     
 /** Information about pagination in a connection. */
-pageInfo: (WPPageInfoObservableChain & {get: <R extends WPPageInfoRequest>(request: R, defaultValue?: (FieldsSelection<WPPageInfo, R> | undefined)) => Observable<(FieldsSelection<WPPageInfo, R> | undefined)>})
+pageInfo: (RootQueryToUserConnectionPageInfoObservableChain & {get: <R extends RootQueryToUserConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<RootQueryToUserConnectionPageInfo, R>) => Observable<FieldsSelection<RootQueryToUserConnectionPageInfo, R>>})
 }
 
 
@@ -29119,7 +35312,10 @@ export interface UserConnectionPromiseChain{
 edges: ({get: <R extends UserConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<UserConnectionEdge, R>[]) => Promise<FieldsSelection<UserConnectionEdge, R>[]>}),
     
 /** A list of connected User Nodes */
-nodes: ({get: <R extends UserRequest>(request: R, defaultValue?: FieldsSelection<User, R>[]) => Promise<FieldsSelection<User, R>[]>})
+nodes: ({get: <R extends UserRequest>(request: R, defaultValue?: FieldsSelection<User, R>[]) => Promise<FieldsSelection<User, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (UserConnectionPageInfoPromiseChain & {get: <R extends UserConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserConnectionPageInfo, R>) => Promise<FieldsSelection<UserConnectionPageInfo, R>>})
 }
 
 
@@ -29130,7 +35326,44 @@ export interface UserConnectionObservableChain{
 edges: ({get: <R extends UserConnectionEdgeRequest>(request: R, defaultValue?: FieldsSelection<UserConnectionEdge, R>[]) => Observable<FieldsSelection<UserConnectionEdge, R>[]>}),
     
 /** A list of connected User Nodes */
-nodes: ({get: <R extends UserRequest>(request: R, defaultValue?: FieldsSelection<User, R>[]) => Observable<FieldsSelection<User, R>[]>})
+nodes: ({get: <R extends UserRequest>(request: R, defaultValue?: FieldsSelection<User, R>[]) => Observable<FieldsSelection<User, R>[]>}),
+    
+/** Information about pagination in a connection. */
+pageInfo: (UserConnectionPageInfoObservableChain & {get: <R extends UserConnectionPageInfoRequest>(request: R, defaultValue?: FieldsSelection<UserConnectionPageInfo, R>) => Observable<FieldsSelection<UserConnectionPageInfo, R>>})
+}
+
+
+/** Page Info on the connected UserConnectionEdge */
+export interface UserConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the connected UserConnectionEdge */
+export interface UserConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 
@@ -29153,6 +35386,40 @@ cursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | un
     
 /** The item at the end of the edge */
 node: (UserObservableChain & {get: <R extends UserRequest>(request: R, defaultValue?: FieldsSelection<User, R>) => Observable<FieldsSelection<User, R>>})
+}
+
+
+/** Page Info on the &quot;RootQueryToUserConnection&quot; */
+export interface RootQueryToUserConnectionPageInfoPromiseChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Promise<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Page Info on the &quot;RootQueryToUserConnection&quot; */
+export interface RootQueryToUserConnectionPageInfoObservableChain{
+    
+/** When paginating forwards, the cursor to continue. */
+endCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** When paginating forwards, are there more items? */
+hasNextPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, are there more items? */
+hasPreviousPage: ({get: (request?: boolean|number, defaultValue?: Scalars['Boolean']) => Observable<Scalars['Boolean']>}),
+    
+/** When paginating backwards, the cursor to continue. */
+startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 

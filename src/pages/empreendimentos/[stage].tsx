@@ -1,5 +1,6 @@
 import { GetStaticPaths, NextPage } from 'next';
 import Image from 'next/image';
+import { useState } from 'react';
 import BlockEmp from '../../components/layout/BlockEmp';
 import FilterApp from '../../components/layout/Filter';
 import { Page, RootQueryToEmpreendimentoConnection } from '../../generated';
@@ -13,6 +14,13 @@ interface Props {
 }
 
 const EmpreendimentosApp: NextPage<Props> = ({ data }) => {
+  const [dataChild, setDataChild] = useState('');
+
+  const childToParent = (childdata: any) => {
+    setDataChild(childdata);
+  };
+  // console.log(dataChild);
+
   return (
     <>
       <div className="relative h-[200px] sm:h-[350px] md:h-[500px] border-b-4 border-b-green">
@@ -28,7 +36,7 @@ const EmpreendimentosApp: NextPage<Props> = ({ data }) => {
         <h2 className="text-lg uppercase text-center">
           Encontre o imóvel ideal
         </h2>
-        <FilterApp />
+        <FilterApp data={data.emp} childToParent={childToParent} />
       </section>
       <section className=" bg-bgi py-[40px] md:py-[80px] border-b border-green/50">
         <div className="container">
@@ -123,6 +131,8 @@ export const getStaticProps = async () => {
           empDormitorios: true,
           empVagasDeGaragem: true,
           empValorAPartirDe: true,
+          enderecoBairro: true,
+          tipoDoEmpreendimento: true,
         },
         slug: true,
       },

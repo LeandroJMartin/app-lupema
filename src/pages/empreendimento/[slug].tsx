@@ -249,17 +249,19 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
             </div>
             <div className="flex flex-wrap items-center justify-center w-full">
               <div className="w-full lg:w-3/12 space-y-8">
-                {data.emp?.enderecoDoEmpreendimento && (
+                {data.emp?.enderecoRua && (
                   <div className="space-y-2">
                     <h3 className="text-2xl lg:text-4xl text-green">
                       Empreendimento
                     </h3>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: data.emp?.enderecoDoEmpreendimento || '',
-                      }}
-                      className="text-base text-white"
-                    />
+                    <p className="text-base text-white">
+                      {data.emp?.enderecoRua}
+                      {data.emp?.enderecoNumero &&
+                        ', ' + data.emp?.enderecoNumero}
+                      {data.emp?.enderecoBairro &&
+                        ', ' + data.emp?.enderecoBairro}
+                      {data.emp?.empCidade && ' - ' + data.emp?.empCidade}
+                    </p>
                   </div>
                 )}
 
@@ -466,7 +468,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
               sourceUrl: true,
             },
           },
-          enderecoDoEmpreendimento: true,
+          enderecoRua: true,
+          enderecoNumero: true,
+          enderecoBairro: true,
           endStandVendas: true,
           pontosDeReferencia: {
             iconeOuImagemRef: {
