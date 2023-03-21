@@ -48,8 +48,8 @@ export default async function handler(
   }
 
   const result = await clientMail.sendTransacEmail({
-    to: [{ name: 'Renan', email: 'rodilon10@gmail.com' }],
-    sender: { name: 'Lupema', email: 'lupema@lupema.com.br' },
+    to: [{ name: 'Lupema', email: `${email}` }],
+    sender: { name: 'Lupema', email: `${email}` },
     subject: bodyData?.subject,
     htmlContent: emailHTML,
   });
