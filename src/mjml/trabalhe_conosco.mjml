@@ -1,0 +1,125 @@
+<mjml>
+  <mj-head>
+    <mj-title>
+      {{ subject }}
+    </mj-title>
+  </mj-head>
+
+  <mj-body background-color="#fff">
+    <mj-section>
+      <mj-column width="100%">
+        <mj-text font-size="24px" font-weight="bold">
+          {{ subject }}
+        </mj-text>
+      </mj-column>
+
+      <mj-column width="100%">
+        <mj-text font-size="16px">
+          Área: {{ opcaoArea }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Pretensão salarial: {{ pretensao_salarial }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Área de interesse: {{ area_de_interesse }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Nome: {{ nome }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          E-mail: {{ email }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Data nascimento: {{ data_nascimento }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Idade: {{ idade }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Estado civil: {{ estado_civil }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Filhos: {{ filhos }} - {{ filhos_quantidade }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Endereço: {{ endereco }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Número: {{ num }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Bairro: {{ bairro }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Cidade: {{ cidade }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Estado: {{ estado }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          CEP: {{ cep }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Telefone fixo: {{ telFixo }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Celular 1: {{ celular1 }} - {{ operadora1 }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Celular 2: {{ celular2 }} - {{ operadora2 }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Telefone Recado: {{ telefoneRecado }} - {{ nomeRecado }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Ensino: {{ ensino }} - {{ graduacao }} - {{ anoformacao }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Entidade Escolar: {{ entidadeEscolar }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Outros cursos: {{ outroscursos }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Empresa 1: {{ empresa1 }} - {{ periodo1 }} - {{ funcao1 }} - {{ atribuicoes1 }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Empresa 2: {{ empresa2 }} - {{ periodo2 }} - {{ funcao2 }} - {{ atribuicoes2 }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Empresa 3: {{ empresa3 }} - {{ periodo3 }} - {{ funcao3 }} - {{ atribuicoes3 }}
+        </mj-text>
+
+        <mj-divider border-width="1px" />
+
+        <mj-text font-size="13px">
+          {{ data }}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+</mjml>
+</mj-body>

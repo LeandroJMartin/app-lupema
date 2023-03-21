@@ -527,6 +527,10 @@ export type PostObjectsConnectionDateColumnEnum = 'DATE' | 'MODIFIED'
 /** The logical relation between each item in the array when there are more than one. */
 export type RelationEnum = 'AND' | 'OR'
 
+export type ContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type ContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** The MimeType of the object */
 export type MimeTypeEnum = 'APPLICATION_JAVA' | 'APPLICATION_MSWORD' | 'APPLICATION_OCTET_STREAM' | 'APPLICATION_ONENOTE' | 'APPLICATION_OXPS' | 'APPLICATION_PDF' | 'APPLICATION_RAR' | 'APPLICATION_RTF' | 'APPLICATION_TTAF_XML' | 'APPLICATION_VND_APPLE_KEYNOTE' | 'APPLICATION_VND_APPLE_NUMBERS' | 'APPLICATION_VND_APPLE_PAGES' | 'APPLICATION_VND_MS_ACCESS' | 'APPLICATION_VND_MS_EXCEL' | 'APPLICATION_VND_MS_EXCEL_ADDIN_MACROENABLED_12' | 'APPLICATION_VND_MS_EXCEL_SHEET_BINARY_MACROENABLED_12' | 'APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12' | 'APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT' | 'APPLICATION_VND_MS_POWERPOINT_ADDIN_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_SLIDE_MACROENABLED_12' | 'APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12' | 'APPLICATION_VND_MS_PROJECT' | 'APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12' | 'APPLICATION_VND_MS_WORD_TEMPLATE_MACROENABLED_12' | 'APPLICATION_VND_MS_WRITE' | 'APPLICATION_VND_MS_XPSDOCUMENT' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_CHART' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_DATABASE' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_FORMULA' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_GRAPHICS' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET' | 'APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDE' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT' | 'APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_TEMPLATE' | 'APPLICATION_WORDPERFECT' | 'APPLICATION_X_7Z_COMPRESSED' | 'APPLICATION_X_GZIP' | 'APPLICATION_X_TAR' | 'APPLICATION_ZIP' | 'AUDIO_AAC' | 'AUDIO_FLAC' | 'AUDIO_MIDI' | 'AUDIO_MPEG' | 'AUDIO_OGG' | 'AUDIO_WAV' | 'AUDIO_X_MATROSKA' | 'AUDIO_X_MS_WAX' | 'AUDIO_X_MS_WMA' | 'AUDIO_X_REALAUDIO' | 'IMAGE_BMP' | 'IMAGE_GIF' | 'IMAGE_HEIC' | 'IMAGE_JPEG' | 'IMAGE_PNG' | 'IMAGE_SVG_XML' | 'IMAGE_TIFF' | 'IMAGE_WEBP' | 'IMAGE_X_ICON' | 'TEXT_CALENDAR' | 'TEXT_CSS' | 'TEXT_CSV' | 'TEXT_PLAIN' | 'TEXT_RICHTEXT' | 'TEXT_TAB_SEPARATED_VALUES' | 'TEXT_VTT' | 'VIDEO_3GPP' | 'VIDEO_3GPP2' | 'VIDEO_AVI' | 'VIDEO_DIVX' | 'VIDEO_MP4' | 'VIDEO_MPEG' | 'VIDEO_OGG' | 'VIDEO_QUICKTIME' | 'VIDEO_WEBM' | 'VIDEO_X_FLV' | 'VIDEO_X_MATROSKA' | 'VIDEO_X_MS_ASF' | 'VIDEO_X_MS_WM' | 'VIDEO_X_MS_WMV' | 'VIDEO_X_MS_WMX'
@@ -542,6 +546,16 @@ export type OrderEnum = 'ASC' | 'DESC'
 
 /** The status of the object. */
 export type PostStatusEnum = 'ACF_DISABLED' | 'AUTO_DRAFT' | 'DRAFT' | 'FUTURE' | 'INHERIT' | 'PENDING' | 'PRIVATE' | 'PUBLISH' | 'REQUEST_COMPLETED' | 'REQUEST_CONFIRMED' | 'REQUEST_FAILED' | 'REQUEST_PENDING' | 'TRASH'
+
+
+/** Which field to select taxonomy term by. Default value is "term_id" */
+export type TaxQueryField = 'ID' | 'NAME' | 'SLUG' | 'TAXONOMY_ID'
+
+export type TaxQueryOperator = 'AND' | 'EXISTS' | 'IN' | 'NOT_EXISTS' | 'NOT_IN'
+
+
+/** Allowed taxonomies */
+export type TaxonomyEnum = 'CATEGORY' | 'POSTFORMAT' | 'TAG'
 
 
 /** Connection between the ContentType type and the ContentNode type */
@@ -1094,6 +1108,10 @@ export interface UserToEnqueuedStylesheetConnectionPageInfo {
     __typename: 'UserToEnqueuedStylesheetConnectionPageInfo'
 }
 
+export type UserToMediaItemConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type UserToMediaItemConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the User type and the mediaItem type */
 export interface UserToMediaItemConnection {
@@ -1261,6 +1279,10 @@ export type HierarchicalContentNode = (MediaItem | Page) & { __isUnion?: true }
 /** Node with hierarchical (parent/child) relationships */
 export type HierarchicalNode = (MediaItem | Page | Category) & { __isUnion?: true }
 
+export type HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the HierarchicalContentNode type and the ContentNode type */
 export interface HierarchicalContentNodeToContentNodeAncestorsConnection {
@@ -1296,6 +1318,10 @@ export interface HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo
     startCursor?: Scalars['String']
     __typename: 'HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo'
 }
+
+export type HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
 
 
 /** Connection between the HierarchicalContentNode type and the ContentNode type */
@@ -1558,6 +1584,10 @@ export interface UserToMediaItemConnectionPageInfo {
     startCursor?: Scalars['String']
     __typename: 'UserToMediaItemConnectionPageInfo'
 }
+
+export type UserToPageConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type UserToPageConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
 
 
 /** Connection between the User type and the page type */
@@ -1850,6 +1880,10 @@ export interface PageToPreviewConnectionEdge {
     __typename: 'PageToPreviewConnectionEdge'
 }
 
+export type PageToRevisionConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type PageToRevisionConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the Page type and the page type */
 export interface PageToRevisionConnection {
@@ -1913,6 +1947,10 @@ export interface UserToPageConnectionPageInfo {
     startCursor?: Scalars['String']
     __typename: 'UserToPageConnectionPageInfo'
 }
+
+export type UserToPostConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type UserToPostConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
 
 
 /** Connection between the User type and the post type */
@@ -2298,6 +2336,10 @@ export interface CategoryToCategoryConnectionPageInfo {
 /** Allowed Content Types of the Category taxonomy. */
 export type ContentTypesOfCategoryEnum = 'EMPREENDIMENTOS' | 'POST'
 
+export type CategoryToContentNodeConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type CategoryToContentNodeConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the Category type and the ContentNode type */
 export interface CategoryToContentNodeConnection {
@@ -2333,6 +2375,10 @@ export interface CategoryToContentNodeConnectionPageInfo {
     startCursor?: Scalars['String']
     __typename: 'CategoryToContentNodeConnectionPageInfo'
 }
+
+export type CategoryToEmpreendimentoConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type CategoryToEmpreendimentoConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
 
 
 /** Connection between the Category type and the Empreendimento type */
@@ -2564,10 +2610,6 @@ export interface EmpreendimentoToPreviewConnectionEdge {
 }
 
 
-/** Allowed taxonomies */
-export type TaxonomyEnum = 'CATEGORY' | 'POSTFORMAT' | 'TAG'
-
-
 /** Connection between the Empreendimento type and the TermNode type */
 export interface EmpreendimentoToTermNodeConnection {
     /** Edges for the EmpreendimentoToTermNodeConnection connection */
@@ -2652,6 +2694,10 @@ export interface CategoryToParentCategoryConnectionEdge {
     node: Category
     __typename: 'CategoryToParentCategoryConnectionEdge'
 }
+
+export type CategoryToPostConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type CategoryToPostConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
 
 
 /** Connection between the Category type and the post type */
@@ -2836,6 +2882,10 @@ export interface PostFormat {
 /** Allowed Content Types of the PostFormat taxonomy. */
 export type ContentTypesOfPostFormatEnum = 'POST'
 
+export type PostFormatToContentNodeConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type PostFormatToContentNodeConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the PostFormat type and the ContentNode type */
 export interface PostFormatToContentNodeConnection {
@@ -2871,6 +2921,10 @@ export interface PostFormatToContentNodeConnectionPageInfo {
     startCursor?: Scalars['String']
     __typename: 'PostFormatToContentNodeConnectionPageInfo'
 }
+
+export type PostFormatToPostConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type PostFormatToPostConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
 
 
 /** Connection between the PostFormat type and the post type */
@@ -2955,6 +3009,10 @@ export interface PostToPreviewConnectionEdge {
     node: Post
     __typename: 'PostToPreviewConnectionEdge'
 }
+
+export type PostToRevisionConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type PostToRevisionConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
 
 
 /** Connection between the Post type and the post type */
@@ -3065,6 +3123,10 @@ export interface Tag {
 /** Allowed Content Types of the Tag taxonomy. */
 export type ContentTypesOfTagEnum = 'POST'
 
+export type TagToContentNodeConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type TagToContentNodeConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the Tag type and the ContentNode type */
 export interface TagToContentNodeConnection {
@@ -3100,6 +3162,10 @@ export interface TagToContentNodeConnectionPageInfo {
     startCursor?: Scalars['String']
     __typename: 'TagToContentNodeConnectionPageInfo'
 }
+
+export type TagToPostConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type TagToPostConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
 
 
 /** Connection between the Tag type and the post type */
@@ -3235,6 +3301,10 @@ export interface UserToPostConnectionPageInfo {
     __typename: 'UserToPostConnectionPageInfo'
 }
 
+export type UserToRevisionsConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type UserToRevisionsConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the User type and the ContentNode type */
 export interface UserToRevisionsConnection {
@@ -3361,6 +3431,10 @@ export interface ArquivoAssessoriaToPreviewConnectionEdge {
 
 /** Edge between a Node and a connected ArquivoAssessoria */
 export type ArquivoAssessoriaConnectionEdge = (ArquivoAssessoriaToPreviewConnectionEdge | RootQueryToArquivoAssessoriaConnectionEdge) & { __isUnion?: true }
+
+export type RootQueryToArquivoAssessoriaConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type RootQueryToArquivoAssessoriaConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
 
 
 /** Connection between the RootQuery type and the ArquivoAssessoria type */
@@ -3542,6 +3616,10 @@ export interface BannerToPreviewConnectionEdge {
 /** Edge between a Node and a connected Banner */
 export type BannerConnectionEdge = (BannerToPreviewConnectionEdge | RootQueryToBannerConnectionEdge) & { __isUnion?: true }
 
+export type RootQueryToBannerConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type RootQueryToBannerConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the RootQuery type and the Banner type */
 export interface RootQueryToBannerConnection {
@@ -3670,6 +3748,10 @@ export interface RootQueryToCommentConnectionPageInfo {
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
 export type ContentNodeIdTypeEnum = 'DATABASE_ID' | 'ID' | 'URI'
 
+export type RootQueryToContentNodeConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type RootQueryToContentNodeConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the RootQuery type and the ContentNode type */
 export interface RootQueryToContentNodeConnection {
@@ -3760,6 +3842,10 @@ export interface DiscussionSettings {
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
 export type EmpreendimentoIdType = 'DATABASE_ID' | 'ID' | 'SLUG' | 'URI'
 
+export type RootQueryToEmpreendimentoConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type RootQueryToEmpreendimentoConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the RootQuery type and the Empreendimento type */
 export interface RootQueryToEmpreendimentoConnection {
@@ -3823,6 +3909,10 @@ export interface GeneralSettings {
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
 export type MediaItemIdType = 'DATABASE_ID' | 'ID' | 'SLUG' | 'SOURCE_URL' | 'URI'
+
+export type RootQueryToMediaItemConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type RootQueryToMediaItemConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
 
 
 /** Connection between the RootQuery type and the mediaItem type */
@@ -4153,6 +4243,10 @@ export interface RootQueryToMenuConnectionPageInfo {
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
 export type PageIdType = 'DATABASE_ID' | 'ID' | 'URI'
 
+export type RootQueryToPageConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type RootQueryToPageConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the RootQuery type and the page type */
 export interface RootQueryToPageConnection {
@@ -4309,6 +4403,10 @@ export interface RootQueryToPostFormatConnectionPageInfo {
     __typename: 'RootQueryToPostFormatConnectionPageInfo'
 }
 
+export type RootQueryToPostConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type RootQueryToPostConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
+
 
 /** Connection between the RootQuery type and the post type */
 export interface RootQueryToPostConnection {
@@ -4430,6 +4528,10 @@ export interface RootQueryToEnqueuedStylesheetConnectionPageInfo {
     startCursor?: Scalars['String']
     __typename: 'RootQueryToEnqueuedStylesheetConnectionPageInfo'
 }
+
+export type RootQueryToRevisionsConnectionWhereArgsMetaCompareEnum = 'BETWEEN' | 'EQUAL_TO' | 'EXISTS' | 'GREATER_THAN' | 'GREATER_THAN_OR_EQUAL_TO' | 'IN' | 'LESS_THAN' | 'LESS_THAN_OR_EQUAL_TO' | 'LIKE' | 'NOT_BETWEEN' | 'NOT_EQUAL_TO' | 'NOT_EXISTS' | 'NOT_IN' | 'NOT_LIKE'
+
+export type RootQueryToRevisionsConnectionWhereArgsMetaTypeEnum = 'BINARY' | 'CHAR' | 'DATE' | 'DATETIME' | 'DECIMAL' | 'NUMERIC' | 'SIGNED' | 'TIME' | 'UNSIGNED'
 
 
 /** Connection between the RootQuery type and the ContentNode type */
@@ -6776,7 +6878,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (ContentTypeToContentNodeConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -6800,7 +6902,7 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
 
@@ -6844,6 +6946,18 @@ month?: (Scalars['Int'] | null),
 /** 4 digit year (e.g. 2017) */
 year?: (Scalars['Int'] | null)}
 
+export interface ContentTypeToContentNodeConnectionWhereArgsMetaQuery {metaArray?: ((ContentTypeToContentNodeConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface ContentTypeToContentNodeConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (ContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (ContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
+
 
 /** Options for ordering the connection */
 export interface PostObjectsConnectionOrderbyInput {
@@ -6851,6 +6965,16 @@ export interface PostObjectsConnectionOrderbyInput {
 field: PostObjectsConnectionOrderbyEnum,
 /** Possible directions in which to order a list of items */
 order: OrderEnum}
+
+
+/** Query objects based on taxonomy parameters */
+export interface TaxQuery {relation?: (RelationEnum | null),taxArray?: ((TaxArray | null)[] | null)}
+
+export interface TaxArray {field?: (TaxQueryField | null),
+/** Whether or not to include children for hierarchical taxonomies. Defaults to false to improve performance (note that this is opposite of the default for WP_Query). */
+includeChildren?: (Scalars['Boolean'] | null),operator?: (TaxQueryOperator | null),taxonomy?: (TaxonomyEnum | null),
+/** A list of term slugs */
+terms?: ((Scalars['String'] | null)[] | null)}
 
 
 /** Connection between the ContentType type and the ContentNode type */
@@ -7967,7 +8091,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (UserToMediaItemConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -7991,9 +8115,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface UserToMediaItemConnectionWhereArgsMetaQuery {metaArray?: ((UserToMediaItemConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface UserToMediaItemConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (UserToMediaItemConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (UserToMediaItemConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the User type and the mediaItem type */
@@ -8435,7 +8571,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -8459,9 +8595,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaQuery {metaArray?: ((HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the HierarchicalContentNode type and the ContentNode type */
@@ -8514,7 +8662,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -8538,9 +8686,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaQuery {metaArray?: ((HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the HierarchicalContentNode type and the ContentNode type */
@@ -8916,7 +9076,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (UserToPageConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -8940,9 +9100,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface UserToPageConnectionWhereArgsMetaQuery {metaArray?: ((UserToPageConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface UserToPageConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (UserToPageConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (UserToPageConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the User type and the page type */
@@ -9507,7 +9679,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (PageToRevisionConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -9531,9 +9703,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface PageToRevisionConnectionWhereArgsMetaQuery {metaArray?: ((PageToRevisionConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface PageToRevisionConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (PageToRevisionConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (PageToRevisionConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the Page type and the page type */
@@ -9644,7 +9828,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (UserToPostConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -9680,9 +9864,21 @@ tagNotIn?: ((Scalars['ID'] | null)[] | null),
 /** Array of tag slugs, used to display objects from one tag AND another */
 tagSlugAnd?: ((Scalars['String'] | null)[] | null),
 /** Array of tag slugs, used to include objects in ANY specified tags */
-tagSlugIn?: ((Scalars['String'] | null)[] | null),
+tagSlugIn?: ((Scalars['String'] | null)[] | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface UserToPostConnectionWhereArgsMetaQuery {metaArray?: ((UserToPostConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface UserToPostConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (UserToPostConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (UserToPostConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the User type and the post type */
@@ -10530,7 +10726,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (CategoryToContentNodeConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -10554,9 +10750,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface CategoryToContentNodeConnectionWhereArgsMetaQuery {metaArray?: ((CategoryToContentNodeConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface CategoryToContentNodeConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (CategoryToContentNodeConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (CategoryToContentNodeConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the Category type and the ContentNode type */
@@ -10615,7 +10823,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (CategoryToEmpreendimentoConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -10639,9 +10847,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface CategoryToEmpreendimentoConnectionWhereArgsMetaQuery {metaArray?: ((CategoryToEmpreendimentoConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface CategoryToEmpreendimentoConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (CategoryToEmpreendimentoConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (CategoryToEmpreendimentoConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the Category type and the Empreendimento type */
@@ -11204,7 +11424,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (CategoryToPostConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -11240,9 +11460,21 @@ tagNotIn?: ((Scalars['ID'] | null)[] | null),
 /** Array of tag slugs, used to display objects from one tag AND another */
 tagSlugAnd?: ((Scalars['String'] | null)[] | null),
 /** Array of tag slugs, used to include objects in ANY specified tags */
-tagSlugIn?: ((Scalars['String'] | null)[] | null),
+tagSlugIn?: ((Scalars['String'] | null)[] | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface CategoryToPostConnectionWhereArgsMetaQuery {metaArray?: ((CategoryToPostConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface CategoryToPostConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (CategoryToPostConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (CategoryToPostConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the Category type and the post type */
@@ -11627,7 +11859,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (PostFormatToContentNodeConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -11651,9 +11883,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface PostFormatToContentNodeConnectionWhereArgsMetaQuery {metaArray?: ((PostFormatToContentNodeConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface PostFormatToContentNodeConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (PostFormatToContentNodeConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (PostFormatToContentNodeConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the PostFormat type and the ContentNode type */
@@ -11720,7 +11964,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (PostFormatToPostConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -11756,9 +12000,21 @@ tagNotIn?: ((Scalars['ID'] | null)[] | null),
 /** Array of tag slugs, used to display objects from one tag AND another */
 tagSlugAnd?: ((Scalars['String'] | null)[] | null),
 /** Array of tag slugs, used to include objects in ANY specified tags */
-tagSlugIn?: ((Scalars['String'] | null)[] | null),
+tagSlugIn?: ((Scalars['String'] | null)[] | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface PostFormatToPostConnectionWhereArgsMetaQuery {metaArray?: ((PostFormatToPostConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface PostFormatToPostConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (PostFormatToPostConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (PostFormatToPostConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the PostFormat type and the post type */
@@ -11890,7 +12146,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (PostToRevisionConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -11926,9 +12182,21 @@ tagNotIn?: ((Scalars['ID'] | null)[] | null),
 /** Array of tag slugs, used to display objects from one tag AND another */
 tagSlugAnd?: ((Scalars['String'] | null)[] | null),
 /** Array of tag slugs, used to include objects in ANY specified tags */
-tagSlugIn?: ((Scalars['String'] | null)[] | null),
+tagSlugIn?: ((Scalars['String'] | null)[] | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface PostToRevisionConnectionWhereArgsMetaQuery {metaArray?: ((PostToRevisionConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface PostToRevisionConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (PostToRevisionConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (PostToRevisionConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the Post type and the post type */
@@ -12154,7 +12422,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (TagToContentNodeConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -12178,9 +12446,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface TagToContentNodeConnectionWhereArgsMetaQuery {metaArray?: ((TagToContentNodeConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface TagToContentNodeConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (TagToContentNodeConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (TagToContentNodeConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the Tag type and the ContentNode type */
@@ -12247,7 +12527,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (TagToPostConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -12283,9 +12563,21 @@ tagNotIn?: ((Scalars['ID'] | null)[] | null),
 /** Array of tag slugs, used to display objects from one tag AND another */
 tagSlugAnd?: ((Scalars['String'] | null)[] | null),
 /** Array of tag slugs, used to include objects in ANY specified tags */
-tagSlugIn?: ((Scalars['String'] | null)[] | null),
+tagSlugIn?: ((Scalars['String'] | null)[] | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface TagToPostConnectionWhereArgsMetaQuery {metaArray?: ((TagToPostConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface TagToPostConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (TagToPostConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (TagToPostConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the Tag type and the post type */
@@ -12505,7 +12797,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (UserToRevisionsConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -12529,9 +12821,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface UserToRevisionsConnectionWhereArgsMetaQuery {metaArray?: ((UserToRevisionsConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface UserToRevisionsConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (UserToRevisionsConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (UserToRevisionsConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the User type and the ContentNode type */
@@ -12721,7 +13025,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (RootQueryToArquivoAssessoriaConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -12745,9 +13049,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface RootQueryToArquivoAssessoriaConnectionWhereArgsMetaQuery {metaArray?: ((RootQueryToArquivoAssessoriaConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface RootQueryToArquivoAssessoriaConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (RootQueryToArquivoAssessoriaConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (RootQueryToArquivoAssessoriaConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the RootQuery type and the ArquivoAssessoria type */
@@ -12992,7 +13308,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (RootQueryToBannerConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -13016,9 +13332,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface RootQueryToBannerConnectionWhereArgsMetaQuery {metaArray?: ((RootQueryToBannerConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface RootQueryToBannerConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (RootQueryToBannerConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (RootQueryToBannerConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the RootQuery type and the Banner type */
@@ -13287,7 +13615,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (RootQueryToContentNodeConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -13311,9 +13639,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface RootQueryToContentNodeConnectionWhereArgsMetaQuery {metaArray?: ((RootQueryToContentNodeConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface RootQueryToContentNodeConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (RootQueryToContentNodeConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (RootQueryToContentNodeConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the RootQuery type and the ContentNode type */
@@ -13422,7 +13762,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (RootQueryToEmpreendimentoConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -13446,9 +13786,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface RootQueryToEmpreendimentoConnectionWhereArgsMetaQuery {metaArray?: ((RootQueryToEmpreendimentoConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface RootQueryToEmpreendimentoConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (RootQueryToEmpreendimentoConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (RootQueryToEmpreendimentoConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the RootQuery type and the Empreendimento type */
@@ -13532,7 +13884,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (RootQueryToMediaItemConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -13556,9 +13908,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface RootQueryToMediaItemConnectionWhereArgsMetaQuery {metaArray?: ((RootQueryToMediaItemConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface RootQueryToMediaItemConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (RootQueryToMediaItemConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (RootQueryToMediaItemConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the RootQuery type and the mediaItem type */
@@ -14080,7 +14444,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (RootQueryToPageConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -14104,9 +14468,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface RootQueryToPageConnectionWhereArgsMetaQuery {metaArray?: ((RootQueryToPageConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface RootQueryToPageConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (RootQueryToPageConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (RootQueryToPageConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the RootQuery type and the page type */
@@ -14374,7 +14750,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (RootQueryToPostConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -14410,9 +14786,21 @@ tagNotIn?: ((Scalars['ID'] | null)[] | null),
 /** Array of tag slugs, used to display objects from one tag AND another */
 tagSlugAnd?: ((Scalars['String'] | null)[] | null),
 /** Array of tag slugs, used to include objects in ANY specified tags */
-tagSlugIn?: ((Scalars['String'] | null)[] | null),
+tagSlugIn?: ((Scalars['String'] | null)[] | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface RootQueryToPostConnectionWhereArgsMetaQuery {metaArray?: ((RootQueryToPostConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface RootQueryToPostConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (RootQueryToPostConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (RootQueryToPostConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the RootQuery type and the post type */
@@ -14558,7 +14946,7 @@ hasPassword?: (Scalars['Boolean'] | null),
 /** Specific database ID of the object */
 id?: (Scalars['Int'] | null),
 /** Array of IDs for the objects to retrieve */
-in?: ((Scalars['ID'] | null)[] | null),
+in?: ((Scalars['ID'] | null)[] | null),metaQuery?: (RootQueryToRevisionsConnectionWhereArgsMetaQuery | null),
 /** Get objects with a specific mimeType property */
 mimeType?: (MimeTypeEnum | null),
 /** Slug / post_name of the object */
@@ -14582,9 +14970,21 @@ search?: (Scalars['String'] | null),
 /** Retrieve posts where post status is in an array. */
 stati?: ((PostStatusEnum | null)[] | null),
 /** Show posts with a specific status. */
-status?: (PostStatusEnum | null),
+status?: (PostStatusEnum | null),taxQuery?: (TaxQuery | null),
 /** Title of the object */
 title?: (Scalars['String'] | null)}
+
+export interface RootQueryToRevisionsConnectionWhereArgsMetaQuery {metaArray?: ((RootQueryToRevisionsConnectionWhereArgsMetaArray | null)[] | null),relation?: (RelationEnum | null)}
+
+export interface RootQueryToRevisionsConnectionWhereArgsMetaArray {
+/** Custom field value */
+compare?: (RootQueryToRevisionsConnectionWhereArgsMetaCompareEnum | null),
+/** Custom field key */
+key?: (Scalars['String'] | null),
+/** Custom field value */
+type?: (RootQueryToRevisionsConnectionWhereArgsMetaTypeEnum | null),
+/** Custom field value */
+value?: (Scalars['String'] | null)}
 
 
 /** Connection between the RootQuery type and the ContentNode type */

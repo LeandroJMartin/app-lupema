@@ -51,6 +51,35 @@ module.exports.enumRelationEnum = {
   OR: 'OR',
 }
 
+module.exports.enumContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
 module.exports.enumMimeTypeEnum = {
   APPLICATION_JAVA: 'APPLICATION_JAVA',
   APPLICATION_MSWORD: 'APPLICATION_MSWORD',
@@ -204,6 +233,27 @@ module.exports.enumPostStatusEnum = {
   TRASH: 'TRASH',
 }
 
+module.exports.enumTaxQueryField = {
+  ID: 'ID',
+  NAME: 'NAME',
+  SLUG: 'SLUG',
+  TAXONOMY_ID: 'TAXONOMY_ID',
+}
+
+module.exports.enumTaxQueryOperator = {
+  AND: 'AND',
+  EXISTS: 'EXISTS',
+  IN: 'IN',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+}
+
+module.exports.enumTaxonomyEnum = {
+  CATEGORY: 'CATEGORY',
+  POSTFORMAT: 'POSTFORMAT',
+  TAG: 'TAG',
+}
+
 module.exports.enumAvatarRatingEnum = {
   G: 'G',
   PG: 'PG',
@@ -242,6 +292,93 @@ module.exports.enumCommentStatusEnum = {
   TRASH: 'TRASH',
 }
 
+module.exports.enumUserToMediaItemConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumUserToMediaItemConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumHierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumHierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumHierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumHierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
 module.exports.enumMediaItemSizeEnum = {
   LARGE: 'LARGE',
   MEDIUM: 'MEDIUM',
@@ -249,6 +386,93 @@ module.exports.enumMediaItemSizeEnum = {
   THUMBNAIL: 'THUMBNAIL',
   _1536X1536: '_1536X1536',
   _2048X2048: '_2048X2048',
+}
+
+module.exports.enumUserToPageConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumUserToPageConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumPageToRevisionConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumPageToRevisionConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumUserToPostConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumUserToPostConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
 }
 
 module.exports.enumTermObjectsConnectionOrderbyEnum = {
@@ -266,18 +490,302 @@ module.exports.enumContentTypesOfCategoryEnum = {
   POST: 'POST',
 }
 
-module.exports.enumTaxonomyEnum = {
-  CATEGORY: 'CATEGORY',
-  POSTFORMAT: 'POSTFORMAT',
-  TAG: 'TAG',
+module.exports.enumCategoryToContentNodeConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumCategoryToContentNodeConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumCategoryToEmpreendimentoConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumCategoryToEmpreendimentoConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumCategoryToPostConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumCategoryToPostConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
 }
 
 module.exports.enumContentTypesOfPostFormatEnum = {
   POST: 'POST',
 }
 
+module.exports.enumPostFormatToContentNodeConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumPostFormatToContentNodeConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumPostFormatToPostConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumPostFormatToPostConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumPostToRevisionConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumPostToRevisionConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
 module.exports.enumContentTypesOfTagEnum = {
   POST: 'POST',
+}
+
+module.exports.enumTagToContentNodeConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumTagToContentNodeConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumTagToPostConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumTagToPostConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumUserToRevisionsConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumUserToRevisionsConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumRootQueryToArquivoAssessoriaConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumRootQueryToArquivoAssessoriaConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
 }
 
 module.exports.enumBannerIdType = {
@@ -285,6 +793,35 @@ module.exports.enumBannerIdType = {
   ID: 'ID',
   SLUG: 'SLUG',
   URI: 'URI',
+}
+
+module.exports.enumRootQueryToBannerConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumRootQueryToBannerConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
 }
 
 module.exports.enumCategoryIdType = {
@@ -306,6 +843,35 @@ module.exports.enumContentNodeIdTypeEnum = {
   URI: 'URI',
 }
 
+module.exports.enumRootQueryToContentNodeConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumRootQueryToContentNodeConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
 module.exports.enumContentTypeIdTypeEnum = {
   ID: 'ID',
   NAME: 'NAME',
@@ -318,12 +884,70 @@ module.exports.enumEmpreendimentoIdType = {
   URI: 'URI',
 }
 
+module.exports.enumRootQueryToEmpreendimentoConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumRootQueryToEmpreendimentoConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
 module.exports.enumMediaItemIdType = {
   DATABASE_ID: 'DATABASE_ID',
   ID: 'ID',
   SLUG: 'SLUG',
   SOURCE_URL: 'SOURCE_URL',
   URI: 'URI',
+}
+
+module.exports.enumRootQueryToMediaItemConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumRootQueryToMediaItemConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
 }
 
 module.exports.enumMenuNodeIdTypeEnum = {
@@ -349,6 +973,35 @@ module.exports.enumPageIdType = {
   URI: 'URI',
 }
 
+module.exports.enumRootQueryToPageConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumRootQueryToPageConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
 module.exports.enumPluginStatusEnum = {
   ACTIVE: 'ACTIVE',
   DROP_IN: 'DROP_IN',
@@ -372,6 +1025,64 @@ module.exports.enumPostFormatIdType = {
   NAME: 'NAME',
   SLUG: 'SLUG',
   URI: 'URI',
+}
+
+module.exports.enumRootQueryToPostConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumRootQueryToPostConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
+}
+
+module.exports.enumRootQueryToRevisionsConnectionWhereArgsMetaCompareEnum = {
+  BETWEEN: 'BETWEEN',
+  EQUAL_TO: 'EQUAL_TO',
+  EXISTS: 'EXISTS',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO',
+  IN: 'IN',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO',
+  LIKE: 'LIKE',
+  NOT_BETWEEN: 'NOT_BETWEEN',
+  NOT_EQUAL_TO: 'NOT_EQUAL_TO',
+  NOT_EXISTS: 'NOT_EXISTS',
+  NOT_IN: 'NOT_IN',
+  NOT_LIKE: 'NOT_LIKE',
+}
+
+module.exports.enumRootQueryToRevisionsConnectionWhereArgsMetaTypeEnum = {
+  BINARY: 'BINARY',
+  CHAR: 'CHAR',
+  DATE: 'DATE',
+  DATETIME: 'DATETIME',
+  DECIMAL: 'DECIMAL',
+  NUMERIC: 'NUMERIC',
+  SIGNED: 'SIGNED',
+  TIME: 'TIME',
+  UNSIGNED: 'UNSIGNED',
 }
 
 module.exports.enumTagIdType = {

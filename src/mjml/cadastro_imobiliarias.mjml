@@ -1,0 +1,45 @@
+<mjml>
+  <mj-head>
+    <mj-title>
+      {{ subject }}
+    </mj-title>
+  </mj-head>
+
+  <mj-body background-color="#fff">
+    <mj-section>
+      <mj-column width="100%">
+        <mj-text font-size="24px" font-weight="bold">
+          {{ subject }}
+        </mj-text>
+      </mj-column>
+
+      <mj-column width="100%">
+        <mj-text font-size="16px">
+          Nome: {{ nome }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          E-mail: {{ email }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Telefone: {{ telefone }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Assunto: {{ assunto }}
+        </mj-text>
+
+        <mj-text font-size="16px">
+          Mensagem: {{ mensagem }}
+        </mj-text>
+
+        <mj-divider border-width="1px" />
+
+        <mj-text font-size="13px">
+          {{ data }}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+</mjml>
+</mj-body>

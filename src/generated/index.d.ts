@@ -78,6 +78,35 @@ export declare const enumRelationEnum: {
   readonly OR: 'OR'
 }
 
+export declare const enumContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
 export declare const enumMimeTypeEnum: {
   readonly APPLICATION_JAVA: 'APPLICATION_JAVA'
   readonly APPLICATION_MSWORD: 'APPLICATION_MSWORD'
@@ -205,6 +234,27 @@ export declare const enumPostStatusEnum: {
   readonly TRASH: 'TRASH'
 }
 
+export declare const enumTaxQueryField: {
+  readonly ID: 'ID'
+  readonly NAME: 'NAME'
+  readonly SLUG: 'SLUG'
+  readonly TAXONOMY_ID: 'TAXONOMY_ID'
+}
+
+export declare const enumTaxQueryOperator: {
+  readonly AND: 'AND'
+  readonly EXISTS: 'EXISTS'
+  readonly IN: 'IN'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+}
+
+export declare const enumTaxonomyEnum: {
+  readonly CATEGORY: 'CATEGORY'
+  readonly POSTFORMAT: 'POSTFORMAT'
+  readonly TAG: 'TAG'
+}
+
 export declare const enumAvatarRatingEnum: {
   readonly G: 'G'
   readonly PG: 'PG'
@@ -243,6 +293,93 @@ export declare const enumCommentStatusEnum: {
   readonly TRASH: 'TRASH'
 }
 
+export declare const enumUserToMediaItemConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumUserToMediaItemConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumHierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumHierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumHierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumHierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
 export declare const enumMediaItemSizeEnum: {
   readonly LARGE: 'LARGE'
   readonly MEDIUM: 'MEDIUM'
@@ -250,6 +387,93 @@ export declare const enumMediaItemSizeEnum: {
   readonly THUMBNAIL: 'THUMBNAIL'
   readonly _1536X1536: '_1536X1536'
   readonly _2048X2048: '_2048X2048'
+}
+
+export declare const enumUserToPageConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumUserToPageConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumPageToRevisionConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumPageToRevisionConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumUserToPostConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumUserToPostConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
 }
 
 export declare const enumTermObjectsConnectionOrderbyEnum: {
@@ -267,18 +491,302 @@ export declare const enumContentTypesOfCategoryEnum: {
   readonly POST: 'POST'
 }
 
-export declare const enumTaxonomyEnum: {
-  readonly CATEGORY: 'CATEGORY'
-  readonly POSTFORMAT: 'POSTFORMAT'
-  readonly TAG: 'TAG'
+export declare const enumCategoryToContentNodeConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumCategoryToContentNodeConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumCategoryToEmpreendimentoConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumCategoryToEmpreendimentoConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumCategoryToPostConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumCategoryToPostConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
 }
 
 export declare const enumContentTypesOfPostFormatEnum: {
   readonly POST: 'POST'
 }
 
+export declare const enumPostFormatToContentNodeConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumPostFormatToContentNodeConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumPostFormatToPostConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumPostFormatToPostConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumPostToRevisionConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumPostToRevisionConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
 export declare const enumContentTypesOfTagEnum: {
   readonly POST: 'POST'
+}
+
+export declare const enumTagToContentNodeConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumTagToContentNodeConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumTagToPostConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumTagToPostConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumUserToRevisionsConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumUserToRevisionsConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumRootQueryToArquivoAssessoriaConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumRootQueryToArquivoAssessoriaConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
 }
 
 export declare const enumBannerIdType: {
@@ -286,6 +794,35 @@ export declare const enumBannerIdType: {
   readonly ID: 'ID'
   readonly SLUG: 'SLUG'
   readonly URI: 'URI'
+}
+
+export declare const enumRootQueryToBannerConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumRootQueryToBannerConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
 }
 
 export declare const enumCategoryIdType: {
@@ -307,6 +844,35 @@ export declare const enumContentNodeIdTypeEnum: {
   readonly URI: 'URI'
 }
 
+export declare const enumRootQueryToContentNodeConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumRootQueryToContentNodeConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
 export declare const enumContentTypeIdTypeEnum: {
   readonly ID: 'ID'
   readonly NAME: 'NAME'
@@ -319,12 +885,70 @@ export declare const enumEmpreendimentoIdType: {
   readonly URI: 'URI'
 }
 
+export declare const enumRootQueryToEmpreendimentoConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumRootQueryToEmpreendimentoConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
 export declare const enumMediaItemIdType: {
   readonly DATABASE_ID: 'DATABASE_ID'
   readonly ID: 'ID'
   readonly SLUG: 'SLUG'
   readonly SOURCE_URL: 'SOURCE_URL'
   readonly URI: 'URI'
+}
+
+export declare const enumRootQueryToMediaItemConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumRootQueryToMediaItemConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
 }
 
 export declare const enumMenuNodeIdTypeEnum: {
@@ -350,6 +974,35 @@ export declare const enumPageIdType: {
   readonly URI: 'URI'
 }
 
+export declare const enumRootQueryToPageConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumRootQueryToPageConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
 export declare const enumPluginStatusEnum: {
   readonly ACTIVE: 'ACTIVE'
   readonly DROP_IN: 'DROP_IN'
@@ -373,6 +1026,64 @@ export declare const enumPostFormatIdType: {
   readonly NAME: 'NAME'
   readonly SLUG: 'SLUG'
   readonly URI: 'URI'
+}
+
+export declare const enumRootQueryToPostConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumRootQueryToPostConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
+}
+
+export declare const enumRootQueryToRevisionsConnectionWhereArgsMetaCompareEnum: {
+  readonly BETWEEN: 'BETWEEN'
+  readonly EQUAL_TO: 'EQUAL_TO'
+  readonly EXISTS: 'EXISTS'
+  readonly GREATER_THAN: 'GREATER_THAN'
+  readonly GREATER_THAN_OR_EQUAL_TO: 'GREATER_THAN_OR_EQUAL_TO'
+  readonly IN: 'IN'
+  readonly LESS_THAN: 'LESS_THAN'
+  readonly LESS_THAN_OR_EQUAL_TO: 'LESS_THAN_OR_EQUAL_TO'
+  readonly LIKE: 'LIKE'
+  readonly NOT_BETWEEN: 'NOT_BETWEEN'
+  readonly NOT_EQUAL_TO: 'NOT_EQUAL_TO'
+  readonly NOT_EXISTS: 'NOT_EXISTS'
+  readonly NOT_IN: 'NOT_IN'
+  readonly NOT_LIKE: 'NOT_LIKE'
+}
+
+export declare const enumRootQueryToRevisionsConnectionWhereArgsMetaTypeEnum: {
+  readonly BINARY: 'BINARY'
+  readonly CHAR: 'CHAR'
+  readonly DATE: 'DATE'
+  readonly DATETIME: 'DATETIME'
+  readonly DECIMAL: 'DECIMAL'
+  readonly NUMERIC: 'NUMERIC'
+  readonly SIGNED: 'SIGNED'
+  readonly TIME: 'TIME'
+  readonly UNSIGNED: 'UNSIGNED'
 }
 
 export declare const enumTagIdType: {

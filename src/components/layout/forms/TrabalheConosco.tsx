@@ -1,9 +1,14 @@
 import StageForm from '../StageForm';
-
 import { useFormikWizard } from 'formik-wizard-form';
 import * as yup from 'yup';
+import { useMutation } from 'react-query';
+import { axiosInstance } from '../../../lib/axios';
 
 const MultiStepForm = () => {
+  const mutation = useMutation((data: any) => {
+    return axiosInstance.post('api/sendEmail', data);
+  });
+
   const {
     currentStepIndex,
     renderComponent,
@@ -55,7 +60,16 @@ const MultiStepForm = () => {
       funcao3: '',
       atribuicoes3: '',
     },
-    onSubmit: (values) => console.log(values),
+    onSubmit: (data) => {
+      let formData = {
+        ...data,
+        data: new Date().toLocaleString(),
+        subject: 'Novo contato via site: Trabalhe-conosco',
+        for: 'trabalhe_conosco',
+      };
+
+      mutation.mutate(formData);
+    },
     validateOnNext: true,
     activeStepIndex: 0,
     steps: [
@@ -252,29 +266,37 @@ const MultiStepForm = () => {
         Preencha com seus dados e faça parte da equipe Lupema Engenharia
       </p>
 
-      <div className="py-4">{renderComponent()}</div>
+      {mutation.isLoading ? (
+        <span>Enviando...</span>
+      ) : mutation.isSuccess ? (
+        <span className="py-4">Obrigado pelo seu contato!</span>
+      ) : (
+        <>
+          <div className="py-4">{renderComponent()}</div>
 
-      <div className="flex items-center justify-between gap-4">
-        <button
-          type="button"
-          className="bg-green py-2 px-6 text-black uppercase font-semibold"
-          onClick={handlePrev}
-          disabled={isPrevDisabled}
-        >
-          Voltar
-        </button>
+          <div className="flex items-center justify-between gap-4">
+            <button
+              type="button"
+              className="bg-green py-2 px-6 text-black uppercase font-semibold"
+              onClick={handlePrev}
+              disabled={isPrevDisabled}
+            >
+              Voltar
+            </button>
 
-        <button
-          type="button"
-          className={`bg-green py-2 px-6 text-black uppercase font-semibold ${
-            isLastStep && 'w-full'
-          }`}
-          disabled={isNextDisabled}
-          onClick={handleNext}
-        >
-          {isLastStep ? 'Enviar' : 'Próximo'}
-        </button>
-      </div>
+            <button
+              type="button"
+              className={`bg-green py-2 px-6 text-black uppercase font-semibold ${
+                isLastStep && 'w-full'
+              }`}
+              disabled={isNextDisabled}
+              onClick={handleNext}
+            >
+              {isLastStep ? 'Enviar' : 'Próximo'}
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };
@@ -1022,53 +1044,53 @@ const Stage6 = ({ values, errors, touched, handleChange }: any) => {
           <div className="col-span-2">
             <input
               type="text"
-              name="empresa1"
+              name="empresa2"
               placeholder="Empresa"
               className="w-full"
-              value={values.empresa1}
+              value={values.empresa2}
               onChange={handleChange}
             />
 
-            {errors.empresa1 && <Error msg={errors.empresa1} />}
+            {errors.empresa2 && <Error msg={errors.empresa2} />}
           </div>
 
           <div className="col-span-1">
             <input
               type="text"
-              name="periodo1"
+              name="periodo2"
               placeholder="Período"
               className="w-full"
-              value={values.periodo1}
+              value={values.periodo2}
               onChange={handleChange}
             />
 
-            {errors.graduacao && <Error msg={errors.graduacao} />}
+            {errors.periodo2 && <Error msg={errors.periodo2} />}
           </div>
 
           <div className="col-span-1">
             <input
               type="text"
-              name="funcao1"
+              name="funcao2"
               placeholder="Função"
               className="w-full"
-              value={values.funcao1}
+              value={values.funcao2}
               onChange={handleChange}
             />
 
-            {errors.funcao1 && <Error msg={errors.funcao1} />}
+            {errors.funcao2 && <Error msg={errors.funcao2} />}
           </div>
 
           <div className="col-span-2">
             <textarea
-              name="atribuicoes1"
+              name="atribuicoes2"
               rows={7}
               placeholder="Principais Atribuições"
               className="w-full"
-              value={values.atribuicoes1}
+              value={values.atribuicoes2}
               onChange={handleChange}
             ></textarea>
 
-            {errors.atribuicoes1 && <Error msg={errors.atribuicoes1} />}
+            {errors.atribuicoes2 && <Error msg={errors.atribuicoes2} />}
           </div>
         </div>
       </div>
@@ -1085,53 +1107,53 @@ const Stage7 = ({ values, errors, touched, handleChange }: any) => {
           <div className="col-span-2">
             <input
               type="text"
-              name="empresa1"
+              name="empresa3"
               placeholder="Empresa"
               className="w-full"
-              value={values.empresa1}
+              value={values.empresa3}
               onChange={handleChange}
             />
 
-            {errors.empresa1 && <Error msg={errors.empresa1} />}
+            {errors.empresa3 && <Error msg={errors.empresa3} />}
           </div>
 
           <div className="col-span-1">
             <input
               type="text"
-              name="periodo1"
+              name="periodo3"
               placeholder="Período"
               className="w-full"
-              value={values.periodo1}
+              value={values.periodo3}
               onChange={handleChange}
             />
 
-            {errors.graduacao && <Error msg={errors.graduacao} />}
+            {errors.periodo3 && <Error msg={errors.periodo3} />}
           </div>
 
           <div className="col-span-1">
             <input
               type="text"
-              name="funcao1"
+              name="funcao3"
               placeholder="Função"
               className="w-full"
-              value={values.funcao1}
+              value={values.funcao3}
               onChange={handleChange}
             />
 
-            {errors.funcao1 && <Error msg={errors.funcao1} />}
+            {errors.funcao3 && <Error msg={errors.funcao3} />}
           </div>
 
           <div className="col-span-2">
             <textarea
-              name="atribuicoes1"
+              name="atribuicoes3"
               rows={7}
               placeholder="Principais Atribuições"
               className="w-full"
-              value={values.atribuicoes1}
+              value={values.atribuicoes3}
               onChange={handleChange}
             ></textarea>
 
-            {errors.atribuicoes1 && <Error msg={errors.atribuicoes1} />}
+            {errors.atribuicoes3 && <Error msg={errors.atribuicoes3} />}
           </div>
         </div>
       </div>

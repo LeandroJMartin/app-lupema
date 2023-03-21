@@ -1,19 +1,20 @@
 import { useState } from 'react';
-import { BsSearch, BsFilterRight } from 'react-icons/bs';
-import { RootQueryToEmpreendimentoConnection } from '../../generated';
+import { BsFilterRight, BsSearch } from 'react-icons/bs';
+import {
+  RootQueryToEmpreendimentoConnection,
+  RootQueryToEmpreendimentoConnectionWhereArgs,
+  RootQueryToEmpreendimentoConnectionWhereArgsMetaArray,
+  TaxQuery,
+} from '../../generated';
+import ClientApp from '../../lib/genql';
 
 interface Props {
   data: RootQueryToEmpreendimentoConnection;
-  childToParent: any;
+  resultDataState: (data: any) => void;
 }
 
-const FilterApp = ({ data, childToParent }: Props) => {
-  const [selectValue, setSelectValue] = useState('');
-
-  function ClearText(text: any) {
-    const clearText = text?.normalize('NFD').replace(/[^a-zA-Z\s]/g, '');
-    return clearText?.replace(/\s/g, '').toLowerCase();
-  }
+const FilterApp = ({ data, resultDataState }: Props) => {
+  const [loading, setLoading] = useState(false);
 
   const GetObjects = (object: string) => {
     const itens = data.nodes.map((el) => {
@@ -35,8 +36,128 @@ const FilterApp = ({ data, childToParent }: Props) => {
     });
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (loading) return;
+
+    const form = e.currentTarget as HTMLFormElement;
+    const formData = new FormData(form);
+
+    let data = { search: '', bairro: '', tipo: '', estagio: '' };
+
+    for (let [key, value] of formData.entries()) {
+      if (key === 'search') data.search = value as string;
+      if (key === 'bairro') data.bairro = value as string;
+      if (key === 'tipo') data.tipo = value as string;
+      if (key === 'estagio') data.estagio = value as string;
+    }
+
+    if (
+      data.search === '' &&
+      data.bairro === 'false' &&
+      data.tipo === 'false' &&
+      data.estagio === 'false'
+    )
+      return;
+
+    setLoading(true);
+
+    const qBairro = {
+      compare: 'EQUAL_TO',
+      key: 'endereco_bairro',
+      value: data?.bairro || null,
+    };
+
+    const qTipo = {
+      compare: 'EQUAL_TO',
+      key: 'tipo_do_empreendimento',
+      value: data?.tipo || null,
+    };
+
+    const qEstagio = {
+      relation: 'OR',
+      taxArray: [
+        {
+          taxonomy: 'CATEGORY',
+          operator: 'IN',
+          field: 'NAME',
+          terms: [data?.estagio],
+        },
+      ],
+    };
+
+    const cQuery = [];
+
+    if (data.bairro !== 'false') {
+      cQuery.push(qBairro);
+    }
+
+    if (data.tipo !== 'false') {
+      cQuery.push(qTipo);
+    }
+
+    let completeWhere: RootQueryToEmpreendimentoConnectionWhereArgs = {
+      metaQuery: {
+        relation: 'OR',
+        metaArray:
+          cQuery as RootQueryToEmpreendimentoConnectionWhereArgsMetaArray[],
+      },
+    };
+
+    if (data.search !== '') {
+      completeWhere = {
+        ...completeWhere,
+        search: data.search,
+      };
+    }
+
+    if (data.estagio !== 'false') {
+      completeWhere = {
+        ...completeWhere,
+        taxQuery: qEstagio as TaxQuery,
+      };
+    }
+
+    const result = await ClientApp.query({
+      empreendimentos: [
+        {
+          where: completeWhere as RootQueryToEmpreendimentoConnectionWhereArgs,
+        },
+        {
+          nodes: {
+            empreendimento: {
+              imagemPrincipal: {
+                sourceUrl: true,
+              },
+              nomeDoEmpreendimento: true,
+              estagioDaObra: {
+                name: true,
+                slug: true,
+              },
+              empCidade: true,
+              empMetragem: true,
+              empDormitorios: true,
+              empVagasDeGaragem: true,
+              empValorAPartirDe: true,
+              enderecoBairro: true,
+              tipoDoEmpreendimento: true,
+            },
+            slug: true,
+          },
+        },
+      ],
+    });
+
+    if (result.empreendimentos?.nodes) {
+      resultDataState(result.empreendimentos);
+    }
+
+    setLoading(false);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit} onReset={() => resultDataState(null)}>
       <div className="relative">
         <input
           type="search"
@@ -55,52 +176,47 @@ const FilterApp = ({ data, childToParent }: Props) => {
         </summary>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
-          <select
-            name="bairro"
-            className="border border-green py-2 px-3"
-            onChange={(e) => setSelectValue(e.target.value)}
-          >
+          <select name="bairro" className="border border-green py-2 px-3">
             <option value="false">Bairro</option>
             {GetObjects('bairro').map((item) => {
-              return <option value={ClearText(item)}>{item}</option>;
+              return <option value={item}>{item}</option>;
             })}
           </select>
-          <select
-            name="tipo"
-            className="border border-green py-2 px-3"
-            onChange={(e) => setSelectValue(e.target.value)}
-          >
+
+          <select name="tipo" className="border border-green py-2 px-3">
             <option value="false">Tipo de imóvel</option>
             {GetObjects('tipo').map((item) => {
-              return <option value={ClearText(item)}>{item}</option>;
+              return <option value={item}>{item}</option>;
             })}
           </select>
-          <select
-            name="estagio"
-            className="border border-green py-2 px-3"
-            onChange={(e) => setSelectValue(e.target.value)}
-          >
+
+          <select name="estagio" className="border border-green py-2 px-3">
             <option value="false">Estágio da obra</option>
             {GetObjects('estagio').map((item) => {
-              return <option value={ClearText(item)}>{item}</option>;
+              return <option value={item}>{item}</option>;
             })}
           </select>
         </div>
 
         <div className="flex justify-center mt-6">
-          <button
-            value="Buscar"
-            className="text-black uppercase px-6 py-2 bg-green mr-3"
-            onClick={() => childToParent(selectValue)}
-          >
-            Buscar
-          </button>
-          <button
-            type="reset"
-            className="text-green uppercase px-6 py-2 border border-green"
-          >
-            Limpar filtro
-          </button>
+          {loading ? (
+            <span className="text-sm text-zinc-500">Buscando...</span>
+          ) : (
+            <>
+              <button
+                value="Buscar"
+                className="text-black uppercase px-6 py-2 bg-green mr-3"
+              >
+                Buscar
+              </button>
+              <button
+                type="reset"
+                className="text-green uppercase px-6 py-2 border border-green"
+              >
+                Limpar filtro
+              </button>
+            </>
+          )}
         </div>
       </details>
     </form>

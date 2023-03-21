@@ -1695,6 +1695,7 @@ input ContentTypeToContentNodeConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: ContentTypeToContentNodeConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -1733,6 +1734,7 @@ input ContentTypeToContentNodeConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
@@ -1835,6 +1837,56 @@ enum RelationEnum {
   The logical OR condition returns false if both operands are false, otherwise, it returns true.
   """
   OR
+}
+
+""""""
+input ContentTypeToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray: [ContentTypeToContentNodeConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input ContentTypeToContentNodeConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: ContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: ContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum ContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum ContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """The MimeType of the object"""
@@ -2217,6 +2269,57 @@ enum PostStatusEnum {
 
   """Objects with the trash status"""
   TRASH
+}
+
+"""Query objects based on taxonomy parameters"""
+input TaxQuery {
+  relation: RelationEnum
+  taxArray: [TaxArray]
+}
+
+""""""
+input TaxArray {
+  field: TaxQueryField
+
+  """
+  Whether or not to include children for hierarchical taxonomies. Defaults to false to improve performance (note that this is opposite of the default for WP_Query).
+  """
+  includeChildren: Boolean
+  operator: TaxQueryOperator
+  taxonomy: TaxonomyEnum
+
+  """A list of term slugs"""
+  terms: [String]
+}
+
+"""
+Which field to select taxonomy term by. Default value is "term_id"
+"""
+enum TaxQueryField {
+  ID
+  NAME
+  SLUG
+  TAXONOMY_ID
+}
+
+enum TaxQueryOperator {
+  AND
+  EXISTS
+  IN
+  NOT_EXISTS
+  NOT_IN
+}
+
+"""Allowed taxonomies"""
+enum TaxonomyEnum {
+  """Taxonomy enum category"""
+  CATEGORY
+
+  """Taxonomy enum post_format"""
+  POSTFORMAT
+
+  """Taxonomy enum post_tag"""
+  TAG
 }
 
 """Connection between the ContentType type and the ContentNode type"""
@@ -3660,6 +3763,7 @@ input UserToMediaItemConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: UserToMediaItemConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -3698,9 +3802,60 @@ input UserToMediaItemConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input UserToMediaItemConnectionWhereArgsMetaQuery {
+  metaArray: [UserToMediaItemConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input UserToMediaItemConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: UserToMediaItemConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: UserToMediaItemConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum UserToMediaItemConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum UserToMediaItemConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the User type and the mediaItem type"""
@@ -4311,6 +4466,7 @@ input HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -4349,9 +4505,60 @@ input HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaQuery {
+  metaArray: [HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """
@@ -4416,6 +4623,7 @@ input HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -4454,9 +4662,60 @@ input HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaQuery {
+  metaArray: [HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """
@@ -4913,6 +5172,7 @@ input UserToPageConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: UserToPageConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -4951,9 +5211,60 @@ input UserToPageConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input UserToPageConnectionWhereArgsMetaQuery {
+  metaArray: [UserToPageConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input UserToPageConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: UserToPageConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: UserToPageConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum UserToPageConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum UserToPageConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the User type and the page type"""
@@ -5706,6 +6017,7 @@ input PageToRevisionConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: PageToRevisionConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -5744,9 +6056,60 @@ input PageToRevisionConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input PageToRevisionConnectionWhereArgsMetaQuery {
+  metaArray: [PageToRevisionConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input PageToRevisionConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: PageToRevisionConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: PageToRevisionConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum PageToRevisionConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum PageToRevisionConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the Page type and the page type"""
@@ -5871,6 +6234,7 @@ input UserToPostConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: UserToPostConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -5927,9 +6291,60 @@ input UserToPostConnectionWhereArgs {
 
   """Array of tag slugs, used to include objects in ANY specified tags"""
   tagSlugIn: [String]
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input UserToPostConnectionWhereArgsMetaQuery {
+  metaArray: [UserToPostConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input UserToPostConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: UserToPostConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: UserToPostConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum UserToPostConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum UserToPostConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the User type and the post type"""
@@ -7124,6 +7539,7 @@ input CategoryToContentNodeConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: CategoryToContentNodeConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -7162,6 +7578,7 @@ input CategoryToContentNodeConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
@@ -7174,6 +7591,56 @@ enum ContentTypesOfCategoryEnum {
 
   """The Type of Content object"""
   POST
+}
+
+""""""
+input CategoryToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray: [CategoryToContentNodeConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input CategoryToContentNodeConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: CategoryToContentNodeConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: CategoryToContentNodeConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum CategoryToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum CategoryToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the Category type and the ContentNode type"""
@@ -7245,6 +7712,7 @@ input CategoryToEmpreendimentoConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: CategoryToEmpreendimentoConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -7283,9 +7751,60 @@ input CategoryToEmpreendimentoConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input CategoryToEmpreendimentoConnectionWhereArgsMetaQuery {
+  metaArray: [CategoryToEmpreendimentoConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input CategoryToEmpreendimentoConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: CategoryToEmpreendimentoConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: CategoryToEmpreendimentoConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum CategoryToEmpreendimentoConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum CategoryToEmpreendimentoConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the Category type and the Empreendimento type"""
@@ -7900,18 +8419,6 @@ input EmpreendimentoToTermNodeConnectionWhereArgs {
   updateTermMetaCache: Boolean
 }
 
-"""Allowed taxonomies"""
-enum TaxonomyEnum {
-  """Taxonomy enum category"""
-  CATEGORY
-
-  """Taxonomy enum post_format"""
-  POSTFORMAT
-
-  """Taxonomy enum post_tag"""
-  TAG
-}
-
 """Connection between the Empreendimento type and the TermNode type"""
 type EmpreendimentoToTermNodeConnection implements TermNodeConnection & Connection {
   """Edges for the EmpreendimentoToTermNodeConnection connection"""
@@ -8085,6 +8592,7 @@ input CategoryToPostConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: CategoryToPostConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -8141,9 +8649,60 @@ input CategoryToPostConnectionWhereArgs {
 
   """Array of tag slugs, used to include objects in ANY specified tags"""
   tagSlugIn: [String]
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input CategoryToPostConnectionWhereArgsMetaQuery {
+  metaArray: [CategoryToPostConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input CategoryToPostConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: CategoryToPostConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: CategoryToPostConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum CategoryToPostConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum CategoryToPostConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the Category type and the post type"""
@@ -8644,6 +9203,7 @@ input PostFormatToContentNodeConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: PostFormatToContentNodeConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -8682,6 +9242,7 @@ input PostFormatToContentNodeConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
@@ -8691,6 +9252,56 @@ input PostFormatToContentNodeConnectionWhereArgs {
 enum ContentTypesOfPostFormatEnum {
   """The Type of Content object"""
   POST
+}
+
+""""""
+input PostFormatToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray: [PostFormatToContentNodeConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input PostFormatToContentNodeConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: PostFormatToContentNodeConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: PostFormatToContentNodeConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum PostFormatToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum PostFormatToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the PostFormat type and the ContentNode type"""
@@ -8776,6 +9387,7 @@ input PostFormatToPostConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: PostFormatToPostConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -8832,9 +9444,60 @@ input PostFormatToPostConnectionWhereArgs {
 
   """Array of tag slugs, used to include objects in ANY specified tags"""
   tagSlugIn: [String]
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input PostFormatToPostConnectionWhereArgsMetaQuery {
+  metaArray: [PostFormatToPostConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input PostFormatToPostConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: PostFormatToPostConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: PostFormatToPostConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum PostFormatToPostConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum PostFormatToPostConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the PostFormat type and the post type"""
@@ -8981,6 +9644,7 @@ input PostToRevisionConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: PostToRevisionConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -9037,9 +9701,60 @@ input PostToRevisionConnectionWhereArgs {
 
   """Array of tag slugs, used to include objects in ANY specified tags"""
   tagSlugIn: [String]
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input PostToRevisionConnectionWhereArgsMetaQuery {
+  metaArray: [PostToRevisionConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input PostToRevisionConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: PostToRevisionConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: PostToRevisionConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum PostToRevisionConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum PostToRevisionConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the Post type and the post type"""
@@ -9354,6 +10069,7 @@ input TagToContentNodeConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: TagToContentNodeConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -9392,6 +10108,7 @@ input TagToContentNodeConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
@@ -9401,6 +10118,56 @@ input TagToContentNodeConnectionWhereArgs {
 enum ContentTypesOfTagEnum {
   """The Type of Content object"""
   POST
+}
+
+""""""
+input TagToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray: [TagToContentNodeConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input TagToContentNodeConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: TagToContentNodeConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: TagToContentNodeConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum TagToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum TagToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the Tag type and the ContentNode type"""
@@ -9486,6 +10253,7 @@ input TagToPostConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: TagToPostConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -9542,9 +10310,60 @@ input TagToPostConnectionWhereArgs {
 
   """Array of tag slugs, used to include objects in ANY specified tags"""
   tagSlugIn: [String]
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input TagToPostConnectionWhereArgsMetaQuery {
+  metaArray: [TagToPostConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input TagToPostConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: TagToPostConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: TagToPostConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum TagToPostConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum TagToPostConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the Tag type and the post type"""
@@ -9802,6 +10621,7 @@ input UserToRevisionsConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: UserToRevisionsConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -9840,9 +10660,60 @@ input UserToRevisionsConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input UserToRevisionsConnectionWhereArgsMetaQuery {
+  metaArray: [UserToRevisionsConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input UserToRevisionsConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: UserToRevisionsConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: UserToRevisionsConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum UserToRevisionsConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum UserToRevisionsConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the User type and the ContentNode type"""
@@ -10034,6 +10905,7 @@ input RootQueryToArquivoAssessoriaConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: RootQueryToArquivoAssessoriaConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -10072,9 +10944,60 @@ input RootQueryToArquivoAssessoriaConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input RootQueryToArquivoAssessoriaConnectionWhereArgsMetaQuery {
+  metaArray: [RootQueryToArquivoAssessoriaConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input RootQueryToArquivoAssessoriaConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: RootQueryToArquivoAssessoriaConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: RootQueryToArquivoAssessoriaConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum RootQueryToArquivoAssessoriaConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum RootQueryToArquivoAssessoriaConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the RootQuery type and the ArquivoAssessoria type"""
@@ -10409,6 +11332,7 @@ input RootQueryToBannerConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: RootQueryToBannerConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -10447,9 +11371,60 @@ input RootQueryToBannerConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input RootQueryToBannerConnectionWhereArgsMetaQuery {
+  metaArray: [RootQueryToBannerConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input RootQueryToBannerConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: RootQueryToBannerConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: RootQueryToBannerConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum RootQueryToBannerConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum RootQueryToBannerConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the RootQuery type and the Banner type"""
@@ -10836,6 +11811,7 @@ input RootQueryToContentNodeConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: RootQueryToContentNodeConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -10874,9 +11850,60 @@ input RootQueryToContentNodeConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input RootQueryToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray: [RootQueryToContentNodeConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input RootQueryToContentNodeConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: RootQueryToContentNodeConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: RootQueryToContentNodeConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum RootQueryToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum RootQueryToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the RootQuery type and the ContentNode type"""
@@ -11023,6 +12050,7 @@ input RootQueryToEmpreendimentoConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: RootQueryToEmpreendimentoConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -11061,9 +12089,60 @@ input RootQueryToEmpreendimentoConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input RootQueryToEmpreendimentoConnectionWhereArgsMetaQuery {
+  metaArray: [RootQueryToEmpreendimentoConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input RootQueryToEmpreendimentoConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: RootQueryToEmpreendimentoConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: RootQueryToEmpreendimentoConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum RootQueryToEmpreendimentoConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum RootQueryToEmpreendimentoConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the RootQuery type and the Empreendimento type"""
@@ -11185,6 +12264,7 @@ input RootQueryToMediaItemConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: RootQueryToMediaItemConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -11223,9 +12303,60 @@ input RootQueryToMediaItemConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input RootQueryToMediaItemConnectionWhereArgsMetaQuery {
+  metaArray: [RootQueryToMediaItemConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input RootQueryToMediaItemConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: RootQueryToMediaItemConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: RootQueryToMediaItemConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum RootQueryToMediaItemConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum RootQueryToMediaItemConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the RootQuery type and the mediaItem type"""
@@ -11803,6 +12934,7 @@ input RootQueryToPageConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: RootQueryToPageConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -11841,9 +12973,60 @@ input RootQueryToPageConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input RootQueryToPageConnectionWhereArgsMetaQuery {
+  metaArray: [RootQueryToPageConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input RootQueryToPageConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: RootQueryToPageConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: RootQueryToPageConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum RootQueryToPageConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum RootQueryToPageConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the RootQuery type and the page type"""
@@ -12232,6 +13415,7 @@ input RootQueryToPostConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: RootQueryToPostConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -12288,9 +13472,60 @@ input RootQueryToPostConnectionWhereArgs {
 
   """Array of tag slugs, used to include objects in ANY specified tags"""
   tagSlugIn: [String]
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input RootQueryToPostConnectionWhereArgsMetaQuery {
+  metaArray: [RootQueryToPostConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input RootQueryToPostConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: RootQueryToPostConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: RootQueryToPostConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum RootQueryToPostConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum RootQueryToPostConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the RootQuery type and the post type"""
@@ -12434,6 +13669,7 @@ input RootQueryToRevisionsConnectionWhereArgs {
 
   """Array of IDs for the objects to retrieve"""
   in: [ID]
+  metaQuery: RootQueryToRevisionsConnectionWhereArgsMetaQuery
 
   """Get objects with a specific mimeType property"""
   mimeType: MimeTypeEnum
@@ -12472,9 +13708,60 @@ input RootQueryToRevisionsConnectionWhereArgs {
 
   """Show posts with a specific status."""
   status: PostStatusEnum
+  taxQuery: TaxQuery
 
   """Title of the object"""
   title: String
+}
+
+""""""
+input RootQueryToRevisionsConnectionWhereArgsMetaQuery {
+  metaArray: [RootQueryToRevisionsConnectionWhereArgsMetaArray]
+  relation: RelationEnum
+}
+
+""""""
+input RootQueryToRevisionsConnectionWhereArgsMetaArray {
+  """Custom field value"""
+  compare: RootQueryToRevisionsConnectionWhereArgsMetaCompareEnum
+
+  """Custom field key"""
+  key: String
+
+  """Custom field value"""
+  type: RootQueryToRevisionsConnectionWhereArgsMetaTypeEnum
+
+  """Custom field value"""
+  value: String
+}
+
+enum RootQueryToRevisionsConnectionWhereArgsMetaCompareEnum {
+  BETWEEN
+  EQUAL_TO
+  EXISTS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL_TO
+  IN
+  LESS_THAN
+  LESS_THAN_OR_EQUAL_TO
+  LIKE
+  NOT_BETWEEN
+  NOT_EQUAL_TO
+  NOT_EXISTS
+  NOT_IN
+  NOT_LIKE
+}
+
+enum RootQueryToRevisionsConnectionWhereArgsMetaTypeEnum {
+  BINARY
+  CHAR
+  DATE
+  DATETIME
+  DECIMAL
+  NUMERIC
+  SIGNED
+  TIME
+  UNSIGNED
 }
 
 """Connection between the RootQuery type and the ContentNode type"""
