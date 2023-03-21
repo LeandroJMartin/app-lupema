@@ -13,6 +13,7 @@ interface Props {
   };
   infinite: boolean;
   navigation: boolean;
+  autoPlay: boolean;
 }
 
 const SlideApp = ({
@@ -21,6 +22,7 @@ const SlideApp = ({
   largura,
   infinite = false,
   navigation = false,
+  autoPlay = false,
 }: Props) => {
   const Prev = () => {
     return (
@@ -47,6 +49,7 @@ const SlideApp = ({
 
   return (
     <AliceCarousel
+      autoPlay={autoPlay}
       mouseTracking
       items={items}
       responsive={responsive}
@@ -57,6 +60,7 @@ const SlideApp = ({
       paddingRight={larg}
       infinite={infinite}
       disableButtonsControls={navigation}
+      autoPlayInterval={1000}
     />
   );
 };
