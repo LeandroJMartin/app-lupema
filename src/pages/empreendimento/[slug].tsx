@@ -75,12 +75,14 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
       <section>
         <div className="container">
           <div className="max-w-[250px] h-[150px] relative">
-            <Image
-              src={data.emp?.logotipoDoEmpreendimento?.sourceUrl || ''}
-              alt={`Logotipo do ${data.emp?.nomeDoEmpreendimento}`}
-              fill
-              className="object-contain"
-            />
+            {data.emp?.logotipoDoEmpreendimento?.sourceUrl && (
+              <Image
+                src={data.emp?.logotipoDoEmpreendimento?.sourceUrl || ''}
+                alt={`Logotipo do ${data.emp?.nomeDoEmpreendimento}`}
+                fill
+                className="object-contain"
+              />
+            )}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-6 gap-6">
             <div className="col-span-4 order-1">
@@ -186,7 +188,6 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                     className="w-7 h-7"
                   />
                 )}
-
                 <p className="text-white ml-3">{item?.nomeDiferencial}</p>
               </div>
             );

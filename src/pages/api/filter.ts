@@ -4,11 +4,11 @@ type Data = {
   name: string
 }
 
-const SearchApi = () => (
+const FilterApi = (
   req: NextApiRequest,
   res: NextApiResponse<Data>
-) {
+) => {
   res.status(200).json({ name: 'John Doe' })
 }
 
-export default SearchApi;
+export default FilterApi;
