@@ -13,7 +13,7 @@ interface Props {
   };
   infinite: boolean;
   navigation: boolean;
-  autoPlay: boolean;
+  autoPlay?: boolean;
 }
 
 const SlideApp = ({
