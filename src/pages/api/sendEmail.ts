@@ -19,37 +19,41 @@ clientMail.setApiKey(
   api_key
 );
 
-const email = '@@@';
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   const bodyData = req.body;
 
+  let emailTo = '';
   let emailHTML = '';
 
   switch (bodyData?.for) {
     case 'fale_conosco':
+      emailTo = 'lupema@lupemaengenharia.com.br';
       emailHTML = await genEmailFaleConosco(bodyData);
       break;
     case 'seja_fornecedor':
+      emailTo = 'suprimentos@lupemaengenharia.com.br';
       emailHTML = await genEmailSejaFornecedor(bodyData);
       break;
     case 'cadastro_imobiliarias':
+      emailTo = 'comercial@lupemaengenharia.com.br';
       emailHTML = await genEmailCadastroImobiliarias(bodyData);
       break;
     case 'ofereca_sua_area':
+      emailTo = 'comercial@lupemaengenharia.com.br';
       emailHTML = await genEmailOferecaSuaArea(bodyData);
       break;
     case 'trabalhe_conosco':
+      emailTo = 'mailto:lupema@lupemaengenharia.com.br';
       emailHTML = await genEmailTrabalheConosco(bodyData);
       break;
   }
 
   const result = await clientMail.sendTransacEmail({
-    to: [{ name: 'Lupema', email: `${email}` }],
-    sender: { name: 'Lupema', email: `${email}` },
+    to: [{ name: 'Lupema', email: `${emailTo}` }],
+    sender: { name: 'Lupema', email: 'lupema@lupemaengenharia.com.br' },
     subject: bodyData?.subject,
     htmlContent: emailHTML,
   });
