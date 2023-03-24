@@ -277,3 +277,21 @@ input[type='search']::-webkit-search-cancel-button {
 .post strong {
   font-weight: bold;
 }
+
+.hero .alice-carousel__dots {
+  position: absolute;
+  top: 40%;
+  right: 30px;
+}
+.hero .alice-carousel__dots li.alice-carousel__dots-item {
+  display: block;
+  margin: 25px 0;
+}
+.hero .alice-carousel__stage-item img {
+  transform: scale(1);
+  transition: all 5s ease-out;
+}
+
+.hero .alice-carousel__stage-item.__active img {
+  transform: scale(1.05);
+}

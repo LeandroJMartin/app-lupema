@@ -62,27 +62,25 @@ const Alupema: NextPage<PropsAbout> = ({ data }) => {
       </section>
 
       <section>
-        <div className="bg-bgVideoAbout bg-no-repeat bg-cover pb-[80px]">
-          <div className="container py-[40px] md:py-[80px]">
-            <h1 className="text-green font-bold text-[2.5rem] md:text-[4.5rem] text-center">
-              {data.page?.tituloVideo}
-            </h1>
-            <div className="w-full sm:w-[75%] mx-auto mt-6">
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: data.page?.descricaoVideo || '',
-                }}
-                className="mb-8 text-white"
-              />
+        {data.page?.tituloVideo && data.page?.descricaoVideo && (
+          <div className="bg-bgVideoAbout bg-no-repeat bg-cover pb-[80px]">
+            <div className="container py-[40px] md:py-[80px]">
+              <h1 className="text-green font-bold text-[2.5rem] md:text-[4.5rem] text-center">
+                {data.page?.tituloVideo}
+              </h1>
+              <div className="w-full sm:w-[75%] mx-auto mt-6">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: data.page?.descricaoVideo || '',
+                  }}
+                  className="mb-8 text-white"
+                />
+              </div>
             </div>
           </div>
-        </div>
-        {data.page?.linkDoVideo ? (
+        )}
+        {data.page?.linkDoVideo && (
           <VideoApp embedLink={data.page?.linkDoVideo} />
-        ) : (
-          <div className="w-full lg:w-[800px] h-[485px] relative mx-auto mt-[-140px]">
-            <Image src={ImgVideo} fill className="object-cover" alt="Video" />
-          </div>
         )}
       </section>
 

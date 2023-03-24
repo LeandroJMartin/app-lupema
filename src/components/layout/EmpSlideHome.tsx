@@ -27,7 +27,7 @@ const EmpSlideHome = ({ data }: Props) => {
     <section className="bg-bgi py-[40px] md:py-[80px] emphome">
       <div className="sm:container">
         <h1 className="title">Empreendimentos</h1>
-        <div className="hero my-6">
+        <div className="my-6">
           <SlideApp
             items={items}
             responsive={responsive}

@@ -60,7 +60,7 @@ const SlideApp = ({
       paddingRight={larg}
       infinite={infinite}
       disableButtonsControls={navigation}
-      autoPlayInterval={1000}
+      autoPlayInterval={2600}
     />
   );
 };

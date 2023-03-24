@@ -22,7 +22,7 @@ const HeroApp = ({ banners }: Props) => {
         items={items}
         navigation={true}
         largura={{ desktop: 0, mobile: 0 }}
-        infinite={false}
+        infinite={true}
         autoPlay={true}
       />
     </div>
