@@ -51,6 +51,7 @@ const HeaderApp = ({ data }: Props) => {
     >
       <div className="flex items-center justify-between sm:justify-start w-full sm:w-[40%] xl:w-[60%] h-[100px] sm:h-[72px] bg-menu">
         <button
+          aria-label="Menu site lupema"
           className="h-full py-4 px-6 border-r border-white/20 order-2 sm:order-1"
           onClick={(e) => toogleState()}
         >
@@ -91,6 +92,7 @@ const HeaderApp = ({ data }: Props) => {
           <SearchApp />
         </div>
         <button
+          aria-label="Botão de pesquisa"
           className="px-6 flex items-center h-[100px] sm:h-[72px]"
           onClick={() => setClickSearch((prev) => !prev)}
         >

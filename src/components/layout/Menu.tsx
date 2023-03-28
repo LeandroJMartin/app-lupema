@@ -35,6 +35,7 @@ const MenuApp = ({ data }: Props) => {
     <div className="px-8 py-8">
       <div className="flex items-center justify-between sm:justify-start w-full">
         <button
+          aria-label="Botão hamburger menu"
           className="pr-0 md:pr-8 order-2 md:order-1"
           onClick={(e) => toogleState()}
         >

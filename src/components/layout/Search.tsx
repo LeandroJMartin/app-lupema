@@ -36,6 +36,7 @@ const SearchApp = () => {
       <input type="search" ref={inputSearchRef} className="hidden" />
 
       <button
+        aria-label="Botão pesquisar"
         className="absolute top-0 right-0 py-3 px-3"
         onClick={handleClickSubmit}
       >

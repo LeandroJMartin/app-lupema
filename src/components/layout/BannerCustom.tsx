@@ -37,7 +37,10 @@ const BannerCustom = ({ content }: Content) => {
                 {` ${content.bhMetrosQuadrado} M²`}
               </span>
             </div>
-            <button className="py-3 flex items-center uppercase">
+            <button
+              className="py-3 flex items-center uppercase"
+              aria-label="Botão do banner"
+            >
               <RxArrowRight size={30} className="mr-2" />
               {content.bhTextoDoBotao}
             </button>

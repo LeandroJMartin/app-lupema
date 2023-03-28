@@ -165,7 +165,11 @@ const FilterApp = ({ data, resultDataState }: Props) => {
           placeholder="Faça sua busca"
           className="border border-green py-2 px-3 w-full"
         />
-        <button type="submit" className="absolute top-0 right-0 py-3 px-4 z-10">
+        <button
+          type="submit"
+          className="absolute top-0 right-0 py-3 px-4 z-10"
+          aria-label="Botão de pesquisa"
+        >
           <BsSearch size={18} className="text-green" />
         </button>
       </div>
@@ -204,12 +208,14 @@ const FilterApp = ({ data, resultDataState }: Props) => {
           ) : (
             <>
               <button
+                aria-label="Botão buscar"
                 value="Buscar"
                 className="text-black uppercase px-6 py-2 bg-green mr-3"
               >
                 Buscar
               </button>
               <button
+                aria-label="Botão limpar filtro"
                 type="reset"
                 className="text-green uppercase px-6 py-2 border border-green"
               >
