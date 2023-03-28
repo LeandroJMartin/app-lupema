@@ -73,16 +73,16 @@ const MenuApp = ({ data }: Props) => {
             />
           </div>
           <div className="flex flex-col mt-16 space-y-3 md:space-y-4 text-xl">
-            <a className="text-green" href="#area-do-corretor">
+            <a className="text-green" href="/area-do-corretor">
               Área do corretor
             </a>
             <a className="text-green" href="/area-do-cliente">
               Área do cliente
             </a>
-            <a className="text-green" href="#2-via-do-boleto">
+            <a className="text-green" href="/2-via-do-boleto">
               2ª via do boleto
             </a>
-            <a className="text-green" href="#assistencia-tecnica">
+            <a className="text-green" href="/assistencia-tecnica">
               Assistência técnica
             </a>
           </div>
