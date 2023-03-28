@@ -24,10 +24,16 @@ const ClientArea: NextPage<Props> = ({ data }) => {
             <a href="" className="text-green font-semibold mb-2 w-max block">
               • Imprimir 2ª via de boletos
             </a>
-            <a href="" className="text-green font-semibold mb-2 w-max block">
+            <a
+              href="/atualizar-seu-cadastro"
+              className="text-green font-semibold mb-2 w-max block"
+            >
               • Atualizar seu cadastro
             </a>
-            <a href="" className="text-green font-semibold w-max block">
+            <a
+              href="/informacoes-financeiras"
+              className="text-green font-semibold w-max block"
+            >
               • Informações financeiras
             </a>
           </div>
@@ -49,7 +55,11 @@ const ClientArea: NextPage<Props> = ({ data }) => {
             <a href={`tel:+55${data.social.coWhatsapp}`} className="button">
               {data.social.coWhatsapp}
             </a>
-            <a href={data.social.linkFacebook} className="ml-4">
+            <a
+              href={data.social.linkFacebook}
+              className="ml-4"
+              aria-label="Button Facebook"
+            >
               <BsFacebook size={30} className="text-green" />
             </a>
           </div>

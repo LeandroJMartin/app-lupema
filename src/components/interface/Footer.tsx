@@ -18,13 +18,13 @@ const FooterApp = ({ data }: Props) => {
             <Image src={Logo} width={225} height={100} alt="Logo Lupema" />
           </Link>
           <div className="flex gap-8 mt-6 sm:mt-0">
-            <a href={data.linkFacebook}>
+            <a href={data.linkFacebook} arial-label="Button Facebook">
               <BsFacebook size={18} />
             </a>
-            <a href={data.linkInstagram}>
+            <a href={data.linkInstagram} arial-label="Button Instagram">
               <BsInstagram size={18} />
             </a>
-            <a href={data.linkYoutube}>
+            <a href={data.linkYoutube} arial-label="Button Youtube">
               <BsYoutube size={20} />
             </a>
           </div>
