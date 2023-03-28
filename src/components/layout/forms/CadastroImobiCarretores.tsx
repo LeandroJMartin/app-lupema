@@ -67,11 +67,14 @@ const CadastroImobiCorretores = () => {
               <Field type="checkbox" name="termos" id="aceite" />
               <span className="ml-2">
                 Li e concordo com os
-                <a href="#" className="mx-2 underline italic">
+                <a href="/termos-de-uso" className="mx-2 underline italic">
                   termos de uso
                 </a>
                 e
-                <a href="#" className="ml-2 underline italic">
+                <a
+                  href="/politica-de-privacidade"
+                  className="ml-2 underline italic"
+                >
                   política de privacidade
                 </a>
               </span>
@@ -127,4 +130,3 @@ const Schema = yup.object().shape({
     .oneOf([true], 'Você deve aceitar os termos.')
     .required('Aceite os termos.'),
 });
-
