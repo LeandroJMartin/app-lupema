@@ -5,7 +5,7 @@ import LayoutApp from '../components/interface/Layout';
 import MenuContextProvider from '../context/menuMobileContext';
 import { QueryClientProvider, QueryClient } from 'react-query';
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

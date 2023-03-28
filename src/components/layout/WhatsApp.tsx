@@ -28,7 +28,7 @@ const WhatsApp = ({ data }: Props) => {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {device && (
-        <a href={`tel:${data.coTelefone}`}>
+        <a href={`tel:${data.coTelefone}`} aria-label="Botão Telefone">
           <MdWifiCalling3
             size={35}
             className="text-black bg-green rounded-full py-1 px-1 block mb-3"
@@ -36,7 +36,10 @@ const WhatsApp = ({ data }: Props) => {
         </a>
       )}
 
-      <a href={`https://api.whatsapp.com/send?phone=55${number}`}>
+      <a
+        href={`https://api.whatsapp.com/send?phone=55${number}`}
+        aria-label="Botão WhatsApp"
+      >
         <RiWhatsappFill size={40} className="text-green" />
       </a>
     </div>
