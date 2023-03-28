@@ -65,6 +65,7 @@ const HeaderApp = ({ data }: Props) => {
           />
         </Link>
       </div>
+
       <div className="hidden sm:flex items-center justify-end sm:w-[60%] xl:w-[40%] h-[100px] sm:h-[72px]">
         {device ? (
           <a
@@ -76,10 +77,19 @@ const HeaderApp = ({ data }: Props) => {
             </span>
           </a>
         ) : (
-          <div className="border-l border-l-white/20 border-r border-r-white/20 px-6 h-[100px] sm:h-[72px] flex items-center">
+          <div className="border-l border-l-white/20 border-r border-r-white/20 px-6 h-[100px] sm:h-[72px] flex items-center min-w-max">
             {data.coTelefone}
           </div>
         )}
+        <div
+          className={`w-0 pl-4 transition-all ${
+            clickSearch
+              ? 'w-[360px] visible opacity-100'
+              : 'w-0 invisible opacity-0'
+          }`}
+        >
+          <SearchApp />
+        </div>
         <button
           className="px-6 flex items-center h-[100px] sm:h-[72px]"
           onClick={() => setClickSearch((prev) => !prev)}
@@ -87,21 +97,13 @@ const HeaderApp = ({ data }: Props) => {
           {clickSearch ? <IoMdClose size={18} /> : <IoIosSearch size={18} />}
         </button>
       </div>
+
       <div
         className={`fixed top-0 left-0 right-0 w-full h-full overflow-auto bg-bgi bg-repeat ${
           status ? 'block' : 'hidden'
         }`}
       >
         <MenuApp data={data} />
-      </div>
-      <div
-        className={`py-6 px-6 bg-black border-b border-green/20 absolute top-0 left-0 w-full transition-all ${
-          clickSearch
-            ? 'translate-y-[73px] visible opacity-100'
-            : 'translate-y-[115px] invisible opacity-0'
-        }`}
-      >
-        <SearchApp />
       </div>
     </header>
   );

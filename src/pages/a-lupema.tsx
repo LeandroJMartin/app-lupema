@@ -1,11 +1,10 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
-import VideoApp from '../components/layout/Video';
-import ClientApp from '../lib/genql';
-import ImgVideo from '../../public/video.jpeg';
-import TimeLine from '../components/layout/TimeLine';
-import { Page_Conteusobre, Page_Informacoesdecontato } from '../generated';
 import Link from 'next/link';
+import TimeLine from '../components/layout/TimeLine';
+import VideoApp from '../components/layout/Video';
+import { Page_Conteusobre, Page_Informacoesdecontato } from '../generated';
+import ClientApp from '../lib/genql';
 
 export interface PropsAbout {
   data: {

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import ClientApp from '../lib/genql';
@@ -25,7 +26,7 @@ const Pesquisa = () => {
             on_Empreendimento: {
               __typename: true,
               title: true,
-              uri: true,
+              slug: true,
               empreendimento: {
                 imagemPrincipal: {
                   mediaItemUrl: true,
@@ -35,6 +36,7 @@ const Pesquisa = () => {
             on_Post: {
               __typename: true,
               title: true,
+              slug: true,
             },
           },
         },
@@ -63,11 +65,34 @@ const Pesquisa = () => {
         <div>Buscando...</div>
       ) : (
         <>
-          <h1>Resultado da pesquisa: {s && s}</h1>
-
-          <div>
-            <pre>{result && JSON.stringify(result, null, 2)}</pre>
-          </div>
+          {result ? (
+            <>
+              <h1 className="py-4 px-6 bg-gray-200 border border-gray-300">
+                Resultado da pesquisa:{' '}
+                <span className="text-green">{s && s}</span>
+              </h1>
+              <div className="">
+                {result.map((item) => {
+                  return (
+                    <>
+                      <Link
+                        className="border-b border-b-gray-400 block max-w-max hover:text-green my-6"
+                        href={
+                          item.__typename === 'Post'
+                            ? `noticia/${item.slug}`
+                            : `produto/${item.slug}`
+                        }
+                      >
+                        <h3>{item.title}</h3>
+                      </Link>
+                    </>
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            <h1>Nenhum resultado encontrado para sua pesquisa.</h1>
+          )}
         </>
       )}
     </section>

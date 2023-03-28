@@ -30,7 +30,7 @@ const SearchApp = () => {
         type="search"
         name="search"
         placeholder="Pesquisar"
-        className="text-white placeholder:text-green bg-transparent w-full"
+        className="text-white placeholder:text-white bg-transparent w-full border-white/20"
       />
 
       <input type="search" ref={inputSearchRef} className="hidden" />
@@ -39,7 +39,7 @@ const SearchApp = () => {
         className="absolute top-0 right-0 py-3 px-3"
         onClick={handleClickSubmit}
       >
-        <BsSearch className="text-green" />
+        <BsSearch className="text-white" />
       </button>
     </form>
   );
