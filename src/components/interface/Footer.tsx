@@ -45,10 +45,10 @@ const FooterApp = ({ data }: Props) => {
               {data.coEmail}
             </a>
           }
-          <a href="" className="button my-4 text-sm">
+          <a href="/central-de-relacionamento" className="button my-4 text-sm">
             Central de relacionamentos
           </a>
-          <a href="" className="button my-4 text-sm">
+          <a href="/canal-de-vendas" className="button my-4 text-sm">
             Canal de vendas
           </a>
         </div>
