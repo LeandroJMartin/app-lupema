@@ -34,7 +34,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
 
   const gallery = data.emp?.galeriaDeFotos?.map((imgs) => {
     return (
-      <div className="relative h-[300px] xl:h-[550px] w-full">
+      <div className="relative h-[300px] xl:h-[550px] 2xl:h-[700px] w-full">
         <Image
           src={imgs?.sourceUrl || ''}
           alt="Galeria de imagens"
