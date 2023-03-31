@@ -10849,9 +10849,6 @@ type UserToUserRoleConnectionPageInfo implements UserRoleConnectionPageInfo & WP
 """Field Group"""
 type ArquivoAssessoria_DownAssessoria implements AcfFieldGroup {
   """"""
-  arquivoParaDownload: MediaItem
-
-  """"""
   downDescricao: String
 
   """Não obrigatório."""
@@ -10862,6 +10859,9 @@ type ArquivoAssessoria_DownAssessoria implements AcfFieldGroup {
 
   """The name of the ACF Field Group"""
   fieldGroupName: String
+
+  """"""
+  linkDaMateria: String
 }
 
 """

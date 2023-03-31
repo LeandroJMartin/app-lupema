@@ -3,11 +3,11 @@ import ItemDownload from './ItemDownload';
 import SlideApp from './Slide';
 
 interface Props {
-  files: RootQueryToArquivoAssessoriaConnection;
+  materias: RootQueryToArquivoAssessoriaConnection;
 }
 
-const DownloadsApp = ({ files }: Props) => {
-  const items = files?.nodes.map((item) => {
+const DownloadsApp = ({ materias }: Props) => {
+  const items = materias?.nodes.map((item) => {
     return <ItemDownload file={item} />;
   });
 

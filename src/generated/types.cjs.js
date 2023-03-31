@@ -10789,9 +10789,6 @@ module.exports = {
             ]
         },
         "ArquivoAssessoria_DownAssessoria": {
-            "arquivoParaDownload": [
-                107
-            ],
             "downDescricao": [
                 1
             ],
@@ -10802,6 +10799,9 @@ module.exports = {
                 1
             ],
             "fieldGroupName": [
+                1
+            ],
+            "linkDaMateria": [
                 1
             ],
             "__typename": [

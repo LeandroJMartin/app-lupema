@@ -19,13 +19,13 @@ const FooterApp = ({ data }: Props) => {
           </Link>
           <div className="flex gap-8 mt-6 sm:mt-0">
             <a href={data.linkFacebook} arial-label="Button Facebook">
-              <BsFacebook size={18} />
+              <BsFacebook size={18} className="hover:text-green" />
             </a>
             <a href={data.linkInstagram} arial-label="Button Instagram">
-              <BsInstagram size={18} />
+              <BsInstagram size={18} className="hover:text-green" />
             </a>
             <a href={data.linkYoutube} arial-label="Button Youtube">
-              <BsYoutube size={20} />
+              <BsYoutube size={20} className="hover:text-green" />
             </a>
           </div>
         </div>

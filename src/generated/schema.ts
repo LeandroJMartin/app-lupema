@@ -3408,13 +3408,13 @@ export interface UserToUserRoleConnectionPageInfo {
 
 /** Field Group */
 export interface ArquivoAssessoria_DownAssessoria {
-    arquivoParaDownload?: MediaItem
     downDescricao?: Scalars['String']
     /** Não obrigatório. */
     downImagem?: MediaItem
     downTitulo?: Scalars['String']
     /** The name of the ACF Field Group */
     fieldGroupName?: Scalars['String']
+    linkDaMateria?: Scalars['String']
     __typename: 'ArquivoAssessoria_DownAssessoria'
 }
 
@@ -12980,13 +12980,13 @@ export interface UserToUserRoleConnectionPageInfoRequest{
 
 /** Field Group */
 export interface ArquivoAssessoria_DownAssessoriaRequest{
-    arquivoParaDownload?: MediaItemRequest
     downDescricao?: boolean | number
     /** Não obrigatório. */
     downImagem?: MediaItemRequest
     downTitulo?: boolean | number
     /** The name of the ACF Field Group */
     fieldGroupName?: boolean | number
+    linkDaMateria?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -32157,7 +32157,6 @@ startCursor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String']
 
 /** Field Group */
 export interface ArquivoAssessoria_DownAssessoriaPromiseChain{
-    arquivoParaDownload: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
     downDescricao: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     
 /** Não obrigatório. */
@@ -32165,13 +32164,13 @@ downImagem: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request:
     downTitulo: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     
 /** The name of the ACF Field Group */
-fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    linkDaMateria: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
 }
 
 
 /** Field Group */
 export interface ArquivoAssessoria_DownAssessoriaObservableChain{
-    arquivoParaDownload: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
     downDescricao: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     
 /** Não obrigatório. */
@@ -32179,7 +32178,8 @@ downImagem: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(reque
     downTitulo: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     
 /** The name of the ACF Field Group */
-fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    linkDaMateria: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 

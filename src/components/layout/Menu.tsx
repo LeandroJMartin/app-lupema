@@ -25,7 +25,7 @@ const MenuApp = ({ data }: Props) => {
 
   const LinkPath = ({ path, label }: Links) => {
     return (
-      <Link href={path} className="">
+      <Link href={path} className="hover:text-green">
         {label}
       </Link>
     );
@@ -36,10 +36,10 @@ const MenuApp = ({ data }: Props) => {
       <div className="flex items-center justify-between sm:justify-start w-full">
         <button
           aria-label="Botão hamburger menu"
-          className="pr-0 md:pr-8 order-2 md:order-1"
+          className="pr-0 md:pr-8 order-2 md:order-1 "
           onClick={(e) => toogleState()}
         >
-          <IoMdClose size={35} />
+          <IoMdClose size={35} className="hover:rotate-90 transition-all" />
         </button>
         <Image
           src={Logo}
@@ -91,13 +91,13 @@ const MenuApp = ({ data }: Props) => {
           <h2 className="text-green">Siga nossas redes sociais</h2>
           <div className="flex items-center justify-center sm:justify-start mt-2 space-x-3">
             <a href={data.linkFacebook}>
-              <IoLogoFacebook size={20} />
+              <IoLogoFacebook size={20} className="hover:text-green" />
             </a>
             <a className="px-3" href={data.linkInstagram}>
-              <IoLogoInstagram size={20} />
+              <IoLogoInstagram size={20} className="hover:text-green" />
             </a>
             <a href={data.linkYoutube}>
-              <IoLogoYoutube size={20} />
+              <IoLogoYoutube size={20} className="hover:text-green" />
             </a>
           </div>
           <h2 className="text-green mt-8">Fale com a Lupema</h2>

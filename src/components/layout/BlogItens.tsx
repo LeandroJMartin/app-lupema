@@ -8,7 +8,7 @@ interface Props {
 
 const BlogItems = ({ post }: Props) => {
   return (
-    <div>
+    <div className="py-6 lg:py-8 px-6 mb-6 lg:mb-10 lg:px-8 border border-green text-white">
       <Link href={`/noticia/${post.slug}`}>
         <div className="relative h-[230px] sm:h-[280px] md:h-[350px]">
           <Image

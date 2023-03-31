@@ -11,7 +11,7 @@ import ClientApp from '../lib/genql';
 interface Props {
   data: {
     page: Page;
-    files: RootQueryToArquivoAssessoriaConnection;
+    materias: RootQueryToArquivoAssessoriaConnection;
     social: Page_Informacoesdecontato;
   };
 }
@@ -84,7 +84,7 @@ const AssessoriaApp: NextPage<Props> = ({ data }) => {
       </section>
       <section className="bg-bgi border-b border-b-green/50 pb-[40px] md:pb-[80px]">
         <div className="container down">
-          <DownloadsApp files={data.files} />
+          <DownloadsApp materias={data.materias} />
         </div>
       </section>
     </>
@@ -137,9 +137,7 @@ export const getStaticProps = async () => {
           downImagem: {
             sourceUrl: true,
           },
-          arquivoParaDownload: {
-            mediaItemUrl: true,
-          },
+          linkDaMateria: true,
           downDescricao: true,
           downTitulo: true,
         },
@@ -151,7 +149,7 @@ export const getStaticProps = async () => {
     props: {
       data: {
         page: page,
-        files: arquivosAssessoria,
+        materias: arquivosAssessoria,
         social: pageBy?.informacoesDeContato,
       },
       revalidate: 30,
