@@ -50,7 +50,7 @@ const MenuApp = ({ data }: Props) => {
         />
       </div>
       <main className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-[40px] sm:mt-[80px] text-center sm:text-left px-0 sm:px-2 xl:px-[100px]">
-        <div className="flex flex-col space-y-6 xl:space-y-20 text-3xl xl:text-4xl">
+        <div className="flex flex-col space-y-3 md:space-y-4 text-xl">
           <LinkPath path="/a-lupema" label="A Lupema" />
           <LinkPath path="/empreendimentos/todos" label="Empreendimentos" />
           <LinkPath path="/noticias" label="Notícias" />
@@ -109,7 +109,7 @@ const MenuApp = ({ data }: Props) => {
           </a>
           <div className="flex items-center justify-center sm:justify-start text-green my-12">
             <GoLocation size={24} />
-            <h2 className="ml-3">Como chegar na Lstore</h2>
+            <h2 className="ml-3">Como chegar na LStore</h2>
           </div>
           <h2 className="text-green mb-2">Escritório</h2>
           <p

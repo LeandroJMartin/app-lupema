@@ -31,8 +31,14 @@ const NewsletterApp = () => {
           <label htmlFor="termo" className="text-white mt-2 block text-center">
             <input type="checkbox" name="termo" id="termo" required />
             <span className="ml-3">
-              Li e concordo com os <a href="">termos de uso</a> e
-              <a href="">política de privacidade</a>
+              Li e concordo com os{' '}
+              <a href="/termos-de-uso" className="ml-1">
+                termos de uso
+              </a>{' '}
+              e
+              <a href="/politica-de-privacidade" className="ml-1">
+                política de privacidade
+              </a>
             </span>
           </label>
         </form>

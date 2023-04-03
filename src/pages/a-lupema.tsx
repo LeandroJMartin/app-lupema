@@ -88,15 +88,17 @@ const Alupema: NextPage<PropsAbout> = ({ data }) => {
         <TimeLine prop={data.page} />
       </section>
 
-      <section className="container pt-[40px] md:pt-[80px]">
+      <section className="container pt-[40px] md:pt-[80px] text-center">
         <h1 className="title">{data.page?.tituloLstore}</h1>
-        <p>{data.page?.descricaoLstore}</p>
+        <p className="w-[100%] sm:w-[80%] block mx-auto">
+          {data.page?.descricaoLstore}
+        </p>
         <div className="relative h-[200px] sm:h-[350px] md:h-[520px] mt-6">
           <Image
             src={data.page?.imagembannerDoTourVirtual?.sourceUrl || ''}
             alt="Image LStore Lupema"
             fill
-            className="object-cover"
+            className="object-contain"
           />
         </div>
         <Link href="/agende-uma-visita" className="button mx-auto my-6">

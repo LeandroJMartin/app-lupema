@@ -6,6 +6,7 @@ import FormEmpreendimento from '../../components/layout/forms/FormEmpreendimento
 import SlideApp from '../../components/layout/Slide';
 import { TbArrowRightBar, TbCar } from 'react-icons/tb';
 import { BiBed } from 'react-icons/bi';
+import Maps from '../../components/layout/Maps';
 
 interface Props {
   data: {
@@ -69,6 +70,28 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
     568: { items: 2 },
     1024: { items: 4, itemsFit: 'contain' },
   };
+
+  function isNumeric(str: string | undefined) {
+    if (str === undefined) return;
+    return /\d+/.test(str) ? true : false;
+  }
+
+  const address = data.emp?.enderecoRua;
+  const number = data.emp?.enderecoNumero;
+  const district = data.emp?.enderecoBairro;
+  const city = data.emp?.empCidade;
+
+  const arrAll = [address, number, district, city];
+
+  const fullAddress = arrAll.reduce((initial, current, index) => {
+    if (index === 0) return !!current ? current : initial;
+
+    return !!current
+      ? !!initial
+        ? `${initial}, ${current}`
+        : current
+      : initial;
+  }, '');
 
   return (
     <div className="bg-black mt-[100px] sm:mt-[74px]">
@@ -135,17 +158,21 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
               >
                 Faça uma simulação
               </a>
-              <a
-                href={data.emp?.linkDoTourVirtual}
-                className="border border-green py-2 w-[150px] block text-green text-center cursor-pointer"
-              >
-                Tour virtual
-              </a>
+              {data.emp?.linkDoTourVirtual && (
+                <a
+                  href={data.emp?.linkDoTourVirtual}
+                  className="border border-green py-2 w-[150px] block text-green text-center cursor-pointer"
+                >
+                  Tour virtual
+                </a>
+              )}
             </div>
             <ul className="order-2 sm:order-3">
               <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
                 <TbArrowRightBar size={20} />
-                <span className="ml-2">{data.emp?.empMetragem}</span>
+                <span className="ml-2 leading-[1.5rem]">
+                  {data.emp?.empMetragem}
+                </span>
               </li>
               <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
                 <BiBed size={22} />
@@ -156,8 +183,10 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                 <span className="ml-2">{data.emp?.empVagasDeGaragem}</span>
               </li>
               <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
-                <span className="text-sm">A partir de </span>
-                <span className="ml-1">{data.emp?.empValorAPartirDe}</span>
+                <span className="text-sm">
+                  {isNumeric(data.emp.empValorAPartirDe) && 'A partir de'}
+                </span>
+                <span className="ml-1">{data.emp.empValorAPartirDe}</span>
               </li>
             </ul>
           </div>
@@ -255,14 +284,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                     <h3 className="text-2xl lg:text-4xl text-green">
                       Empreendimento
                     </h3>
-                    <p className="text-base text-white">
-                      {data.emp?.enderecoRua}
-                      {data.emp?.enderecoNumero &&
-                        ', ' + data.emp?.enderecoNumero}
-                      {data.emp?.enderecoBairro &&
-                        ', ' + data.emp?.enderecoBairro}
-                      {data.emp?.empCidade && ' - ' + data.emp?.empCidade}
-                    </p>
+                    <p className="text-base text-white">{fullAddress}</p>
                   </div>
                 )}
 
@@ -280,13 +302,8 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                   </div>
                 )}
               </div>
-              <div className="w-full lg:w-9/12 min-h-[]">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3728.900942186043!2d-49.37638008445357!3d-20.835706172491314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bdb2b7c2767b8f%3A0x818ad40282191728!2sR.%20Pedro%20D%C3%B3ria%20Sobrinho%2C%20360%20-%20Ouro%20Verde%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%20-%20SP%2C%2015084-280!5e0!3m2!1spt-BR!2sbr!4v1677102792807!5m2!1spt-BR!2sbr"
-                  width="100%"
-                  height="100%"
-                  loading="lazy"
-                />
+              <div className="w-full lg:w-9/12 h-[250px] sm:h-[420px]">
+                <Maps address={fullAddress || ''} />
               </div>
             </div>
           </div>
@@ -356,26 +373,25 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
       </section>
       {(data.emp?.listaItensTec || data.emp?.listaItensTec2) && (
         <section className="bg-green">
-          <div className="container flex items-center justify-center">
-            <div className="flex flex-col items-center w-full xl:w-[60%] py-16 space-y-12">
-              <h2 className="text-2xl lg:text-4xl text-white">Ficha Técnica</h2>
+          <div className="container">
+            <h2 className="text-2xl lg:text-4xl text-white text-center py-10">
+              Ficha Técnica
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 items-center text-white gap-4 text-lg">
+              <div className="p-2">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: data.emp?.listaItensTec || '',
+                  }}
+                />
+              </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 items-center text-white gap-4 [&>div>p]:text-lg">
-                <div className="p-2">
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: data.emp?.listaItensTec || '',
-                    }}
-                  />
-                </div>
-
-                <div className="p-2">
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: data.emp?.listaItensTec2 || '',
-                    }}
-                  />
-                </div>
+              <div className="p-2">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: data.emp?.listaItensTec2 || '',
+                  }}
+                />
               </div>
             </div>
           </div>
