@@ -372,7 +372,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
         </div>
       </section>
       {(data.emp?.listaItensTec || data.emp?.listaItensTec2) && (
-        <section className="bg-green">
+        <section className="bg-green pb-6">
           <div className="container">
             <h2 className="text-2xl lg:text-4xl text-white text-center py-10">
               Ficha Técnica
