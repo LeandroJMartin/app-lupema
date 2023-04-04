@@ -302,7 +302,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                   </div>
                 )}
               </div>
-              <div className="w-full lg:w-9/12 h-[250px] sm:h-[420px]">
+              <div className="w-full lg:w-9/12 h-[250px] sm:h-[420px] lg:pl-6">
                 <Maps address={fullAddress || ''} />
               </div>
             </div>
