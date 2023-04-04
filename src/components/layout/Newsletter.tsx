@@ -25,7 +25,7 @@ const NewsletterApp = () => {
             <input
               type="submit"
               value="Enviar"
-              className="py-2 px-4 bg-black text-green font-semibold uppercase w-full sm:w-auto hover:bg-blue hover:text-black"
+              className="py-2 px-4 bg-black text-green font-semibold uppercase w-full sm:w-auto hover:bg-transparent hover:border hover:border-black hover:text-black"
             />
           </div>
           <label htmlFor="termo" className="text-white mt-2 block text-center">
