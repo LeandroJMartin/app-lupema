@@ -81,7 +81,6 @@ export const getStaticProps = async () => {
             },
             bhLinkBanner: true,
             bhMetrosQuadrado: true,
-            bhMetrosQuadradoMaior: true,
             bhNomeDoEmpreendimento: true,
             bhNovaAba: true,
             bhQuantDormitorios: true,

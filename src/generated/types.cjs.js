@@ -11166,9 +11166,6 @@ module.exports = {
             "bhMetrosQuadrado": [
                 1
             ],
-            "bhMetrosQuadradoMaior": [
-                1
-            ],
             "bhNomeDoEmpreendimento": [
                 1
             ],

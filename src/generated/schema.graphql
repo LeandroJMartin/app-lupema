@@ -11252,11 +11252,8 @@ type Banner_BannerHome_BhConteudo implements AcfFieldGroup {
   """"""
   bhLinkBanner: String
 
-  """Somente o valor numérico ex. ( 73,55 )"""
+  """"""
   bhMetrosQuadrado: String
-
-  """Somente o valor numérico ex. ( 73,55 )"""
-  bhMetrosQuadradoMaior: String
 
   """"""
   bhNomeDoEmpreendimento: String

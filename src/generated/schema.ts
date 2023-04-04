@@ -3573,10 +3573,7 @@ export interface Banner_BannerHome_BhConteudo {
     /** Tamanho recomendado: 720 X 930 pixels. */
     bhImagemMobile?: MediaItem
     bhLinkBanner?: Scalars['String']
-    /** Somente o valor numérico ex. ( 73,55 ) */
     bhMetrosQuadrado?: Scalars['String']
-    /** Somente o valor numérico ex. ( 73,55 ) */
-    bhMetrosQuadradoMaior?: Scalars['String']
     bhNomeDoEmpreendimento?: Scalars['String']
     bhNovaAba?: Scalars['Boolean']
     bhQuantDormitorios?: Scalars['String']
@@ -13243,10 +13240,7 @@ export interface Banner_BannerHome_BhConteudoRequest{
     /** Tamanho recomendado: 720 X 930 pixels. */
     bhImagemMobile?: MediaItemRequest
     bhLinkBanner?: boolean | number
-    /** Somente o valor numérico ex. ( 73,55 ) */
     bhMetrosQuadrado?: boolean | number
-    /** Somente o valor numérico ex. ( 73,55 ) */
-    bhMetrosQuadradoMaior?: boolean | number
     bhNomeDoEmpreendimento?: boolean | number
     bhNovaAba?: boolean | number
     bhQuantDormitorios?: boolean | number
@@ -32640,12 +32634,7 @@ bhImagemDesktop: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(req
 /** Tamanho recomendado: 720 X 930 pixels. */
 bhImagemMobile: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
     bhLinkBanner: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    
-/** Somente o valor numérico ex. ( 73,55 ) */
-bhMetrosQuadrado: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    
-/** Somente o valor numérico ex. ( 73,55 ) */
-bhMetrosQuadradoMaior: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    bhMetrosQuadrado: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     bhNomeDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     bhNovaAba: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Promise<(Scalars['Boolean'] | undefined)>}),
     bhQuantDormitorios: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
@@ -32666,12 +32655,7 @@ bhImagemDesktop: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(
 /** Tamanho recomendado: 720 X 930 pixels. */
 bhImagemMobile: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
     bhLinkBanner: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    
-/** Somente o valor numérico ex. ( 73,55 ) */
-bhMetrosQuadrado: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    
-/** Somente o valor numérico ex. ( 73,55 ) */
-bhMetrosQuadradoMaior: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    bhMetrosQuadrado: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     bhNomeDoEmpreendimento: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     bhNovaAba: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Observable<(Scalars['Boolean'] | undefined)>}),
     bhQuantDormitorios: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),

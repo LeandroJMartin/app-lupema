@@ -25,17 +25,14 @@ const BannerCustom = ({ content }: Content) => {
       <div className="absolute top-0 left-0 right-0 w-full bg-black/30 h-full"></div>
       <div className="w-full h-full absolute top-0 left-0 right-0 z-20">
         <div className="flex items-center w-full h-full">
-          <div className="max-w-[420px] text-white ml-[25px] 2xl:ml-[100px]">
+          <div className="max-w-[500px] text-white ml-[25px] 2xl:ml-[100px]">
             <h1 className="text-7xl font-semibold leading-3">
               {content.bhNomeDoEmpreendimento}
             </h1>
             <div className="border border-white py-1 px-1 inline-block uppercase text-sm xl:text-lg my-4">
               <span className="px-2 sm:px-4">{`${content.bhQuantDormitorios} DORM.`}</span>
               <span className="border-x border-white px-2 sm:px-4">{`${content.bhQuantVagasGaragem} VAGAS`}</span>
-              <span className="px-2 sm:px-4">
-                {`${content.bhMetrosQuadradoMaior} M² `} E
-                {` ${content.bhMetrosQuadrado} M²`}
-              </span>
+              <span className="px-2 sm:px-4">{content.bhMetrosQuadrado}</span>
             </div>
             <button
               className="py-3 flex items-center uppercase"
