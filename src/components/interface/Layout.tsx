@@ -3,6 +3,7 @@ import WhatsApp from '../layout/WhatsApp';
 import FooterApp from './Footer';
 import HeadApp from './Head';
 import HeaderApp from './Header';
+import CookieNotice from '../layout/CookieNotice';
 
 interface Props {
   children: ReactNode;
@@ -19,6 +20,7 @@ const LayoutApp = ({ children, ApiData }: Props) => {
 
       <WhatsApp data={ApiData.data?.social} />
       <FooterApp data={ApiData.data?.social} />
+      <CookieNotice />
     </div>
   );
 };
