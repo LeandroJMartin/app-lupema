@@ -95,9 +95,6 @@ const FooterApp = ({ data }: Props) => {
           <Link href="/codigo-de-etica" className="block hover:text-green">
             Código de ética
           </Link>
-          <Link href="/termos-de-uso" className="block hover:text-green">
-            Termos de uso
-          </Link>
           <Link href="/protecao-de-dados" className="block hover:text-green">
             Proteção de dados
           </Link>

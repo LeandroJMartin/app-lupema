@@ -18,7 +18,7 @@ const CookieNotice: React.FC = () => {
 
   if (!accepted) {
     return (
-      <div className="bg-white px-8 py-8 fixed bottom-8 left-8 max-w-[330px] drop-shadow-lg z-10">
+      <div className="bg-white px-8 py-8 fixed bottom-8 left-8 max-w-[330px] drop-shadow-xl z-10 border border-black/15">
         <p className="text-sm">
           Pedimos gentilmente seu consentimento para usar seus dados sujeitos à
           nossa política de privacidade.
@@ -28,7 +28,7 @@ const CookieNotice: React.FC = () => {
             href="/politica-de-privacidade"
             className="italic underline hover:text-green"
           >
-            Consulte Mais informação
+            Mais informações
           </Link>
           <button
             onClick={handleAccept}
