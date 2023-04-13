@@ -25,6 +25,7 @@ const DownloadsApp = ({ materias }: Props) => {
       infinite={true}
       largura={{ desktop: 0, mobile: 0 }}
       navigation={true}
+      dots={false}
       responsive={responsive}
     />
   );

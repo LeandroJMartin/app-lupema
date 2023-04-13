@@ -33,6 +33,7 @@ const EmpSlideHome = ({ data }: Props) => {
             responsive={responsive}
             largura={{ desktop: 0, mobile: 0 }}
             infinite={true}
+            dots={false}
             navigation={true}
           />
         </div>

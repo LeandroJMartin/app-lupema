@@ -237,6 +237,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                     items={plantas}
                     navigation={true}
                     responsive={responsiveGallery}
+                    dots={false}
                     infinite={false}
                   />
                 </div>
@@ -347,6 +348,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                     responsive={responsiveGalleryProgress}
                     gap={30}
                     infinite={true}
+                    dots={false}
                     navigation={true}
                   />
                 </div>
