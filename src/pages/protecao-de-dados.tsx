@@ -3,6 +3,10 @@ import ClientApp from '../lib/genql';
 import FormProtecarDeDados from '../components/layout/forms/FormProtecaoDeDados';
 import { useEffect, useState } from 'react';
 
+interface TT {
+  name: string;
+}
+
 const ProtecaoDeDados: NextPage = () => {
   const [date, setDate] = useState(new Date());
 

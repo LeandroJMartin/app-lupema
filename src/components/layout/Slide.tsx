@@ -13,6 +13,7 @@ interface Props {
   };
   infinite: boolean;
   navigation: boolean;
+  dots: boolean;
   autoPlay?: boolean;
 }
 
@@ -22,6 +23,7 @@ const SlideApp = ({
   largura,
   infinite = false,
   navigation = false,
+  dots = false,
   autoPlay = false,
 }: Props) => {
   const Prev = () => {
@@ -60,6 +62,7 @@ const SlideApp = ({
       paddingRight={larg}
       infinite={infinite}
       disableButtonsControls={navigation}
+      disableDotsControls={dots}
       autoPlayInterval={2600}
     />
   );

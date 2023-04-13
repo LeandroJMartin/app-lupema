@@ -197,7 +197,8 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
             infinite={true}
             gap={30}
             largura={{ desktop: 180, mobile: 20 }}
-            navigation={true}
+            navigation={false}
+            dots={true}
             responsive={responsiveGallery}
           />
         </div>
