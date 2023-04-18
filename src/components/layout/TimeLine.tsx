@@ -50,6 +50,7 @@ const TimeLine = ({ prop }: Prop) => {
         responsive={responsive}
         navigation={true}
         largura={{ desktop: 0, mobile: 0 }}
+        dots={true}
         infinite={false}
       />
     </div>
