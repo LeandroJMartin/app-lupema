@@ -300,15 +300,16 @@ input[type='search']::-webkit-search-cancel-button {
 }
 
 .hero {
-  @apply bg-bgi
+  @apply bg-bgi;
 }
 
 .hero .alice-carousel__prev-btn p,
-.hero .alice-carousel__next-btn p{
+.hero .alice-carousel__next-btn p {
   position: relative;
+  background: transparent !important;
 }
 
-.hero .alice-carousel__prev-btn p svg{
+.hero .alice-carousel__prev-btn p svg {
   margin-right: 0;
   margin-left: auto;
 }
