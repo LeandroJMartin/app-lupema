@@ -28,14 +28,14 @@ const SlideApp = ({
 }: Props) => {
   const Prev = () => {
     return (
-      <p className="p-[5px] absolute left-[-16px] top-[calc(50%-30px)] rounded-[100%] z-10 cursor-pointer bg-blue">
+      <p className="p-[5px] absolute left-[-16px] top-[calc(50%-30px)] rounded-[100%] z-10 cursor-pointer bg-green">
         <IoIosArrowBack size={24} className="stroke-white text-white" />
       </p>
     );
   };
   const Next = () => {
     return (
-      <p className="p-[5px] absolute right-[-16px] top-[calc(50%-30px)] rounded-[100%] z-10 cursor-pointer bg-blue">
+      <p className="p-[5px] absolute right-[-16px] top-[calc(50%-30px)] rounded-[100%] z-10 cursor-pointer bg-green">
         <IoIosArrowForward size={24} className="text-white" />
       </p>
     );

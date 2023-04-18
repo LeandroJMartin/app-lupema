@@ -28,6 +28,9 @@ html,
 body {
   font-family: 'Ubuntu', sans-serif;
 }
+body {
+  position: relative;
+}
 
 .form input,
 .form select,
@@ -294,6 +297,20 @@ input[type='search']::-webkit-search-cancel-button {
 
 .hero .alice-carousel__stage-item.__active img {
   transform: scale(1.05);
+}
+
+.hero {
+  @apply bg-bgi
+}
+
+.hero .alice-carousel__prev-btn p,
+.hero .alice-carousel__next-btn p{
+  position: relative;
+}
+
+.hero .alice-carousel__prev-btn p svg{
+  margin-right: 0;
+  margin-left: auto;
 }
 
 .gallery .right-\[-16px\] {

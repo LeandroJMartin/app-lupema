@@ -20,9 +20,9 @@ const HeroApp = ({ banners }: Props) => {
     <div className="hero">
       <SlideApp
         items={items}
-        navigation={true}
         largura={{ desktop: 0, mobile: 0 }}
         infinite={true}
+        navigation={false}
         dots={false}
         autoPlay={true}
       />

@@ -7,6 +7,8 @@ import SlideApp from '../../components/layout/Slide';
 import { TbArrowRightBar, TbCar } from 'react-icons/tb';
 import { BiBed } from 'react-icons/bi';
 import Maps from '../../components/layout/Maps';
+import FormDownloadApresentation from '../../components/layout/forms/FormDownApresentation';
+import { useState } from 'react';
 
 interface Props {
   data: {
@@ -15,6 +17,7 @@ interface Props {
 }
 
 const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
+  const [value, setValue] = useState(false);
   const plantas = data.emp?.itemsPlantas?.map((imgs) => {
     return (
       <div className="mt-6">
@@ -93,6 +96,10 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
       : initial;
   }, '');
 
+  function handleValue(newValue: boolean) {
+    setValue(newValue);
+  }
+
   return (
     <div className="bg-black mt-[100px] sm:mt-[74px]">
       <section>
@@ -145,13 +152,12 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
               </div>
             </div>
             <div className="order-3 sm:order-2">
-              <a
-                href={data.emp?.arquivoDaApresentacao?.sourceUrl}
-                download
+              <button
+                onClick={() => setValue(true)}
                 className="border border-green py-2 w-[150px] block text-green text-center cursor-pointer"
               >
                 Baixar apresentação
-              </a>
+              </button>
               <a
                 href="#form"
                 className="bg-green py-2 w-[150px] block text-black text-center my-4 cursor-pointer"
@@ -400,6 +406,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           </div>
         </section>
       )}
+      {value && <FormDownloadApresentation onValue={handleValue} />}
     </div>
   );
 };
