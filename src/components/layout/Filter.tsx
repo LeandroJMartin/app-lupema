@@ -139,7 +139,6 @@ const FilterApp = ({ data, resultDataState }: Props) => {
               empMetragem: true,
               empDormitorios: true,
               empVagasDeGaragem: true,
-              empValorAPartirDe: true,
               enderecoBairro: true,
               tipoDoEmpreendimento: true,
             },

@@ -134,7 +134,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           empMetragem: true,
           empDormitorios: true,
           empVagasDeGaragem: true,
-          empValorAPartirDe: true,
         },
         slug: true,
       },

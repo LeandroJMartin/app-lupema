@@ -1,6 +1,6 @@
 import { GetStaticPaths, NextPage } from 'next';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import BlockEmp from '../../components/layout/BlockEmp';
 import FilterApp from '../../components/layout/Filter';
 import { Page, RootQueryToEmpreendimentoConnection } from '../../generated';
