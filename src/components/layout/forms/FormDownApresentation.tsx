@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 
 interface Props {
@@ -5,6 +6,51 @@ interface Props {
 }
 
 const FormDownloadApresentation = ({ onValue }: Props) => {
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [terms, setTerms] = useState('');
+  const [msg, setMsg] = useState('');
+
+  const Msg = () => {
+    return <span className="italic text-black text-sm">{msg}</span>;
+  };
+
+  function handleSubmit(event: { preventDefault: () => void }) {
+    event.preventDefault();
+    if (nome || email || telefone || terms) {
+      setMsg('Por favor, preencha todos os campos do formulário.');
+    } else {
+      setMsg('');
+    }
+
+    fetch('/api/enviar-formulario', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ nome, email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 'success') {
+          setMsg('Formulário enviado com sucesso!');
+          setNome('');
+          setEmail('');
+        } else {
+          setMsg(
+            'Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.'
+          );
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setMsg(
+          'Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.'
+        );
+      });
+  }
+
   return (
     <div className="fixed top-0 left-0 right-0 z-50 w-full h-full flex items-center justify-center bg-black/75">
       <div className="bg-green p-8 text-white max-w-[420px] relative">
@@ -18,18 +64,39 @@ const FormDownloadApresentation = ({ onValue }: Props) => {
           Cadastre-se para receber a apresentação completa do empreendimento do
           seu interesse.
         </p>
-        <form action="" className="form">
-          <input type="text" name="name" placeholder="Seu nome" required />
+        <Msg />
+        <form className="form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Seu nome"
+            className="mb-4"
+            required
+            onChange={(e) => setNome(e.target.value)}
+          />
           <input
             type="email"
             name="email"
             placeholder="Seu e-mail"
-            className="my-4"
+            className="mb-4"
             required
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <input type="tel" name="tel" placeholder="Telefone" required />
-          <label htmlFor="aceite" className="my-4 inline-block">
-            <input type="checkbox" name="termos" id="aceite" required />
+          <input
+            type="tel"
+            name="tel"
+            placeholder="Telefone"
+            required
+            onChange={(e) => setTelefone(e.target.value)}
+          />
+          <label htmlFor="aceite" className="mb-4 inline-block">
+            <input
+              type="checkbox"
+              name="termos"
+              id="aceite"
+              required
+              onChange={(e) => setTerms(e.target.value)}
+            />
             <span className="ml-2">
               Li e concordo com a
               <a

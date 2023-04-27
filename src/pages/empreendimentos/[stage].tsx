@@ -136,7 +136,6 @@ export const getStaticProps = async () => {
           empMetragem: true,
           empDormitorios: true,
           empVagasDeGaragem: true,
-          empValorAPartirDe: true,
           enderecoBairro: true,
           tipoDoEmpreendimento: true,
         },

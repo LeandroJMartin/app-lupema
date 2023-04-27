@@ -182,11 +182,13 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
               </li>
               <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
                 <BiBed size={22} />
-                <span className="ml-2">{data.emp?.empDormitorios}</span>
+                <span className="mx-2">{data.emp?.empDormitorios}</span>
+                dormitórios
               </li>
               <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
                 <TbCar size={22} />
-                <span className="ml-2">{data.emp?.empVagasDeGaragem}</span>
+                <span className="mx-2">{data.emp?.empVagasDeGaragem}</span>
+                vagas
               </li>
               <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
                 <span className="text-sm">
@@ -241,7 +243,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                 <div className="w-[75%] block mx-auto">
                   <SlideApp
                     items={plantas}
-                    navigation={true}
+                    navigation={false}
                     responsive={responsiveGallery}
                     dots={false}
                     infinite={false}
@@ -381,13 +383,16 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
         </div>
       </section>
       {(data.emp?.listaItensTec || data.emp?.listaItensTec2) && (
-        <section className="bg-green pb-6">
+        <section className="bg-green pb-8">
           <div className="container">
             <h2 className="text-2xl lg:text-4xl text-white text-center py-10">
               Ficha Técnica
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 items-center text-white gap-4 text-lg">
+            <div className="grid grid-cols-1 lg:grid-cols-2 text-white gap-4 text-lg">
               <div className="p-2">
+                <h3 className="mb-6 block font-bold border-b border-b-white/10 pb-2 uppercase text-xl">
+                  Dados técnicos
+                </h3>
                 <p
                   dangerouslySetInnerHTML={{
                     __html: data.emp?.listaItensTec || '',
@@ -396,6 +401,9 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
               </div>
 
               <div className="p-2">
+                <h3 className="mb-6 block font-bold border-b border-b-white/10 pb-2 uppercase text-xl">
+                  Profissionais
+                </h3>
                 <p
                   dangerouslySetInnerHTML={{
                     __html: data.emp?.listaItensTec2 || '',
@@ -472,7 +480,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           empDormitorios: true,
           empMetragem: true,
           empVagasDeGaragem: true,
-          empValorAPartirDe: true,
           linkDoTourVirtual: true,
           galeriaDeFotos: {
             sourceUrl: true,

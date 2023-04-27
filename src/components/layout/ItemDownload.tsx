@@ -24,14 +24,13 @@ const ItemDownload = ({ file }: Props) => {
         ) : (
           <BsFileEarmarkText />
         )}
-        <h2 className="my-3 text-green">{file.down_assessoria?.downTitulo}</h2>
-        <p className="text-sm !leading-5">
-          {file.down_assessoria?.downDescricao}
-        </p>
+        <h2 className="my-3 text-white min-h-[55px]">
+          {file.down_assessoria?.downTitulo}
+        </h2>
         <a
           href={file.down_assessoria?.linkDaMateria}
           download
-          className="block text-green border border-green uppercase text-center py-2 px-3 mt-6 hover:bg-green hover:text-black transition"
+          className="block text-green border border-green uppercase text-center py-2 px-3 hover:bg-green hover:text-black transition"
         >
           Leia a matéria completa
         </a>

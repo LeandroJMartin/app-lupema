@@ -34,7 +34,7 @@ const EmpSlideHome = ({ data }: Props) => {
             largura={{ desktop: 0, mobile: 0 }}
             infinite={true}
             dots={false}
-            navigation={true}
+            navigation={false}
           />
         </div>
       </div>

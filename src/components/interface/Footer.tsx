@@ -55,12 +55,6 @@ const FooterApp = ({ data }: Props) => {
         <div className="space-y-3">
           <h2 className="text-green text-lg">Encontre seu Lupema</h2>
           <Link
-            href="/empreendimentos/concluido"
-            className="block hover:text-green"
-          >
-            Concluído
-          </Link>
-          <Link
             href="/empreendimentos/em-andamento"
             className="block hover:text-green"
           >
@@ -77,12 +71,6 @@ const FooterApp = ({ data }: Props) => {
             className="block hover:text-green"
           >
             Pronto para Morar
-          </Link>
-          <Link
-            href="/empreendimentos/breve-lancamento"
-            className="block hover:text-green"
-          >
-            Breve Lançamento
           </Link>
         </div>
         <div className="space-y-3">
