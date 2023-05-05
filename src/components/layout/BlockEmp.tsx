@@ -17,15 +17,11 @@ const BlockEmp = ({ content, main = true }: Props) => {
 
   return (
     <Link href={`/empreendimento/${content.slug}`} className="pb-6">
-      <div
-        className={`relative bg-blue/20 ${
-          main ? 'h-[400px] xl:h-[450px]' : 'h-[270px]'
-        }`}
-      >
+      <div className="relative bg-blue/20 aspect-auto">
         <Image
           src={content.empreendimento?.imagemPrincipal?.sourceUrl || ''}
-          fill
-          className="object-cover"
+          width={480}
+          height={670}
           alt="Imagem principal"
         />
         <TagApp name={content.empreendimento} />

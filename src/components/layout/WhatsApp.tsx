@@ -26,7 +26,7 @@ const WhatsApp = ({ data }: Props) => {
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 right-6 z-50 drop-shadow-md">
       {device && (
         <a href={`tel:${data.coTelefone}`} aria-label="Botão Telefone">
           <MdWifiCalling3

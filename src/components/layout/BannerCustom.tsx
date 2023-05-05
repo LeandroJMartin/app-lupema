@@ -43,7 +43,7 @@ const BannerCustom = ({ content }: Content) => {
             </button>
           </div>
         </div>
-        <div className="w-full overflow-hidden absolute bottom-2 2xl:bottom-0 left-0 right-0">
+        <div className="w-full overflow-hidden absolute -bottom-16 left-0 right-0">
           <div className="textAnimation">
             <div>
               <span>{content.bhNomeDoEmpreendimento}</span>
