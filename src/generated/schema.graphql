@@ -2758,6 +2758,11 @@ type User implements Node & UniformResourceIdentifiable & Commenter & DatabaseId
   ): UserToUserRoleConnection
 
   """
+  Whether the Toolbar should be displayed when the user is viewing the site.
+  """
+  shouldShowAdminToolbar: Boolean
+
+  """
   The slug for the user. This field is equivalent to WP_User-&gt;user_nicename
   """
   slug: String
@@ -7960,6 +7965,11 @@ type Empreendimento implements Node & ContentNode & UniformResourceIdentifiable 
   """
   guid: String
 
+  """
+  Added to the GraphQL Schema because the ACF Field Group &quot;Housi - Verso&quot; was set to Show in GraphQL.
+  """
+  housiVerso: Empreendimento_Housiverso
+
   """The globally unique identifier of the empreendimentos object."""
   id: ID!
 
@@ -8198,9 +8208,6 @@ type Empreendimento_Empreendimento implements AcfFieldGroup {
   empVagasDeGaragem: String
 
   """"""
-  empValorAPartirDe: String
-
-  """"""
   endStandVendas: String
 
   """"""
@@ -8313,6 +8320,27 @@ type Empreendimento_Empreendimento_videosOutos implements AcfFieldGroup {
 
   """"""
   linkDoVideo: String
+}
+
+"""Field Group"""
+type Empreendimento_Housiverso implements AcfFieldGroup {
+  """"""
+  diferencial: [Empreendimento_Housiverso_diferencial]
+
+  """The name of the ACF Field Group"""
+  fieldGroupName: String
+}
+
+"""Field Group"""
+type Empreendimento_Housiverso_diferencial implements AcfFieldGroup {
+  """The name of the ACF Field Group"""
+  fieldGroupName: String
+
+  """"""
+  iconeHousi: MediaItem
+
+  """"""
+  nomeHousi: String
 }
 
 """Connection between the Empreendimento type and the Empreendimento type"""

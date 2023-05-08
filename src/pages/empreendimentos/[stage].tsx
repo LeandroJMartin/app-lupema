@@ -1,10 +1,11 @@
 import { GetStaticPaths, NextPage } from 'next';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BlockEmp from '../../components/layout/BlockEmp';
 import FilterApp from '../../components/layout/Filter';
 import { Page, RootQueryToEmpreendimentoConnection } from '../../generated';
 import ClientApp from '../../lib/genql';
+import { useRouter } from 'next/router';
 
 interface Props {
   data: {
@@ -16,6 +17,10 @@ interface Props {
 const EmpreendimentosApp: NextPage<Props> = ({ data }) => {
   const [dataSearch, setDataSearch] =
     useState<RootQueryToEmpreendimentoConnection | null>(null);
+
+  const { query } = useRouter();
+
+  const stages = ['lancamento', 'em-andamento', 'pronto-para-morar'];
 
   return (
     <>

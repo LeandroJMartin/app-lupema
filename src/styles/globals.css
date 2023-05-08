@@ -200,6 +200,27 @@ button {
   right: -22px;
 }
 
+.timeline .alice-carousel__prev-btn p,
+.timeline .alice-carousel__next-btn p {
+  position: relative;
+  width: 34px;
+  background: rgb(40 41 46 / var(--tw-bg-opacity));
+}
+
+.timeline .alice-carousel__prev-btn p:hover,
+.timeline .alice-carousel__next-btn p:hover {
+  background: #729f2d;
+}
+
+.timeline .alice-carousel__prev-btn p {
+  left: calc(100% - 45px);
+}
+
+.timeline .alice-carousel__prev-btn p svg {
+  margin-right: 0;
+  margin-left: auto;
+}
+
 input[type='search'] {
   outline: none;
 }

@@ -927,7 +927,7 @@ module.exports.isPage_Assessoria = function(obj) {
 
 
 
-var AcfFieldGroup_possibleTypes = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Page_Informacoesdecontato','Empreendimento_Empreendimento','Empreendimento_Empreendimento_diferenciaisItems','Empreendimento_Empreendimento_itemsPlantas','Empreendimento_Empreendimento_itensAreacomuns','Empreendimento_Empreendimento_pontosDeReferencia','Empreendimento_Empreendimento_videosOutos','ArquivoAssessoria_DownAssessoria','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
+var AcfFieldGroup_possibleTypes = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Page_Informacoesdecontato','Empreendimento_Empreendimento','Empreendimento_Empreendimento_diferenciaisItems','Empreendimento_Empreendimento_itemsPlantas','Empreendimento_Empreendimento_itensAreacomuns','Empreendimento_Empreendimento_pontosDeReferencia','Empreendimento_Empreendimento_videosOutos','Empreendimento_Housiverso','Empreendimento_Housiverso_diferencial','ArquivoAssessoria_DownAssessoria','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
 module.exports.isAcfFieldGroup = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isAcfFieldGroup"')
   return AcfFieldGroup_possibleTypes.includes(obj.__typename)
@@ -1363,6 +1363,22 @@ var Empreendimento_Empreendimento_videosOutos_possibleTypes = ['Empreendimento_E
 module.exports.isEmpreendimento_Empreendimento_videosOutos = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isEmpreendimento_Empreendimento_videosOutos"')
   return Empreendimento_Empreendimento_videosOutos_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var Empreendimento_Housiverso_possibleTypes = ['Empreendimento_Housiverso']
+module.exports.isEmpreendimento_Housiverso = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isEmpreendimento_Housiverso"')
+  return Empreendimento_Housiverso_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var Empreendimento_Housiverso_diferencial_possibleTypes = ['Empreendimento_Housiverso_diferencial']
+module.exports.isEmpreendimento_Housiverso_diferencial = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isEmpreendimento_Housiverso_diferencial"')
+  return Empreendimento_Housiverso_diferencial_possibleTypes.includes(obj.__typename)
 }
 
 

@@ -48,7 +48,7 @@ const TimeLine = ({ prop }: Prop) => {
       <SlideApp
         items={itemTimeLine}
         responsive={responsive}
-        navigation={true}
+        navigation={false}
         largura={{ desktop: 0, mobile: 0 }}
         dots={true}
         infinite={false}

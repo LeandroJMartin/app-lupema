@@ -732,6 +732,8 @@ export interface User {
     revisions?: UserToRevisionsConnection
     /** Connection between the User type and the UserRole type */
     roles?: UserToUserRoleConnection
+    /** Whether the Toolbar should be displayed when the user is viewing the site. */
+    shouldShowAdminToolbar?: Scalars['Boolean']
     /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
     slug?: Scalars['String']
     /** The unique resource identifier path */
@@ -1784,7 +1786,7 @@ export interface Page_Assessoria {
 
 
 /** A Field Group registered by ACF */
-export type AcfFieldGroup = (Page_Assessoria | Page_Conteusobre | Page_Conteusobre_item | Page_Informacoesdecontato | Empreendimento_Empreendimento | Empreendimento_Empreendimento_diferenciaisItems | Empreendimento_Empreendimento_itemsPlantas | Empreendimento_Empreendimento_itensAreacomuns | Empreendimento_Empreendimento_pontosDeReferencia | Empreendimento_Empreendimento_videosOutos | ArquivoAssessoria_DownAssessoria | Banner_BannerHome | Banner_BannerHome_BhConteudo | Banner_BannerHome_ImagensProntas) & { __isUnion?: true }
+export type AcfFieldGroup = (Page_Assessoria | Page_Conteusobre | Page_Conteusobre_item | Page_Informacoesdecontato | Empreendimento_Empreendimento | Empreendimento_Empreendimento_diferenciaisItems | Empreendimento_Empreendimento_itemsPlantas | Empreendimento_Empreendimento_itensAreacomuns | Empreendimento_Empreendimento_pontosDeReferencia | Empreendimento_Empreendimento_videosOutos | Empreendimento_Housiverso | Empreendimento_Housiverso_diferencial | ArquivoAssessoria_DownAssessoria | Banner_BannerHome | Banner_BannerHome_BhConteudo | Banner_BannerHome_ImagensProntas) & { __isUnion?: true }
 
 
 /** Connection between the Page type and the Comment type */
@@ -2440,6 +2442,8 @@ export interface Empreendimento {
     featuredImageId?: Scalars['ID']
     /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
     guid?: Scalars['String']
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Housi - Verso&quot; was set to Show in GraphQL. */
+    housiVerso?: Empreendimento_Housiverso
     /** The globally unique identifier of the empreendimentos object. */
     id: Scalars['ID']
     /** Whether the node is a Content Node */
@@ -2526,7 +2530,6 @@ export interface Empreendimento_Empreendimento {
     empDormitorios?: Scalars['String']
     empMetragem?: Scalars['String']
     empVagasDeGaragem?: Scalars['String']
-    empValorAPartirDe?: Scalars['String']
     endStandVendas?: Scalars['String']
     enderecoBairro?: Scalars['String']
     enderecoNumero?: Scalars['String']
@@ -2597,6 +2600,25 @@ export interface Empreendimento_Empreendimento_videosOutos {
     fieldGroupName?: Scalars['String']
     linkDoVideo?: Scalars['String']
     __typename: 'Empreendimento_Empreendimento_videosOutos'
+}
+
+
+/** Field Group */
+export interface Empreendimento_Housiverso {
+    diferencial?: (Empreendimento_Housiverso_diferencial | undefined)[]
+    /** The name of the ACF Field Group */
+    fieldGroupName?: Scalars['String']
+    __typename: 'Empreendimento_Housiverso'
+}
+
+
+/** Field Group */
+export interface Empreendimento_Housiverso_diferencial {
+    /** The name of the ACF Field Group */
+    fieldGroupName?: Scalars['String']
+    iconeHousi?: MediaItem
+    nomeHousi?: Scalars['String']
+    __typename: 'Empreendimento_Housiverso_diferencial'
 }
 
 
@@ -7301,6 +7323,8 @@ export interface UserRequest{
     after?: (Scalars['String'] | null),
     /** Cursor used along with the "last" argument to reference where in the dataset to get data */
     before?: (Scalars['String'] | null)},UserToUserRoleConnectionRequest] | UserToUserRoleConnectionRequest
+    /** Whether the Toolbar should be displayed when the user is viewing the site. */
+    shouldShowAdminToolbar?: boolean | number
     /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
     slug?: boolean | number
     /** The unique resource identifier path */
@@ -9487,6 +9511,8 @@ export interface AcfFieldGroupRequest{
     on_Empreendimento_Empreendimento_itensAreacomuns?: Empreendimento_Empreendimento_itensAreacomunsRequest
     on_Empreendimento_Empreendimento_pontosDeReferencia?: Empreendimento_Empreendimento_pontosDeReferenciaRequest
     on_Empreendimento_Empreendimento_videosOutos?: Empreendimento_Empreendimento_videosOutosRequest
+    on_Empreendimento_Housiverso?: Empreendimento_HousiversoRequest
+    on_Empreendimento_Housiverso_diferencial?: Empreendimento_Housiverso_diferencialRequest
     on_ArquivoAssessoria_DownAssessoria?: ArquivoAssessoria_DownAssessoriaRequest
     on_Banner_BannerHome?: Banner_BannerHomeRequest
     on_Banner_BannerHome_BhConteudo?: Banner_BannerHome_BhConteudoRequest
@@ -10968,6 +10994,8 @@ export interface EmpreendimentoRequest{
     featuredImageId?: boolean | number
     /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
     guid?: boolean | number
+    /** Added to the GraphQL Schema because the ACF Field Group &quot;Housi - Verso&quot; was set to Show in GraphQL. */
+    housiVerso?: Empreendimento_HousiversoRequest
     /** The globally unique identifier of the empreendimentos object. */
     id?: boolean | number
     /** Whether the node is a Content Node */
@@ -11116,7 +11144,6 @@ export interface Empreendimento_EmpreendimentoRequest{
     empDormitorios?: boolean | number
     empMetragem?: boolean | number
     empVagasDeGaragem?: boolean | number
-    empValorAPartirDe?: boolean | number
     endStandVendas?: boolean | number
     enderecoBairro?: boolean | number
     enderecoNumero?: boolean | number
@@ -11191,6 +11218,27 @@ export interface Empreendimento_Empreendimento_videosOutosRequest{
     /** The name of the ACF Field Group */
     fieldGroupName?: boolean | number
     linkDoVideo?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Field Group */
+export interface Empreendimento_HousiversoRequest{
+    diferencial?: Empreendimento_Housiverso_diferencialRequest
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Field Group */
+export interface Empreendimento_Housiverso_diferencialRequest{
+    /** The name of the ACF Field Group */
+    fieldGroupName?: boolean | number
+    iconeHousi?: MediaItemRequest
+    nomeHousi?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -17953,7 +18001,7 @@ export const isPage_Assessoria = (obj?: { __typename?: any } | null): obj is Pag
 
 
 
-const AcfFieldGroup_possibleTypes: string[] = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Page_Informacoesdecontato','Empreendimento_Empreendimento','Empreendimento_Empreendimento_diferenciaisItems','Empreendimento_Empreendimento_itemsPlantas','Empreendimento_Empreendimento_itensAreacomuns','Empreendimento_Empreendimento_pontosDeReferencia','Empreendimento_Empreendimento_videosOutos','ArquivoAssessoria_DownAssessoria','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
+const AcfFieldGroup_possibleTypes: string[] = ['Page_Assessoria','Page_Conteusobre','Page_Conteusobre_item','Page_Informacoesdecontato','Empreendimento_Empreendimento','Empreendimento_Empreendimento_diferenciaisItems','Empreendimento_Empreendimento_itemsPlantas','Empreendimento_Empreendimento_itensAreacomuns','Empreendimento_Empreendimento_pontosDeReferencia','Empreendimento_Empreendimento_videosOutos','Empreendimento_Housiverso','Empreendimento_Housiverso_diferencial','ArquivoAssessoria_DownAssessoria','Banner_BannerHome','Banner_BannerHome_BhConteudo','Banner_BannerHome_ImagensProntas']
 export const isAcfFieldGroup = (obj?: { __typename?: any } | null): obj is AcfFieldGroup => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isAcfFieldGroup"')
   return AcfFieldGroup_possibleTypes.includes(obj.__typename)
@@ -18389,6 +18437,22 @@ const Empreendimento_Empreendimento_videosOutos_possibleTypes: string[] = ['Empr
 export const isEmpreendimento_Empreendimento_videosOutos = (obj?: { __typename?: any } | null): obj is Empreendimento_Empreendimento_videosOutos => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimento_Empreendimento_videosOutos"')
   return Empreendimento_Empreendimento_videosOutos_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Empreendimento_Housiverso_possibleTypes: string[] = ['Empreendimento_Housiverso']
+export const isEmpreendimento_Housiverso = (obj?: { __typename?: any } | null): obj is Empreendimento_Housiverso => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimento_Housiverso"')
+  return Empreendimento_Housiverso_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const Empreendimento_Housiverso_diferencial_possibleTypes: string[] = ['Empreendimento_Housiverso_diferencial']
+export const isEmpreendimento_Housiverso_diferencial = (obj?: { __typename?: any } | null): obj is Empreendimento_Housiverso_diferencial => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isEmpreendimento_Housiverso_diferencial"')
+  return Empreendimento_Housiverso_diferencial_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -23304,6 +23368,9 @@ after?: (Scalars['String'] | null),
 /** Cursor used along with the "last" argument to reference where in the dataset to get data */
 before?: (Scalars['String'] | null)}) => UserToUserRoleConnectionPromiseChain & {get: <R extends UserToUserRoleConnectionRequest>(request: R, defaultValue?: (FieldsSelection<UserToUserRoleConnection, R> | undefined)) => Promise<(FieldsSelection<UserToUserRoleConnection, R> | undefined)>})&(UserToUserRoleConnectionPromiseChain & {get: <R extends UserToUserRoleConnectionRequest>(request: R, defaultValue?: (FieldsSelection<UserToUserRoleConnection, R> | undefined)) => Promise<(FieldsSelection<UserToUserRoleConnection, R> | undefined)>}),
     
+/** Whether the Toolbar should be displayed when the user is viewing the site. */
+shouldShowAdminToolbar: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Promise<(Scalars['Boolean'] | undefined)>}),
+    
 /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
 slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     
@@ -23484,6 +23551,9 @@ last?: (Scalars['Int'] | null),
 after?: (Scalars['String'] | null),
 /** Cursor used along with the "last" argument to reference where in the dataset to get data */
 before?: (Scalars['String'] | null)}) => UserToUserRoleConnectionObservableChain & {get: <R extends UserToUserRoleConnectionRequest>(request: R, defaultValue?: (FieldsSelection<UserToUserRoleConnection, R> | undefined)) => Observable<(FieldsSelection<UserToUserRoleConnection, R> | undefined)>})&(UserToUserRoleConnectionObservableChain & {get: <R extends UserToUserRoleConnectionRequest>(request: R, defaultValue?: (FieldsSelection<UserToUserRoleConnection, R> | undefined)) => Observable<(FieldsSelection<UserToUserRoleConnection, R> | undefined)>}),
+    
+/** Whether the Toolbar should be displayed when the user is viewing the site. */
+shouldShowAdminToolbar: ({get: (request?: boolean|number, defaultValue?: (Scalars['Boolean'] | undefined)) => Observable<(Scalars['Boolean'] | undefined)>}),
     
 /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
 slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
@@ -29426,6 +29496,9 @@ featuredImageId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID']
 /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
 guid: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Housi - Verso&quot; was set to Show in GraphQL. */
+housiVerso: (Empreendimento_HousiversoPromiseChain & {get: <R extends Empreendimento_HousiversoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento_Housiverso, R> | undefined)) => Promise<(FieldsSelection<Empreendimento_Housiverso, R> | undefined)>}),
+    
 /** The globally unique identifier of the empreendimentos object. */
 id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Promise<Scalars['ID']>}),
     
@@ -29576,6 +29649,9 @@ featuredImageId: ({get: (request?: boolean|number, defaultValue?: (Scalars['ID']
     
 /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
 guid: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    
+/** Added to the GraphQL Schema because the ACF Field Group &quot;Housi - Verso&quot; was set to Show in GraphQL. */
+housiVerso: (Empreendimento_HousiversoObservableChain & {get: <R extends Empreendimento_HousiversoRequest>(request: R, defaultValue?: (FieldsSelection<Empreendimento_Housiverso, R> | undefined)) => Observable<(FieldsSelection<Empreendimento_Housiverso, R> | undefined)>}),
     
 /** The globally unique identifier of the empreendimentos object. */
 id: ({get: (request?: boolean|number, defaultValue?: Scalars['ID']) => Observable<Scalars['ID']>}),
@@ -29739,7 +29815,6 @@ export interface Empreendimento_EmpreendimentoPromiseChain{
     empDormitorios: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     empMetragem: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     empVagasDeGaragem: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    empValorAPartirDe: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     endStandVendas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     enderecoBairro: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     enderecoNumero: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
@@ -29774,7 +29849,6 @@ export interface Empreendimento_EmpreendimentoObservableChain{
     empDormitorios: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     empMetragem: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     empVagasDeGaragem: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    empValorAPartirDe: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     endStandVendas: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     enderecoBairro: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     enderecoNumero: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
@@ -29894,6 +29968,44 @@ export interface Empreendimento_Empreendimento_videosOutosObservableChain{
 /** The name of the ACF Field Group */
 fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     linkDoVideo: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_HousiversoPromiseChain{
+    diferencial: ({get: <R extends Empreendimento_Housiverso_diferencialRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Housiverso_diferencial, R> | undefined)[] | undefined)) => Promise<((FieldsSelection<Empreendimento_Housiverso_diferencial, R> | undefined)[] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_HousiversoObservableChain{
+    diferencial: ({get: <R extends Empreendimento_Housiverso_diferencialRequest>(request: R, defaultValue?: ((FieldsSelection<Empreendimento_Housiverso_diferencial, R> | undefined)[] | undefined)) => Observable<((FieldsSelection<Empreendimento_Housiverso_diferencial, R> | undefined)[] | undefined)>}),
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Housiverso_diferencialPromiseChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    iconeHousi: (MediaItemPromiseChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Promise<(FieldsSelection<MediaItem, R> | undefined)>}),
+    nomeHousi: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Field Group */
+export interface Empreendimento_Housiverso_diferencialObservableChain{
+    
+/** The name of the ACF Field Group */
+fieldGroupName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    iconeHousi: (MediaItemObservableChain & {get: <R extends MediaItemRequest>(request: R, defaultValue?: (FieldsSelection<MediaItem, R> | undefined)) => Observable<(FieldsSelection<MediaItem, R> | undefined)>}),
+    nomeHousi: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 

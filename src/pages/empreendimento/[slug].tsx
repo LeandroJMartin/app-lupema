@@ -1,6 +1,9 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
-import { Empreendimento_Empreendimento } from '../../generated';
+import {
+  Empreendimento_Empreendimento,
+  Empreendimento_Housiverso,
+} from '../../generated';
 import ClientApp from '../../lib/genql';
 import FormEmpreendimento from '../../components/layout/forms/FormEmpreendimento';
 import SlideApp from '../../components/layout/Slide';
@@ -13,6 +16,7 @@ import { useState } from 'react';
 interface Props {
   data: {
     emp: Empreendimento_Empreendimento;
+    housi: Empreendimento_Housiverso;
   };
 }
 
@@ -190,12 +194,6 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                 <span className="mx-2">{data.emp?.empVagasDeGaragem}</span>
                 vagas
               </li>
-              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
-                <span className="text-sm">
-                  {isNumeric(data.emp.empValorAPartirDe) && 'A partir de'}
-                </span>
-                <span className="ml-1">{data.emp.empValorAPartirDe}</span>
-              </li>
             </ul>
           </div>
         </div>
@@ -211,6 +209,29 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           />
         </div>
       </section>
+      {data.housi.diferencial && (
+        <section className="container py-8 sm:py-12">
+          <h2 className="text-2xl lg:text-4xl text-green text-center">
+            Diferenciais Housi
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10">
+            {data.housi.diferencial?.map((item) => {
+              return (
+                <div className="flex items-center">
+                  {item?.iconeHousi?.sourceUrl && (
+                    <img
+                      src={item?.iconeHousi?.sourceUrl}
+                      alt="Icone do diferencial"
+                      className="w-7 h-7"
+                    />
+                  )}
+                  <p className="text-white ml-3">{item?.nomeHousi}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
       <section className="container py-8 sm:py-12">
         <h2 className="text-2xl lg:text-4xl text-green text-center">
           Diferenciais
@@ -388,7 +409,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
             <h2 className="text-2xl lg:text-4xl text-white text-center py-10">
               Ficha Técnica
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 text-white gap-4 text-lg">
+            <div className="grid grid-cols-1 text-center lg:grid-cols-2 text-white gap-4 text-lg">
               <div className="p-2">
                 <h3 className="mb-6 block font-bold border-b border-b-white/10 pb-2 uppercase text-xl">
                   Dados técnicos
@@ -521,6 +542,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           listaItensTec: true,
           listaItensTec2: true,
         },
+        housiVerso: {
+          diferencial: {
+            iconeHousi: {
+              sourceUrl: true,
+            },
+            nomeHousi: true,
+          },
+        },
       },
     ],
     page: [
@@ -546,6 +575,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       data: {
         emp: empreendimento?.empreendimento,
+        housi: empreendimento?.housiVerso,
         social: page?.informacoesDeContato,
       },
     },

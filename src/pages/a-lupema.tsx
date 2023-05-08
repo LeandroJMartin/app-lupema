@@ -101,7 +101,11 @@ const Alupema: NextPage<PropsAbout> = ({ data }) => {
             className="object-contain"
           />
         </div>
-        <Link href="/agende-uma-visita" className="button mx-auto my-6">
+        <Link
+          href="https://api.whatsapp.com/send?phone=5517996766861"
+          className="button mx-auto my-6"
+          target="_blank"
+        >
           Agende uma visita
         </Link>
       </section>
