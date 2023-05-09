@@ -196,7 +196,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
               Andamento da obra
             </button>
           </div>
-          <div className="aspect-auto justify-end w-full sm:w-[40%] order-1 sm:order-2">
+          <div className="aspect-auto justify-end flex w-full sm:w-[40%] order-1 sm:order-2">
             <Image
               src={data.emp.imagemPrincipal?.sourceUrl || ''}
               width={480}
