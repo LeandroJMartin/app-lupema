@@ -20,8 +20,6 @@ const EmpreendimentosApp: NextPage<Props> = ({ data }) => {
 
   const { query } = useRouter();
 
-  const stages = ['lancamento', 'em-andamento', 'pronto-para-morar'];
-
   return (
     <>
       <div className="relative h-[200px] sm:h-[350px] md:h-[500px] border-b-4 border-b-green">
