@@ -13,7 +13,11 @@ const VideoApp = ({ embedLink }: Props) => {
   };
 
   return (
-    <YouTube videoId={`${EmbedID?.[1]}`} opts={opts} className="aspect-video" />
+    <YouTube
+      videoId={`${EmbedID?.[1]}`}
+      opts={opts}
+      className="aspect-square p-4"
+    />
   );
 };
 

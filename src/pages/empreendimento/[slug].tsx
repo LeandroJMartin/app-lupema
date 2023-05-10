@@ -9,10 +9,13 @@ import FormEmpreendimento from '../../components/layout/forms/FormEmpreendimento
 import SlideApp from '../../components/layout/Slide';
 import { TbArrowRightBar, TbCar } from 'react-icons/tb';
 import { BiBed } from 'react-icons/bi';
-import { AiOutlinePlus } from 'react-icons/ai';
 import Maps from '../../components/layout/Maps';
 import FormDownloadApresentation from '../../components/layout/forms/FormDownApresentation';
 import { useState } from 'react';
+import { Fancybox } from '@fancyapps/ui';
+import '@fancyapps/ui/dist/fancybox/fancybox.css';
+import VideoApp from '../../components/layout/Video';
+import { BsPlusLg } from 'react-icons/bs';
 
 interface Props {
   data: {
@@ -23,6 +26,11 @@ interface Props {
 
 const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
   const [value, setValue] = useState(false);
+  Fancybox.bind('[data-fancybox]', {
+    // Your custom options
+  });
+
+  let combinedArray = [];
 
   const plantas = data.emp?.itemsPlantas?.map((imgs) => {
     return (
@@ -44,8 +52,10 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
 
   const gallery = data.emp?.galeriaDeFotos?.map((imgs) => {
     return (
-      <button
+      <a
         key={imgs?.id}
+        href={imgs?.sourceUrl}
+        data-fancybox="gallery"
         className="group relative h-[100px] sm:h-[140px] lg:h-[180px] w-full"
       >
         <Image
@@ -54,17 +64,17 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           fill
           className="object-cover"
         />
-        <span className="absolute top-0 left-0 right-0 z-10 w-full h-full bg-black/70 invisible opacity-0 group-hover:visible group-hover:opacity-100 flex items-center justify-center">
-          <AiOutlinePlus
-            size={45}
-            className="text-green rotate-90 group-hover:rotate-0 transition-[all_0.5s_ease]"
+        <span className="bg-black/75 absolute top-0 left-0 right-0 z-10 w-full h-full flex items-center justify-center opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+          <BsPlusLg
+            size={30}
+            className="text-green rotate-0 group-hover:rotate-90 transition"
           />
         </span>
-      </button>
+      </a>
     );
   });
 
-  const galleryProgress = data.emp?.imagensOutros?.map((item, index) => {
+  const galleryProgress: any = data.emp?.imagensOutros?.map((item, index) => {
     return (
       <div key={index} className="relative w-full aspect-square">
         <Image
@@ -76,6 +86,27 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
       </div>
     );
   });
+
+  const galleryProgressMovies: any = data.emp?.videosOutos?.map(
+    (item, index) => {
+      return (
+        <div key={index} className="relative w-full aspect-square">
+          <VideoApp embedLink={item?.linkDoVideo} />
+        </div>
+      );
+    }
+  );
+
+  function shuffleArray(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  combinedArray = galleryProgress.concat(galleryProgressMovies);
+  const newArrayGallery = shuffleArray(combinedArray);
 
   const responsiveGallery = {
     0: { items: 1 },
@@ -116,330 +147,332 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
   }
 
   return (
-    <div className="bg-black mt-[100px] sm:mt-[74px]">
-      <section className="py-6">
-        <div className="container flex flex-col sm:flex-row gap-8">
-          <div className="w-full sm:w-[60%] order-2 sm:order-1">
-            <div className="max-w-[200px] h-[150px] relative">
-              {data.emp?.logotipoDoEmpreendimento?.sourceUrl && (
-                <Image
-                  src={data.emp?.logotipoDoEmpreendimento?.sourceUrl || ''}
-                  alt={`Logotipo do ${data.emp?.nomeDoEmpreendimento}`}
-                  fill
-                  className="object-contain"
-                />
-              )}
-            </div>
-            <div className="flex items-center">
-              <h1 className="text-2xl text-green">
-                {data.emp?.nomeDoEmpreendimento}
-              </h1>
-              <span className="px-2 text-xl text-white">|</span>
-              <span className="text-white">
-                {data.emp?.estagioDaObra?.name}
-              </span>
-            </div>
-            <p className="text-green block">
-              Tipo:
-              <span className="mr-2">{data.emp?.tipoDoEmpreendimento}</span>|
-              <span className="ml-2">{data.emp?.empCidade}</span>
-            </p>
-            <p
-              className="text-white py-4"
-              dangerouslySetInnerHTML={{
-                __html: data.emp?.empDescricao || '',
-              }}
-            />
-            <ul className="order-2 sm:order-3">
-              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
-                <TbArrowRightBar size={20} />
-                <span className="ml-2 leading-[1.5rem]">
-                  {data.emp?.empMetragem}
+    <>
+      <div className="bg-black mt-[100px] sm:mt-[74px]">
+        <section className="py-6">
+          <div className="container flex flex-col sm:flex-row gap-8">
+            <div className="w-full sm:w-[60%] order-2 sm:order-1">
+              <div className="max-w-[200px] h-[150px] relative">
+                {data.emp?.logotipoDoEmpreendimento?.sourceUrl && (
+                  <Image
+                    src={data.emp?.logotipoDoEmpreendimento?.sourceUrl || ''}
+                    alt={`Logotipo do ${data.emp?.nomeDoEmpreendimento}`}
+                    fill
+                    className="object-contain"
+                  />
+                )}
+              </div>
+              <div className="flex items-center">
+                <h1 className="text-2xl text-green">
+                  {data.emp?.nomeDoEmpreendimento}
+                </h1>
+                <span className="px-2 text-xl text-white">|</span>
+                <span className="text-white">
+                  {data.emp?.estagioDaObra?.name}
                 </span>
-              </li>
-              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
-                <BiBed size={22} />
-                <span className="mx-2">{data.emp?.empDormitorios}</span>
-                dormitórios
-              </li>
-              <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
-                <TbCar size={22} />
-                <span className="mx-2">{data.emp?.empVagasDeGaragem}</span>
-                vagas
-              </li>
-            </ul>
+              </div>
+              <p className="text-green block">
+                Tipo:
+                <span className="mr-2">{data.emp?.tipoDoEmpreendimento}</span>|
+                <span className="ml-2">{data.emp?.empCidade}</span>
+              </p>
+              <p
+                className="text-white py-4"
+                dangerouslySetInnerHTML={{
+                  __html: data.emp?.empDescricao || '',
+                }}
+              />
+              <ul className="order-2 sm:order-3 my-4">
+                <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
+                  <TbArrowRightBar size={20} />
+                  <span className="ml-2 leading-[1.5rem]">
+                    {data.emp?.empMetragem}
+                  </span>
+                </li>
+                <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
+                  <BiBed size={22} />
+                  <span className="mx-2">{data.emp?.empDormitorios}</span>
+                  dormitórios
+                </li>
+                <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
+                  <TbCar size={22} />
+                  <span className="mx-2">{data.emp?.empVagasDeGaragem}</span>
+                  vagas
+                </li>
+              </ul>
 
-            <div className="flex gap-3">
-              <button
-                onClick={() => setValue(true)}
-                className="border border-green py-2 w-[150px] text-green text-center cursor-pointer"
-              >
-                Baixar apresentação
-              </button>
-              <a
-                href="#form"
-                className="bg-green py-2 w-[150px] text-black text-center cursor-pointer"
-              >
-                Faça uma simulação
-              </a>
-              {data.emp?.linkDoTourVirtual && (
-                <a
-                  href={data.emp?.linkDoTourVirtual}
-                  className="border border-green py-2 w-[150px] text-green text-center cursor-pointer"
+              <div className="flex gap-3 mt-4">
+                <button
+                  onClick={() => setValue(true)}
+                  className="border border-green py-2 w-[150px] text-green text-center cursor-pointer hover:bg-zinc-300 hover:text-black transition"
                 >
-                  Tour virtual
+                  Baixar apresentação
+                </button>
+                <a
+                  href="#form"
+                  className="bg-green py-2 w-[150px] text-black text-center cursor-pointer hover:bg-zinc-300 hover:text-black transition"
+                >
+                  Faça uma simulação
                 </a>
-              )}
+                {data.emp?.linkDoTourVirtual && (
+                  <a
+                    href={data.emp?.linkDoTourVirtual}
+                    className="border border-green py-2 w-[150px] text-green text-center cursor-pointer hover:bg-zinc-300 hover:text-black transition"
+                  >
+                    Tour virtual
+                  </a>
+                )}
+              </div>
+
+              <button className="bg-green py-2 w-[150px] text-black text-center cursor-pointer mt-6 hover:bg-zinc-300 hover:text-black transition">
+                Andamento da obra
+              </button>
             </div>
-
-            <button className="bg-green py-2 w-[150px] text-black text-center cursor-pointer mt-6">
-              Andamento da obra
-            </button>
+            <div className="aspect-auto justify-end flex w-full sm:w-[40%] order-1 sm:order-2">
+              <Image
+                src={data.emp.imagemPrincipal?.sourceUrl || ''}
+                width={480}
+                height={670}
+                alt="Imagem principal"
+              />
+            </div>
           </div>
-          <div className="aspect-auto justify-end flex w-full sm:w-[40%] order-1 sm:order-2">
-            <Image
-              src={data.emp.imagemPrincipal?.sourceUrl || ''}
-              width={480}
-              height={670}
-              alt="Imagem principal"
-            />
+        </section>
+        <section className="container">
+          <div className="my-6 gallery grid gap-4 grid-cols-3 sm:grid-cols-4 lg:grid-cols-6">
+            {gallery}
           </div>
-        </div>
-      </section>
-      <section className="container">
-        <div className="my-6 gallery grid gap-4 grid-cols-3 sm:grid-cols-4 lg:grid-cols-6">
-          {gallery}
-        </div>
-      </section>
+        </section>
 
-      {data.housi.diferencial && (
+        {data.housi.diferencial && (
+          <section className="container py-8 sm:py-12">
+            <h2 className="text-2xl lg:text-4xl text-green text-center">
+              Diferenciais Housi
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10">
+              {data.housi.diferencial?.map((item) => {
+                return (
+                  <div className="flex items-center">
+                    {item?.iconeHousi?.sourceUrl && (
+                      <img
+                        src={item?.iconeHousi?.sourceUrl}
+                        alt="Icone do diferencial"
+                        className="w-7 h-7"
+                      />
+                    )}
+                    <p className="text-white ml-3">{item?.nomeHousi}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
         <section className="container py-8 sm:py-12">
           <h2 className="text-2xl lg:text-4xl text-green text-center">
-            Diferenciais Housi
+            Diferenciais
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10">
-            {data.housi.diferencial?.map((item) => {
+            {data.emp?.diferenciaisItems?.map((item) => {
               return (
                 <div className="flex items-center">
-                  {item?.iconeHousi?.sourceUrl && (
+                  {item?.iconeimagemDoDiferencial?.sourceUrl && (
                     <img
-                      src={item?.iconeHousi?.sourceUrl}
+                      src={item?.iconeimagemDoDiferencial?.sourceUrl}
                       alt="Icone do diferencial"
                       className="w-7 h-7"
                     />
                   )}
-                  <p className="text-white ml-3">{item?.nomeHousi}</p>
+                  <p className="text-white ml-3">{item?.nomeDiferencial}</p>
                 </div>
               );
             })}
           </div>
         </section>
-      )}
-      <section className="container py-8 sm:py-12">
-        <h2 className="text-2xl lg:text-4xl text-green text-center">
-          Diferenciais
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10">
-          {data.emp?.diferenciaisItems?.map((item) => {
-            return (
-              <div className="flex items-center">
-                {item?.iconeimagemDoDiferencial?.sourceUrl && (
-                  <img
-                    src={item?.iconeimagemDoDiferencial?.sourceUrl}
-                    alt="Icone do diferencial"
-                    className="w-7 h-7"
-                  />
-                )}
-                <p className="text-white ml-3">{item?.nomeDiferencial}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-      {plantas && data.emp?.itensAreacomuns != undefined && (
-        <section className="bg-white py-8 sm:py-12 plantas">
-          <div className="container">
-            {plantas && (
-              <>
-                <h2 className="text-2xl lg:text-4xl text-green text-center">
-                  Plantas
-                </h2>
-                <div className="w-[75%] block mx-auto">
-                  <SlideApp
-                    items={plantas}
-                    navigation={false}
-                    responsive={responsiveGallery}
-                    dots={false}
-                    infinite={false}
-                  />
-                </div>
-              </>
-            )}
-            {data.emp?.itensAreacomuns?.length > 0 &&
-              data.emp?.itensAreacomuns != undefined && (
-                <div className="mt-8">
+        {plantas && data.emp?.itensAreacomuns != undefined && (
+          <section className="bg-white py-8 sm:py-12 plantas">
+            <div className="container">
+              {plantas && (
+                <>
                   <h2 className="text-2xl lg:text-4xl text-green text-center">
-                    Áreas comuns
+                    Plantas
                   </h2>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10">
-                    {data.emp?.itensAreacomuns?.map((item) => {
-                      return (
-                        <div className="flex items-center">
-                          {item?.iconeimagemAreacomuns?.sourceUrl && (
-                            <img
-                              src={item?.iconeimagemAreacomuns?.sourceUrl}
-                              alt="Icone do diferencial"
-                              className="w-7 h-7"
-                            />
-                          )}
-                          <p className="ml-3 text-black">
-                            {item?.descricaoAreacomuns}
-                          </p>
-                        </div>
-                      );
-                    })}
+                  <div className="w-[75%] block mx-auto">
+                    <SlideApp
+                      items={plantas}
+                      navigation={false}
+                      responsive={responsiveGallery}
+                      dots={false}
+                      infinite={false}
+                    />
+                  </div>
+                </>
+              )}
+              {data.emp?.itensAreacomuns?.length > 0 &&
+                data.emp?.itensAreacomuns != undefined && (
+                  <div className="mt-8">
+                    <h2 className="text-2xl lg:text-4xl text-green text-center">
+                      Áreas comuns
+                    </h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10">
+                      {data.emp?.itensAreacomuns?.map((item) => {
+                        return (
+                          <div className="flex items-center">
+                            {item?.iconeimagemAreacomuns?.sourceUrl && (
+                              <img
+                                src={item?.iconeimagemAreacomuns?.sourceUrl}
+                                alt="Icone do diferencial"
+                                className="w-7 h-7"
+                              />
+                            )}
+                            <p className="ml-3 text-black">
+                              {item?.descricaoAreacomuns}
+                            </p>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+            </div>
+          </section>
+        )}
+
+        <section className="container">
+          <div className="flex items-center justify-center">
+            <div className="flex flex-col items-center w-full pt-16 space-y-12">
+              <div className="text-center space-y-2">
+                <h2 className="text-2xl lg:text-4xl text-green">Localização</h2>
+              </div>
+              <div className="flex flex-wrap items-center justify-center w-full">
+                <div className="w-full lg:w-3/12 space-y-8">
+                  {data.emp?.enderecoRua && (
+                    <div className="space-y-2">
+                      <h3 className="text-2xl lg:text-4xl text-green">
+                        Empreendimento
+                      </h3>
+                      <p className="text-base text-white">{fullAddress}</p>
+                    </div>
+                  )}
+
+                  {data.emp?.endStandVendas && (
+                    <div className="space-y-2">
+                      <h3 className="text-2xl lg:text-4xl text-green">
+                        Stands de vendas
+                      </h3>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: data.emp?.endStandVendas || '',
+                        }}
+                        className="text-base text-white"
+                      />
+                    </div>
+                  )}
+                </div>
+                <div className="w-full lg:w-9/12 h-[250px] sm:h-[420px] lg:pl-6">
+                  <Maps address={fullAddress || ''} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {data.emp?.pontosDeReferencia != undefined &&
+            data.emp?.pontosDeReferencia?.length > 0 && (
+              <div className="container grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10 pb-12">
+                {data.emp?.pontosDeReferencia?.map((item) => {
+                  return (
+                    <div className="flex items-center">
+                      <img
+                        src={item?.iconeOuImagemRef?.sourceUrl}
+                        alt="Icone do diferencial"
+                        className="w-7 h-7"
+                      />
+                      <p className="ml-3 text-white">
+                        {item?.nomePontoReferencia}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+        </section>
+        {data.emp?.imagensOutros != undefined &&
+          data.emp?.imagensOutros?.length > 0 && (
+            <section className="container">
+              <div className="flex items-center justify-center">
+                <div className="flex flex-col items-center w-full pt-16 space-y-12">
+                  <div className="text-center space-y-2">
+                    <h2 className="text-2xl lg:text-4xl text-green">
+                      Conheça mais sobre o {data.emp?.nomeDoEmpreendimento}
+                    </h2>
+                  </div>
+
+                  <div className="block w-full">
+                    <SlideApp
+                      items={newArrayGallery}
+                      responsive={responsiveGalleryProgress}
+                      gap={30}
+                      infinite={false}
+                      dots={false}
+                      navigation={false}
+                    />
                   </div>
                 </div>
-              )}
+              </div>
+            </section>
+          )}
+        <section id="form" className="bg-black">
+          <div className="container flex items-center justify-center">
+            <div className="flex flex-col items-center w-full xl:w-[60%] py-16 space-y-12">
+              <div className="text-center space-y-2">
+                <h2 className="text-2xl lg:text-4xl text-green">
+                  Quer saber mais ?
+                </h2>
+                <h3 className="text-2xl lg:text-3xl text-white">
+                  Preencha o formulário abaixo
+                </h3>
+              </div>
+
+              <div className="block w-full">
+                <FormEmpreendimento />
+              </div>
+            </div>
           </div>
         </section>
-      )}
-
-      <section className="container">
-        <div className="flex items-center justify-center">
-          <div className="flex flex-col items-center w-full pt-16 space-y-12">
-            <div className="text-center space-y-2">
-              <h2 className="text-2xl lg:text-4xl text-green">Localização</h2>
-            </div>
-            <div className="flex flex-wrap items-center justify-center w-full">
-              <div className="w-full lg:w-3/12 space-y-8">
-                {data.emp?.enderecoRua && (
-                  <div className="space-y-2">
-                    <h3 className="text-2xl lg:text-4xl text-green">
-                      Empreendimento
-                    </h3>
-                    <p className="text-base text-white">{fullAddress}</p>
-                  </div>
-                )}
-
-                {data.emp?.endStandVendas && (
-                  <div className="space-y-2">
-                    <h3 className="text-2xl lg:text-4xl text-green">
-                      Stands de vendas
-                    </h3>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: data.emp?.endStandVendas || '',
-                      }}
-                      className="text-base text-white"
-                    />
-                  </div>
-                )}
-              </div>
-              <div className="w-full lg:w-9/12 h-[250px] sm:h-[420px] lg:pl-6">
-                <Maps address={fullAddress || ''} />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {data.emp?.pontosDeReferencia != undefined &&
-          data.emp?.pontosDeReferencia?.length > 0 && (
-            <div className="container grid grid-cols-2 sm:grid-cols-4 gap-6 sm: mt-10 pb-12">
-              {data.emp?.pontosDeReferencia?.map((item) => {
-                return (
-                  <div className="flex items-center">
-                    <img
-                      src={item?.iconeOuImagemRef?.sourceUrl}
-                      alt="Icone do diferencial"
-                      className="w-7 h-7"
-                    />
-                    <p className="ml-3 text-white">
-                      {item?.nomePontoReferencia}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-      </section>
-      {data.emp?.imagensOutros != undefined &&
-        data.emp?.imagensOutros?.length > 0 && (
-          <section className="container">
-            <div className="flex items-center justify-center">
-              <div className="flex flex-col items-center w-full pt-16 space-y-12">
-                <div className="text-center space-y-2">
-                  <h2 className="text-2xl lg:text-4xl text-green">
-                    Conheça mais sobre o {data.emp?.nomeDoEmpreendimento}
-                  </h2>
+        {(data.emp?.listaItensTec || data.emp?.listaItensTec2) && (
+          <section className="bg-green pb-8">
+            <div className="container">
+              <h2 className="text-2xl lg:text-4xl text-white text-center py-10">
+                Ficha Técnica
+              </h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 text-white gap-6 text-lg w-[85%] mx-auto">
+                <div className="p-2">
+                  <h3 className="mb-6 block font-bold border-b border-b-white/10 pb-2 uppercase text-xl">
+                    Dados técnicos
+                  </h3>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: data.emp?.listaItensTec || '',
+                    }}
+                  />
                 </div>
 
-                <div className="block w-full">
-                  <SlideApp
-                    items={galleryProgress}
-                    responsive={responsiveGalleryProgress}
-                    gap={30}
-                    infinite={true}
-                    dots={false}
-                    navigation={true}
+                <div className="p-2">
+                  <h3 className="mb-6 block font-bold border-b border-b-white/10 pb-2 uppercase text-xl">
+                    Profissionais
+                  </h3>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: data.emp?.listaItensTec2 || '',
+                    }}
                   />
                 </div>
               </div>
             </div>
           </section>
         )}
-      <section id="form" className="bg-black">
-        <div className="container flex items-center justify-center">
-          <div className="flex flex-col items-center w-full xl:w-[60%] py-16 space-y-12">
-            <div className="text-center space-y-2">
-              <h2 className="text-2xl lg:text-4xl text-green">
-                Quer saber mais ?
-              </h2>
-              <h3 className="text-2xl lg:text-3xl text-white">
-                Preencha o formulário abaixo
-              </h3>
-            </div>
-
-            <div className="block w-full">
-              <FormEmpreendimento />
-            </div>
-          </div>
-        </div>
-      </section>
-      {(data.emp?.listaItensTec || data.emp?.listaItensTec2) && (
-        <section className="bg-green pb-8">
-          <div className="container">
-            <h2 className="text-2xl lg:text-4xl text-white text-center py-10">
-              Ficha Técnica
-            </h2>
-            <div className="grid grid-cols-1 text-center lg:grid-cols-2 text-white gap-4 text-lg">
-              <div className="p-2">
-                <h3 className="mb-6 block font-bold border-b border-b-white/10 pb-2 uppercase text-xl">
-                  Dados técnicos
-                </h3>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: data.emp?.listaItensTec || '',
-                  }}
-                />
-              </div>
-
-              <div className="p-2">
-                <h3 className="mb-6 block font-bold border-b border-b-white/10 pb-2 uppercase text-xl">
-                  Profissionais
-                </h3>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: data.emp?.listaItensTec2 || '',
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-      {value && <FormDownloadApresentation onValue={handleValue} />}
-    </div>
+        {value && <FormDownloadApresentation onValue={handleValue} />}
+      </div>
+    </>
   );
 };
 
