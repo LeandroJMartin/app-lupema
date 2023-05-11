@@ -15,10 +15,16 @@ interface Props {
 }
 
 const EmpreendimentosApp: NextPage<Props> = ({ data }) => {
-  const [dataSearch, setDataSearch] =
-    useState<RootQueryToEmpreendimentoConnection | null>(null);
-
   const { query } = useRouter();
+  const [valueFromChild, setValueFromChild] = useState(query.stage);
+
+  useEffect(() => {
+    setValueFromChild(query.stage);
+  }, [query.stage]);
+
+  const handleValueFromChildChange = (slug: any) => {
+    setValueFromChild(slug);
+  };
 
   return (
     <>
@@ -29,31 +35,31 @@ const EmpreendimentosApp: NextPage<Props> = ({ data }) => {
           fill
           className="object-cover"
         />
-
         <div className="bg-black/20 absolute top-0 left-0 right-0 z-10 w-full h-full"></div>
       </div>
 
       <section className="container py-[40px]">
-        <h2 className="text-lg uppercase text-center">
+        <h2 className="text-2xl font-bold uppercase text-center">
           Encontre o imóvel ideal
         </h2>
         <FilterApp
           data={data.emp}
-          resultDataState={(data: any) => setDataSearch(data)}
+          resultDataState={handleValueFromChildChange}
         />
       </section>
 
       <section className=" bg-bgi py-[40px] md:py-[80px] border-b border-green/50">
         <div className="container">
-          <h1 className="title mb-4">{data.page.title}</h1>
+          <h1 className="title mb-4 !font-bold">{data.page.title}</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {dataSearch?.nodes
-              ? dataSearch?.nodes.map((item) => {
-                  return <BlockEmp content={item} main={true} />;
-                })
-              : data.emp.nodes.map((item) => {
-                  return <BlockEmp content={item} main={true} />;
-                })}
+            {data.emp.nodes.map((item) => {
+              if (valueFromChild === item.empreendimento?.estagioDaObra?.slug) {
+                return <BlockEmp content={item} main={true} />;
+              }
+              if (valueFromChild === 'todos') {
+                return <BlockEmp content={item} main={true} />;
+              }
+            })}
           </div>
         </div>
       </section>

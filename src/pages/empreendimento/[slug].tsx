@@ -2,7 +2,9 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import {
   Empreendimento_Empreendimento,
+  Empreendimento_Empreendimento_videosOutos,
   Empreendimento_Housiverso,
+  MediaItem,
 } from '../../generated';
 import ClientApp from '../../lib/genql';
 import FormEmpreendimento from '../../components/layout/forms/FormEmpreendimento';
@@ -24,6 +26,21 @@ interface Props {
   };
 }
 
+interface IImagensData {
+  sourceUrl: string;
+}
+
+interface IVideosData {
+  linkDoVideo: string;
+}
+
+interface PropsGallery {
+  videosOutos:
+    | (Empreendimento_Empreendimento_videosOutos | undefined)[]
+    | undefined;
+  imagensOutros: (MediaItem | undefined)[] | undefined;
+}
+
 const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
   const [value, setValue] = useState(false);
   Fancybox.bind('[data-fancybox]', {
@@ -38,14 +55,16 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
         <p className="ml-3 text-black text-lg font-semibold text-center mb-4">
           {imgs?.plantasDescricao}
         </p>
-        <div className="relative h-[300px] xl:h-[550px] w-full">
-          <Image
-            src={imgs?.imagensDasPlantas?.sourceUrl || ''}
-            alt="Galeria de imagens"
-            fill
-            className="object-contain"
-          />
-        </div>
+        <a href={imgs?.imagensDasPlantas?.sourceUrl} data-fancybox="mapas">
+          <div className="relative h-[300px] xl:h-[550px] w-full">
+            <Image
+              src={imgs?.imagensDasPlantas?.sourceUrl || ''}
+              alt="Galeria de imagens"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </a>
       </div>
     );
   });
@@ -56,7 +75,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
         key={imgs?.id}
         href={imgs?.sourceUrl}
         data-fancybox="gallery"
-        className="group relative h-[100px] sm:h-[140px] lg:h-[180px] w-full"
+        className="group relative h-[110px] sm:h-[160px] lg:h-[200px] 2xl:lg:h-[240px] w-full"
       >
         <Image
           src={imgs?.sourceUrl || ''}
@@ -74,39 +93,51 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
     );
   });
 
-  const galleryProgress: any = data.emp?.imagensOutros?.map((item, index) => {
-    return (
-      <div key={index} className="relative w-full aspect-square">
-        <Image
-          src={item?.sourceUrl || ''}
-          fill
-          className="object-cover p-4"
-          alt="imagens e videos da obra"
-        />
-      </div>
-    );
-  });
+  const CombineArrayGallery = ({
+    videosOutos,
+    imagensOutros,
+  }: PropsGallery) => {
+    const videos = videosOutos;
+    const imagens = imagensOutros;
 
-  const galleryProgressMovies: any = data.emp?.videosOutos?.map(
-    (item, index) => {
+    function shuffleArray(array: any[]) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    if (imagens && Array.isArray(imagens) && videos && Array.isArray(videos)) {
+      const combinedArray = [...imagens, ...videos];
+      const newArrayGallery = shuffleArray(combinedArray);
+      return newArrayGallery;
+    }
+  };
+
+  const galleryProgress = CombineArrayGallery({
+    videosOutos: data?.emp?.videosOutos ?? [],
+    imagensOutros: data?.emp?.imagensOutros ?? [],
+  })?.map((item, index) => {
+    if (item.linkDoVideo) {
       return (
         <div key={index} className="relative w-full aspect-square">
           <VideoApp embedLink={item?.linkDoVideo} />
         </div>
       );
+    } else {
+      return (
+        <div key={index} className="relative w-full aspect-square">
+          <Image
+            src={item?.sourceUrl || ''}
+            fill
+            className="object-cover p-4"
+            alt="imagens e videos da obra"
+          />
+        </div>
+      );
     }
-  );
-
-  function shuffleArray(array: any[]) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
-  combinedArray = galleryProgress.concat(galleryProgressMovies);
-  const newArrayGallery = shuffleArray(combinedArray);
+  });
 
   const responsiveGallery = {
     0: { items: 1 },
@@ -149,45 +180,41 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
   return (
     <>
       <div className="bg-black mt-[100px] sm:mt-[74px]">
-        <section className="py-6">
+        <section className="py-14">
           <div className="container flex flex-col sm:flex-row gap-8">
-            <div className="w-full sm:w-[60%] order-2 sm:order-1">
+            <div className="w-full sm:w-[60%] flex flex-col justify-between">
               <div className="max-w-[200px] h-[150px] relative">
+                <span className="bg-green py-2 max-w-max text-white text-center font-bold px-8">
+                  {data.emp?.estagioDaObra?.name}
+                </span>
                 {data.emp?.logotipoDoEmpreendimento?.sourceUrl && (
                   <Image
                     src={data.emp?.logotipoDoEmpreendimento?.sourceUrl || ''}
                     alt={`Logotipo do ${data.emp?.nomeDoEmpreendimento}`}
                     fill
-                    className="object-contain"
+                    className="object-contain mt-4"
                   />
                 )}
               </div>
-              <div className="flex items-center">
-                <h1 className="text-2xl text-green">
-                  {data.emp?.nomeDoEmpreendimento}
-                </h1>
-                <span className="px-2 text-xl text-white">|</span>
-                <span className="text-white">
-                  {data.emp?.estagioDaObra?.name}
-                </span>
+              <div>
+                <p className="text-green block">
+                  Tipo:
+                  <span className="ml-1 mr-2">
+                    {data.emp?.tipoDoEmpreendimento}
+                  </span>
+                  |<span className="ml-2">{data.emp?.empCidade}</span>
+                </p>
+                <p
+                  className="text-white py-4"
+                  dangerouslySetInnerHTML={{
+                    __html: data.emp?.empDescricao || '',
+                  }}
+                />
               </div>
-              <p className="text-green block">
-                Tipo:
-                <span className="mr-2">{data.emp?.tipoDoEmpreendimento}</span>|
-                <span className="ml-2">{data.emp?.empCidade}</span>
-              </p>
-              <p
-                className="text-white py-4"
-                dangerouslySetInnerHTML={{
-                  __html: data.emp?.empDescricao || '',
-                }}
-              />
-              <ul className="order-2 sm:order-3 my-4">
+              <ul className="my-4">
                 <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
                   <TbArrowRightBar size={20} />
-                  <span className="ml-2 leading-[1.5rem]">
-                    {data.emp?.empMetragem}
-                  </span>
+                  <span className="ml-2">{data.emp?.empMetragem}</span>
                 </li>
                 <li className="text-green text-xl leading-[2rem] sm:leading-[3rem] font-semibold flex items-center">
                   <BiBed size={22} />
@@ -201,32 +228,31 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                 </li>
               </ul>
 
-              <div className="flex gap-3 mt-4">
+              <div className="inline-block mt-4">
                 <button
                   onClick={() => setValue(true)}
-                  className="border border-green py-2 w-[150px] text-green text-center cursor-pointer hover:bg-zinc-300 hover:text-black transition"
+                  className="mb-4 mr-4 inline-block border border-green py-2 w-[150px] text-green text-center cursor-pointer hover:bg-zinc-300 hover:text-black transition"
                 >
                   Baixar apresentação
                 </button>
                 <a
                   href="#form"
-                  className="bg-green py-2 w-[150px] text-black text-center cursor-pointer hover:bg-zinc-300 hover:text-black transition"
+                  className="mb-4 xl:mr-4 inline-block border border-green bg-green py-2 w-[150px] text-black text-center cursor-pointer hover:bg-zinc-300 hover:text-black transition font-bold"
                 >
                   Faça uma simulação
                 </a>
                 {data.emp?.linkDoTourVirtual && (
                   <a
                     href={data.emp?.linkDoTourVirtual}
-                    className="border border-green py-2 w-[150px] text-green text-center cursor-pointer hover:bg-zinc-300 hover:text-black transition"
+                    className="mb-4 mr-4 inline-block border border-green py-2 w-[150px] text-green text-center cursor-pointer hover:bg-zinc-300 hover:text-black transition"
                   >
                     Tour virtual
                   </a>
                 )}
+                <button className="mb-4 inline-block border border-green bg-green py-2 w-[150px] text-black text-center cursor-pointer hover:bg-zinc-300 hover:text-black transition font-bold">
+                  Andamento da obra
+                </button>
               </div>
-
-              <button className="bg-green py-2 w-[150px] text-black text-center cursor-pointer mt-6 hover:bg-zinc-300 hover:text-black transition">
-                Andamento da obra
-              </button>
             </div>
             <div className="aspect-auto justify-end flex w-full sm:w-[40%] order-1 sm:order-2">
               <Image
@@ -239,7 +265,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
           </div>
         </section>
         <section className="container">
-          <div className="my-6 gallery grid gap-4 grid-cols-3 sm:grid-cols-4 lg:grid-cols-6">
+          <div className="my-6 gallery grid gap-4 grid-cols-2 sm:grid-cols-4">
             {gallery}
           </div>
         </section>
@@ -257,10 +283,12 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                       <img
                         src={item?.iconeHousi?.sourceUrl}
                         alt="Icone do diferencial"
-                        className="w-7 h-7"
+                        className="w-7 sm:w-8 h-7 sm:h-8"
                       />
                     )}
-                    <p className="text-white ml-3">{item?.nomeHousi}</p>
+                    <p className="text-white text-[1.1rem] ml-3">
+                      {item?.nomeHousi}
+                    </p>
                   </div>
                 );
               })}
@@ -279,10 +307,12 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                     <img
                       src={item?.iconeimagemDoDiferencial?.sourceUrl}
                       alt="Icone do diferencial"
-                      className="w-7 h-7"
+                      className="w-7 sm:w-8 h-7 sm:h-8"
                     />
                   )}
-                  <p className="text-white ml-3">{item?.nomeDiferencial}</p>
+                  <p className="text-white ml-3 text-[1.1rem]">
+                    {item?.nomeDiferencial}
+                  </p>
                 </div>
               );
             })}
@@ -321,10 +351,10 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                               <img
                                 src={item?.iconeimagemAreacomuns?.sourceUrl}
                                 alt="Icone do diferencial"
-                                className="w-7 h-7"
+                                className="w-7 sm:w-8 h-7 sm:h-8"
                               />
                             )}
-                            <p className="ml-3 text-black">
+                            <p className="ml-3 text-black text-[1.1rem]">
                               {item?.descricaoAreacomuns}
                             </p>
                           </div>
@@ -344,7 +374,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                 <h2 className="text-2xl lg:text-4xl text-green">Localização</h2>
               </div>
               <div className="flex flex-wrap items-center justify-center w-full">
-                <div className="w-full lg:w-3/12 space-y-8">
+                <div className="w-full lg:w-3/12 space-y-8 mb-8 sm:mb-0">
                   {data.emp?.enderecoRua && (
                     <div className="space-y-2">
                       <h3 className="text-2xl lg:text-4xl text-green">
@@ -368,7 +398,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                     </div>
                   )}
                 </div>
-                <div className="w-full lg:w-9/12 h-[250px] sm:h-[420px] lg:pl-6">
+                <div className="w-full lg:w-9/12 h-[250px] sm:h-[420px] lg:pl-8 2xl:pl-12">
                   <Maps address={fullAddress || ''} />
                 </div>
               </div>
@@ -384,9 +414,9 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
                       <img
                         src={item?.iconeOuImagemRef?.sourceUrl}
                         alt="Icone do diferencial"
-                        className="w-7 h-7"
+                        className="w-7 sm:w-8 h-7 sm:h-8"
                       />
-                      <p className="ml-3 text-white">
+                      <p className="ml-3 text-white text-[1.1rem]">
                         {item?.nomePontoReferencia}
                       </p>
                     </div>
@@ -408,7 +438,7 @@ const EmpreendimentoApp: NextPage<Props> = ({ data }) => {
 
                   <div className="block w-full">
                     <SlideApp
-                      items={newArrayGallery}
+                      items={galleryProgress}
                       responsive={responsiveGalleryProgress}
                       gap={30}
                       infinite={false}

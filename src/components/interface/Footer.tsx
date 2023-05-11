@@ -13,7 +13,7 @@ const FooterApp = ({ data }: Props) => {
   return (
     <footer className="bg-bgi pt-[40px] text-white">
       <div className="container">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-[40px] border-b border-b-zinc-700/90">
+        <div className="flex flex-col sm:flex-row items-center justify-between pb-[40px] border-b border-b-zinc-700/90">
           <Link href="/" className="cursor-pointer w-[350px]">
             <Image src={Logo} width={225} height={100} alt="Logo Lupema" />
           </Link>

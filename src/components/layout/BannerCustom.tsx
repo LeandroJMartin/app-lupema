@@ -26,7 +26,7 @@ const BannerCustom = ({ content }: Content) => {
       <div className="w-full h-full absolute top-0 left-0 right-0 z-20">
         <div className="flex items-center w-full h-full">
           <div className="max-w-[500px] text-white ml-[25px] 2xl:ml-[100px]">
-            <h1 className="text-7xl font-semibold leading-3">
+            <h1 className="text-7xl font-semibold leading-3 uppercase">
               {content.bhNomeDoEmpreendimento}
             </h1>
             <div className="border border-white py-1 px-1 inline-block uppercase text-sm xl:text-lg my-4">

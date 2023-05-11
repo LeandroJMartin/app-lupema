@@ -1,6 +1,7 @@
 import { string } from 'yup';
 import { RootQueryToEmpreendimentoConnection } from '../../generated';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 interface Props {
   data: RootQueryToEmpreendimentoConnection;
@@ -12,7 +13,8 @@ interface StatusObject {
 }
 
 const FilterApp = ({ data, resultDataState }: Props) => {
-  const [selectedSlug, setSelectedSlug] = useState<string | null>('todos');
+  const { query } = useRouter();
+  const [selectedSlug, setSelectedSlug] = useState(query.stage);
 
   const statusObject = data.nodes.reduce((obj: StatusObject, item) => {
     const key = item.empreendimento?.estagioDaObra?.slug;
@@ -25,7 +27,12 @@ const FilterApp = ({ data, resultDataState }: Props) => {
     return obj;
   }, {});
 
+  useEffect(() => {
+    setSelectedSlug(query.stage);
+  }, [query.stage]);
+
   const handleButtonClick = (slug: string) => {
+    resultDataState(slug);
     setSelectedSlug(slug);
   };
 

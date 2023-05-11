@@ -17,7 +17,7 @@ const Alupema: NextPage<PropsAbout> = ({ data }) => {
   return (
     <>
       <section className="container mt-[100px] sm:mt-[74px] py-[40px] md:py-[80px]">
-        <h1 className="title">A Lupema</h1>
+        <h1 className="title !font-bold">A Lupema</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 mt-8">
           <div>
             <div className="relative h-[420px]">
@@ -33,7 +33,7 @@ const Alupema: NextPage<PropsAbout> = ({ data }) => {
               dangerouslySetInnerHTML={{
                 __html: data.page?.descricao || '',
               }}
-              className="pt-6 md:pr-6"
+              className="pt-6 md:pr-6 text-[1.1rem]"
             />
           </div>
           <div className="relative z-0">
@@ -64,7 +64,7 @@ const Alupema: NextPage<PropsAbout> = ({ data }) => {
         {data.page?.tituloVideo && data.page?.descricaoVideo && (
           <div className="bg-bgVideoAbout bg-no-repeat bg-cover pb-[80px]">
             <div className="container py-[40px] md:py-[80px]">
-              <h1 className="text-green font-bold text-[2.5rem] md:text-[4.5rem] text-center">
+              <h1 className="text-green font-light text-[2.5rem] md:text-[4.5rem] text-center">
                 {data.page?.tituloVideo}
               </h1>
               <div className="w-full sm:w-[75%] mx-auto mt-6">
@@ -83,31 +83,43 @@ const Alupema: NextPage<PropsAbout> = ({ data }) => {
         )}
       </section>
 
-      <section className="pt-[40px] md:pt-[80px]">
-        <h1 className="title">Linha do tempo</h1>
+      <section className="py-[40px] md:py-[80px]">
+        <h1 className="title !font-bold">Linha do tempo</h1>
         <TimeLine prop={data.page} />
       </section>
 
-      <section className="container pt-[40px] md:pt-[80px] text-center">
-        <h1 className="title">{data.page?.tituloLstore}</h1>
-        <p className="w-[100%] sm:w-[80%] block mx-auto">
-          {data.page?.descricaoLstore}
-        </p>
-        <div className="relative h-[200px] sm:h-[350px] md:h-[520px] mt-6">
-          <Image
-            src={data.page?.imagembannerDoTourVirtual?.sourceUrl || ''}
-            alt="Image LStore Lupema"
-            fill
-            className="object-contain"
-          />
+      <section className="relative">
+        <div className="px-8 sm:container flex flex-col sm:flex-row gap-6 p-10 items-center">
+          <div className="col-span-2 text-white h-auto sm:h-[150px] w-full sm:w-[60%] bg-green sm:bg-transparent">
+            <h1 className="text-[2.4rem] block mb-4 font-medium">
+              {data.page?.tituloLstore}
+            </h1>
+            <p className="block">{data.page?.descricaoLstore}</p>
+            <Link
+              href="https://api.whatsapp.com/send?phone=5517996766861"
+              className="text-white border border-white py-2 px-6 mt-4 hidden sm:inline-block"
+              target="_blank"
+            >
+              Agende uma visita
+            </Link>
+          </div>
+          <div className="relative h-[400px] md:h-[500px] w-full sm:w-[40%]">
+            <Image
+              src={data.page?.imagembannerDoTourVirtual?.sourceUrl || ''}
+              alt="Image LStore Lupema"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <Link
+            href="https://api.whatsapp.com/send?phone=5517996766861"
+            className="text-green border border-green py-2 px-6 block sm:hidden"
+            target="_blank"
+          >
+            Agende uma visita
+          </Link>
         </div>
-        <Link
-          href="https://api.whatsapp.com/send?phone=5517996766861"
-          className="button mx-auto my-6"
-          target="_blank"
-        >
-          Agende uma visita
-        </Link>
+        <div className="absolute top-0 sm:top-[calc(50%-175px)] left-0 h-[450px] sm:h-[350px] w-full bg-green z-[-1]"></div>
       </section>
     </>
   );

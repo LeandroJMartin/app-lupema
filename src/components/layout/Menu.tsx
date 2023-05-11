@@ -107,10 +107,13 @@ const MenuApp = ({ data }: Props) => {
           <a href={`mailto:${data.coEmail}`} className="block">
             {data.coEmail}
           </a>
-          <div className="flex items-center justify-center sm:justify-start text-green my-12">
+          <a
+            href="https://goo.gl/maps/JGVmXZHQkEPRbeqp8"
+            className="flex items-center justify-center sm:justify-start text-green my-12"
+          >
             <GoLocation size={24} />
             <h2 className="ml-3">Como chegar na LStore</h2>
-          </div>
+          </a>
           <h2 className="text-green mb-2">Escritório</h2>
           <p
             dangerouslySetInnerHTML={{

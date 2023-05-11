@@ -27,11 +27,11 @@ const BlockEmp = ({ content, main = true }: Props) => {
         <TagApp name={content.empreendimento} />
       </div>
       <div>
-        <div className="grid grid-cols-3 text-green mt-4">
+        <h2 className="text-2xl font-bold text-green mt-3 uppercase">
+          {content.empreendimento?.nomeDoEmpreendimento}
+        </h2>
+        <div className="grid grid-cols-3 text-green mt-2">
           <div className="col-span-2">
-            <h2 className="text-xl font-medium">
-              {content.empreendimento?.nomeDoEmpreendimento}
-            </h2>
             {main && (
               <>
                 <p className="text-white flex items-center my-1">
