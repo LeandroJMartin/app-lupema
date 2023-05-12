@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import LayoutApp from '../components/interface/Layout';
 import MenuContextProvider from '../context/menuMobileContext';
 import { QueryClientProvider, QueryClient } from 'react-query';
+import TagManager from 'react-gtm-module';
 
 const queryClient = new QueryClient();
+
+const tagManagerArgs = {
+  gtmId: 'GTM-NJTPCVC',
+};
+
+TagManager.initialize(tagManagerArgs);
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
