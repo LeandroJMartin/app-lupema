@@ -8,13 +8,15 @@ import TagManager from 'react-gtm-module';
 
 const queryClient = new QueryClient();
 
-const tagManagerArgs = {
-  gtmId: 'GTM-NJTPCVC',
-};
-
-TagManager.initialize(tagManagerArgs);
-
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    const TagManagerArgs = {
+      gtmId: 'GTM-NJTPCVC',
+    };
+
+    TagManager.initialize(TagManagerArgs);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <MenuContextProvider>
