@@ -30,8 +30,8 @@ const BlockEmp = ({ content, main = true }: Props) => {
         <h2 className="text-2xl font-bold text-green mt-3 uppercase">
           {content.empreendimento?.nomeDoEmpreendimento}
         </h2>
-        <div className="grid grid-cols-3 text-green mt-2">
-          <div className="col-span-2">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-green mt-2">
+          <div className="col-span-2 order-2 sm:order-1">
             {main && (
               <>
                 <p className="text-white flex items-center my-1">
@@ -50,7 +50,7 @@ const BlockEmp = ({ content, main = true }: Props) => {
             )}
           </div>
           {main && (
-            <div className="">
+            <div className="order-1 sm:order-2">
               <div className="flex">
                 <BiBed size={22} />
                 <span className="ml-2">

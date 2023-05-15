@@ -306,10 +306,23 @@ input[type='search']::-webkit-search-cancel-button {
   position: absolute;
   top: 40%;
   right: 30px;
+  left: auto;
 }
 .hero .alice-carousel__dots li.alice-carousel__dots-item {
   display: block;
   margin: 25px 0;
+}
+@media screen and (max-width:640px ){
+  .hero .alice-carousel__dots {
+    position: absolute;
+    top: 92%;
+    right: 0;
+    left: 0;
+  }
+  .hero .alice-carousel__dots li.alice-carousel__dots-item {
+    display: inline-block;
+    margin: 0 10px;
+  }
 }
 .hero .alice-carousel__stage-item img {
   transform: scale(1);

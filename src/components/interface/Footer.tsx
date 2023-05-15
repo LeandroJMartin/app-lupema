@@ -45,10 +45,10 @@ const FooterApp = ({ data }: Props) => {
               {data.coEmail}
             </a>
           }
-          <a href="/central-de-relacionamento" className="button my-4 text-sm">
+          <a href="/contato#fale-conosco" className="button my-4 text-sm">
             Central de relacionamentos
           </a>
-          <a href="/canal-de-vendas" className="button my-4 text-sm">
+          <a href="/contato#fale-conosco" className="button my-4 text-sm">
             Canal de vendas
           </a>
         </div>
@@ -80,13 +80,19 @@ const FooterApp = ({ data }: Props) => {
           >
             Política de privacidade
           </Link>
-          <Link href="/codigo-de-etica" className="block hover:text-green">
+          <Link
+            href="/politica-de-privacidade"
+            className="block hover:text-green"
+          >
             Código de ética
           </Link>
           <Link href="/protecao-de-dados" className="block hover:text-green">
             Proteção de dados
           </Link>
-          <Link href="/informacoes-legais" className="block hover:text-green">
+          <Link
+            href="/politica-de-privacidade"
+            className="block hover:text-green"
+          >
             Informações legais
           </Link>
         </div>
@@ -103,13 +109,10 @@ const FooterApp = ({ data }: Props) => {
           >
             Seja nosso fornecedor
           </Link>
-          <Link
-            href="/cadastro-de-corretores"
-            className="block hover:text-green"
-          >
+          <Link href="/contato#fale-conosco" className="block hover:text-green">
             Cadastro de corretores
           </Link>
-          <Link href="/central-de-vizinhos" className="block hover:text-green">
+          <Link href="/contato#fale-conosco" className="block hover:text-green">
             Central de vizinhos
           </Link>
           <Link
